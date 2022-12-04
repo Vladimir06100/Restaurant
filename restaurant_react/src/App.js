@@ -1,32 +1,43 @@
-import { useEffect } from 'react';
-//import { ReactDOM } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
+import Contact from './Contact/Contact';
 
 function App() {
-
-  useEffect(() => {
-      Contacts( );
-  }, []);
+  const [contacts, setContacts] = useState([]);
   
-  async function Contacts() {
+  async function getContacts() {
     const options = {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
       },
     };
-    const response = await fetch('http://localhost:8000/api/contacts', options);
+    let response = await fetch('http://localhost:8000/api/contacts', options);
     const data = await response.json();
     console.log(data);
+    const contacts= data.contacts;
+    setContacts(contacts);
   }
+
+  useEffect(() => {
+    console.log('useEffect');
+      getContacts();
+  }, []); 
+
   return (
     <div className="App">
       <div>
         <h1>Liste des Contacts</h1>
         <ul>
-          <li>
-            <p>Prénom :  </p>
-          </li>
+          {contacts.map((contact, index) => (
+              <Contact
+                key={index}
+                firstname={contact.firstname}
+                lastname={contact.lastname}
+                email={contact.email}
+                message={contact.message}
+              />
+          ))}
         </ul>
       </div>
     </div>
