@@ -4,7 +4,7 @@ import Contact from './Contact/Contact';
 
 function App() {
   const [contacts, setContacts] = useState([]);
-  
+
   async function getContacts() {
     const options = {
       method: 'GET',
@@ -15,14 +15,14 @@ function App() {
     let response = await fetch('http://localhost:8000/api/contacts', options);
     const data = await response.json();
     console.log(data);
-    const contacts= data.contacts;
+    const contacts = data.contacts;
     setContacts(contacts);
   }
 
   useEffect(() => {
     console.log('useEffect');
     getContacts();
-  }, []); 
+  }, []);
 
   async function createContact(firstname, lastname, email, message) {
     const options = {
@@ -38,10 +38,15 @@ function App() {
       }),
     };
     let response = await fetch('http://localhost:8000/api/contacts', options);
+
+    if (response.status !== 201) {
+      return;
+    }
+
     const data = await response.json();
-    console.log(data);
-    const contacts= data.contacts;
-    setContacts(contacts);
+
+    const newContact = data.contact;
+    setContacts([newContact, ...contacts]);
   }
 
 
@@ -70,19 +75,19 @@ function App() {
         </form>
         <ul>
           {contacts.map((contact, index) => (
-              <Contact
-                key={index}
-                firstname={contact.firstname}
-                lastname={contact.lastname}
-                email={contact.email}
-                message={contact.message}
-              />
+            <Contact
+              key={index}
+              firstname={contact.firstname}
+              lastname={contact.lastname}
+              email={contact.email}
+              message={contact.message}
+            />
           ))}
         </ul>
       </div>
     </div>
   );
-  }
+}
 
 
 export default App;
