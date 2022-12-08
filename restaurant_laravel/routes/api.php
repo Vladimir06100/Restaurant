@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\RestaurateurController;
 use App\Http\Controllers\RestaurantController;
 
@@ -25,6 +26,10 @@ Route::get('/restaurateurs/{id}', [RestaurateurController::class, 'show'])->name
 
 // resource pour les restaurants (creation, affichage)
 Route::resource('restaurants', RestaurantController::class);
+
+// routes pour les produits (creation, affichage)
+Route::resource('produits', ProduitController::class);
+
 
 
 Route::post('/produits', [ProduitController::class, 'store'])->name('produits.store');
