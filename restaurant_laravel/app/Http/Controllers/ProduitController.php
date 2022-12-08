@@ -39,7 +39,7 @@ class ProduitController extends Controller
     {
         // create a new product
         $request->validate([
-            'nom_product' => 'required|string',
+            'nom_produit' => 'required|string',
             'catégorie' => 'required|string',
             'prixHT' => 'required|integer',
             'prixTTC' => 'required|integer',
@@ -47,7 +47,7 @@ class ProduitController extends Controller
         ]);
 
         $produit = Produit::create([
-            'nom_product' => $request->nom_product,
+            'nom_produit' => $request->nom_product,
             'catégorie' => $request->catégorie,
             'prixHT' => $request->prixHT,
             'prixTTC' => $request->prixTTC,
@@ -93,7 +93,7 @@ class ProduitController extends Controller
     {
         // update a product
         $request->validate([
-            'nom_product' => 'required|string',
+            'nom_produit' => 'required|string',
             'catégorie' => 'required|string',
             'prixHT' => 'required|integer',
             'prixTTC' => 'required|integer',
@@ -101,7 +101,7 @@ class ProduitController extends Controller
         ]);
 
         $produit = Produit::find($id);
-        $produit->nom_product = $request->nom_product;
+        $produit->nom_produit = $request->nom_product;
         $produit->catégorie = $request->catégorie;
         $produit->prixHT = $request->prixHT;
         $produit->prixTTC = $request->prixTTC;

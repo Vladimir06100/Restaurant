@@ -13,7 +13,7 @@ class Produit extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'nom_product',
+        'nom_produit',
         'catégorie',
         'prixHT',
         'prixTTC',
@@ -21,7 +21,7 @@ class Produit extends Model
         'restaurateur_id',
     ];
 
-    protected string $nom_product;
+    protected string $nom_produit;
     protected string $catégorie;
     protected float $prixHT;
     protected float $prixTTC;

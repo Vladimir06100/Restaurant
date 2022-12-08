@@ -19,7 +19,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->softDeletes();
-            $table->string('nom_product');
+            $table->string('nom_produit');
             $table->string('catégorie');
             $table->float('prixHT');
             $table->float('prixTTC');
