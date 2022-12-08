@@ -26,3 +26,6 @@ Route::get('/restaurateurs/{id}', [RestaurateurController::class, 'show'])->name
 // resource pour les restaurants (creation, affichage)
 Route::resource('restaurants', RestaurantController::class);
 
+
+Route::post('/produits', [ProduitController::class, 'store'])->name('produits.store');
+Route::get('/produits', [ProduitController::class, 'index'])->name('produits.index');
