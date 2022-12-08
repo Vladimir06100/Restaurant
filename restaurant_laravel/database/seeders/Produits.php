@@ -3,9 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Restaurant;
+use App\Models\Produit;
 
-class Restaurants extends Seeder
+class Produits extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +14,7 @@ class Restaurants extends Seeder
      */
     public function run()
     {
-        //
-        Restaurant::factory()->count(10)->create();
+        // create 10 random products
+        Produit::factory()->count(10)->create();
     }
 }
