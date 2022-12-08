@@ -18,5 +18,15 @@ class Emplacement extends Model
         'restaurant_id',        
     ];
 
+    public function carte()
+    {
+        return $this->belongsTo(Carte::class);
+    }
+
+    public function restaurant()
+    {
+        return $this->belongsTo(Restaurant::class);
+    }
+
 
 }

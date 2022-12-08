@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Formule;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class Formules extends Seeder
+
+class Produit_Formule extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,6 +17,6 @@ class Formules extends Seeder
     {
         //
         // create 10 random formules
-        Formule::factory()->count(10)->create();
+        Produit_Formule::factory()->count(10)->create();
     }
 }

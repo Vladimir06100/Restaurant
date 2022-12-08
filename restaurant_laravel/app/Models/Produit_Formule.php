@@ -17,4 +17,14 @@ class Produit_Formule extends Model
         'produit_carte_id',
         'formule_id',
     ];
+
+    public function produit_carte()
+    {
+        return $this->belongsTo(Produit::class);
+    }
+
+    public function formule()
+    {
+        return $this->belongsTo(Formule::class);
+    }
 }

@@ -25,6 +25,15 @@ class DatabaseSeeder extends Seeder
             Produits::class
         ]);
         $this->call([
+            Formules::class
+        ]);
+        $this->call([
+            Produit_Formule::class
+        ]);
+        $this->call([
+            Produit_Cartes::class
+        ]);
+        $this->call([
             Emplacements::class
         ]);
         $this->call([

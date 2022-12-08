@@ -17,4 +17,14 @@ class Produit_Carte extends Model
         'produit_id',
         'carte_id',
     ];
+
+    public function produit()
+    {
+        return $this->belongsTo(Produit::class);
+    }
+
+    public function carte()
+    {
+        return $this->belongsTo(Carte::class);
+    }
 }
