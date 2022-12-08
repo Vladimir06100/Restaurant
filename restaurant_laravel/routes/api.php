@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Models\Contact;
+use App\Http\Controllers\RestaurateurController;
 
 /*
 |--------------------------------------------------------------------------
