@@ -34,5 +34,33 @@ class RestaurateurController extends Controller
             'restaurateur' => $restaurateur
         ], 201);
     }
+
+    // modification profile
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'nom' => 'required|string',
+            'prenom' => 'required|string',
+            'email' => 'required|email',
+            'password' => 'required|string'
+        ]);
+        $restaurateur = Restaurateur::find($id);
+        $restaurateur->update($request->all());
+        return response()->json([
+            'message' => 'Restaurateur modifier.',
+            'restaurateur' => $restaurateur
+        ], 200);
+    }
+    
+    // suppression profile
+    public function delete($id)
+    {
+        $restaurateur = Restaurateur::find($id);
+        $restaurateur->delete();
+        return response()->json([
+            'message' => 'Restaurateur supprimer.',
+            'restaurateur' => $restaurateur
+        ], 200);
+    }
     
 }
