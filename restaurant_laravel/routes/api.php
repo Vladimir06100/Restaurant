@@ -19,3 +19,6 @@ use App\Models\Contact;
 Route::post('/contacts', [ContactController::class, 'store'])->name('contacts.store');
 
 Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');
+
+Route::post('/produits', [ProduitController::class, 'store'])->name('produits.store');
+Route::get('/produits', [ProduitController::class, 'index'])->name('produits.index');
