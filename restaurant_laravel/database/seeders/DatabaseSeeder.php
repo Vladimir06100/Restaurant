@@ -24,6 +24,12 @@ class DatabaseSeeder extends Seeder
         $this->call([
             Produits::class
         ]);
+        $this->call([
+            Emplacements::class
+        ]);
+        $this->call([
+            Cartes::class
+        ]);
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
