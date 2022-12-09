@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('prix_formule');
             $table->string('votre_prix');
             $table->foreignIdFor(Carte::class, 'carte_id')
-                ->constrained()
+                ->nullable()
                 ->onUpdate('RESTRICT')
                 ->onDelete('RESTRICT');
         });

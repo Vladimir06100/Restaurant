@@ -39,7 +39,7 @@ class DatabaseSeeder extends Seeder
             Emplacements::class
         ]);
         $this->call([
-            Produit_Formule::class
+            Produit_Formules::class
         ]);
         // \App\Models\User::factory(10)->create();
 

@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Produit_Formule;
 use Illuminate\Database\Seeder;
 
 
-class Produit_Formule extends Seeder
+class Produit_Formules extends Seeder
 {
     /**
      * Run the database seeds.

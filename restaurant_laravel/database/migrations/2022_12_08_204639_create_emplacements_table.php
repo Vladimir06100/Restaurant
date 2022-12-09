@@ -22,18 +22,17 @@ return new class extends Migration
             //$table->integer('client_id')->nullable();
             // foreign key carte_id
             $table->foreignIdFor(Carte::class, 'carte_id')
-            ->constrained()
-            ->onUpdate('RESTRICT')
-            ->onDelete('RESTRICT');
+                ->nullable()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             // foreign key restaurant_id
             $table->foreignIdFor(Restaurant::class, 'restaurant_id')
-                ->constrained()
-                ->onUpdate('RESTRICT')
-                ->onDelete('RESTRICT');
-
-
-
+                ->nullable()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
+
+        
     }
 
     /**
