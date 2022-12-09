@@ -1,0 +1,22 @@
+
+
+.connexion_title{
+    display: flex;
+    padding: 2em 1em 1em;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 3em;
+    justify-content: space-around;
+}
+
+.connexion_position{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+#form_position{
+    display: flex;
+    flex-direction: column;
+    padding-right: 30em;
+    gap: 10px;
+}

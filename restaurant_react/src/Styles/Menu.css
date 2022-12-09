@@ -1,0 +1,34 @@
+.navbar_logo{
+    background-size: 300px;
+    display: flex;
+    position: fixed;
+    margin: 1em;
+    height: 35px;
+}
+
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-decoration: none;
+}
+
+.navbar .il{
+    padding: 10px;
+}
+
+a {
+    text-decoration: none
+}
+
+#navbar_style{
+    background-color: #D68D00;
+    padding: 10px;
+    border-radius: 20px;
+    color: white;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+}
+
+#navbar_style a{
+    color: white;
+}
