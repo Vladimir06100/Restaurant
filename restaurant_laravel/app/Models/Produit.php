@@ -14,7 +14,7 @@ class Produit extends Model
 
     protected $fillable = [
         'nom_produit',
-        'catégorie',
+        'categorie_id',
         'prixHT',
         'prixTTC',
         'TVA',

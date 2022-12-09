@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Categorie;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -20,7 +21,10 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
             $table->string('nom_produit');
-            $table->integer('catégorie');
+            $table->foreignIdFor(Categorie::class, 'categorie_id')
+                ->constrained()
+                ->onUpdate('RESTRICT')
+                ->onDelete('RESTRICT');
             $table->float('prixHT');
             $table->float('prixTTC');
             $table->float('TVA');
