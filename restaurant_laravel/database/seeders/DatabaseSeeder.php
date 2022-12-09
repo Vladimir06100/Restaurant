@@ -22,22 +22,25 @@ class DatabaseSeeder extends Seeder
             Restaurants::class
         ]);
         $this->call([
+            Categories::class
+        ]);
+        $this->call([
             Produits::class
         ]);
         $this->call([
+            Cartes::class
+        ]);
+        $this->call([
             Formules::class
+        ]);
+        $this->call([
+            Emplacements::class
         ]);
         $this->call([
             Produit_Formule::class
         ]);
         $this->call([
             Produit_Cartes::class
-        ]);
-        $this->call([
-            Emplacements::class
-        ]);
-        $this->call([
-            Cartes::class
         ]);
         // \App\Models\User::factory(10)->create();
 

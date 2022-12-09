@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Categorie;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,9 +16,18 @@ class Categories extends Seeder
     public function run()
     {
         // creation 4 categories non modifiables pour entre plat dessert et boisson
-        \App\Models\Categorie::factory()->create(['type' => 'entree']);
-        \App\Models\Categorie::factory()->create(['type' => 'plat']);
-        \App\Models\Categorie::factory()->create(['type' => 'dessert']);
-        \App\Models\Categorie::factory()->create(['type' => 'boisson']);
+        Categorie::factory()->create([
+            'type' => 'entree',
+        ]);
+        Categorie::factory()->create([
+            'type' => 'plat',
+        ]);
+        Categorie::factory()->create([
+            'type' => 'dessert',
+        ]);
+        Categorie::factory()->create([
+            'type' => 'boisson',
+        ]);
+
     }
 }

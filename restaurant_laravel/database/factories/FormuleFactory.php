@@ -19,11 +19,12 @@ class FormuleFactory extends Factory
         return [
             //
             'nom_formule' => fake()->word(),
-            'prix' => fake()->numberBetween(1, 10),
-            'description' => fake()->text(),
-            'entree' => fake()->word(1),
-            'plat' => fake()->word(1),
-            'dessert' => fake()->word(1),
+            'description_formule' => fake()->text(),
+            'categorie_produit_entree' => fake()->word('entree'),
+            'categorie_produit_plat' => fake()->word('plat'),
+            'categorie_produit_dessert' => fake()->word('dessert'),
+            'prix_formule' => fake()->randomFloat(2, 1, 100),
+            'votre_prix' => fake()->randomFloat(2, 1, 100),
             'produit_carte_id' => fake()->numberBetween(1, 10),
         ];
     }
