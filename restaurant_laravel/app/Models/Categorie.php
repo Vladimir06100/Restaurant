@@ -14,9 +14,7 @@ class Categorie extends Model
     protected $guarded = ['id'];
 
     protected $fillable = [
-        'entre',
-        'plat',
-        'dessert',
-        'boisson',
+        'categorie_id',
+        'type',
     ];
 }

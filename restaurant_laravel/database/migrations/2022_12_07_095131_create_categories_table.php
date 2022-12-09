@@ -18,10 +18,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->softDeletes();
-            $table->integer('entre')->default(1);
-            $table->integer('plat')->default(2);
-            $table->integer('dessert')->default(3);
-            $table->integer('boisson')->default(4);        
+            $table->string('type');
         });
      
     }
