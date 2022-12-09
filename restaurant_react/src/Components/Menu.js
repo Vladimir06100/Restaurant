@@ -4,30 +4,30 @@ import logo from '../Images/logo.png';
 function Menu() {
     return (
         <div>
-            <div class="navbar_logo">
+            <div className="navbar_logo">
                 <img src={logo} alt='logo' />
             </div>
-            <nav class="navbar">
+            <nav className="navbar">
                 <ul>
-                    <il id="">
+                    <li id="">
                         <a href="/">Home </a>
-                    </il>
+                    </li>
 
-                    <il>
+                    <li>
                         <a href="/">About </a>
-                    </il>
+                    </li>
 
-                    <il>
+                    <li>
                         <a href="/">Contact </a>
-                    </il>
+                    </li>
 
-                    <il id="navbar_style">
+                    <li id="navbar_style">
                         <a href="/connexion">Connexion </a>
-                    </il>
+                    </li>
 
-                    <il id="navbar_style">
+                    <li id="navbar_style">
                         <a href="/inscription">Inscription </a>
-                    </il>
+                    </li>
 
                 </ul>
             </nav>

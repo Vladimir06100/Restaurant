@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import Contact from './Contact/Contact';
 
 const [contacts, setContacts] = useState([]);
