@@ -6,24 +6,20 @@ import Error404 from "./Components/Error404/error404";
 import LoginPage from "./Pages/login_page";
 import './Styles/Home.css';
 
-
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Home />
   },
-
   {
     path: "/login",
     element: <LoginPage />,
     error: <Error404 />
   },
-
   {
     path: '/inscription',
     element: <Inscription />
   },
-
   {
     path: '/connexion',
     element: <Connexion />
@@ -31,20 +27,13 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />
-
+  return <RouterProvider router={router} />;
 }
-
-
-
-
-
+export default App;
 
 //////////////////////////////////////////////////////
 // import Contact from './Contact/Contact';
 // import { useEffect, useState } from 'react';
-
-
 //   const [contacts, setContacts] = useState([]);
 //   async function getContacts() {
 //     const options = {
@@ -59,12 +48,10 @@ function App() {
 //     const contacts = data.contacts;
 //     setContacts(contacts);
 //   }
-
 //   useEffect(() => {
 //     console.log('useEffect');
 //     getContacts();
 //   }, []);
-
 //   async function createContact(firstname, lastname, email, message) {
 //     const options = {
 //       method: 'POST',
@@ -79,23 +66,17 @@ function App() {
 //       }),
 //     };
 //     let response = await fetch('http://localhost:8000/api/contacts', options);
-
 //     if (response.status !== 201) {
 //       return;
 //     }
-
 //     const data = await response.json();
-
 //     const newContact = data.contact;
 //     setContacts([newContact, ...contacts]);
 //   }
-
-
 //   return (
 //     <div className="App">
 //       <div>
 //         <h1>Liste des Contacts</h1>
-
 //         <form onSubmit={(event) => {
 //           event.preventDefault();
 //           const firstname = event.target.firstname.value;
@@ -128,5 +109,3 @@ function App() {
 //       </div>
 //     </div>
 //   );
-
-export default App;

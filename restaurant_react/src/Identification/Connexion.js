@@ -4,9 +4,7 @@ import Footer from '../Components/Footer';
 import '../Styles/Home.css';
 import { useState } from 'react';
 
-
 function Connexion() {
-
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -25,7 +23,6 @@ function Connexion() {
             headers: {
                 "Content-Type": "application/json"
             },
-
             body: JSON.stringify({
                 email: email,
                 password: password
@@ -33,11 +30,8 @@ function Connexion() {
         };
 
         const response = await fetch(`http://localhost:8000/api/restaurateurs/login`, options);
-
         const data = await response.json();
-
         console.log("Data : ", data);
-
         const token = data.token;
         const success = data.success;
 
@@ -47,17 +41,13 @@ function Connexion() {
         if (success === true) {
             alert("Vous êtes connecté");
         }
-
         console.log("Token : ", token);
-
         localStorage.setItem("token", JSON.stringify(token));
-
         getID();
     }
 
     async function getID() {
         let token = JSON.parse(localStorage.getItem("token"));
-
         const optionsID = {
             method: "GET",
             headers: {
@@ -67,15 +57,11 @@ function Connexion() {
         }
 
         const response = await fetch(`http://localhost:8000/api/restaurateurs/login`, optionsID);
-
         const dataID = await response.json();
         const ID = dataID._id;
-
         localStorage.setItem("userID", JSON.stringify(ID));
-
         console.log("Key user : ", ID);
     }
-
 
     return (
         <div>
@@ -89,17 +75,13 @@ function Connexion() {
                 <form method="POST" action="" id="form_position" onSubmit={submit}>
                     <label htmlFor="email">Email</label>
                     <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-
                     <label htmlFor="password">Password</label>
                     <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-
                     <input type="submit" value="Login" disabled={!validateForm()} />
-
                     <span>MOT DE PASSE OUBLIÉ ?</span>
                     <span>VOUS N'AVEZ PAS DE COMPTE ? INSCRIPTION</span>
                 </form>
             </div>
-
             <Footer />
         </div>
     )

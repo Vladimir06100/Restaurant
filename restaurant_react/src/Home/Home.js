@@ -8,20 +8,16 @@ function Home() {
     return (
         <div>
             <Menu />
-            <div class="home_position">
-                <div class="home_image">
+            <div className='home_position'>
+                <div className='home_image'>
                     <img id="imghome" src={ban} alt='bannière' />
                 </div>
-
                 <div class="home_title">
                     <span>
                         let customers <br /><span id="home_title_color">choose</span> <br />your restaurant
                     </span>
-
                     <div class="home_text">
-                        <p>
-                            Lorem ipsum dolor sit amet. Qui rerum voluptatem eum blanditiis ratione qui sunt nulla eum adipisci corporis a rerum voluptas et doloremque nisi qui velit eligendi? Aut voluptatibus consequatur non laboriosam maxime ut ducimus dicta. Est quam asperiores aut ducimus veniam nam numquam necessitatibus ut consequatur quaerat qui fuga optio aut nihil laboriosam.
-                        </p>
+                        <p>Lorem ipsum dolor sit amet. Qui rerum voluptatem eum blanditiis ratione qui sunt nulla eum adipisci corporis a rerum voluptas et doloremque nisi qui velit eligendi? Aut voluptatibus consequatur non laboriosam maxime ut ducimus dicta. Est quam asperiores aut ducimus veniam nam numquam necessitatibus ut consequatur quaerat qui fuga optio aut nihil laboriosam.</p>
                     </div>
                 </div>
             </div>

@@ -1,18 +1,15 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { useEffect, useState } from 'react';
 import './App.css';
 import Contact from './Contact/Contact';
 import Error404 from "./Components/Error404/error404";
 import LoginPage from "./Pages/login_page";
 
 const router = createBrowserRouter ([
-
   {
     path: "/",
     element: <Contact />,
     error: <Error404 />
   },
-
   {
     path: "/login",
     element: <LoginPage />,
@@ -21,23 +18,15 @@ const router = createBrowserRouter ([
 ]);
 
 function App() {
-
-
-
   return (
     <div className="App">
-
       <RouterProvider router={router} />
-      
     </div>
   );
 }
-
-
 export default App;
 
 // const [contacts, setContacts] = useState([]);
-
 // async function getContacts() {
 //   const options = {
 //     method: 'GET',
@@ -51,12 +40,10 @@ export default App;
 //   const contacts = data.contacts;
 //   setContacts(contacts);
 // }
-
 // useEffect(() => {
 //   console.log('useEffect');
 //   getContacts();
 // }, []);
-
 // async function createContact(firstname, lastname, email, message) {
 //   const options = {
 //     method: 'POST',
@@ -71,17 +58,13 @@ export default App;
 //     }),
 //   };
 //   let response = await fetch('http://localhost:8000/api/contacts', options);
-
 //   if (response.status !== 201) {
 //     return;
 //   }
-
 //   const data = await response.json();
-
 //   const newContact = data.contact;
 //   setContacts([newContact, ...contacts]);
 // }
-
 // <div>
 //         <h1>Liste des Contacts</h1>
 //         {/* create form for new contact */}
