@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -34,13 +33,13 @@ class DatabaseSeeder extends Seeder
             Formules::class
         ]);
         $this->call([
+            Produit_Cartes::class
+        ]);
+        $this->call([
             Emplacements::class
         ]);
         $this->call([
             Produit_Formule::class
-        ]);
-        $this->call([
-            Produit_Cartes::class
         ]);
         // \App\Models\User::factory(10)->create();
 

@@ -25,7 +25,7 @@ class FormuleFactory extends Factory
             'categorie_produit_dessert' => fake()->word('dessert'),
             'prix_formule' => fake()->randomFloat(2, 1, 100),
             'votre_prix' => fake()->randomFloat(2, 1, 100),
-            'produit_carte_id' => fake()->numberBetween(1, 10),
+            'carte_id' => fake()->numberBetween(1, 10),
         ];
     }
 }
