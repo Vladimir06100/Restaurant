@@ -21,12 +21,12 @@ return new class extends Migration
             $table->softDeletes();
             $table->foreignIdFor(Produit::class, 'produit_id')
                 ->nullable()
-                ->onUpdate('RESTRICT')
-                ->onDelete('RESTRICT');
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->foreignIdFor(Carte::class, 'carte_id')
-                ->nullable()
-                ->onUpdate('RESTRICT')
-                ->onDelete('RESTRICT');
+                ->nullable()    
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 

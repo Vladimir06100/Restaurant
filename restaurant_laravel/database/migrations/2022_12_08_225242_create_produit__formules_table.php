@@ -19,12 +19,12 @@ return new class extends Migration
             $table->softDeletes();
             $table->foreignId('produit_id')
                 ->constrained()
-                ->onUpdate('RESTRICT')
-                ->onDelete('RESTRICT');
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->foreignId('formule_id')
                 ->constrained()
-                ->onUpdate('RESTRICT')
-                ->onDelete('RESTRICT');
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 
