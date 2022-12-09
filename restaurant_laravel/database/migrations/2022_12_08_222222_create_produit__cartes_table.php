@@ -17,11 +17,11 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->softDeletes();
-            $table->foreignId('produit_id')
+            $table->foreignIdFor(\App\Models\Produit::class, 'produit_id')
                 ->constrained()
                 ->onUpdate('RESTRICT')
                 ->onDelete('RESTRICT');
-            $table->foreignId('carte_id')
+            $table->foreignIdFor(\App\Models\Carte::class, 'carte_id')
                 ->constrained()
                 ->onUpdate('RESTRICT')
                 ->onDelete('RESTRICT');

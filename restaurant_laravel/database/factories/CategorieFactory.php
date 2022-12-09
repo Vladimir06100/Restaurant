@@ -19,7 +19,6 @@ class CategorieFactory extends Factory
         return [
             // 4 categories non modifiables pour entre plat dessert et boisson
             'type' => fake()->unique(),
-
         ];
     }
 }

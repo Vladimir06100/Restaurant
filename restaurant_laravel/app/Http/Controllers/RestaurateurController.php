@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Restaurateur;
 use Illuminate\Http\Request;
 
+
+// RegisterController 
 class RestaurateurController extends Controller
 {
     //affiche profile
@@ -13,6 +15,27 @@ class RestaurateurController extends Controller
         $restaurateur = Restaurateur::find($id);
         return response()->json(['restaurateur' => $restaurateur]);
     }
+
+    // connexion
+    public function login(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|string'
+        ]);
+        $restaurateur = Restaurateur::where('email', $request->email)->first();
+        if (!$restaurateur  /* !Hash::check($request->password, $restaurateur->password) */) {
+            return response()->json([
+                'message' => 'Email ou mot de passe incorrect.'
+            ], 401);
+        }
+        $token = $restaurateur;
+        return response()->json([
+            'message' => 'Connexion réussi.',
+            'token' => $token
+        ], 200);
+    }
+
 
     // creation profile
     public function store(Request $request)

@@ -15,11 +15,11 @@ class Formule extends Model
 
     protected $fillable = [
         'nom_formule',
-        'prix_formule',
         'description_formule',
         'entree',
         'plat',
         'dessert',
-        'produit_carte_id',
+        'prix_formule',
+        'votre_prix',
     ];
 }
