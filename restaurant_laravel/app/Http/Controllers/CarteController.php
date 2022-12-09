@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Carte;
 use Illuminate\Http\Request;
 
 class CarteController extends Controller
@@ -14,6 +15,11 @@ class CarteController extends Controller
     public function index()
     {
         // list of all cartes(menu) in the database for the restaurant_id
+        $cartes = Carte::all();
+        return response()->json([
+            'message' => 'Cartes retrieved successfully.',
+            'cartes' => $cartes
+        ], 200);
         
         
     }
@@ -36,7 +42,18 @@ class CarteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // create a new carte in the database
+        $carte = new Carte();
+        $carte->nom_carte = $request->nom_carte;
+        $carte->description_carte = $request->description_carte;
+        $carte->restaurant_id = $request->restaurant_id;
+        $carte->save();
+
+        response()->json([
+        'message' => 'Carte created.',
+        'carte' => $carte
+        ], 201);
+
     }
 
     /**

@@ -21,5 +21,24 @@ class Formule extends Model
         'dessert',
         'prix_formule',
         'votre_prix',
+        'carte_id',
     ];
+
+    private string $nom_formule;
+    private string $description_formule;
+    private string $entree;
+    private string $plat;
+    private string $dessert;
+    private float $prix_formule;
+    private float $votre_prix;
+    
+    public function produits()
+    {
+        return $this->belongsToMany(Produit::class, 'produit_formules');
+    }
+
+    public function cartes()
+    {
+        return $this->belongsToMany(Carte::class, 'carte_formules');
+    }
 }

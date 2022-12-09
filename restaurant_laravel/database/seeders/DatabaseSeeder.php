@@ -30,10 +30,10 @@ class DatabaseSeeder extends Seeder
             Cartes::class
         ]);
         $this->call([
-            Formules::class
+            Produit_Cartes::class
         ]);
         $this->call([
-            Produit_Cartes::class
+            Formules::class
         ]);
         $this->call([
             Emplacements::class

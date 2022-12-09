@@ -17,7 +17,7 @@ class FormuleController extends Controller
         // ici on va chercher les formules dans la base de données
         // et on les envoie à la vue
         $formules = Formule::all();
-        return view('formules.index', ['formules' => $formules]);
+        return response()->json(['formules' => $formules]);
 
     }
 
@@ -39,21 +39,28 @@ class FormuleController extends Controller
      */
     public function store(Request $request)
     {
-        // on va créer une nouvelle formule dans la base de données avec les données du formulaire 
-        // tel que le nom et le prix  'nom_formule', 'description_formule', 'entree', 'plat', 'dessert', 'prix_formule', 'votre_prix', 'carte_id'
-        $formule = new Formule();
-        $formule->nom_formule = $request->nom_formule;
-        $formule->description_formule = $request->description_formule;
-        $formule->entree = $request->entree;
-        $formule->plat = $request->plat;
-        $formule->dessert = $request->dessert;
-        $formule->prix_formule = $request->prix_formule;
-        $formule->votre_prix = $request->votre_prix;
-        $formule->carte_id = $request->carte_id;
-        $formule->save();
+        $request->validate([
+            'nom_formule' => 'required|string',
+            'description_formule' => 'required|string',
+            'entree' => 'required|string',
+            'plat' => 'required|string',
+            'dessert' => 'required|string',
+            'prix_formule' => 'required|integer',
+            'votre_prix' => 'required|integer',
+        ]);
 
+        $formule = Formule::create([
+            'nom_formule' => $request->nom_formule,
+            'description_formule' => $request->description_formule,
+            'entree' => $request->entree,
+            'plat' => $request->plat,
+            'dessert' => $request->dessert,
+            'prix_formule' => $request->prix_formule,
+            'votre_prix' => $request->votre_prix,
+            'carte_id' => auth()->user()->id,
+        ]);
         response()->json([
-        'message' => 'Formule created.',
+            'message' => 'Formule créée avec succès',
         'formule' => $formule
         ], 201);
 

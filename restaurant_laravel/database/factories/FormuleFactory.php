@@ -19,7 +19,7 @@ class FormuleFactory extends Factory
         return [
             //
             'nom_formule' => fake()->word(),
-            'description_formule' => fake()->text(),
+            'description_formule' => fake()->text(100),
             'categorie_produit_entree' => fake()->word('entree'),
             'categorie_produit_plat' => fake()->word('plat'),
             'categorie_produit_dessert' => fake()->word('dessert'),

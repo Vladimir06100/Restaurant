@@ -18,6 +18,9 @@ class Emplacement extends Model
         'restaurant_id',        
     ];
 
+    private int $carte_id;
+    private int $restaurant_id;
+    
     public function carte()
     {
         return $this->belongsTo(Carte::class);

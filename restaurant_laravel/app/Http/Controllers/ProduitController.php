@@ -54,6 +54,8 @@ class ProduitController extends Controller
             'TVA' => $request->TVA,
             'restaurateur_id' => auth()->user()->id,
         ]);
+
+        return response()->json(['produit' => $produit]);
     }
 
     /**

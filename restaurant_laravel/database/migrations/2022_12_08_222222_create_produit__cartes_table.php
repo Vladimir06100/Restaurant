@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Carte;
+use App\Models\Produit;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -17,12 +19,12 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->softDeletes();
-            $table->foreignIdFor(\App\Models\Produit::class, 'produit_id')
-                ->constrained()
+            $table->foreignIdFor(Produit::class, 'produit_id')
+                ->nullable()
                 ->onUpdate('RESTRICT')
                 ->onDelete('RESTRICT');
-            $table->foreignIdFor(\App\Models\Carte::class, 'carte_id')
-                ->constrained()
+            $table->foreignIdFor(Carte::class, 'carte_id')
+                ->nullable()
                 ->onUpdate('RESTRICT')
                 ->onDelete('RESTRICT');
         });
