@@ -1,8 +1,26 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from './Home/Home';
 import Inscription from './Identification/Inscription';
 import Connexion from './Identification/Connexion';
 import './App.css';
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Contact from './Contact/Contact';
+import Error404 from "./Components/Error404/error404";
+import LoginPage from "./Pages/login_page";
+
+const router = createBrowserRouter ([
+
+  {
+    path: "/",
+    element: <Contact />,
+    error: <Error404 />
+  },
+
+  {
+    path: "/login",
+    element: <LoginPage />,
+    error: <Error404 />
+  },
+]);
 
 const router = createBrowserRouter([
   {
@@ -24,6 +42,43 @@ const router = createBrowserRouter([
 function App() {
   return <RouterProvider router={router} />
 
+  return (
+    <div className="App">
+      <div>
+        <h1>Liste des Contacts</h1>
+        {/* create form for new contact */}
+        <form onSubmit={(event) => {
+          event.preventDefault();
+          const firstname = event.target.firstname.value;
+          const lastname = event.target.lastname.value;
+          const email = event.target.email.value;
+          const message = event.target.message.value;
+          createContact(firstname, lastname, email, message);
+        }}>
+          <label htmlFor="firstname">Prénom</label>
+          <input type="text" name="firstname" id="firstname" />
+          <label htmlFor="lastname">Nom</label>
+          <input type="text" name="lastname" id="lastname" />
+          <label htmlFor="email">Email</label>
+          <input type="email" name="email" id="email" />
+          <label htmlFor="message">Message</label>
+          <textarea name="message" id="message" cols="30" rows="10"></textarea>
+          <button type="submit">Envoyer</button>
+        </form>
+        <ul>
+          {contacts.map((contact, index) => (
+            <Contact
+              key={index}
+              firstname={contact.firstname}
+              lastname={contact.lastname}
+              email={contact.email}
+              message={contact.message}
+            />
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
 }
 
 
