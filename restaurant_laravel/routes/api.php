@@ -1,7 +1,10 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ProduitController;
+use App\Http\Controllers\RestaurateurController;
+use App\Http\Controllers\RestaurantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +17,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::post('/contacts', [ContactController::class, 'store'])->name('contacts.store');
+Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');
+
+// routes pour les restaurateurs (inscription, connexion, profil)
+Route::post('/restaurateurs', [RestaurateurController::class, 'store'])->name('restaurateurs.store');
+Route::get('/restaurateurs/{id}', [RestaurateurController::class, 'show'])->name('restaurateurs.show');
+
+// resource pour les restaurants (creation, affichage)
+Route::resource('restaurants', RestaurantController::class);
+
+// routes pour les produits (creation, affichage)
+Route::resource('produits', ProduitController::class);
+
+
+
+Route::post('/produits', [ProduitController::class, 'store'])->name('produits.store');
+Route::get('/produits', [ProduitController::class, 'index'])->name('produits.index');
