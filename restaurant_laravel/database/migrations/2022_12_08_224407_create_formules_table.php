@@ -18,10 +18,11 @@ return new class extends Migration
             $table->timestamps();
             $table->string('nom_formule');
             $table->string('description_formule');
-            $table->string('entree');
-            $table->string('plat');
-            $table->string('dessert');
+            $table->string('categorie_produit_entree');
+            $table->string('categorie_produit_plat');
+            $table->string('categorie_produit_dessert');
             $table->string('prix_formule');
+            $table->string('votre_prix');
             $table->foreignIdFor(\App\Models\Carte::class, 'carte_id')
                 ->constrained()
                 ->onUpdate('RESTRICT')
