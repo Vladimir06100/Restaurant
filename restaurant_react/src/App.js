@@ -3,7 +3,7 @@ import Home from './Home/Home';
 import Inscription from './Identification/Inscription';
 import Connexion from './Identification/Connexion';
 import Error404 from "./Components/Error404/error404";
-import LoginPage from "./Pages/login_page";
+//import LoginPage from "./Pages/login_page";
 import './Styles/Home.css';
 
 const router = createBrowserRouter([
@@ -11,18 +11,20 @@ const router = createBrowserRouter([
     path: '/',
     element: <Home />
   },
+  // {
+  //   path: "/login",
+  //   element: <LoginPage />,
+  //   error: <Error404 />
+  // },
   {
-    path: "/login",
-    element: <LoginPage />,
+    path: '/inscription',
+    element: <Inscription />,
     error: <Error404 />
   },
   {
-    path: '/inscription',
-    element: <Inscription />
-  },
-  {
     path: '/connexion',
-    element: <Connexion />
+    element: <Connexion />,
+    error: <Error404 />
   }
 ]);
 

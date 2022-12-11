@@ -5,7 +5,6 @@ function LoginPage()
     return (
         <div className="login">
             <p>Sign-in</p>
-
             <Login />
         </div>
     )

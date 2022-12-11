@@ -31,7 +31,7 @@ function App() {
 				onChange={e => setUrl(e.target.value)} />
 			<button onClick={GenerateQRCode}>Générer</button>
 			{qr && <>
-				<img src={qr} />
+				<img src={qr} alt='qr'/>
 				<a href={qr} download="qrcode.png">Télécharger le QRCode</a>
 			</>}
 		</div>
