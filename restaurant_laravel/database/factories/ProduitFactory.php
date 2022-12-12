@@ -25,7 +25,6 @@ class ProduitFactory extends Factory
             'TVA' => fake()->randomFloat(20, 5.5, 20),
             'quantite' => fake()->numberBetween(1,20),
             'restaurateur_id' => fake()->randomNumber(1, 10),
-
         ];
     }
 }

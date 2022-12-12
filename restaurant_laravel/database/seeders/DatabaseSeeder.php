@@ -27,20 +27,15 @@ class DatabaseSeeder extends Seeder
             Produits::class
         ]);
         $this->call([
-            Cartes::class
-        ]);
-        /* $this->call([
-            Produit_Cartes::class
-        ]); */
-        $this->call([
             Formules::class
+        ]);
+        $this->call([
+            Cartes::class
         ]);
         $this->call([
             Emplacements::class
         ]);
-        $this->call([
-            Produit_Formules::class
-        ]);
+
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

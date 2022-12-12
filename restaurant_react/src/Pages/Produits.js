@@ -1,23 +1,66 @@
 import Menu from '../Components/Menu';
 import Footer from '../Components/Footer';
 import '../Styles/Produits.css';
+import { useEffect, useState } from 'react';
+
 
 function Produits() {
-    return (
-        <div>
-            <Menu />
+    // creation new produit
+    const [produits, setProduits] = useState([]);
 
-            <div className="product_position">
-                <div className="product_title">
-                    <span>
-                        Add your <br /><span id="home_title_color">product</span>
-                    </span>
+    async function getProduits() {
+        const options = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        };
+        let response = await fetch('http://localhost:8000/api/produits', options);
+        const data = await response.json();
+        console.log(data);
+        const produits = data.produits;
+        setProduits(produits);
+    }
 
-                    <div className="restaurant_text">
-                        <p>
-                            Lorem ipsum dolor sit amet. Qui rerum voluptatem eum blanditiis ratione qui sunt nulla eum adipisci corporis a rerum voluptas et doloremque nisi qui velit eligendi? Aut voluptatibus consequatur non laboriosam maxime ut ducimus dicta. Est quam asperiores aut ducimus veniam nam numquam necessitatibus ut consequatur quaerat qui fuga optio aut nihil laboriosam.
-                        </p>
-                    </div>
+    useEffect(() => {
+        console.log('useEffect');
+        getProduits();
+    }
+        , []);
+    
+    async function createProduit(nom_produit, categorie, prixTTC, quantite) {
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                nom_produit: nom_produit,
+                categorie: categorie,
+                prixTTC: prixTTC,
+                quantite: quantite,
+            }),
+        };
+        let response = await fetch('http://localhost:8000/api/produits', options);
+
+        if (response.status !== 201) {
+            return;
+        }
+        const data = await response.json();
+        const newProduit = data.produit;
+        setProduits([newProduit, ...produits]);
+}
+
+return (
+    <div>
+        <Menu />
+        <div className="product_position">
+            <div className="product_title">
+                <span>
+                    Add your <br /><span id="home_title_color">product</span>
+                </span>
+                <div className="restaurant_text">
+                    <p>Lorem ipsum dolor sit amet. Qui rerum voluptatem eum blanditiis ratione qui sunt nulla eum adipisci corporis a rerum voluptas et doloremque nisi qui velit eligendi? Aut voluptatibus consequatur non laboriosam maxime ut ducimus dicta. Est quam asperiores aut ducimus veniam nam numquam necessitatibus ut consequatur quaerat qui fuga optio aut nihil laboriosam.</p>
                 </div>
 
                 <div class="signup">

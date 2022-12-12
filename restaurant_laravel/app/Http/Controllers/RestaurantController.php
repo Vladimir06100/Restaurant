@@ -10,20 +10,13 @@ use Illuminate\Support\Facades\Auth;
 class RestaurantController extends Controller
 {
     
-    
     //Affiche les restaurants de la restaurateur connecté
     public function index()
     {
         $restaurants = auth()->user()->restaurants;
         return response()->json(['restaurants' => $restaurants]);
     }
-    
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //

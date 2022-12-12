@@ -25,8 +25,8 @@ function Restaurant() {
                         <label htmlFor="name">Name</label>
                         <input type="text" id="name" name="name" placeholder="Your name.." required />
 
-                        <label htmlFor="adress">Adress</label>
-                        <input type="text" id="adress" name="adress" placeholder="Your adress.." required />
+                        <label htmlFor="adresse">Adresse</label>
+                        <input type="text" id="adresse" name="adresse" placeholder="Your adresse.." required />
 
                         <label htmlFor="phone">Phone</label>
                         <input type="text" id="phone" name="phone" placeholder="Your phone.." required />
