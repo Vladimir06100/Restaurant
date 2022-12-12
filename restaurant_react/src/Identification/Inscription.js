@@ -6,21 +6,29 @@ import '../Styles/Inscription.css';
 
 
 function Inscription() {
+    const [lastname, setLastName] = useState ('');
+    const [firstname, setFirstName] = useState ('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     function handleChange(e) {
-        const { name, value } = e.target;
-        if (name === 'email') {
+        const { id, value } = e.target;
+        if (id === 'lastname') {
+            setLastName(value);
+        }
+        if (id === 'firstname') {
+            setFirstName(value);
+        }
+        if (id === 'email') {
             setEmail(value);
-        } else if (name === 'password') {
+        } else if (id === 'password') {
             setPassword(value);
         }
     }
 
     function handleSubmit(e) {
         e.preventDefault();
-        console.log(email, password);
+        console.log(lastname, firstname, email, password);
         addUser();
     }
 
@@ -29,21 +37,25 @@ function Inscription() {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'Accept': 'application/json'
             },
-            body: JSON.stringify({ email, password })
+            body: JSON.stringify({ 
+                lastname: lastname,
+                firstname: firstname,
+                email: email,
+                password: password
+            })
         };
 
-        let response = await fetch('http://localhost:8000/api/inscription', options);
+        const response = await fetch(`http://localhost:8000/api/restaurateurs/register`, options);
         const data = await response.json();
-        const message = data.message;
+        // const message = data.message;
 
-        if (message === 'email, password are required') {
-            alert('Veuillez remplir tous les champs');
-        } else if (message === 'email already exists') {
-            alert('Cet email est déjà utilisé');
-        } else if (message === 'user created') {
-            alert('Votre compte a bien été créé');
-        }
+        // if (message === 'Firstname, lastname, email and password are required') {
+        //     alert('Veuillez remplir tous les champs');
+        // } else {
+        //     alert('Votre compte a bien été créé !')
+        // }
     }
 
     return (
@@ -58,13 +70,19 @@ function Inscription() {
 
                 <div>
                     <form id="register_form" onSubmit={handleSubmit}>
+                        <label htmlFor="nom">Nom</label>
+                        <input type="text" id="nom" onChange={handleChange} placeholder="Nom" required />
+
+                        <label htmlFor="prenom">Prenom</label>
+                        <input type="text" id="prenom" onChange={handleChange} placeholder="Prénom" required />
+
                         <label htmlFor="email">Email</label>
-                        <input type="email" id="email" onChange={handleChange} name="email" placeholder="Votre email" required />
+                        <input type="email" id="email" onChange={handleChange} placeholder="Votre email" required />
 
                         <label htmlFor="password">Mot de passe</label>
-                        <input type="password" id="password" onChange={handleChange} name="password" placeholder="Votre mot de passe" required />
+                        <input type="password" id="password" onChange={handleChange} placeholder="Votre mot de passe" required />
 
-                        <button type="submit" id="submit" onClick={handleChange}>S'inscrire</button>
+                        <button type="submit" id="submit" onClick={handleSubmit}>S'inscrire</button>
 
                         <span>Vous avez déjà un compte ?</span>
 
