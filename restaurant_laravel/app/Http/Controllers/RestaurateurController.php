@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Restaurateur;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 // RegisterController 
 class RestaurateurController extends Controller
@@ -35,7 +36,6 @@ class RestaurateurController extends Controller
             'token' => $token
         ], 200);
     }
-
 
     // creation profile
     public function store(Request $request)

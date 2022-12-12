@@ -27,6 +27,10 @@ Route::get('/restaurateurs/{id}', [RestaurateurController::class, 'show'])->name
 Route::post('/restaurateurs/login', [RestaurateurController::class, 'login'])->name('restaurateurs.login');
 
 // resource pour les restaurants les 7 routes
+// route pour l'inscription
+Route::post('/restaurateurs/register', [RestaurateurController::class, 'register'])->name('restaurateurs.register');
+
+// resource pour les restaurants (creation, affichage)
 Route::resource('restaurants', RestaurantController::class);
 
 // routes pour les produits les 7 routes
