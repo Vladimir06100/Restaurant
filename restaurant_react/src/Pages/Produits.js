@@ -28,17 +28,16 @@ function Produits() {
     }
         , []);
     
-    async function createProduit(nom, description, prix, category, quantite) {
+    async function createProduit(nom_produit, categorie, prixTTC, quantite) {
         const options = {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                nom: nom,
-                description: description,
-                prix: prix,
-                category: category,
+                nom_produit: nom_produit,
+                categorie: categorie,
+                prixTTC: prixTTC,
                 quantite: quantite,
             }),
         };
@@ -51,8 +50,6 @@ function Produits() {
         const newProduit = data.produit;
         setProduits([newProduit, ...produits]);
 }
-
-
 
 return (
     <div>
@@ -69,24 +66,24 @@ return (
             <div className="produits">
                 <form method="POST" action="" id="form_position" onSubmit={(event) => {
                     event.preventDefault();
-                    const nom = event.target.nom.value;
-                    const description = event.target.description.value;
+                    const nom_produit = event.target.nom_produit.value;
+                    const categorie = event.target.categorie.value;
                     const prix = event.target.prix.value;
-                    const category = event.target.category.value;
                     const quantite = event.target.quantite.value;
-                    createProduit(nom, description, prix, category, quantite);
+                    createProduit(nom_produit, categorie,  prix, quantite);
                 }}>
                     <label htmlFor="nom">Nom</label>
-                    <input type="text" id="nom" name="nom" placeholder="Nom du produit" required />
+                    <input type="text" id="nom" name="nom_produit" placeholder="Nom du produit" required />
                     <label htmlFor="description">Description</label>
                     <input type="text" id="description" name="description" placeholder="Description du produit" required />
                     <label htmlFor="prix">Prix</label>
-                    <input type="text" id="prix" name="prix" placeholder="Prix du produit" required />
+                    <input type="text" id="prix" name="prixTTC" placeholder="Prix du produit" required />
                     <label htmlFor="categorie">Catégorie </label>
-                    <select id="categorie" name="category">
-                        <option>Entrée</option>
-                        <option>Plat</option>
-                        <option>Dessert</option>
+                    <select id="categorie" name="category" required>
+                        <option selected>Choisir une catégorie</option>
+                        <option value=''>Entrée</option>
+                        <option value=''>Plat</option>
+                        <option value=''>Dessert</option>
                     </select>
                     <label htmlFor="quantite">Quantité </label>
                     <input type="number" id="quantite" name="quantite" min="1" max="100" />
@@ -104,19 +101,17 @@ return (
                     <thead>
                         <tr>
                             <th>Nom</th>
-                            <th>Description</th>
-                            <th>Prix</th>
                             <th>Catégorie</th>
+                            <th>Prix</th>
                             <th>Quantité</th>
                         </tr>
                     </thead>
                     <tbody>
                         {produits.map((produit) => (
                             <tr key={produit.id}>
-                                <td>{produit.nom}</td>
-                                <td>{produit.description}</td>
-                                <td>{produit.prix}</td>
-                                <td>{produit.category}</td>
+                                <td>{produit.nom_produit}</td>
+                                <td>{produit.categorie_id}</td>
+                                <td>{produit.prixTTC}</td>
                                 <td>{produit.quantite}</td>
                             </tr>
                         ))}
