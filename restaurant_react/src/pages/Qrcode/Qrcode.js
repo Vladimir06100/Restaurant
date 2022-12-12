@@ -1,7 +1,8 @@
+import "restaurant_react/src/pages/Qrcode/Qrcode.css"
 import QRCode from 'qrcode'
 import { useState } from 'react'
 
-function App() {
+function Qrcode() {
 
 	let fakeLink = []
 
@@ -41,4 +42,4 @@ function App() {
 	)
 }
 
-export default App
+export default Qrcode;
