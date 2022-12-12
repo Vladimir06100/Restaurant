@@ -3,6 +3,7 @@
 use App\Http\Controllers\CarteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FormuleController;
 use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\RestaurateurController;
 use App\Http\Controllers\RestaurantController;
@@ -36,3 +37,6 @@ Route::post('/cartes', [CarteController::class, 'store'])->name('cartes.store');
 
 // affichage de la carte
 Route::get('/cartes', [CarteController::class, 'index'])->name('cartes.index');
+
+// route pour les formules
+Route::resource('formules', FormuleController::class);
