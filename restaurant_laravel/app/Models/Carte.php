@@ -15,5 +15,8 @@ class Carte extends Model
 
     protected $fillable = [
         'nom_carte',
+        'carte_id',
     ];
+
+    private string $nom_carte;
 }

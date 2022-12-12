@@ -1,0 +1,28 @@
+/* PAGE HOME CSS*/
+
+.home_title{
+    display: flex;
+    flex-direction: column;
+    padding: 2em 1em 1em;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 5em;
+}
+
+#home_title_color{
+    color: #D68D00;
+}
+
+.home_position{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+#imghome{
+    height: 54em;
+}
+
+.home_text{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+    text-align: justify;
+}

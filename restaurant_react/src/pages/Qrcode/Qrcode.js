@@ -4,9 +4,7 @@ import { useState } from 'react'
 
 function Qrcode() {
 
-	let fakeLink = [
-		
-	]
+	let fakeLink = []
 
 	const [url, setUrl] = useState('')
 	const [qr, setQr] = useState('')
@@ -37,7 +35,7 @@ function Qrcode() {
 				onChange={e => setUrl(e.target.value)} />
 			<button onClick={GenerateQRCode}>Générer</button>
 			{qr && <>
-				<img src={qr} />
+				<img src={qr} alt='link qr'/>
 				<a href={qr} download="qrcode.png">Télécharger le QRCode</a>
 			</>}
 		</div>

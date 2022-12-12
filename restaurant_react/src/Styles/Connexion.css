@@ -1,0 +1,51 @@
+
+.connexion_position{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5em;
+}
+
+.connexion_title{
+    display: flex;
+    padding: 2em 1em 1em;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 3em;
+    justify-content: space-around;
+}
+
+#form_position{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.imgco{
+    width: 40em;
+    padding-left: 8em;
+}
+
+input{
+    display: block;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #d68d00;
+    padding: 15px;
+}
+
+#submitCo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d68d00;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}

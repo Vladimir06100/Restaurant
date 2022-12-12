@@ -14,10 +14,13 @@ class Produit_Formule extends Model
     protected $guarded = ['id'];
 
     protected $fillable = [
-        'produit_carte_id',
+        'produit_id',
         'formule_id',
     ];
 
+    private int $produit_id;
+    private int $formule_id;
+    
     public function produit_carte()
     {
         return $this->belongsTo(Produit::class);

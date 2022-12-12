@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Carte;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,5 +16,9 @@ class Cartes extends Seeder
     public function run()
     {
         //
+        Carte::factory()->create([
+            'nom_carte' => 'Carte 1',
+            'restaurant_id' => 1,
+        ]);
     }
 }

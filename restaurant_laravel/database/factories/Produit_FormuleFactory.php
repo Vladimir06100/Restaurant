@@ -18,7 +18,7 @@ class Produit_FormuleFactory extends Factory
     {
         return [
             //
-            'produit_carte_id' => fake()->numberBetween(1, 10),
+            'produit_id' => fake()->numberBetween(1, 10),
             'formule_id' => fake()->numberBetween(1, 10),
         ];
     }

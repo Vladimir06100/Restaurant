@@ -18,13 +18,13 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
             $table->foreignId('produit_id')
-                ->constrained()
-                ->onUpdate('RESTRICT')
-                ->onDelete('RESTRICT');
+                ->nullable()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->foreignId('formule_id')
-                ->constrained()
-                ->onUpdate('RESTRICT')
-                ->onDelete('RESTRICT');
+                ->nullable()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 

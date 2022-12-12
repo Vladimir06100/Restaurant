@@ -18,9 +18,9 @@ class EmplacementFactory extends Factory
     {
         return [
             // 
-            'restaurant_id' => fake()->numberBetween(1, 10),
             'carte_id' => fake()->numberBetween(1, 10),
-            
+            'restaurant_id' => fake()->numberBetween(1, 10),
+
         ];
     }
 }

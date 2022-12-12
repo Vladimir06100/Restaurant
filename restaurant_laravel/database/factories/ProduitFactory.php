@@ -19,7 +19,7 @@ class ProduitFactory extends Factory
         return [
             // ici on va définir les valeurs par défaut de nos colonnes
             'nom_produit' => fake()->company(),
-            'categorie_id' => fake()->randomNumber(1, 4),
+            'categorie_id' => fake()->numberBetween(1, 4),
             'prixHT' => fake()->randomFloat(2, 0, 100),
             'prixTTC' => fake()->randomFloat(2, 0, 100),
             'TVA' => fake()->randomFloat(20, 5.5, 20),

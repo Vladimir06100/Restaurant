@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
+.navbar_logo{
+    background-size: 300px;
+    display: flex;
+    position: fixed;
+    margin: 1em;
+    height: 35px;
+}
+
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 1em;
+    gap: 3em;
+    font-family: 'abel', sans-serif;
+}
+
+a {
+    text-decoration: none
+}
+
+#navbar_style{
+    background-color: #D68D00;
+    padding: 10px;
+    border-radius: 20px;
+    color: white;
+    box-shadow: 0 0 10px 0 rgb(0 0 0 / 20%);
+    width: 6em;
+    text-align: center;
+}
+
+#navbar_style a{
+    color: white;
+}

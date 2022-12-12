@@ -7,18 +7,14 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
-
     //liste contacts
     public function index()
     {
         $contacts=Contact::all();
-
         return response()->json(['contacts'=>$contacts]);
-        # code...
     }
 
     // creation contact
-
     public function store(Request $request)
     {
         $request->validate([
