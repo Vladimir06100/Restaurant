@@ -44,6 +44,7 @@ class ProduitController extends Controller
             'prixHT' => 'required|integer',
             'prixTTC' => 'required|integer',
             'TVA' => 'required|integer',
+            'quantite' => 'required|integer',
         ]);
 
         $produit = Produit::create([
@@ -52,6 +53,7 @@ class ProduitController extends Controller
             'prixHT' => $request->prixHT,
             'prixTTC' => $request->prixTTC,
             'TVA' => $request->TVA,
+            'quantite'=> $request->quantite,
             'restaurateur_id' => auth()->user()->id,
         ]);
 
