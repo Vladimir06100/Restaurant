@@ -25,10 +25,6 @@ return new class extends Migration
             $table->string('categorie_produit_dessert');
             $table->string('prix_formule');
             $table->string('votre_prix');
-            $table->foreignIdFor(Carte::class, 'carte_id')
-                ->nullable()
-                ->onUpdate('RESTRICT')
-                ->onDelete('RESTRICT');
         });
     }
 
