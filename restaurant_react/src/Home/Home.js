@@ -9,7 +9,7 @@ function Home() {
         <div>
             <Menu />
             <div className='home_position'>
-                <div classNameName='home_image'>
+                <div className='home_image'>
                     <img id="imghome" src={ban} alt='bannière' />
                 </div>
 

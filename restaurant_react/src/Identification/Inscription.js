@@ -58,10 +58,10 @@ function Inscription() {
 
                 <div>
                     <form id="register_form" onSubmit={handleSubmit}>
-                        <label for="email">Email</label>
+                        <label htmlFor="email">Email</label>
                         <input type="email" id="email" onChange={handleChange} name="email" placeholder="Votre email" required />
 
-                        <label for="password">Mot de passe</label>
+                        <label htmlFor="password">Mot de passe</label>
                         <input type="password" id="password" onChange={handleChange} name="password" placeholder="Votre mot de passe" required />
 
                         <button type="submit" id="submit" onClick={handleChange}>S'inscrire</button>

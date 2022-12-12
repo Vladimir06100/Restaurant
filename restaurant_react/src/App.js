@@ -3,7 +3,7 @@ import Home from './Home/Home';
 import Inscription from './Identification/Inscription';
 import Connexion from './Identification/Connexion';
 import Error404 from "./Components/Error404/error404";
-//import Restaurant from "./Pages/Restaurant";
+import Restaurant from "./Pages/Restaurant";
 import Produits from "./Pages/Produits";
 import Cartes from "./Pages/Cartes";
 import './Styles/Home.css';
@@ -11,7 +11,8 @@ import './Styles/Home.css';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Home />
+    element: <Home />,
+    error: <Error404 />
   },
 
   {
@@ -20,17 +21,20 @@ const router = createBrowserRouter([
 
   {
     path: '/restaurant',
-    element: <Restaurant />
+    element: <Restaurant />,
+    error: <Error404 />
   },
 
   {
     path: '/produits',
-    element: <Produits />
+    element: <Produits />,
+    error: <Error404 />
   },
 
   {
     path: '/cartes',
-    element: <Cartes />
+    element: <Cartes />,
+    error: <Error404 />
   },
 
   {
@@ -129,6 +133,3 @@ export default App;
 //     </div>
 //   );
 
-
-
-export default App;
