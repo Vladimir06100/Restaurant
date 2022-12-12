@@ -28,6 +28,7 @@ return new class extends Migration
             $table->float('prixHT');
             $table->float('prixTTC');
             $table->float('TVA');
+            $table->integer('quantite');
             $table->foreignIdFor(Restaurateur::class, 'restaurateur_id')
                 ->constrained()
                 ->onUpdate('RESTRICT')

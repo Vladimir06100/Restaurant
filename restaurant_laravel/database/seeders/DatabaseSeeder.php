@@ -29,9 +29,9 @@ class DatabaseSeeder extends Seeder
         $this->call([
             Cartes::class
         ]);
-        $this->call([
+        /* $this->call([
             Produit_Cartes::class
-        ]);
+        ]); */
         $this->call([
             Formules::class
         ]);

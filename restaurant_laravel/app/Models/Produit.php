@@ -18,6 +18,7 @@ class Produit extends Model
         'prixHT',
         'prixTTC',
         'TVA',
+        'quantite',
         'restaurateur_id',
     ];
 
