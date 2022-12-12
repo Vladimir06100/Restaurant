@@ -58,11 +58,36 @@ function Inscription() {
 
                 <div>
                     <form id="register_form" onSubmit={handleSubmit}>
-                        <label htmlFor="email">Email</label>
-                        <input type="email" id="email" onChange={handleChange} name="email" placeholder="Votre email" required />
 
-                        <label htmlFor="password">Mot de passe</label>
-                        <input type="password" id="password" onChange={handleChange} name="password" placeholder="Votre mot de passe" required />
+                        <div className="textRegister">
+                            <label htmlFor="name">Nom</label>
+                            <input type="text" id="name" onChange={handleChange} name="name" placeholder="Votre nom" required />
+                            <span class="material-symbols-outlined">
+                                person
+                            </span>
+                        </div>
+
+                        <div className="textRegister">
+                            <label htmlFor="firstname">Prénom</label>
+                            <input type="text" id="firstname" onChange={handleChange} name="firstname" placeholder="Votre prénom" required />
+                            <span class="material-symbols-outlined">
+                                person
+                            </span>
+                        </div>
+
+                        <div className="textRegister">
+                            <label htmlFor="email">Email</label>
+                            <input type="email" id="email" onChange={handleChange} name="email" placeholder="Votre email" required />
+                            <span className="material-symbols-outlined"> email </span>
+                        </div>
+
+                        <div className="textRegister">
+                            <label htmlFor="password">Mot de passe</label>
+                            <input type="password" id="password" onChange={handleChange} name="password" placeholder="Votre mot de passe" required />
+                            <span class="material-symbols-outlined">
+                                key
+                            </span>
+                        </div>
 
                         <button type="submit" id="submit" onClick={handleChange}>S'inscrire</button>
 

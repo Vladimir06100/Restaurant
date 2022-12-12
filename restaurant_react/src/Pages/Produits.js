@@ -20,7 +20,38 @@ function Produits() {
                     </div>
                 </div>
 
-                <div className="produits">
+                <div class="signup">
+                    <h2>Sign Up</h2>
+                    <h3>It's quick & simple</h3>
+                    <form class="form">
+                        <div class="textbox">
+                            <input type="text" required />
+                            <label>Name</label>
+                            <span class="material-symbols-outlined"> account_circle </span>
+                        </div>
+                        <div class="textbox">
+                            <input type="text" required />
+                            <label>Email</label>
+                            <span class="material-symbols-outlined"> email </span>
+                        </div>
+                        <div class="textbox">
+                            <input type="password" required />
+                            <label>Password</label>
+                            <span class="material-symbols-outlined"> key </span>
+                        </div>
+                        <p>
+                            Signed up already?
+                            <a href="#">Login here</a>
+                        </p>
+
+                        <button type="submit">
+                            Join The Elitists
+                            <span class="material-symbols-outlined"> arrow_forward </span>
+                        </button>
+                    </form>
+                </div>
+
+                {/* <div className="produits">
                     <form method="POST" action="" id="form_position">
                         <label htmlFor="nom">Nom</label>
                         <input type="text" id="nom" name="nom" placeholder="Nom du produit" required />
@@ -49,7 +80,7 @@ function Produits() {
 
                         <button type="submit" id="submitProduct" value="Ajouter"> Ajouter </button>
                     </form>
-                </div>
+                </div> */}
             </div>
             <Footer />
         </div>
