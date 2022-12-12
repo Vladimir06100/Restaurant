@@ -1,0 +1,12 @@
+
+.product_position{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 10em;
+}
+
+.produits{
+    background: #ddb089;
+    width: 30em;
+}

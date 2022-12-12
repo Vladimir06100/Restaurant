@@ -5,3 +5,9 @@
     width: 100%;
     background: #D68D00;
 }
+
+.footer_text{
+    color: white;
+    text-align: center;
+    padding: 10px;
+}

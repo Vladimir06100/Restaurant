@@ -1,6 +1,6 @@
 import Menu from '../Components/Menu';
 import Footer from '../Components/Footer';
-//import './Produits.css';
+import '../Styles/Produits.css';
 
 function Produits() {
     return (
@@ -8,9 +8,21 @@ function Produits() {
             <Menu />
             <h1>Produits</h1>
 
-            <div>
+            <div className="product_position">
+                <div className="home_title">
+                    <span>
+                        Add your <br /><span id="home_title_color">product</span>
+                    </span>
+
+                    <div className="restaurant_text">
+                        <p>
+                            Lorem ipsum dolor sit amet. Qui rerum voluptatem eum blanditiis ratione qui sunt nulla eum adipisci corporis a rerum voluptas et doloremque nisi qui velit eligendi? Aut voluptatibus consequatur non laboriosam maxime ut ducimus dicta. Est quam asperiores aut ducimus veniam nam numquam necessitatibus ut consequatur quaerat qui fuga optio aut nihil laboriosam.
+                        </p>
+                    </div>
+                </div>
+
                 <div className="produits">
-                    <form>
+                    <form method="POST" action="" id="form_position">
                         <label htmlFor="nom">Nom</label>
                         <input type="text" id="nom" name="nom" placeholder="Nom du produit" required />
 
@@ -27,7 +39,11 @@ function Produits() {
                             <option>Déssert</option>
                         </select>
 
-                        <label htmlFor="avatar">Choose a profile picture:</label>
+                        <label htmlFor="quantite">Quantité </label>
+                        <input type="number" id="quantite" name="quantite"
+                            min="1" max="100" />
+
+                        <label htmlFor="file">Choose a profile picture:</label>
                         <input type="file"
                             id="file" name="fichier"
                             accept="image/png, image/jpeg" />

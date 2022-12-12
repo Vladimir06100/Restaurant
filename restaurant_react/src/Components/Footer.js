@@ -2,8 +2,8 @@ import '../Styles/Footer.css';
 
 function Footer() {
     return (
-        <footer>
-            <div className="footer">
+        <footer className="footer">
+            <div className="footer_text">
                 <p>footer</p>
             </div>
         </footer>
