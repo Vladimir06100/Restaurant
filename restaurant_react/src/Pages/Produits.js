@@ -6,10 +6,9 @@ function Produits() {
     return (
         <div>
             <Menu />
-            <h1>Produits</h1>
 
             <div className="product_position">
-                <div className="home_title">
+                <div className="product_title">
                     <span>
                         Add your <br /><span id="home_title_color">product</span>
                     </span>
@@ -48,7 +47,7 @@ function Produits() {
                             id="file" name="fichier"
                             accept="image/png, image/jpeg" />
 
-                        <input type="submit" value="Ajouter" />
+                        <button type="submit" id="submitProduct" value="Ajouter"> Ajouter </button>
                     </form>
                 </div>
             </div>
