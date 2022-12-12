@@ -1,6 +1,7 @@
 import Menu from '../Components/Menu';
 import '../Styles/Connexion.css';
 import Footer from '../Components/Footer';
+import header_img from '../Images/header_login.png';
 import '../Styles/Home.css';
 import { useState } from 'react';
 
@@ -72,16 +73,28 @@ function Connexion() {
                 </span>
             </div>
             <div className='connexion_position'>
-                <form method="POST" action="" id="form_position" onSubmit={submit}>
-                    <label htmlFor="email">Email</label>
-                    <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-                    <label htmlFor="password">Password</label>
-                    <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-                    <input type="submit" value="Login" disabled={!validateForm()} />
-                    <span>MOT DE PASSE OUBLIÉ ?</span>
-                    <span>VOUS N'AVEZ PAS DE COMPTE ? INSCRIPTION</span>
-                </form>
+
+                <div >
+                    <img id="imgco" src={header_img} alt='img' />
+                </div>
+
+                <div>
+                    <form method="POST" action="" id="form_position" onSubmit={submit}>
+                        <label htmlFor="email">Email</label>
+                        <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+
+                        <label htmlFor="password">Password</label>
+                        <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+
+                        <span>MOT DE PASSE OUBLIÉ ?</span>
+
+                        <input id="submitCo" type="submit" value="Login" disabled={!validateForm()} />
+
+                        <span>VOUS N'AVEZ PAS DE COMPTE ? INSCRIPTION</span>
+                    </form>
+                </div>
             </div>
+
             <Footer />
         </div>
     )

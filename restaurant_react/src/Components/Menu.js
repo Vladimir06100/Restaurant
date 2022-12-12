@@ -8,23 +8,22 @@ function Menu() {
                 <img src={logo} alt='logo' />
             </div>
             <nav className="navbar">
-                <ul>
-                    <li id="">
-                        <a href="/">Home </a>
-                    </li>
-                    <li>
-                        <a href="/">About </a>
-                    </li>
-                    <li>
-                        <a href="/">Contact </a>
-                    </li>
-                    <li id="navbar_style">
-                        <a href="/connexion">Connexion </a>
-                    </li>
-                    <li id="navbar_style">
-                        <a href="/inscription">Inscription </a>
-                    </li>
-                </ul>
+                <a href="/">HOME </a>
+
+                <a href="/restaurant">AJOUTER UN RESTAURANT </a>
+
+                <a href="/produits">PRODUIT </a>
+
+                <a href="/cartes">Cartes </a>
+
+                <span id="navbar_style">
+                    <a href="/connexion">CONNEXION </a>
+                </span>
+
+                <span id="navbar_style">
+                    <a href="/inscription">INSCRIPTION </a>
+                </span>
+
             </nav>
         </div>
     )

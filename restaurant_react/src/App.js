@@ -3,7 +3,9 @@ import Home from './Home/Home';
 import Inscription from './Identification/Inscription';
 import Connexion from './Identification/Connexion';
 import Error404 from "./Components/Error404/error404";
-//import LoginPage from "./Pages/login_page";
+//import Restaurant from "./Pages/Restaurant";
+import Produits from "./Pages/Produits";
+import Cartes from "./Pages/Cartes";
 import './Styles/Home.css';
 
 const router = createBrowserRouter([
@@ -11,11 +13,26 @@ const router = createBrowserRouter([
     path: '/',
     element: <Home />
   },
-  // {
-  //   path: "/login",
-  //   element: <LoginPage />,
-  //   error: <Error404 />
-  // },
+
+  {
+    error: <Error404 />
+  },
+
+  {
+    path: '/restaurant',
+    element: <Restaurant />
+  },
+
+  {
+    path: '/produits',
+    element: <Produits />
+  },
+
+  {
+    path: '/cartes',
+    element: <Cartes />
+  },
+
   {
     path: '/inscription',
     element: <Inscription />,
@@ -111,3 +128,7 @@ export default App;
 //       </div>
 //     </div>
 //   );
+
+
+
+export default App;
