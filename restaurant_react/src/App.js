@@ -1,8 +1,23 @@
 import { useEffect, useState } from 'react';
+import { createBrowserRouter, Router, RouterProvider } from "react-router-dom"
 import './App.css';
 import Contact from './Contact/Contact';
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Qrcode />,
+    error: <Error404 />
+  },
+])
+
 function App() {
+
+  return (
+    <div className="App">
+      <RouterProvider router={router} />
+    </div>
+  )
   const [contacts, setContacts] = useState([]);
 
   async function getContacts() {
