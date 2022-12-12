@@ -19,6 +19,8 @@ class CarteFactory extends Factory
         return [
             // create 10 random cartes
             'nom_carte' => fake()->name(),
+            // add produit_id x10
+            'produit_id' => fake()->numberBetween(1, 10),
             'restaurant_id' => fake()->numberBetween(1, 10),
         ];
     }

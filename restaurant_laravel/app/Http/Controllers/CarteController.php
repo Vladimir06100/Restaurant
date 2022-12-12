@@ -42,10 +42,16 @@ class CarteController extends Controller
      */
     public function store(Request $request)
     {
+        // request validation
+        $request->validate([
+            'nom_carte' => 'required',
+            'produit_id' => 'required',
+            'restaurant_id' => 'required',
+        ]);
         // create a new carte in the database
         $carte = new Carte();
         $carte->nom_carte = $request->nom_carte;
-        $carte->description_carte = $request->description_carte;
+        $carte->produit_id = $request->produit_id;
         $carte->restaurant_id = $request->restaurant_id;
         $carte->save();
 

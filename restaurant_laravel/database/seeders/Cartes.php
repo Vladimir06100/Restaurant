@@ -16,9 +16,6 @@ class Cartes extends Seeder
     public function run()
     {
         //
-        Carte::factory()->create([
-            'nom_carte' => 'Carte 1',
-            'restaurant_id' => 1,
-        ]);
+        Carte::factory()->count(10)->create();
     }
 }
