@@ -22,6 +22,7 @@ class CarteFactory extends Factory
             // add produit_id x10
             'produit_id' => fake()->numberBetween(1, 10),
             'restaurant_id' => fake()->numberBetween(1, 10),
+            'formule_id' => fake()->numberBetween(1, 10),
         ];
     }
 }

@@ -57,7 +57,6 @@ class FormuleController extends Controller
             'dessert' => $request->dessert,
             'prix_formule' => $request->prix_formule,
             'votre_prix' => $request->votre_prix,
-            'carte_id' => auth()->user()->id,
         ]);
         response()->json([
             'message' => 'Formule créée avec succès',

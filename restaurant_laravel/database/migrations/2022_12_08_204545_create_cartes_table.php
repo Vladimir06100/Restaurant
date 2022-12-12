@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Formule;
 use App\Models\Produit;
 use App\Models\Restaurant;
 use Illuminate\Database\Migrations\Migration;
@@ -28,7 +29,10 @@ return new class extends Migration
                 ->constrained()
                 ->onUpdate('RESTRICT')
                 ->onDelete('RESTRICT');
-
+            $table->foreignIdFor(Formule::class, 'formule_id')
+                ->constrained()
+                ->onUpdate('RESTRICT')
+                ->onDelete('RESTRICT');
         });
     }
 
