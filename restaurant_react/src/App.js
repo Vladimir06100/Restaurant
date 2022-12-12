@@ -4,6 +4,8 @@ import Inscription from './Identification/Inscription';
 import Connexion from './Identification/Connexion';
 import Error404 from "./Components/Error404/error404";
 import Restaurant from "./Pages/Restaurant";
+import Produits from "./Pages/Produits";
+import Cartes from "./Pages/Cartes";
 import './Styles/Home.css';
 
 
@@ -20,6 +22,16 @@ const router = createBrowserRouter([
   {
     path: '/restaurant',
     element: <Restaurant />
+  },
+
+  {
+    path: '/produits',
+    element: <Produits />
+  },
+
+  {
+    path: '/cartes',
+    element: <Cartes />
   },
 
   {

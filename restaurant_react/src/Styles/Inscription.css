@@ -1,0 +1,16 @@
+
+.register_position{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5em;
+}
+
+.register_form{
+    display: block;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #d68d00;
+    padding: 15px;
+}

@@ -1,0 +1,14 @@
+
+.restaurant_position{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 10em;
+}
+
+.restaurant_text{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+    text-align: justify;
+    width: 20em;
+}

@@ -1,7 +1,8 @@
 import Menu from '../Components/Menu';
+import header_register from '../Images/header_register.png';
 import Footer from '../Components/Footer';
 import { useState } from 'react';
-// import''; ici css
+import '../Styles/Inscription.css';
 
 
 function Inscription() {
@@ -57,18 +58,27 @@ function Inscription() {
         <div>
             <Menu />
             <h1>Inscription</h1>
-            <form onSubmit={handleSubmit}>
-                <label for="email">Email</label>
-                <input type="email" id="email" onChange={handleChange} name="email" placeholder="Votre email" required />
+            <div className="register_position">
 
-                <label for="password">Mot de passe</label>
-                <input type="password" id="password" onChange={handleChange} name="password" placeholder="Votre mot de passe" required />
+                <div>
+                    <img src={header_register} alt="header_register" />
+                </div>
 
-                <button type="submit" id="submit" onClick={handleChange}>S'inscrire</button>
+                <div>
+                    <form id="register_form" onSubmit={handleSubmit}>
+                        <label for="email">Email</label>
+                        <input type="email" id="email" onChange={handleChange} name="email" placeholder="Votre email" required />
 
-                <span>Vous avez déjà un compte ?</span>
+                        <label for="password">Mot de passe</label>
+                        <input type="password" id="password" onChange={handleChange} name="password" placeholder="Votre mot de passe" required />
 
-            </form>
+                        <button type="submit" id="submit" onClick={handleChange}>S'inscrire</button>
+
+                        <span>Vous avez déjà un compte ?</span>
+
+                    </form>
+                </div>
+            </div>
             <Footer />
         </div>
     )

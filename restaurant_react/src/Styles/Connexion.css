@@ -1,4 +1,10 @@
 
+.connexion_position{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5em;
+}
 
 .connexion_title{
     display: flex;
@@ -8,15 +14,38 @@
     justify-content: space-around;
 }
 
-.connexion_position{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-
 #form_position{
     display: flex;
     flex-direction: column;
-    padding-right: 30em;
     gap: 10px;
+}
+
+.imgco{
+    width: 40em;
+    padding-left: 8em;
+}
+
+input{
+    display: block;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #d68d00;
+    padding: 15px;
+}
+
+#submitCo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d68d00;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
 }

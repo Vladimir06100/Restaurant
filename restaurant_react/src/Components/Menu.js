@@ -7,44 +7,23 @@ function Menu() {
             <div className="navbar_logo">
                 <img src={logo} alt='logo' />
             </div>
-<<<<<<< HEAD
-            <nav class="navbar">
-                <ul id="navabar_text">
-                    <a href="/">HOME </a>
-                    <a href="/restaurant">AJOUTER UN RESTAURANT </a>
-                    <a href="/">AJOUTER UN PRODUIT </a>
-                    <a href="/">VOS CARTES </a>
-                    <span id="navbar_style">
-                        <a href="/connexion">CONNEXION </a>
-                    </span>
-                    <span id="navbar_style">
-                        <a href="/inscription">INSCRIPTION </a>
-                    </span>
-=======
             <nav className="navbar">
-                <ul>
-                    <li id="">
-                        <a href="/">Home </a>
-                    </li>
+                <a href="/">HOME </a>
 
-                    <li>
-                        <a href="/">About </a>
-                    </li>
+                <a href="/restaurant">AJOUTER UN RESTAURANT </a>
 
-                    <li>
-                        <a href="/">Contact </a>
-                    </li>
+                <a href="/produits">PRODUIT </a>
 
-                    <li id="navbar_style">
-                        <a href="/connexion">Connexion </a>
-                    </li>
+                <a href="/cartes">Cartes </a>
 
-                    <li id="navbar_style">
-                        <a href="/inscription">Inscription </a>
-                    </li>
+                <span id="navbar_style">
+                    <a href="/connexion">CONNEXION </a>
+                </span>
 
->>>>>>> main
-                </ul>
+                <span id="navbar_style">
+                    <a href="/inscription">INSCRIPTION </a>
+                </span>
+
             </nav>
 
         </div>
