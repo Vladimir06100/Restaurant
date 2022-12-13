@@ -3,6 +3,7 @@ import Footer from '../Components/Footer';
 // import ''./Cartes.css';
 import {useState,useEffect} from 'react';
 import Cartes_props from '../Props/Cartes_props';
+import Produits from '../Props/Produits_props';
 
 
 function Cartes() {
@@ -24,7 +25,6 @@ function Cartes() {
     }
  
     useEffect(() => {
-      console.log('useEffect');
       getCartes();
     }, []);
  
@@ -50,6 +50,30 @@ function Cartes() {
      const newCarte = data.carte;
      setCartes([newCarte, ...cartes]);
    }
+
+
+   const [produits, setProduits] = useState([]);
+
+   async function getProduits() {
+       const options = {
+           method: 'GET',
+           headers: {
+               'Content-Type': 'application/json',
+           },
+       };
+       let response = await fetch('http://localhost:8000/api/produits', options);
+       const data = await response.json();
+       console.log(data);
+       const produits = data.produits;
+       setProduits(produits);
+   }
+
+   useEffect(() => {
+       console.log('useEffect');
+       getProduits();
+   }
+       , []);
+
     return (
         <div>
             <Menu />
@@ -70,13 +94,24 @@ function Cartes() {
   produit_id={carte.produit_id} />
   ))}
 
+Produits :  {produits.map((produit) => (
+                                <tr key={produit.id}>
+                                    <td>{produit.nom_produit}</td>
+                                    <td>{produit.categorie_id}</td>
+                                    <td>{produit.description}</td>
+                                    <td>{produit.prixHT}</td>
+                                    <td>{produit.TVA}</td>
+                                    <td>{produit.prixTTC}</td>
+                                    <td>{produit.quantite}</td>
+                                </tr> ))}
 
-            <label htmlFor="name">Nom de la carte</label>
-            <input type="text" id="name" name="" />
+
+            <label htmlFor="nom">Nom de la carte</label>
+            <input type="text" id="nom" name="nom" />
 
             <label htmlFor="produit">Produits</label>
             <select id="produit" name="produit">
-                <option value="{cartes.produit_id}">  
+                <option value="">  
     
    </option>
             </select>
