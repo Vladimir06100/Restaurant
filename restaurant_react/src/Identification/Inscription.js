@@ -6,18 +6,18 @@ import '../Styles/Inscription.css';
 
 
 function Inscription() {
-    const [lastname, setLastName] = useState ('');
-    const [firstname, setFirstName] = useState ('');
+    const [nom, setNom] = useState ('');
+    const [prenom, setPrenom] = useState ('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     function handleChange(e) {
         const { id, value } = e.target;
-        if (id === 'lastname') {
-            setLastName(value);
+        if (id === 'nom') {
+            setNom(value);
         }
-        if (id === 'firstname') {
-            setFirstName(value);
+        if (id === 'prenom') {
+            setPrenom(value);
         }
         if (id === 'email') {
             setEmail(value);
@@ -28,7 +28,7 @@ function Inscription() {
 
     function handleSubmit(e) {
         e.preventDefault();
-        console.log(lastname, firstname, email, password);
+        console.log(nom, prenom, email, password);
         addUser();
     }
 
@@ -40,8 +40,8 @@ function Inscription() {
                 'Accept': 'application/json'
             },
             body: JSON.stringify({ 
-                lastname: lastname,
-                firstname: firstname,
+                firstname: prenom,
+                lastname: nom,
                 email: email,
                 password: password
             })
@@ -49,6 +49,7 @@ function Inscription() {
 
         const response = await fetch(`http://localhost:8000/api/restaurateurs/register`, options);
         const data = await response.json();
+        console.log('data : ', data);
         // const message = data.message;
 
         // if (message === 'Firstname, lastname, email and password are required') {
@@ -71,16 +72,16 @@ function Inscription() {
                 <div>
                     <form id="register_form" onSubmit={handleSubmit}>
                         <label htmlFor="nom">Nom</label>
-                        <input type="text" id="nom" onChange={handleChange} placeholder="Nom" required />
+                        <input type="text" id="nom" onChange={handleChange} value={nom} placeholder="Nom" required />
 
-                        <label htmlFor="prenom">Prenom</label>
-                        <input type="text" id="prenom" onChange={handleChange} placeholder="Prénom" required />
+                        <label htmlFor="prenom">Prénom</label>
+                        <input type="text" id="prenom" onChange={handleChange} value={prenom} placeholder="Prénom" required />
 
                         <label htmlFor="email">Email</label>
-                        <input type="email" id="email" onChange={handleChange} placeholder="Votre email" required />
+                        <input type="email" id="email" onChange={handleChange} value={email} placeholder="Votre email" required />
 
                         <label htmlFor="password">Mot de passe</label>
-                        <input type="password" id="password" onChange={handleChange} placeholder="Votre mot de passe" required />
+                        <input type="password" id="password" onChange={handleChange} value={password} placeholder="Votre mot de passe" required />
 
                         <button type="submit" id="submit" onClick={handleSubmit}>S'inscrire</button>
 

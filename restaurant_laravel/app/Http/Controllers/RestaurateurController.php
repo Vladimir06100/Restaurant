@@ -38,7 +38,7 @@ class RestaurateurController extends Controller
     }
 
     // creation profile
-    public function store(Request $request)
+    public function register(Request $request)
     {
         $request->validate([
             'nom' => 'required|string',
