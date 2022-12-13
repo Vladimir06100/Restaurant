@@ -4,12 +4,14 @@ import '../../Styles/Qrcode.css';
 
 function Qrcode() {
 
-	let fakerlink = [
-		"https://github.com/faker-js/faker",
-		"https://www.npmjs.com/package/faker",
-		"https://www.npmjs.com/package/faker-js",
-		"https://www.npmjs.com/package/faker-js-plugins",
+	let fakelink = [
+		"https://facebook.com",
+		"https://twitter.com",
+		"https://www.linkedin.com",
+		"https://plus.google.com",
+		"https://plus.google.com",
 	]
+
 	const [url, setUrl] = useState('')
 	const [qr, setQr] = useState('')
 
