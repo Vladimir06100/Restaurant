@@ -127,6 +127,8 @@ return (
             </div>
             <Footer />
         </div>
+    
+    </div>
     )
 }
 

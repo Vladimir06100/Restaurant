@@ -8,6 +8,7 @@ function Home() {
     return (
         <div>
             <Menu />
+
             <div className='home_position'>
                 <div className='home_image'>
                     <img id="imghome" src={ban} alt='bannière' />
@@ -25,6 +26,7 @@ function Home() {
                     </div>
                 </div>
             </div>
+
             <Footer />
         </div>
     )

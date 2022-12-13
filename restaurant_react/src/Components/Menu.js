@@ -16,6 +16,9 @@ function Menu() {
 
                 <a href="/cartes">Cartes </a>
 
+                <a href="/formules">Formules </a>
+
+
                 <span id="navbar_style">
                     <a href="/connexion">CONNEXION </a>
                 </span>
