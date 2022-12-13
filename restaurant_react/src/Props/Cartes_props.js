@@ -1,7 +1,7 @@
 import{useState,useEffect} from 'react';
 
 function Cartes({
-	postnom_carte,postproduit_id
+	nom_carte,produit_id
 }) {
 
 	
@@ -9,9 +9,9 @@ function Cartes({
 
         <div>
 
-Nom Carte : {postnom_carte}
+Nom Carte : {nom_carte}
 
-Produits : {postproduit_id}
+Produits : {produit_id}
 
       
     </div>

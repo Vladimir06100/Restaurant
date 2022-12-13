@@ -72,11 +72,11 @@ function Cartes() {
 
 
             <label htmlFor="name">Nom de la carte</label>
-            <input type="text" id="name" name={cartes.nom_carte}  />
+            <input type="text" id="name" name="" />
 
             <label htmlFor="produit">Produits</label>
             <select id="produit" name="produit">
-                <option value={cartes.produit_id}>  
+                <option value="{cartes.produit_id}">  
     
    </option>
             </select>
