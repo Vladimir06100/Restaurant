@@ -1,5 +1,6 @@
 import Menu from '../Components/Menu';
 import Footer from '../Components/Footer';
+import Qrcode from '../Components/Qrcode/Qrcode';
 // import ''./Cartes.css';
 import {useState,useEffect} from 'react';
 
@@ -61,7 +62,6 @@ function Cartes() {
 const nom_carte= event.target.nom_carte.value;
 createCarte(nom_carte);
 
-
                 }}>
                     <label htmlFor="name">Nom de la carte</label>
                     <input type="text" id="name" name="nom_carte" />
@@ -79,6 +79,7 @@ createCarte(nom_carte);
                     <button type="submit">Ajouter</button>
                     <button type="submit">Modifier</button>
                     <button type="submit">Supprimé</button>
+                    <Qrcode url="http://localhost:8000/api/" />
                 </form>
 
                 

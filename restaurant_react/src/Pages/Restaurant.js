@@ -1,8 +1,42 @@
 import Menu from '../Components/Menu';
 import Footer from '../Components/Footer';
 import '../Styles/Restaurant.css';
+import { useState } from 'react';
 
 function Restaurant() {
+
+    const [name, setName] = useState ("");
+    const [adress, setAdress] = useState ("");
+    const [phone, setPhone] = useState ("");
+    const [horaires, setHoraires] = useState ("");
+    const [description, setDescription] = useState ("");
+    const [image, setImage] = useState ("");
+
+    function handleSubmit(e) {
+        const addfield = (name, adress, phone, horaires, description, image)
+        e.preventDefault();
+    }
+
+    async function addRestaurant() {
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({ 
+                name: name,
+                adress: adress,
+                phone: phone,
+                horaires: horaires,
+                description: description,
+                image: image,
+})
+        }
+        
+        const response = await fetch(`http://localhost:8000/api/restaurants`, options);
+        const data = await response.json();
+
     return (
         <div>
             <Menu />
@@ -21,7 +55,7 @@ function Restaurant() {
 
                 </div>
                 <div>
-                    <form>
+                    <form onSubmit={handleSubmit}>
                         <label htmlFor="name">Name</label>
                         <input type="text" id="name" name="name" placeholder="Your name.." required />
 
@@ -47,6 +81,7 @@ function Restaurant() {
             <Footer />
         </div>
     )
+}
 }
 
 export default Restaurant;
