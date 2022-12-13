@@ -1,7 +1,15 @@
-import QRCode from 'qrcode'
-import { useState } from 'react'
+import QRCode from 'qrcode';
+import { useState } from 'react';
+import '../../Styles/Qrcode.css';
 
-function App() {
+function Qrcode() {
+
+	let fakerlink = [
+		"https://github.com/faker-js/faker",
+		"https://www.npmjs.com/package/faker",
+		"https://www.npmjs.com/package/faker-js",
+		"https://www.npmjs.com/package/faker-js-plugins",
+	]
 	const [url, setUrl] = useState('')
 	const [qr, setQr] = useState('')
 
@@ -22,7 +30,7 @@ function App() {
 	}
  
 	return (
-		<div className="app">
+		<div className="qrcode_div">
 			<h1>Générateur de QR Code</h1>
 			<input 
 				type="text"
@@ -31,11 +39,11 @@ function App() {
 				onChange={e => setUrl(e.target.value)} />
 			<button onClick={GenerateQRCode}>Générer</button>
 			{qr && <>
-				<img src={qr} alt='qr'/>
+				<img src={qr} alt='link qr'/>
 				<a href={qr} download="qrcode.png">Télécharger le QRCode</a>
 			</>}
 		</div>
 	)
 }
 
-export default App
+export default Qrcode;
