@@ -1,4 +1,4 @@
-function Produits(nom_produit, description, prixHT, prixTTC, TVA, quantite) {
+function Produit(nom_produit, categorie_id, description, prixHT, prixTTC, TVA, quantite) {
     // categorie_id,
     return (
         <div className="produits">
@@ -6,7 +6,7 @@ function Produits(nom_produit, description, prixHT, prixTTC, TVA, quantite) {
                 <div className="produits__wrapper">
                     <ul className="produits__items">
                         nom_produit={nom_produit}
-                        {/* categorie_id={categorie_id} */}
+                        categorie_id={categorie_id}
                         description={description}
                         prixHT={prixHT}
                         prixTTC={prixTTC}
@@ -19,4 +19,4 @@ function Produits(nom_produit, description, prixHT, prixTTC, TVA, quantite) {
     );
 }
 
-export default Produits;
+export default Produit;

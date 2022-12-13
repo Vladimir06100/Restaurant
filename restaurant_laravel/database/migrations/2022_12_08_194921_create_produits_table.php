@@ -31,6 +31,7 @@ return new class extends Migration
             $table->float('TVA');
             $table->integer('quantite');
             $table->foreignIdFor(Restaurateur::class, 'restaurateur_id')
+                ->nullable()
                 ->constrained()
                 ->onUpdate('RESTRICT')
                 ->onDelete('RESTRICT');

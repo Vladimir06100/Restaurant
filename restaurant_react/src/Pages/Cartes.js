@@ -75,7 +75,6 @@ createCarte(nom_carte);
              />
            ))}</option>
                     </select>
-
                     <button type="submit">Ajouter</button>
                     <button type="submit">Modifier</button>
                     <button type="submit">Supprimé</button>

@@ -61,7 +61,6 @@ function Connexion() {
         const dataID = await response.json();
         const ID = dataID._id;
         localStorage.setItem("userID", JSON.stringify(ID));
-        console.log("Key user : ", ID);
     }
 
     return (

@@ -34,11 +34,11 @@ class ProduitController extends Controller
         // create a new product
         $request->validate([
             'nom_produit' => 'required|string',
-            'description' => 'required|string',
-            // 'categorie_id' => 'required|integer',
+            'categorie_id' => 'required|integer',
+            'description' => 'required',
             'prixHT' => 'required|integer',
+            'TVA' => '',
             'prixTTC' => 'required|integer',
-            'TVA' => 'required|integer',
             'quantite' => 'required|integer',
         ]);
 
@@ -47,8 +47,8 @@ class ProduitController extends Controller
             'categorie_id' => $request->categorie_id,
             'description' => $request->description,
             'prixHT' => $request->prixHT,
-            'prixTTC' => $request->prixTTC,
             'TVA' => $request->TVA,
+            'prixTTC' => $request->prixTTC,
             'quantite' => $request->quantite,
             // 'restaurateur_id' => auth()->user()->id,
         ]);
@@ -97,8 +97,8 @@ class ProduitController extends Controller
             'categorie' => 'required|string',
             'description' => 'required|string',
             'prixHT' => 'required|integer',
-            'prixTTC' => 'required|integer',
             'TVA' => 'required|integer',
+            'prixTTC' => 'required|integer',
             'quantite' => 'required|integer',
         ]);
 
@@ -107,8 +107,8 @@ class ProduitController extends Controller
         $produit->categorie_id = $request->categorie_id;
         $produit->description = $request->description;
         $produit->prixHT = $request->prixHT;
-        $produit->prixTTC = $request->prixTTC;
         $produit->TVA = $request->TVA;
+        $produit->prixTTC = $request->prixTTC;
         $produit->save();
 
         return response()->json([
