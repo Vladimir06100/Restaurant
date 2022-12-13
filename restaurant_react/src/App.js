@@ -58,6 +58,7 @@ export default App;
 // import Contact from './Contact/Contact';
 // import { useEffect, useState } from 'react';
 //   const [contacts, setContacts] = useState([]);
+
 //   async function getContacts() {
 //     const options = {
 //       method: 'GET',

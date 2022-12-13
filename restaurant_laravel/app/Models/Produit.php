@@ -17,15 +17,15 @@ class Produit extends Model
         'categorie_id',
         'description',
         'prixHT',
-        'prixTTC',
         'TVA',
+        'prixTTC',
         'quantite',
     ];
 
     protected string $nom_produit;
-    protected string $categorie_id ;
+    protected string $categorie_id;
     protected string $description;
     protected float $prixHT;
-    protected float $prixTTC;
     protected float $TVA;
+    protected float $prixTTC;
 }
