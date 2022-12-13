@@ -6,48 +6,48 @@ import '../Styles/Inscription.css';
 
 
 function Inscription() {
-    const [lastname, setLastName] = useState ('');
-    const [firstname, setFirstName] = useState ('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [nom, setNom] = useState ("");
+    const [prenom, setPrenom] = useState ("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
-    function handleChange(e) {
-        const { id, value } = e.target;
-        if (id === 'lastname') {
-            setLastName(value);
-        }
-        if (id === 'firstname') {
-            setFirstName(value);
-        }
-        if (id === 'email') {
-            setEmail(value);
-        } else if (id === 'password') {
-            setPassword(value);
-        }
-    }
+    // function handleChange(e) {
+    //     const { id, value } = e.target;
+    //     if (id === 'nom') {
+    //         setNom(value);
+    //     }
+    //     if (id === 'prenom') {
+    //         setPrenom(value);
+    //     }
+    //     if (id === 'email') {
+    //         setEmail(value);
+    //     } else if (id === 'password') {
+    //         setPassword(value);
+    //     }
+    // }
 
     function handleSubmit(e) {
         e.preventDefault();
-        console.log(lastname, firstname, email, password);
+        console.log(nom, prenom, email, password);
         addUser();
     }
 
     async function addUser() {
         const options = {
-            method: 'POST',
+            method: "POST",
             headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
+                "Content-Type": "application/json",
             },
+
             body: JSON.stringify({ 
-                lastname: lastname,
-                firstname: firstname,
+                nom: nom,
+                prenom: prenom,
                 email: email,
                 password: password
-            })
+            }),
         };
 
-        const response = await fetch(`http://localhost:8000/api/restaurateurs/register`, options);
+        const response = await fetch(`http://127.0.0.1:8000/api/restaurateurs/register`, options);
         const data = await response.json();
         // const message = data.message;
 
@@ -56,6 +56,8 @@ function Inscription() {
         // } else {
         //     alert('Votre compte a bien été créé !')
         // }
+
+        console.log('création de compte : ', data);
     }
 
     return (
@@ -70,39 +72,33 @@ function Inscription() {
 
                 <div>
                     <form id="register_form" onSubmit={handleSubmit}>
-                        <label htmlFor="nom">Nom</label>
-                        <input type="text" id="nom" onChange={handleChange} value={nom} placeholder="Nom" required />
-
-                        <label htmlFor="prenom">Prénom</label>
-                        <input type="text" id="prenom" onChange={handleChange} value={prenom} placeholder="Prénom" required />
-
 
                         <div className="textRegister">
                             <label htmlFor="name">Nom</label>
-                            <input type="text" id="name" onChange={handleChange} name="name" placeholder="Votre nom" required />
-                            <span class="material-symbols-outlined">
+                            <input type="text" id="name" name="nom" value={nom} onChange={(e) => setNom(e.target.value)} placeholder="Votre nom" required />
+                            <span className="material-symbols-outlined">
                                 person
                             </span>
                         </div>
 
                         <div className="textRegister">
                             <label htmlFor="firstname">Prénom</label>
-                            <input type="text" id="firstname" onChange={handleChange} name="firstname" placeholder="Votre prénom" required />
-                            <span class="material-symbols-outlined">
+                            <input type="text" id="firstname" name="prenom" value={prenom} onChange={(e) => setPrenom(e.target.value)} placeholder="Votre prénom" required />
+                            <span className="material-symbols-outlined">
                                 person
                             </span>
                         </div>
 
                         <div className="textRegister">
                             <label htmlFor="email">Email</label>
-                            <input type="email" id="email" onChange={handleChange} value={email} placeholder="Votre email" required />
+                            <input type="email" id="email" onChange={(e) => setEmail(e.target.value)} value={email} placeholder="Votre email" required />
                             <span className="material-symbols-outlined"> email </span>
                         </div>
 
                         <div className="textRegister">
                             <label htmlFor="password">Mot de passe</label>
-                            <input type="password" id="password" onChange={handleChange} value={password} name="password" placeholder="Votre mot de passe" required />
-                            <span class="material-symbols-outlined">
+                            <input type="password" id="password" onChange={(e) => setPassword(e.target.value)} value={password} name="password" placeholder="Votre mot de passe" required />
+                            <span className="material-symbols-outlined">
                                 key
                             </span>
                         </div>
