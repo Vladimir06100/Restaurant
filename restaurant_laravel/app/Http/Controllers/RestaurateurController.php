@@ -40,18 +40,13 @@ class RestaurateurController extends Controller
     // creation profile
     public function register(Request $request)
     {
-        $request->validate([
-            'nom' => 'required|string',
-            'prenom' => 'required|string',
-            'email' => 'required|email',
-            'password' => 'required|string'
-        ]);
-        $restaurateur = Restaurateur::create([
-            'nom' => $request->nom,
-            'prenom' => $request->prenom,
-            'email' => $request->email,
-            'password' => $request->password,
-        ]);
+        $restaurateur = new restaurateur;
+        $restaurateur->nom = $request->input('nom');
+        $restaurateur->prenom = $request->input('prenom');
+        $restaurateur->email = $request->input('email');
+        $restaurateur->password = Hash::make($request->input('password'));
+        $restaurateur->save();
+
         return response()->json([
             'message' => 'Restaurateur created.',
             'restaurateur' => $restaurateur
