@@ -71,10 +71,10 @@ function Inscription() {
                 <div>
                     <form id="register_form" onSubmit={handleSubmit}>
                         <label htmlFor="nom">Nom</label>
-                        <input type="text" id="nom" onChange={handleChange} placeholder="Nom" required />
+                        <input type="text" id="nom" onChange={handleChange} value={nom} placeholder="Nom" required />
 
-                        <label htmlFor="prenom">Prenom</label>
-                        <input type="text" id="prenom" onChange={handleChange} placeholder="Prénom" required />
+                        <label htmlFor="prenom">Prénom</label>
+                        <input type="text" id="prenom" onChange={handleChange} value={prenom} placeholder="Prénom" required />
 
 
                         <div className="textRegister">
@@ -95,13 +95,13 @@ function Inscription() {
 
                         <div className="textRegister">
                             <label htmlFor="email">Email</label>
-                            <input type="email" id="email" onChange={handleChange} placeholder="Votre email" required />
+                            <input type="email" id="email" onChange={handleChange} value={email} placeholder="Votre email" required />
                             <span className="material-symbols-outlined"> email </span>
                         </div>
 
                         <div className="textRegister">
                             <label htmlFor="password">Mot de passe</label>
-                            <input type="password" id="password" onChange={handleChange} name="password" placeholder="Votre mot de passe" required />
+                            <input type="password" id="password" onChange={handleChange} value={password} name="password" placeholder="Votre mot de passe" required />
                             <span class="material-symbols-outlined">
                                 key
                             </span>
