@@ -25,6 +25,7 @@ return new class extends Migration
                 ->constrained()
                 ->onUpdate('RESTRICT')
                 ->onDelete('RESTRICT');
+            $table->text('description');
             $table->float('prixHT');
             $table->float('prixTTC');
             $table->float('TVA');
