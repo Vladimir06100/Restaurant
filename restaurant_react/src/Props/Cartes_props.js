@@ -1,14 +1,22 @@
 import{useState,useEffect} from 'react';
 
 
-function Cartes({nom_carte}) 
+function Cartes(props) 
 {
+const [listproduits,setListproduits]= useState([]);
+    useEffect(()=>{
+props.listproduits.filter(e=>e.id=== props.produit_id);
+setListproduits(listproduits);
+    },[])
 
 	return (
 
         <div>
 
-Nom Carte : {nom_carte}
+Nom Carte : {props.nom_carte}
+
+Produit : {props.listproduits}
+
 
 
       

@@ -9,6 +9,7 @@ import Produits from '../Props/Produits_props';
 function Cartes() {
 
     const [cartes, setCartes] = useState ([]);
+    const [listproduits, setListproduits] = useState ([]);
 
     async function getCartes() {
       const options = {
@@ -21,7 +22,10 @@ function Cartes() {
       const data = await response.json();
       console.log(data);
       const cartes = data.cartes;
+      const listproduits= data.db;
       setCartes(cartes);
+      setListproduits(listproduits);
+      console.log(listproduits,'testa');
     }
  
     useEffect(() => {
@@ -52,28 +56,6 @@ function Cartes() {
    }
 
 
-   const [produits, setProduits] = useState([]);
-
-   async function getProduits() {
-       const options = {
-           method: 'GET',
-           headers: {
-               'Content-Type': 'application/json',
-           },
-       };
-       let response = await fetch('http://localhost:8000/api/produits', options);
-       const data = await response.json();
-       console.log(data);
-       const produits = data.produits;
-       setProduits(produits);
-   }
-
-   useEffect(() => {
-       console.log('useEffect');
-       getProduits();
-   }
-       , []);
-
     return (
         <div>
             <Menu />
@@ -91,19 +73,13 @@ function Cartes() {
   <Cartes_props 
   key={index}
   nom_carte={carte.nom_carte} 
-  produit_id={carte.produit_id} />
+  listproduits={listproduits}
+  produit_id={carte.produit_id}  
+  
+  
+  />
   ))}
 
-Produits :  {produits.map((produit) => (
-                                <tr key={produit.id}>
-                                    <td>{produit.nom_produit}</td>
-                                    <td>{produit.categorie_id}</td>
-                                    <td>{produit.description}</td>
-                                    <td>{produit.prixHT}</td>
-                                    <td>{produit.TVA}</td>
-                                    <td>{produit.prixTTC}</td>
-                                    <td>{produit.quantite}</td>
-                                </tr> ))}
 
 
             <label htmlFor="nom">Nom de la carte</label>
