@@ -1,13 +1,13 @@
 import QRCode from 'qrcode.react'; //Import du modude Qrcode nécessaire pour générer un Qrcode. 
 import '../../Styles/Qrcode.css'; 
 
-function Qrcode() {
+function Qrcode(props) {
  
 	return (
 			<div className="qrcode_header">
-
 			<QRCode  // La balise QRCode permet de créer un qrcode.
-               value="https://mettrelelienici.com"style={{ marginRight: 50 }}/>
+			// Props URL qui servira a mettre un QRCode sur la page en question
+               value={props.url}style={{ marginRight: 50 }}/>
 			</div>
 	)
 }
