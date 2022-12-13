@@ -19,7 +19,7 @@ function Connexion() {
     }
 
     async function connect() {
-        let options = {
+        const options = {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -34,35 +34,36 @@ function Connexion() {
         const data = await response.json();
         console.log("Data : ", data);
         const token = data.token;
-        const success = data.success;
+        const message = data.message;
 
-        if (success === false) {
-            alert("Veuillez remplir tous les champs de connexion.");
-        }
-        if (success === true) {
+        if (message === 'Connexion réussi.') {
             alert("Vous êtes connecté");
+        }
+        if (message !== 'Connexion réussi.') {
+            alert("Veuillez remplir tous les champs de connexion.");
         }
         console.log("Token : ", token);
         localStorage.setItem("token", JSON.stringify(token));
-        getID();
+        // getID();
     }
 
-    async function getID() {
-        let token = JSON.parse(localStorage.getItem("token"));
-        const optionsID = {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `bearer ${token}`
-            }
-        }
+    // async function getID() {
+    //     const token = JSON.parse(localStorage.getItem("token"));
+    //     const optionsID = {
+    //         method: "GET",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //             "Authorization": `bearer ${token}`
+    //         }
+    //     }
 
-        const response = await fetch(`http://127.0.0.1:8000/api/restaurateurs/login`, optionsID);
-        const dataID = await response.json();
-        const ID = dataID._id;
-        localStorage.setItem("userID", JSON.stringify(ID));
-        console.log("Key user : ", ID);
-    }
+    //     const response = await fetch(`http://127.0.0.1:8000/api/restaurateurs/login`, optionsID);
+    //     const dataID = await response.json();
+    //     console.log(dataID);
+    //     const ID = dataID._id;
+    //     localStorage.setItem("userID", JSON.stringify(ID));
+    //     console.log("Key user : ", ID);
+    // }
 
     return (
         <div>
