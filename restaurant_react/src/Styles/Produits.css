@@ -14,7 +14,7 @@
     gap: 6em;
 }
 
-.produits{ /* donne le background du formulaire*/
+ .produits{
     margin: 6em;
     background: #ddb089;
     width: 30em;
@@ -40,4 +40,5 @@
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-}
+} 
+

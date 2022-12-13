@@ -19,7 +19,7 @@
 
 //   useEffect(() => {
 //     console.log('useEffect');
-//     getContacts();
+//     getContacts(); 
 //   }, []);
 
 //   async function createContact(firstname, lastname, email, message) {

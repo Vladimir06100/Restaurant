@@ -75,10 +75,42 @@ function Connexion() {
             <div className='connexion_position'>
 
                 <div >
-                    <img id="imgco" src={header_img} alt='img' />
+                    <img id="imageLogin" src={header_img} alt='img' />
                 </div>
 
-                <div>
+
+                <div className="login">
+                    <form method="POST" action="" id="form" onSubmit={submit}>
+                        <div className="textbox">
+                            <label htmlFor="email"></label>
+                            <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="email" required />
+                            <span className="material-symbols-outlined"> email </span>
+                        </div>
+
+                        <div className="textbox">
+                            <label htmlFor="password"></label>
+                            <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="password" required />
+                            <span class="material-symbols-outlined">
+                                key
+                            </span>
+                        </div>
+
+                        <p>
+                            Mot de passe oublié ?
+                        </p>
+
+                        <button type="submit" id="submitLog" value="Login" disabled={!validateForm()}>
+                            Connexion
+                            <span className="material-symbols-outlined"> arrow_forward </span>
+                        </button>
+                        <p>
+                            Vous n'avez pas de compte ?
+                            <a href="/inscription"> Inscrivez-vous</a>
+                        </p>
+                    </form>
+                </div>
+
+                {/* <div>
                     <form method="POST" action="" id="form_position" onSubmit={submit}>
                         <label htmlFor="email">Email</label>
                         <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
@@ -92,7 +124,7 @@ function Connexion() {
 
                         <span>VOUS N'AVEZ PAS DE COMPTE ? INSCRIPTION</span>
                     </form>
-                </div>
+                </div> */}
             </div>
 
             <Footer />

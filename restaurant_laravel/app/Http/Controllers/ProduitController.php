@@ -29,18 +29,13 @@ class ProduitController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         // create a new product
         $request->validate([
             'nom_produit' => 'required|string',
-            'categorie' => 'required|string',
+            'description' => 'required|string',
+            // 'categorie_id' => 'required|integer',
             'prixHT' => 'required|integer',
             'prixTTC' => 'required|integer',
             'TVA' => 'required|integer',
@@ -48,13 +43,14 @@ class ProduitController extends Controller
         ]);
 
         $produit = Produit::create([
-            'nom_produit' => $request->nom_product,
-            'categorie' => $request->categorie,
+            'nom_produit' => $request->nom_produit,
+            'categorie_id' => $request->categorie_id,
+            'description' => $request->description,
             'prixHT' => $request->prixHT,
             'prixTTC' => $request->prixTTC,
             'TVA' => $request->TVA,
-            'quantite'=> $request->quantite,
-            'restaurateur_id' => auth()->user()->id,
+            'quantite' => $request->quantite,
+            // 'restaurateur_id' => auth()->user()->id,
         ]);
 
         return response()->json(['produit' => $produit]);
@@ -99,14 +95,17 @@ class ProduitController extends Controller
         $request->validate([
             'nom_produit' => 'required|string',
             'categorie' => 'required|string',
+            'description' => 'required|string',
             'prixHT' => 'required|integer',
             'prixTTC' => 'required|integer',
             'TVA' => 'required|integer',
+            'quantite' => 'required|integer',
         ]);
 
         $produit = Produit::find($id);
         $produit->nom_produit = $request->nom_product;
-        $produit->categorie = $request->categorie;
+        $produit->categorie_id = $request->categorie_id;
+        $produit->description = $request->description;
         $produit->prixHT = $request->prixHT;
         $produit->prixTTC = $request->prixTTC;
         $produit->TVA = $request->TVA;
@@ -118,12 +117,7 @@ class ProduitController extends Controller
         ], 201);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
         // delete a product

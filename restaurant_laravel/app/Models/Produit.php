@@ -23,7 +23,7 @@ class Produit extends Model
     ];
 
     protected string $nom_produit;
-    protected string $categorie;
+    protected string $categorie_id ;
     protected float $prixHT;
     protected float $prixTTC;
     protected float $TVA;
