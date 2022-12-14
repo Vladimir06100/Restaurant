@@ -1,7 +1,7 @@
 import{useState,useEffect} from 'react';
 
 
-function Cartes(props) 
+function Cartes_props(props) 
 {
 const [listproduits,setListproduits]= useState([]);
     useEffect(()=>{
@@ -15,8 +15,19 @@ setListproduits(listproduits);
 
 Nom Carte : {props.nom_carte}
 
-Produit : {props.listproduits}
 
+Produits :
+					{props.listproduits.map(function (produit) {
+						return (
+							<li className="ACommenter">
+								{produit.id}
+                                {produit.nom_produit}
+                                {produit.categorie}
+                                {produit.description}
+
+							</li>
+		);
+    })}
 
 
       
@@ -25,4 +36,4 @@ Produit : {props.listproduits}
 	
 	);
 }
-export default Cartes;
+export default Cartes_props;
