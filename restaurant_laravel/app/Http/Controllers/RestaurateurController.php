@@ -36,7 +36,9 @@ class RestaurateurController extends Controller
         return response()->json([
             'message' => 'Connexion réussi.',
             'token' => $token
-        ], 200);
+        ], 200); 
+
+        redirect()->route('produits');
     }
 
     // creation profile
@@ -48,7 +50,7 @@ class RestaurateurController extends Controller
             'email' => 'required|email',
             'password' => 'required|string'
         ]);
-        
+
         $token = Str::random(60);
         $restaurateur = Restaurateur::create([
             'nom' => $request->nom,
@@ -91,5 +93,4 @@ class RestaurateurController extends Controller
             'restaurateur' => $restaurateur
         ], 200);
     }
-    
 }
