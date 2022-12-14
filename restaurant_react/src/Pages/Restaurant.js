@@ -5,16 +5,16 @@ import { useState } from 'react';
 
 function Restaurant() {
 
-    const [name, setName] = useState ("");
-    const [adress, setAdress] = useState ("");
-    const [phone, setPhone] = useState ("");
-    const [horaires, setHoraires] = useState ("");
-    const [description, setDescription] = useState ("");
+    const [nom, setNom] = useState ("");
+    const [adresse, setAdresse] = useState ("");
+    const [heure_ouverture, setHeure_ouverture] = useState ("");
+    const [heure_fermeture, setHeure_fermeture] = useState ("");
     const [image, setImage] = useState ("");
 
     function handleSubmit(e) {
-        const addfield = (name, adress, phone, horaires, description, image)
+        console.log(nom, adresse, heure_ouverture, heure_fermeture, image)
         e.preventDefault();
+        addRestaurant();
     }
 
     async function addRestaurant() {
@@ -25,17 +25,22 @@ function Restaurant() {
                 'Accept': 'application/json'
             },
             body: JSON.stringify({ 
-                name: name,
-                adress: adress,
-                phone: phone,
-                horaires: horaires,
-                description: description,
+                nom: nom,
+                adresse: adresse,
+                heure_ouverture: heure_ouverture,
+                heure_fermeture: heure_fermeture,
                 image: image,
 })
+
+//
+
         }
-        
-        const response = await fetch(`http://localhost:8000/api/restaurants`, options);
+        const response = await fetch(`http://127.0.0.1:8000/api/restaurants`, options);
         const data = await response.json();
+
+        console.log('création de restaurant : ', data);
+
+        }
 
     return (
         <div>
@@ -57,22 +62,19 @@ function Restaurant() {
                 <div>
                     <form onSubmit={handleSubmit}>
                         <label htmlFor="name">Name</label>
-                        <input type="text" id="name" name="name" placeholder="Your name.." required />
+                        <input type="text" id="name" name="name" value={nom} onChange={(e) => setNom(e.target.value)} placeholder="Your name.." required />
 
                         <label htmlFor="adresse">Adresse</label>
-                        <input type="text" id="adresse" name="adresse" placeholder="Your adresse.." required />
-
-                        <label htmlFor="phone">Phone</label>
-                        <input type="text" id="phone" name="phone" placeholder="Your phone.." required />
+                        <input type="text" id="adresse" name="adresse" value={adresse} onChange={(e) => setAdresse(e.target.value)} placeholder="Your adresse.." required />
 
                         <label htmlFor="horaires">Horaire d'ouverture</label>
-                        <input type="text" id="horaires" name="horaires" placeholder="Your horaires.." required />
+                        <input type="time" id="open" name="open" value={heure_ouverture} onChange={(e) => setHeure_ouverture(e.target.value)} placeholder="Your horaires.." required />
 
-                        <label htmlFor="description">Description</label>
-                        <input type="text" id="description" name="description" placeholder="Your description.." required />
+                        <label htmlFor="horaires">Horaire de fermeture</label>
+                        <input type="time" id="closen" name="closen" value={heure_fermeture} onChange={(e) => setHeure_fermeture(e.target.value)} placeholder="Your horaires.." required />
 
                         <label htmlFor="image">Image</label>
-                        <input type="text" id="image" name="image" placeholder="Your image.." required />
+                        <input type="text" id="image" name="image" value={image} onChange={(e) => setImage(e.target.value)} placeholder="Your image.." required />
 
                         <input id="submitCo" type="submit" value="envoyer" />
                     </form>
@@ -81,7 +83,6 @@ function Restaurant() {
             <Footer />
         </div>
     )
-}
 }
 
 export default Restaurant;
