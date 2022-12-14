@@ -90,7 +90,7 @@ function Connexion() {
                         <div className="textbox">
                             <label htmlFor="password"></label>
                             <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="password" required />
-                            <span class="material-symbols-outlined">
+                            <span className="material-symbols-outlined">
                                 key
                             </span>
                         </div>

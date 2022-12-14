@@ -1,4 +1,8 @@
 /* PAGE HOME CSS*/
+* {
+    margin:0;
+    padding:0;
+}
 
 .home_title{
     display: flex;
@@ -25,4 +29,32 @@
     font-family: 'Times New Roman', Times, serif;
     font-size: 15px;
     text-align: justify;
+    width: 38rem;
+}
+
+.container{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+
+@media screen and (min-width: 100px) and (max-width: 600px) {
+
+    #imghome{
+        padding-top: 5em;
+        height: 22em;
+    }
+
+    .home_position {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+
+@media screen and (max-width: 500px) {
+    #imghome{
+        height: 30em;
+    }
 }
