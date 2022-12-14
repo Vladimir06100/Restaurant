@@ -32,10 +32,24 @@
     width: 38rem;
 }
 
+.carrousel_position{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5em;
+}
+
+.carrousel_position .textCarrousel{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2rem;
+    margin-bottom: 2em;
+}
+
 .container{
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
+    padding: 2em 14em 2em;
 }
 
 

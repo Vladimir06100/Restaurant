@@ -3,6 +3,8 @@ import '../Styles/Home.css';
 import ban from '../Images/ban.png';
 import vector from '../Images/vector.png';
 import Footer from '../Components/Footer';
+import Carrousel from '../Components/Carrousel';
+
 
 
 function Home() {
@@ -35,8 +37,9 @@ function Home() {
                 </div>
             </div>
 
-            <div className="">
-
+            <div className="carrousel_position">
+                <span className="textCarrousel">OUR PARTENERS <br />WHAT ABOUT <span id="home_title_color">YOU ?</span></span>
+                <Carrousel />
             </div>
 
             <div className="container">
