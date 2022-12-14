@@ -15,15 +15,15 @@ class Carte extends Model
 
     protected $fillable = [
         'nom_carte',
-        'carte_id',
-        'restaurant_id',
-        'formule_id',
+        // 'carte_id',
+        // 'restaurant_id',
+        // 'formule_id',
     ];
 
     private string $nom_carte;
-    private int $carte_id;
-    private int $restaurant_id;
-    private int $formule_id;
+    // private int $carte_id;
+    // private int $restaurant_id;
+    // private int $formule_id;
 
 
     public function produits()
