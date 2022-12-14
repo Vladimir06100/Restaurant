@@ -38,6 +38,7 @@ function Inscription() {
         
         if (message === 'Restaurateur created.') {
             alert('Votre compte a bien été créé !')
+            return window.location.href = '/connexion';
         }
         if (message !== 'Restaurateur created.') {
             alert('Champs manquants.')

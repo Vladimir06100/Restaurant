@@ -1,4 +1,4 @@
-function Produit({ nom_produit, categorie_id, description, prixHT, TVA, prixTTC, quantite }) {
+function Produit(props) {
 
     return (
         <table>
@@ -15,13 +15,15 @@ function Produit({ nom_produit, categorie_id, description, prixHT, TVA, prixTTC,
             </thead>
             <tbody>
                 <tr>
-                    <td>{nom_produit}</td>
-                    <td>{categorie_id}</td>
-                    <td>{description}</td>
-                    <td>{prixHT}</td>
-                    <td>{TVA}</td>
-                    <td>{prixTTC}</td>
-                    <td>{quantite}</td>
+                    <td>{props.nom_produit}</td>
+                    <td>{props.type}</td>
+                    {/* <td>{props.categories.type}</td> */}
+                    {/* <td>{categorie_id}</td> */}
+                    <td>{props.description}</td>
+                    <td>{props.prixHT}</td>
+                    <td>{props.TVA}</td>
+                    <td>{props.prixTTC}</td>
+                    <td>{props.quantite}</td>
                     <td>
                     <button className="btn">Modifier</button>
                     <button className="btn">Supprimer</button>

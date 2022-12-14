@@ -4,6 +4,7 @@ import Footer from '../Components/Footer';
 import header_img from '../Images/header_login.png';
 import '../Styles/Home.css';
 import { useState } from 'react';
+//import { Navigate } from "react-router-dom";
 
 function Connexion() {
     const [email, setEmail] = useState("");
@@ -37,13 +38,17 @@ function Connexion() {
         const message = data.message;
 
         if (message === 'Connexion réussi.') {
+            
+            console.log("Token : ", token);
+            localStorage.setItem("token", JSON.stringify(token));
+
             alert("Vous êtes connecté");
+            return window.location.href = '/produits';
         }
         if (message !== 'Connexion réussi.') {
             alert("Veuillez remplir tous les champs de connexion.");
         }
-        console.log("Token : ", token);
-        localStorage.setItem("token", JSON.stringify(token));
+
         // getID();
     }
 
@@ -91,7 +96,7 @@ function Connexion() {
                         <div className="textbox">
                             <label htmlFor="password"></label>
                             <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="password" required />
-                            <span class="material-symbols-outlined">
+                            <span className="material-symbols-outlined">
                                 key
                             </span>
                         </div>
