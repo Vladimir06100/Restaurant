@@ -6,8 +6,8 @@ import Produit from '../Props/Produits_props';
 
 function Produits() {
 
-    const [produits, setProduits] = useState([]);
-    const [categorie, setCategories] = useState([]);
+
+     const [categories, setCategories] = useState([]);
 
     async function getProduits() {
         const options = {
@@ -18,12 +18,8 @@ function Produits() {
         };
         let response = await fetch('http://localhost:8000/api/produits', options);
         const data = await response.json();
-        console.log(data);
-        const produits = data.produits;
         const categories = data.categories;
         setCategories(categories);
-        setProduits(produits);
-        console.log(categories);
     }
     useEffect(() => {
         getProduits();
@@ -34,7 +30,6 @@ function Produits() {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-
             },
             body: JSON.stringify({
                 nom_produit: nom_produit,
@@ -47,12 +42,13 @@ function Produits() {
             }),
         };
         let response = await fetch('http://localhost:8000/api/produits', options);
-        if (response.status !== 201) {
+        if (response.status !== 200) {
             return;
         }
-        const data = await response.json();
-        const newProduit = data.produit;
-        setProduits([newProduit, ...produits]);
+        getProduits();
+        // message succes span id="message_succes"
+        // refrech formulaire
+        document.getElementById("form_position").reset();
     }
 
     return (
@@ -117,16 +113,15 @@ function Produits() {
                     <span id="home_title_color">Products list</span>
                 </div>
                 <div className="produits">
-                    {produits.map((produit, index) => (
+                    {categories.map((categorie, index) => (
                         <Produit  key={index}
-                            nom_produit={produit.nom_produit}
-                            categorie={categorie}
-                            categorie_id={produit.categorie_id}
-                            description={produit.description}
-                            prixHT={produit.prixHT}
-                            TVA={produit.TVA}
-                            prixTTC={produit.prixTTC}
-                            quantite={produit.quantite}
+                            nom_produit={categorie.nom_produit}
+                            type={categorie.type}
+                            description={categorie.description}
+                            prixHT={categorie.prixHT}
+                            TVA={categorie.TVA}
+                            prixTTC={categorie.prixTTC}
+                            quantite={categorie.quantite}
                         />
                         ))}
                 </div>

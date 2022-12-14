@@ -10,10 +10,6 @@ function Connexion() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    function validateForm() {
-        return email.length > 0 && password.length > 0
-    }
-
     function submit(e) {
         e.preventDefault();
         connect();
@@ -35,12 +31,15 @@ function Connexion() {
         const data = await response.json();
         console.log("Data : ", data);
         const token = data.token;
+        const id = data.id;
         const message = data.message;
 
         if (message === 'Connexion réussi.') {
             
             console.log("Token : ", token);
+            console.log("ID : ", id);
             localStorage.setItem("token", JSON.stringify(token));
+            localStorage.setItem("id", JSON.stringify(id));
 
             alert("Vous êtes connecté");
             return window.location.href = '/produits';
@@ -105,7 +104,7 @@ function Connexion() {
                             <a href="/Maj">Mot de passe oublié ?</a>
                         </p>
 
-                        <button type="submit" id="submitLog" value="Login" disabled={!validateForm()}>
+                        <button type="submit" id="submitLog" value="Login">
                             Connexion
                             <span className="material-symbols-outlined"> arrow_forward </span>
                         </button>
