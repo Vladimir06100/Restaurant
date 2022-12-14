@@ -34,7 +34,7 @@ input {
   padding: 20px;
 }
 
-.form {
+#form {
   margin: 0;
   display: grid;
   gap: 16px;

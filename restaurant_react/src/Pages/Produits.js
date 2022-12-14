@@ -104,7 +104,7 @@ function Produits() {
                         <br />
                         <label htmlFor="quantite"  >Quantité</label>
                         <input type="number" id="quantite" name="quantite" min="1" max="10000000" placeholder="Quantité du produit" required />
-                        <button type="submit">Ajouter</button>
+                        <button type="submit" id="ajoutProduct">Ajouter</button>
                     </form>
                 </div>
             </div>

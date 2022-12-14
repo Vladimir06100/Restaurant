@@ -14,7 +14,7 @@
     gap: 6em;
 }
 
- .produits{
+.produits{
     margin: 6em;
     background: #ddb089;
     width: 24em;
@@ -25,7 +25,11 @@
     padding: 3em
 }
 
-#submitProduct{
+#form_position label{
+    font-family: Arial, Helvetica, sans-serif
+}
+
+#ajoutProduct{
     display: flex;
     justify-content: center;
     align-items: center;
