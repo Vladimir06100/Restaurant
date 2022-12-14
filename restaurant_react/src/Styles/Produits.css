@@ -17,13 +17,12 @@
  .produits{
     margin: 6em;
     background: #ddb089;
-    width: 3em;
+    width: 24em;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.37);
 }
 
 #form_position{
-    padding: 3em;
-    font-family: Arial, Helvetica, sans-serif;
+    padding: 3em
 }
 
 #submitProduct{
