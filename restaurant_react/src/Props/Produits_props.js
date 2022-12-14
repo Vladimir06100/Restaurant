@@ -1,24 +1,4 @@
-import { useEffect, useState } from "react";
-
 function Produit(props) {
-
-    const [categories, setCategories] = useState([]);
-    console.log(categories, 'test');
-
-    async function getCategories() {
-        const options = {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        };
-        let response = await fetch('http://localhost:8000/api/categories', options);
-        const data = await response.json();
-        console.log(data);
-        const categories = data.categories;
-        setCategories(categories);
-        console.log(categories);
-    }
 
     return (
         <table>
@@ -36,6 +16,7 @@ function Produit(props) {
             <tbody>
                 <tr>
                     <td>{props.nom_produit}</td>
+                    <td>{props.type}</td>
                     {/* <td>{props.categories.type}</td> */}
                     {/* <td>{categorie_id}</td> */}
                     <td>{props.description}</td>
