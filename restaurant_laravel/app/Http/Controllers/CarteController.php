@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Carte;
+use App\Models\Produit  ;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,8 +17,9 @@ class CarteController extends Controller
         return response()->json([
             'message' => 'Cartes retrieved successfully.',
             'cartes' => $cartes,
-            'db'=> DB::table('produits')
+            'liste_des_produits'=> DB::table('produits')
             ->leftJoin('cartes', 'produits.id', '=', 'cartes.produit_id')
+            /* ->where('produits.categorie_id','=',$group->id) */
             ->get()
             
         ], 200);
@@ -27,11 +29,11 @@ class CarteController extends Controller
 
     public function create()
     {
-        //
+        
     }
 
 
-    public function store(Request $request)
+    public function store(Request $request, Produit $produit)
     {
         // request validation
         $request->validate([
@@ -43,12 +45,14 @@ class CarteController extends Controller
         // create a new carte in the database
         $carte = Carte::create([
         'nom_carte' => $request->nom_carte,
-        'produit_id' => $request->produit_id,
+        'produit_id' => $produit->id,
         'restaurant_id' => auth()->user()->id,
         'formule_id' => $request->formule_id,
     
 
         ]);
+
+        
         $data = $request->toArray();
         
         Carte::create($data);
