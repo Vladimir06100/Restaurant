@@ -1,4 +1,24 @@
-function Produit({ nom_produit, categorie_id, description, prixHT, TVA, prixTTC, quantite }) {
+import { useEffect, useState } from "react";
+
+function Produit(props) {
+
+    const [categories, setCategories] = useState([]);
+    console.log(categories, 'test');
+
+    async function getCategories() {
+        const options = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        };
+        let response = await fetch('http://localhost:8000/api/categories', options);
+        const data = await response.json();
+        console.log(data);
+        const categories = data.categories;
+        setCategories(categories);
+        console.log(categories);
+    }
 
     return (
         <table>
@@ -15,13 +35,14 @@ function Produit({ nom_produit, categorie_id, description, prixHT, TVA, prixTTC,
             </thead>
             <tbody>
                 <tr>
-                    <td>{nom_produit}</td>
-                    <td>{categorie_id}</td>
-                    <td>{description}</td>
-                    <td>{prixHT}</td>
-                    <td>{TVA}</td>
-                    <td>{prixTTC}</td>
-                    <td>{quantite}</td>
+                    <td>{props.nom_produit}</td>
+                    {/* <td>{props.categories.type}</td> */}
+                    {/* <td>{categorie_id}</td> */}
+                    <td>{props.description}</td>
+                    <td>{props.prixHT}</td>
+                    <td>{props.TVA}</td>
+                    <td>{props.prixTTC}</td>
+                    <td>{props.quantite}</td>
                     <td>
                     <button className="btn">Modifier</button>
                     <button className="btn">Supprimer</button>

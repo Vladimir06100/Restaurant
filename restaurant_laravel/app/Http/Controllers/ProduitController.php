@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Produit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProduitController extends Controller
 {
@@ -16,7 +17,11 @@ class ProduitController extends Controller
     {
         //list of all products in the database for the restaurateur_id
         $produits = Produit::all();
-        return response()->json(['produits' => $produits]);
+        return response()->json(['produits' => $produits,
+        'categories' => DB::table('categories')
+        ->leftJoin('produits','categories.id', '=', 'produits.categorie_id')
+        ->get()
+    ]);
     }
 
     /**

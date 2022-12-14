@@ -7,6 +7,7 @@ import Produit from '../Props/Produits_props';
 function Produits() {
 
     const [produits, setProduits] = useState([]);
+    const [categorie, setCategories] = useState([]);
 
     async function getProduits() {
         const options = {
@@ -19,7 +20,10 @@ function Produits() {
         const data = await response.json();
         console.log(data);
         const produits = data.produits;
+        const categories = data.categories;
+        setCategories(categories);
         setProduits(produits);
+        console.log(categories);
     }
     useEffect(() => {
         getProduits();
@@ -116,6 +120,7 @@ function Produits() {
                     {produits.map((produit, index) => (
                         <Produit  key={index}
                             nom_produit={produit.nom_produit}
+                            categorie={categorie}
                             categorie_id={produit.categorie_id}
                             description={produit.description}
                             prixHT={produit.prixHT}
