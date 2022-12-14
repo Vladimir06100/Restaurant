@@ -15,7 +15,7 @@ class ProduitController extends Controller
      */
     public function index()
     {
-        //list of all products in the database for the restaurateur_id
+
         $produits = Produit::all();
         return response()->json(['produits' => $produits,
         'categories' => DB::table('categories')
