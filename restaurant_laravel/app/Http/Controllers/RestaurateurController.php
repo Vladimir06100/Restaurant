@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Restaurateur;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Str;
 
 // RegisterController 
 class RestaurateurController extends Controller
