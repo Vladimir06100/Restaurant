@@ -39,7 +39,7 @@ function Cartes() {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            nom_carte: nom_carte,
+            nom_carte:nom_carte,
            
           }),
         };
@@ -68,9 +68,13 @@ function Cartes() {
 
 
         }}>
-            <label htmlFor="nom">Nom de la carte</label>
+            <label htmlFor="nom_carte">Nom de la carte</label>
             <input type="text" id="nom" name="nom_carte" />
 
+<button type="submit"> Valider</button>
+</form>
+
+<form>
             <label htmlFor="produit">Produits</label>
             <select id="produit" name="produit">
   
