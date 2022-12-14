@@ -6,6 +6,7 @@ use App\Models\Restaurateur;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 // RegisterController 
 class RestaurateurController extends Controller
@@ -46,15 +47,19 @@ class RestaurateurController extends Controller
             'email' => 'required|email',
             'password' => 'required|string'
         ]);
+
+        $token = Str::random(60);
         $restaurateur = Restaurateur::create([
             'nom' => $request->nom,
             'prenom' => $request->prenom,
             'email' => $request->email,
             'password' => $request->password,
+            'token' => hash('sha256', $token),
         ]);
         return response()->json([
             'message' => 'Restaurateur created.',
-            'restaurateur' => $restaurateur
+            'restaurateur' => $restaurateur,
+            'token' => $token
         ], 201);
     }
 
