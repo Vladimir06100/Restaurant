@@ -31,7 +31,7 @@ function Connexion() {
             })
         };
 
-        const response = await fetch(`http://localhost:8000/api/restaurateurs/login`, options);
+        const response = await fetch(`http://127.0.0.1:8000/api/restaurateurs/login`, options);
         const data = await response.json();
         console.log("Data : ", data);
         const token = data.token;
@@ -102,7 +102,7 @@ function Connexion() {
                         </div>
 
                         <p>
-                            Mot de passe oublié ?
+                            <a href="/Maj">Mot de passe oublié ?</a>
                         </p>
 
                         <button type="submit" id="submitLog" value="Login" disabled={!validateForm()}>
