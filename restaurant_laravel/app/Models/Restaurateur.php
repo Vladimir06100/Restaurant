@@ -15,7 +15,7 @@ class Restaurateur extends Model
 
     protected $hidden = [
         'password',
-        'remember_token',
+        'token',
     ];
 
     protected $fillable = [
@@ -23,7 +23,7 @@ class Restaurateur extends Model
         'prenom',
         'email',
         'password',
-        'remember_token',
+        'token',
     ];
 
     protected string $nom;
