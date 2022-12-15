@@ -47,9 +47,10 @@ function Produits() {
         if (response.status !== 200) {
             return;
         }
+        // const data = await response.json();
+        // const newCategorie = data.produit;
+        // setCategories([newCategorie, ...categories]);
         getProduits();
-        // message succes span id="message_succes"
-        // refrech formulaire
         document.getElementById("form_position").reset();
     }
 
@@ -102,6 +103,7 @@ function Produits() {
                             <option value='1'>Entrée</option>
                             <option value='2'>Plat</option>
                             <option value='3'>Dessert</option>
+                            <option value='4'>Boisson</option>
                         </select>
                         <br />
                         <label htmlFor="quantite"  >Quantité</label>
