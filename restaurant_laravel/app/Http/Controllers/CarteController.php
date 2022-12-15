@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Carte;
+use App\Models\Produit  ;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CarteController extends Controller
 {
@@ -14,7 +16,12 @@ class CarteController extends Controller
         $cartes = Carte::all();
         return response()->json([
             'message' => 'Cartes retrieved successfully.',
-            'cartes' => $cartes
+            'cartes' => $cartes,
+            // 'liste_des_produits'=> DB::table('produits')
+            // ->leftJoin('cartes', 'produits.id', '=', 'cartes.produit_id')
+            // /* ->where('produits.categorie_id','=',$group->id) */
+            // ->get()
+            
         ], 200);
         
         
@@ -22,28 +29,33 @@ class CarteController extends Controller
 
     public function create()
     {
-        //
+        
     }
 
 
-    public function store(Request $request)
+    public function store(Request $request, Produit $produit)
     {
         // request validation
         $request->validate([
-            'nom_carte' => 'required',
-            'produit_id' => 'required',
-            'restaurant_id' => 'required',
-            'formule_id' => 'required',
+            'nom_carte' => 'string',
+
         ]);
         // create a new carte in the database
-        $carte = new Carte();
-        $carte->nom_carte = $request->nom_carte;
-        $carte->produit_id = $request->produit_id;
-        $carte->restaurant_id = $request->restaurant_id;
-        $carte->formule_id = $request->formule_id;
-        $carte->save();
+        $carte = Carte::create([
+        'nom_carte' => $request->nom_carte,
+        // 'produit_id' => $produit->id,
+        // 'restaurant_id' => $request->id,
+        // 'formule_id' => $request->formule_id,
+    
+//auth()->user()
+        ]);
 
-        response()->json([
+        
+        $data = $request->toArray();
+        
+        Carte::create($data);
+
+        return response()->json([
         'message' => 'Carte created.',
         'carte' => $carte
         ], 201);
@@ -51,26 +63,38 @@ class CarteController extends Controller
     }
 
 
-    public function show($id)
+    public function show(Carte $carte)
     {
-        //
+        return response()->json(['carte' => $carte,
+    
+    
+    ]);
     }
 
 
-    public function edit($id)
+    public function edit(Carte $carte)
     {
-        //
+        return response()->json(['carte' => $carte]);
     }
 
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Carte $carte)
     {
-        //
+        $request->validate([
+            'nom_carte' => 'required',
+            'produit_id' => 'required',
+            'restaurant_id' => 'required',
+            'formule_id' => 'required',
+        ]);
+
+        $carte->fill($request->toArray());
+        $carte->save();
+        return response()->json(['carte' => $carte]);
     }
 
 
-    public function destroy($id)
+    public function destroy(Carte $carte )
     {
-        //
+        $carte->delete();
     }
 }

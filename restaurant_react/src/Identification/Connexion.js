@@ -4,14 +4,11 @@ import Footer from '../Components/Footer';
 import header_img from '../Images/header_login.png';
 import '../Styles/Home.css';
 import { useState } from 'react';
+//import { Navigate } from "react-router-dom";
 
 function Connexion() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
-    function validateForm() {
-        return email.length > 0 && password.length > 0
-    }
 
     function submit(e) {
         e.preventDefault();
@@ -19,7 +16,7 @@ function Connexion() {
     }
 
     async function connect() {
-        let options = {
+        const options = {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -30,39 +27,47 @@ function Connexion() {
             })
         };
 
-        const response = await fetch(`http://localhost:8000/api/restaurateurs/login`, options);
+        const response = await fetch(`http://127.0.0.1:8000/api/restaurateurs/login`, options);
         const data = await response.json();
         console.log("Data : ", data);
         const token = data.token;
-        const success = data.success;
+        const id = data.id;
+        const message = data.message;
 
-        if (success === false) {
+        if (message === 'Connexion réussi.') {
+
+            console.log("Token : ", token);
+            console.log("ID : ", id);
+            localStorage.setItem("token", JSON.stringify(token));
+            localStorage.setItem("id", JSON.stringify(id));
+
+            alert("Vous êtes connecté");
+            return window.location.href = '/produits';
+        }
+        if (message !== 'Connexion réussi.') {
             alert("Veuillez remplir tous les champs de connexion.");
         }
-        if (success === true) {
-            alert("Vous êtes connecté");
-        }
-        console.log("Token : ", token);
-        localStorage.setItem("token", JSON.stringify(token));
-        getID();
+
+        // getID();
     }
 
-    async function getID() {
-        let token = JSON.parse(localStorage.getItem("token"));
-        const optionsID = {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `bearer ${token}`
-            }
-        }
+    // async function getID() {
+    //     const token = JSON.parse(localStorage.getItem("token"));
+    //     const optionsID = {
+    //         method: "GET",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //             "Authorization": `bearer ${token}`
+    //         }
+    //     }
 
-        const response = await fetch(`http://127.0.0.1:8000/api/restaurateurs/login`, optionsID);
-        const dataID = await response.json();
-        const ID = dataID._id;
-        localStorage.setItem("userID", JSON.stringify(ID));
-        console.log("Key user : ", ID);
-    }
+    //     const response = await fetch(`http://127.0.0.1:8000/api/restaurateurs/login`, optionsID);
+    //     const dataID = await response.json();
+    //     console.log(dataID);
+    //     const ID = dataID._id;
+    //     localStorage.setItem("userID", JSON.stringify(ID));
+    //     console.log("Key user : ", ID);
+    // }
 
     return (
         <div>
@@ -90,16 +95,16 @@ function Connexion() {
                         <div className="textbox">
                             <label htmlFor="password"></label>
                             <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="password" required />
-                            <span class="material-symbols-outlined">
+                            <span className="material-symbols-outlined">
                                 key
                             </span>
                         </div>
 
                         <p>
-                            Mot de passe oublié ?
+                            <a href="/Maj">Mot de passe oublié ?</a>
                         </p>
 
-                        <button type="submit" id="submitLog" value="Login" disabled={!validateForm()}>
+                        <button type="submit" id="submitLog" value="Login">
                             Connexion
                             <span className="material-symbols-outlined"> arrow_forward </span>
                         </button>

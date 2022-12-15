@@ -1,9 +1,8 @@
 
 .restaurant_position{
     display: flex;
+    align-items: center;
     justify-content: center;
-    align-items: flex-end;
-    gap: 10em;
 }
 
 .restaurant_text{
@@ -11,4 +10,44 @@
     font-size: 15px;
     text-align: justify;
     width: 20em;
+}
+
+.formRestaurant{
+    width: 25em;
+    margin-top: 8em;
+    background-color: #e088152e;
+}
+
+.formRestaurant form{
+    padding: 3em;
+}
+
+.formRestaurant label{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#submitCo{
+    color: white;
+    cursor: pointer;
+    background: red;
+}
+
+@media screen and (max-width: 500px) {
+    .restaurant_position {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        flex-direction: column;
+        gap: 2em;
+    }
+
+    .restaurant_text .home_title{
+        font-size: 4em;
+    }
+
+    .restaurant_position .formRestaurant{
+        justify-content: center;
+        padding: 1em 6em 1em;
+        margin-bottom: 4em;
+    }
 }
