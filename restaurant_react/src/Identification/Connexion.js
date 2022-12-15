@@ -38,7 +38,7 @@ function Connexion() {
         const message = data.message;
 
         if (message === 'Connexion réussi.') {
-            
+
             console.log("Token : ", token);
             localStorage.setItem("token", JSON.stringify(token));
 
@@ -73,48 +73,49 @@ function Connexion() {
     return (
         <div>
             <Menu />
-            <div className='connexion_title'>
-                <span>
-                    Connectez-vous pour <br /><span id="home_title_color">accéder</span> à votre compte
-                </span>
-            </div>
             <div className='connexion_position'>
+                <div className="connexionPositionBis">
 
-                <div >
-                    <img id="imageLogin" src={header_img} alt='img' />
+                    <div className='connexion_title'>
+                        <span>
+                            Connectez-vous pour <br /><span id="home_title_color">accéder</span> à votre compte
+                        </span>
+                    </div>
+
+                    <div className="login">
+                        <form method="POST" action="" id="formConnexion" onSubmit={submit}>
+                            <div className="textbox connexion">
+                                <label htmlFor="email"></label>
+                                <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="email" required />
+                                <span className="material-symbols-outlined"> email </span>
+                            </div>
+
+                            <div className="textbox connexion">
+                                <label htmlFor="password"></label>
+                                <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="password" required />
+                                <span className="material-symbols-outlined">
+                                    key
+                                </span>
+                            </div>
+
+                            <p>
+                                Mot de passe oublié ?
+                            </p>
+
+                            <button type="submit" id="submitLog" value="Login" disabled={!validateForm()}>
+                                Connexion
+                                <span className="material-symbols-outlined"> arrow_forward </span>
+                            </button>
+                            <p>
+                                Vous n'avez pas de compte ?
+                                <a href="/inscription"> Inscrivez-vous</a>
+                            </p>
+                        </form>
+                    </div>
                 </div>
-
-
-                <div className="login">
-                    <form method="POST" action="" id="form" onSubmit={submit}>
-                        <div className="textbox">
-                            <label htmlFor="email"></label>
-                            <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="email" required />
-                            <span className="material-symbols-outlined"> email </span>
-                        </div>
-
-                        <div className="textbox">
-                            <label htmlFor="password"></label>
-                            <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="password" required />
-                            <span className="material-symbols-outlined">
-                                key
-                            </span>
-                        </div>
-
-                        <p>
-                            Mot de passe oublié ?
-                        </p>
-
-                        <button type="submit" id="submitLog" value="Login" disabled={!validateForm()}>
-                            Connexion
-                            <span className="material-symbols-outlined"> arrow_forward </span>
-                        </button>
-                        <p>
-                            Vous n'avez pas de compte ?
-                            <a href="/inscription"> Inscrivez-vous</a>
-                        </p>
-                    </form>
-                </div>
+                    <div >
+                        <img id="imageLogin" src={header_img} alt='img' />
+                    </div>
 
                 {/* <div>
                     <form method="POST" action="" id="form_position" onSubmit={submit}>

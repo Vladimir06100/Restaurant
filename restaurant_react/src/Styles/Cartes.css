@@ -1,0 +1,111 @@
+
+.cartesPosition{
+    display: flex;
+    margin-top: 5em;
+    justify-content: space-around;
+    padding-left: 5em;
+    align-items: center;
+}
+
+.cartesPositionBis{
+    display: flex;
+    flex-direction: row-reverse;
+    background: white;
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 35%);
+}
+
+.cartes_text{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+    text-align: justify;
+    width: 20em;
+}
+
+#formCartes{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+#forCartes, #nom{
+    font-size: 13px;
+    background: #b9844038;
+    /* box-shadow: 0 0 20px 0 rgb(0 0 0 / 6%); */
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 1em;
+    border: none;
+    height: 72px;
+    width: 24em;
+}
+
+#formCartes label{
+    border-bottom: 1px solid #e08815;
+    font-family: 'Signika';
+    text-transform: uppercase;
+}
+
+/*bouton ajouter*/
+#add{
+    font-size: 16px;
+    background-color: #000000;
+    border-radius: 5px;
+    color: white;
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 35%);
+    font-family: 'Signika';
+    cursor: pointer;
+    padding: 10px;
+} 
+
+#add:hover, #add:active{
+    border: none;
+    background-color: #ce610f;
+    background-position: 0 0;
+}
+
+#add:active{
+    opacity: .5;
+}
+
+/*bouton modifier*/
+#modif{
+    font-size: 16px;
+    background-color: #000000;
+    border-radius: 5px;
+    color: white;
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 35%);
+    font-family: 'Signika';
+    cursor: pointer;
+    padding: 10px;
+} 
+
+#modif:hover, #modif:active{
+    border: none;
+    background-color: #ce610f;
+    background-position: 0 0;
+}
+
+#modif:active{
+    opacity: .5;
+}
+
+/*bouton supprimer*/
+#supp{
+    font-size: 16px;
+    background-color: #000000;
+    border-radius: 5px;
+    color: white;
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 35%);
+    font-family: 'Signika';
+    cursor: pointer;
+    padding: 10px;
+} 
+
+#supp:hover, #supp:active{
+    border: none;
+    background-color: #ce610f;
+    background-position: 0 0;
+}
+
+#supp:active{
+    opacity: .5;
+}

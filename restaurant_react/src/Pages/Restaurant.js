@@ -1,9 +1,5 @@
 import Menu from '../Components/Menu';
 import Footer from '../Components/Footer';
-import avatar from '../Images/Icones/avatar.gif';
-import location from '../Images/Icones/location.gif';
-import phone from '../Images/Icones/phone.gif';
-import time from '../Images/Icones/time.gif';
 import '../Styles/Restaurant.css';
 
 function Restaurant() {
@@ -28,47 +24,39 @@ function Restaurant() {
                     <div className="formRestaurant">
                         <form method="POST" action="">
 
-                            <div className="textbox">
+                            <div className="textbox restaurant">
                                 <label htmlFor="name"></label>
                                 <input type="text" id="name" name="name" placeholder="Your name.." required />
-                                <span><img src={avatar} alt="avatar" /></span>
-                                {/* icone static ou en gif.*/}
-                                {/* <span class="material-symbols-outlined">
-                                    badge
-                                </span> */}
+                                <span class="material-symbols-outlined">
+                                    account_circle
+                                </span>
                             </div>
 
-                            <div className="textbox">
+                            <div className="textbox restaurant">
                                 <label htmlFor="adresse"></label>
                                 <input type="text" id="adresse" name="adresse" placeholder="Your adresse.." required />
-                                <span><img src={location} alt="location" /></span>
-                                {/* icone static ou en gif.*/}
-                                {/* <span class="material-symbols-outlined">
-                                    home
-                                </span> */}
+                                <span class="material-symbols-outlined">
+                                    location_on
+                                </span>
                             </div>
 
-                            <div className="textbox">
+                            <div className="textbox restaurant">
                                 <label htmlFor="phone"></label>
                                 <input type="text" id="phone" name="phone" placeholder="Your phone.." required />
-                                <span><img src={phone} alt="phone" /></span>
-                                {/* icone static ou en gif.*/}
-                                {/* <span class="material-symbols-outlined">
+                                <span class="material-symbols-outlined">
                                     call
-                                </span> */}
+                                </span>
                             </div>
 
-                            <div className="textbox">
+                            <div className="textbox restaurant">
                                 <label htmlFor="horaires"></label>
                                 <input type="text" id="horaires" name="horaires" placeholder="Your horaires.." required />
-                                <span><img src={time} alt="time" /></span>
-                                {/* icone static ou en gif.*/}
-                                {/* <span class="material-symbols-outlined">
+                                <span class="material-symbols-outlined">
                                     schedule
-                                </span> */}
+                                </span>
                             </div>
 
-                            <input id="submitCo" type="submit" name="en" onclick="alert('Vôtre restaurant à été crée')" />
+                            <input id="submitRestaurant" type="submit" name="en" onclick="alert('Vôtre restaurant à été crée')" />
                         </form>
                     </div>
                 </div>

@@ -24,6 +24,13 @@
     margin-top: 4em;
 }
 
+form .restaurant input{
+    border: none;
+    border-bottom: 2px solid #e08815;
+    padding: 0 24px 0 36px;
+    height: 72px;
+}
+
 .formRestaurant form{
     padding: 3em;
 }
@@ -32,7 +39,17 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-#submitCo{
+.restaurant{
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 72px;
+    width: 24em;
+}
+
+#submitRestaurant{
+    border: none;
+    margin-top: 1em;
+    width: 17em;
     background-color: #000000;
     padding: 10px;
     border-radius: 5px;
@@ -42,10 +59,11 @@
     cursor: pointer;
 }
 
-#submitCo:hover, #submitCo:active{
+#submitRestaurant:hover, #submitRestaurant:active{
     background-color: #ce610f;
     background-position: 0 0;
 }
+
 
 @media screen and (max-width: 500px) {
     .restaurant_position {

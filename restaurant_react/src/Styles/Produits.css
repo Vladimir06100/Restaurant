@@ -42,9 +42,12 @@
 #formProduits input{
     font-size: 13px;
     background: #b9844038;
-    box-shadow: 0 0 20px 0 rgb(0 0 0 / 6%);
+    /* box-shadow: 0 0 20px 0 rgb(0 0 0 / 6%); */
     font-family: Arial, Helvetica, sans-serif;
     padding-left: 1em;
+    border: none;
+    height: 72px;
+    width: 24em;
 }
 
 .tvaPosition{
@@ -58,13 +61,16 @@
 }
 
 #ajoutProduct{
+    border: none;
+    margin-top: 1em;
+    width: 24em;
     background-color: #000000;
+    padding: 10px;
     border-radius: 5px;
     color: white;
     box-shadow: 0 0 20px 0 rgb(0 0 0 / 35%);
     font-family: 'Signika';
     cursor: pointer;
-    margin-top: 2em;
 } 
 
 #ajoutProduct:hover, #ajoutProduct:active{
