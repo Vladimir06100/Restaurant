@@ -42,5 +42,7 @@ Route::post('/cartes', [CarteController::class, 'store'])->name('cartes.store');
 // affichage de la carte
 Route::get('/cartes', [CarteController::class, 'index'])->name('cartes.index');
 
+
+
 // route pour les formules
 Route::resource('formules', FormuleController::class);

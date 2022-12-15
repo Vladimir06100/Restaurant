@@ -25,11 +25,13 @@ return new class extends Migration
                 ->constrained()
                 ->onUpdate('RESTRICT')
                 ->onDelete('RESTRICT');
+            $table->text('description');
             $table->float('prixHT');
-            $table->float('prixTTC');
             $table->float('TVA');
+            $table->float('prixTTC');
             $table->integer('quantite');
             $table->foreignIdFor(Restaurateur::class, 'restaurateur_id')
+                ->nullable()
                 ->constrained()
                 ->onUpdate('RESTRICT')
                 ->onDelete('RESTRICT');

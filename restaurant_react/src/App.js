@@ -2,11 +2,13 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from './Home/Home';
 import Inscription from './Identification/Inscription';
 import Connexion from './Identification/Connexion';
+import Maj from './Identification/Maj';
 import Error404 from "./Components/Error404/error404";
-import Restaurant from "./Pages/Restaurant";
+import CreationRestaurant from "./Pages/CréationRestaurant";
 import Produits from "./Pages/Produits";
 import Cartes from "./Pages/Cartes";
-import Formules from "./Pages/Formules/Formules";
+import Qrcode from "./Components/Qrcode/Qrcode";
+import MesRestaurants from "./Pages/MesRestaurants";
 import './Styles/Home.css';
 
 const router = createBrowserRouter([
@@ -17,12 +19,14 @@ const router = createBrowserRouter([
   },
 
   {
+    path: '/creation/restaurant',
+    element: <CreationRestaurant />,
     error: <Error404 />
   },
 
   {
-    path: '/restaurant',
-    element: <Restaurant />,
+    path: 'mesrestaurants',
+    element: <MesRestaurants />,
     error: <Error404 />
   },
 
@@ -43,17 +47,23 @@ const router = createBrowserRouter([
     element: <Inscription />,
     error: <Error404 />
   },
+
   {
     path: '/connexion',
     element: <Connexion />,
     error: <Error404 />
   },
-  {
-    path: '/formules',
-    element: <Formules />,
-    error: <Error404 />
-  }
 
+  {
+    path: '/Maj',
+    element: <Maj />,
+    error: <Error404 />
+  },
+  {
+    path: '/qrcode',
+    element: <Qrcode />,
+    error: <Error404 />
+  },
 ]);
 
 function App() {
@@ -65,6 +75,7 @@ export default App;
 // import Contact from './Contact/Contact';
 // import { useEffect, useState } from 'react';
 //   const [contacts, setContacts] = useState([]);
+
 //   async function getContacts() {
 //     const options = {
 //       method: 'GET',
