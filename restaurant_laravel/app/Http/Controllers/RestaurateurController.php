@@ -32,12 +32,12 @@ class RestaurateurController extends Controller
             ], 401);
         }
         $token = $restaurateur->token;
-        $restaurateur_id = $restaurateur->id;
+        $id = $restaurateur->id;
         return response()->json([
             'message' => 'Connexion réussi.',
             'token' => $token,
-            'restaurateur_id' => $restaurateur_id
-        ], 200); 
+            'id' => $id
+        ], 200);
 
         redirect()->route('produits');
     }
@@ -83,7 +83,7 @@ class RestaurateurController extends Controller
             'restaurateur' => $restaurateur
         ], 200);
     }
-    
+
     // suppression profile
     public function delete($id)
     {
