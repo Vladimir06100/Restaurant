@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Restaurateur;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
@@ -33,10 +32,12 @@ class RestaurateurController extends Controller
             ], 401);
         }
         $token = $restaurateur->token;
+        $id = $restaurateur->id;
         return response()->json([
             'message' => 'Connexion réussi.',
-            'token' => $token
-        ], 200); 
+            'token' => $token,
+            'id' => $id
+        ], 200);
 
         redirect()->route('produits');
     }
@@ -82,7 +83,7 @@ class RestaurateurController extends Controller
             'restaurateur' => $restaurateur
         ], 200);
     }
-    
+
     // suppression profile
     public function delete($id)
     {
