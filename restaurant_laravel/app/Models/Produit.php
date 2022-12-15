@@ -20,7 +20,6 @@ class Produit extends Model
         'TVA',
         'prixTTC',
         'quantite',
-        'restaurateur_id',
     ];
 
     protected string $nom_produit;
@@ -29,6 +28,4 @@ class Produit extends Model
     protected float $prixHT;
     protected float $TVA;
     protected float $prixTTC;
-    protected int $quantite;
-    protected string $restaurateur_id;
 }
