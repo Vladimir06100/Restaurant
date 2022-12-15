@@ -35,7 +35,7 @@ function Restaurant() {
 //
 
         }
-        const response = await fetch(`a`, options);
+        const response = await fetch(`http://localhost:8000/api/restaurants`, options);
         const data = await response.json();
 
         console.log('création de restaurant : ', data);

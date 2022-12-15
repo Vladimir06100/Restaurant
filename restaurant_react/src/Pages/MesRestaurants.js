@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from'react';
+import Footer from '../Components/Footer';
+import Menu from '../Components/Menu';
 import "../Styles/MesRestaurants.css"
 
 function MesRestaurants() {
@@ -26,25 +28,34 @@ function MesRestaurants() {
 //categorie_id,
 
     return (
+        <div>
 
-        <div class="MesRestaurants">
+            <Menu />
 
-            <h1>Mes Restaurants</h1>
+            <div class="MesRestaurants">
 
-                {restaurants.map((restaurant) => (
+                <h1>Mes Restaurants</h1>
 
-                    <div>
-                        {restaurant.nom}
-                        {restaurant.adresse}
-                        {restaurant.image}
-                        {restaurant.heure_ouverture}
-                        {restaurant.heure_fermeture}
-                    </div>
-                                
-                ))}
-        
+                    {restaurants.map((restaurant) => (
+    
+                        <div class="container">
+
+                            <div class="image-box">
+                                <div class="images"><img class="images" src={restaurant.image} width="25%"/></div>
+                            </div>
+                        <div class="text">
+                            <h2 class="title">{restaurant.nom}</h2>
+                            <button type="button" name="item-1-button" id="item-1-button">Modifier</button>
+                        </div>
+
+                        </div>
+))}
+            </div>
+
+            <Footer />
+
         </div>
-            
+        
         )
 }
 export default MesRestaurants;
