@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from './Home/Home';
 import Inscription from './Identification/Inscription';
 import Connexion from './Identification/Connexion';
+import Maj from './Identification/Maj';
 import Error404 from "./Components/Error404/error404";
 import Restaurant from "./Pages/Restaurant";
 import Produits from "./Pages/Produits";
@@ -12,10 +13,6 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <Home />,
-    error: <Error404 />
-  },
-
-  {
     error: <Error404 />
   },
 
@@ -42,9 +39,16 @@ const router = createBrowserRouter([
     element: <Inscription />,
     error: <Error404 />
   },
+
   {
     path: '/connexion',
     element: <Connexion />,
+    error: <Error404 />
+  },
+
+  {
+    path: '/Maj',
+    element: <Maj />,
     error: <Error404 />
   }
 ]);
