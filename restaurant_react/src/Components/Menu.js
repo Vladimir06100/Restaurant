@@ -10,7 +10,7 @@ function Menu() {
             <nav className="navbar">
                 <a href="/">HOME </a>
 
-                <a href="/restaurant">AJOUTER UN RESTAURANT </a>
+                <a href="/creation/restaurant">AJOUTER UN RESTAURANT </a>
 
                 <a href="/produits">PRODUIT </a>
 

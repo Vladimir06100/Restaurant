@@ -13,7 +13,7 @@ class RestaurantController extends Controller
     //Affiche les restaurants de la restaurateur connecté
     public function index()
     {
-        $restaurants = auth()->user()->restaurants; 
+        $restaurants = Restaurant::all();
         return response()->json(['restaurants' => $restaurants]);
     }
 
