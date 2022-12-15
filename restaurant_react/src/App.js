@@ -58,7 +58,7 @@ const router = createBrowserRouter([
     path: '/Maj',
     element: <Maj />,
     error: <Error404 />
-  }
+  },
   {
     path: '/qrcode',  
     element: <Qrcode />, 
