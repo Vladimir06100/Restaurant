@@ -4,10 +4,11 @@ import Inscription from './Identification/Inscription';
 import Connexion from './Identification/Connexion';
 import Maj from './Identification/Maj';
 import Error404 from "./Components/Error404/error404";
-import Restaurant from "./Pages/Restaurant";
+import CreationRestaurant from "./Pages/CréationRestaurant";
 import Produits from "./Pages/Produits";
 import Cartes from "./Pages/Cartes";
 import Qrcode from "./Components/Qrcode/Qrcode";
+import MesRestaurants from "./Pages/MesRestaurants";
 import './Styles/Home.css';
 
 const router = createBrowserRouter([
@@ -18,8 +19,14 @@ const router = createBrowserRouter([
   },
 
   {
-    path: '/restaurant',
-    element: <Restaurant />,
+    path: '/creation/restaurant',
+    element: <CreationRestaurant />,
+    error: <Error404 />
+  },
+
+  {
+    path: 'mesrestaurants',
+    element: <MesRestaurants />,
     error: <Error404 />
   },
 

@@ -1,5 +1,4 @@
 import QRCode from 'qrcode.react'; //Import du modude Qrcode nécessaire pour générer un Qrcode. 
-import '../../Styles/Qrcode.css'; 
 
 function Qrcode(props) {
  
