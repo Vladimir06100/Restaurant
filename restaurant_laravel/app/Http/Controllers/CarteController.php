@@ -17,10 +17,9 @@ class CarteController extends Controller
         return response()->json([
             'message' => 'Cartes retrieved successfully.',
             'cartes' => $cartes,
-            // 'liste_des_produits'=> DB::table('produits')
-            // ->leftJoin('cartes', 'produits.id', '=', 'cartes.produit_id')
-            // /* ->where('produits.categorie_id','=',$group->id) */
-            // ->get()
+            'liste_des_produits'=> DB::table('produits')
+            ->leftJoin('cartes', 'produits.id', '=', 'cartes.produit_id')
+             ->get()
             
         ], 200);
         
@@ -33,7 +32,7 @@ class CarteController extends Controller
     }
 
 
-    public function store(Request $request, Produit $produit)
+    public function store(Request $request)
     {
         // request validation
         $request->validate([
@@ -43,9 +42,9 @@ class CarteController extends Controller
         // create a new carte in the database
         $carte = Carte::create([
         'nom_carte' => $request->nom_carte,
-        // 'produit_id' => $produit->id,
-        // 'restaurant_id' => $request->id,
-        // 'formule_id' => $request->formule_id,
+        'produit_id' => $request->produit_id,
+        'restaurant_id' => $request->restaurant_id,
+        'formule_id' => $request->formule_id,
     
 //auth()->user()
         ]);

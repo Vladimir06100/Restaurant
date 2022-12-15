@@ -63,13 +63,14 @@ function Cartes() {
     
 
             <form method="POST" action="" onSubmit={(event)=> {
-        const nom_carte= event.target.nom_carte.value;
-        createCarte(nom_carte);
-
-
-        }}>
+                event.preventDefault();
+                const nom_carte= event.target.nom_carte.value;
+                createCarte(nom_carte);
+                
+            console.log(nom_carte, "nom" );
+            }}>
             <label htmlFor="nom_carte">Nom de la carte</label>
-            <input type="text" id="nom" name="nom_carte" />
+            <input type="text" id="nom_carte" name="nom_carte" />
 
 <button type="submit"> Valider</button>
 </form>

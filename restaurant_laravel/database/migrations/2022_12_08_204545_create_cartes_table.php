@@ -1,8 +1,5 @@
 <?php
 
-use App\Models\Formule;
-use App\Models\Produit;
-use App\Models\Restaurant;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -21,18 +18,21 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
             $table->string('nom_carte');
-            // $table->foreignIdFor(Produit::class, 'produit_id')
-            //     ->constrained()
-            //     ->onUpdate('RESTRICT')
-            //     ->onDelete('RESTRICT');
-            // $table->foreignIdFor(Restaurant::class, 'restaurant_id')
-            //     ->constrained()
-            //     ->onUpdate('RESTRICT')
-            //     ->onDelete('RESTRICT');
-            // $table->foreignIdFor(Formule::class, 'formule_id')
-            //     ->constrained()
-            //     ->onUpdate('RESTRICT')
-            //     ->onDelete('RESTRICT');
+            $table->foreignIdFor(\App\Models\Produit::class, 'produit_id')
+                ->nullable()
+                ->constrained()
+                ->onUpdate('RESTRICT')
+                ->onDelete('RESTRICT');
+            $table->foreignIdFor(\App\Models\Restaurant::class, 'restaurant_id')
+                ->nullable()
+                ->constrained()
+                ->onUpdate('RESTRICT')
+                ->onDelete('RESTRICT');
+            $table->foreignIdFor(\App\Models\Formule::class, 'formule_id')
+                ->nullable()
+                ->constrained()
+                ->onUpdate('RESTRICT')
+                 ->onDelete('RESTRICT');
         });
     }
 
