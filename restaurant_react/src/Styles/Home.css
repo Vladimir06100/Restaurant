@@ -8,10 +8,6 @@ body{
     background: #222222f2;
 }
 
-#ban{
-    margin-top: -5em;
-}
-
 .home_title{
     display: flex;
     flex-direction: column;
