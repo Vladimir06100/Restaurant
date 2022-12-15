@@ -10,13 +10,14 @@ function Produits() {
     const [categories, setCategories] = useState([]);
 
     async function getProduits() {
+        const restaurateur_id = localStorage.getItem('id');
         const options = {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
             },
         };
-        let response = await fetch('http://localhost:8000/api/produits', options);
+        let response = await fetch('http://localhost:8000/api/produits?restaurateur_id=' + restaurateur_id, options);
         const data = await response.json();
         const categories = data.categories;
         setCategories(categories);
