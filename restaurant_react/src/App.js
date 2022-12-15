@@ -7,6 +7,7 @@ import Error404 from "./Components/Error404/error404";
 import Restaurant from "./Pages/Restaurant";
 import Produits from "./Pages/Produits";
 import Cartes from "./Pages/Cartes";
+import Qrcode from "./Components/Qrcode/Qrcode";
 import './Styles/Home.css';
 
 const router = createBrowserRouter([
@@ -51,6 +52,11 @@ const router = createBrowserRouter([
     element: <Maj />,
     error: <Error404 />
   }
+  {
+    path: '/qrcode',  
+    element: <Qrcode />, 
+    error: <Error404 />
+  },
 ]);
 
 function App() {
