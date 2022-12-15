@@ -15,17 +15,17 @@ class Produit extends Model
     protected $fillable = [
         'nom_produit',
         'categorie_id',
+        'description',
         'prixHT',
-        'prixTTC',
         'TVA',
+        'prixTTC',
         'quantite',
-        'restaurateur_id',
     ];
 
     protected string $nom_produit;
-    protected string $categorie_id ;
+    protected string $categorie_id;
+    protected string $description;
     protected float $prixHT;
-    protected float $prixTTC;
     protected float $TVA;
-    protected int $restaurateur_id;
+    protected float $prixTTC;
 }

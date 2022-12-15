@@ -59,22 +59,31 @@ function Restaurant() {
                         <label htmlFor="name">Name</label>
                         <input type="text" id="name" name="name" placeholder="Your name.." required />
 
-                        <label htmlFor="adresse">Adresse</label>
-                        <input type="text" id="adresse" name="adresse" placeholder="Your adresse.." required />
+                        <div className="textbox">
+                            <label htmlFor="adresse"></label>
+                            <input type="text" id="adresse" name="adresse" placeholder="Your adresse.." required />
+                            <span class="material-symbols-outlined">
+                                home
+                            </span>
+                        </div>
 
-                        <label htmlFor="phone">Phone</label>
-                        <input type="text" id="phone" name="phone" placeholder="Your phone.." required />
+                        <div className="textbox">
+                            <label htmlFor="phone"></label>
+                            <input type="text" id="phone" name="phone" placeholder="Your phone.." required />
+                            <span class="material-symbols-outlined">
+                                call
+                            </span>
+                        </div>
 
-                        <label htmlFor="horaires">Horaire d'ouverture</label>
-                        <input type="text" id="horaires" name="horaires" placeholder="Your horaires.." required />
+                        <div className="textbox">
+                            <label htmlFor="horaires"></label>
+                            <input type="text" id="horaires" name="horaires" placeholder="Your horaires.." required />
+                            <span class="material-symbols-outlined">
+                                schedule
+                            </span>
+                        </div>
 
-                        <label htmlFor="description">Description</label>
-                        <input type="text" id="description" name="description" placeholder="Your description.." required />
-
-                        <label htmlFor="image">Image</label>
-                        <input type="text" id="image" name="image" placeholder="Your image.." required />
-
-                        <input id="submitCo" type="submit" value="envoyer" />
+                        <input id="submitCo" type="submit" name="en" onclick="alert('Vôtre restaurant à été crée')" />
                     </form>
                 </div>
             </div>

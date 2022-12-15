@@ -11,21 +11,6 @@ function Inscription() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    // function handleChange(e) {
-    //     const { id, value } = e.target;
-    //     if (id === 'nom') {
-    //         setNom(value);
-    //     }
-    //     if (id === 'prenom') {
-    //         setPrenom(value);
-    //     }
-    //     if (id === 'email') {
-    //         setEmail(value);
-    //     } else if (id === 'password') {
-    //         setPassword(value);
-    //     }
-    // }
-
     function handleSubmit(e) {
         e.preventDefault();
         console.log(nom, prenom, email, password);
@@ -49,13 +34,15 @@ function Inscription() {
 
         const response = await fetch(`http://127.0.0.1:8000/api/restaurateurs/register`, options);
         const data = await response.json();
-        // const message = data.message;
-
-        // if (message === 'Firstname, lastname, email and password are required') {
-        //     alert('Veuillez remplir tous les champs');
-        // } else {
-        //     alert('Votre compte a bien été créé !')
-        // }
+        const message = data.message;
+        
+        if (message === 'Restaurateur created.') {
+            alert('Votre compte a bien été créé !')
+            return window.location.href = '/connexion';
+        }
+        if (message !== 'Restaurateur created.') {
+            alert('Champs manquants.')
+        }
 
         console.log('création de compte : ', data);
     }

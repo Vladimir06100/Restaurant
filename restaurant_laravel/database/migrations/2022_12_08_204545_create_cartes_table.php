@@ -21,18 +21,18 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
             $table->string('nom_carte');
-            $table->foreignIdFor(Produit::class, 'produit_id')
-                ->constrained()
-                ->onUpdate('RESTRICT')
-                ->onDelete('RESTRICT');
-            $table->foreignIdFor(Restaurant::class, 'restaurant_id')
-                ->constrained()
-                ->onUpdate('RESTRICT')
-                ->onDelete('RESTRICT');
-            $table->foreignIdFor(Formule::class, 'formule_id')
-                ->constrained()
-                ->onUpdate('RESTRICT')
-                ->onDelete('RESTRICT');
+            // $table->foreignIdFor(Produit::class, 'produit_id')
+            //     ->constrained()
+            //     ->onUpdate('RESTRICT')
+            //     ->onDelete('RESTRICT');
+            // $table->foreignIdFor(Restaurant::class, 'restaurant_id')
+            //     ->constrained()
+            //     ->onUpdate('RESTRICT')
+            //     ->onDelete('RESTRICT');
+            // $table->foreignIdFor(Formule::class, 'formule_id')
+            //     ->constrained()
+            //     ->onUpdate('RESTRICT')
+            //     ->onDelete('RESTRICT');
         });
     }
 
