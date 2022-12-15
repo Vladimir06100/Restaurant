@@ -15,8 +15,9 @@ class ProduitController extends Controller
      */
     public function index()
     {
+        // get all produits where restaurateur_id = auth()->user()->id
 
-        $produits = Produit::all();
+        $produits = Produit::where('restaurateur_id', auth()->user()->id)->get();
         return response()->json(['produits' => $produits,
         'categories' => DB::table('categories')
         ->leftJoin('produits','categories.id', '=', 'produits.categorie_id')
@@ -55,7 +56,7 @@ class ProduitController extends Controller
             'TVA' => $request->TVA,
             'prixTTC' => $request->prixTTC,
             'quantite' => $request->quantite,
-            // 'restaurateur_id' => auth()->user()->id,
+            'restaurateur_id' => auth()->user()->id,
         ]);
 
         return response()->json(['produit' => $produit]);

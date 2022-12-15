@@ -6,6 +6,13 @@ import Produit from '../Props/Produits_props';
 
 function Produits() {
 
+    // function calcul tva sur onClick
+
+    function tva() {
+      // calcul TCC plus remplir le champ prixTTC
+
+    }
+
 
      const [categories, setCategories] = useState([]);
 
@@ -85,14 +92,17 @@ function Produits() {
                         <br />
                         <select id="TVA" name="TVA" defaultValue={'DEFAULT'} required>
                             <option value="DEFAULT" disabled>Choisir une TVA</option>
-                            <option value='0'>0</option>
-                            <option value='5.5'>5.5</option>
-                            <option value='10'>10</option>
-                            <option value='20'>20</option>
+                            <option value='0' onClick={tva}>0</option>
+                            <option value='5.5' onClick={tva}>5.5</option>
+                            <option value='10' onClick={tva}>10</option>
+                            <option value='20' onClick={tva}>20</option>
                         </select>
                         <br />
+                    
                         <label htmlFor="prixTTC">Prix TTC</label>
-                        <input type="text" id="prixTTC" name="prixTTC" placeholder="Prix du produit" required />
+                        {/* set prix TTC */}
+                        
+                        <input type="text" id="prixTTC" name="prixTTC" placeholder="Prix TTC du produit" required />
                         <label htmlFor="categorie_id">Catégorie </label>
                         <br />
                         <select id="categorie_id" name="categorie_id" defaultValue={'DEFAULT'} required>
