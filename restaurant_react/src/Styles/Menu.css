@@ -2,11 +2,6 @@
 
 /*Ici commence le menu*/
 
-.MainMenu{
-    /* height: 100%; */
-    /* width: 100vh; */
-}
-
 .logoMenu{
     display: flex;
     position: fixed;
@@ -21,10 +16,8 @@ a{
 
 .navbar{
     display: flex;
-    justify-content: space-between;
-    width: 1000px;
-    margin: auto;
-    padding: 20px 0px;
+    padding: 20px 20px;
+    justify-content: flex-end;
 }
 
 ul {
@@ -35,6 +28,7 @@ ul {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 1em;
 }
 
 .links a{
@@ -43,30 +37,26 @@ ul {
 
 .link{
     font-family: 'Signika';
-    color: rgb(166, 171, 26);
+    color: white;
     font-size: 15px;
-    padding: 8px 16px;
+    padding: 8px 0px;
     border-radius: 5px;
     transition: all 0.3s ease;
 }
 
 .link:hover{
     transform: scale(1.05);
-    background-color: yellow;
+    background-color: #a44d32;
 }
 
 #navbar_style{
-    background-color: #D68D00;
+    background-color: #000000;
     padding: 10px;
     border-radius: 5px;
     color: white;
     box-shadow: 0 0 20px 0 rgb(0 0 0 / 35%);
-    width: 6em;
-    text-align: center;
+    font-family: 'Signika';
     cursor: pointer;
-    border-bottom: none;
-    touch-action: manipulation;
-    vertical-align: middle;
 }
 
 #navbar_style:hover, #navbar_style:active{
@@ -84,14 +74,10 @@ ul {
 
 .menu{ /*taille de l'icone menu en responsive + couleur*/
     font-size: 50px;
-    color: green;
-    cursor: pointer;
+    color: black;
     padding: 5px;
     margin-top: 10px;
-}
-
-.mobile-size .menu:after{
-    padding-left: 11em;
+    cursor: pointer;
 }
 
 .bx{
@@ -119,33 +105,15 @@ ul {
     margin-left: 0;
 }
 
-/* .show{
-    left: 0;
-    transition: all 0.5s ease;
-} */
 
 @media screen and (max-width: 1000px){
-    /* #openButton{
-        z-index: 1;
+  
+    .navMenu{
         display: flex;
-        padding-left: 60px;
-        padding-top: 24px;
+        justify-content: flex-end;
+        margin-top: -3em;
+
     }
-
-    #closeButton{
-        z-index: 1;
-        display: flex;
-        width: 100%;
-        padding-left: 60px;
-        padding-top: 33px;
-    } */
-
-    /* .navMenu{
-        display: flex;
-    justify-content: flex-end;
-    margin-top: -3em;
-
-    } */
 
     .navbar{
         width: 100%;
@@ -158,24 +126,12 @@ ul {
 
     .bx{
         display: inline-block !important;
+    
     }
 }
 
 @media screen and (max-width:427px){
-    #openButton{
-        z-index: 1;
-        display: flex;
-        padding-left: 60px;
-        padding-top: 24px;
-    }
 
-    #closeButton{
-        z-index: 1;
-        display: flex;
-        width: 100%;
-        padding-left: 60px;
-        padding-top: 33px;
-    }
     .mobile-size{
         width: 80%;
     }
@@ -183,11 +139,15 @@ ul {
     .mobile-size a{
         width: 200px;
     }
+
 }
 
 
 
 
+
+
+/*********************/
 
 /* .navigation_espace{
     margin-top: 1em;
