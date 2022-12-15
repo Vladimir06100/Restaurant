@@ -4,6 +4,14 @@
     padding:0;
 }
 
+body{
+    background: #628117;
+}
+
+#ban{
+    margin-top: -5em;
+}
+
 .home_title{
     display: flex;
     flex-direction: column;

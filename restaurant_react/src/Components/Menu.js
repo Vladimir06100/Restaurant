@@ -23,6 +23,16 @@ function Menu() {
                         <li className="link"><a href="/restaurant">AJOUTER UN RESTAURANT </a></li>
                         <li className="link"><a href="/produits">PRODUIT </a></li>
                         <li className="link"><a href="/cartes">Cartes </a></li>
+                        <li>
+                            <span id="navbar_style">
+                                <a href="/connexion">CONNEXION </a>
+                            </span>
+                        </li>
+                        <li>
+                            <span id="navbar_style">
+                                <a href="/inscription">INSCRIPTION </a>
+                            </span>
+                        </li>
                     </ul>
                 </nav>
 
@@ -36,8 +46,8 @@ function Menu() {
                                 <ul>
                                     <li className="link"><a href="/">HOME </a></li>
                                     <li className="link"><a href="/restaurant">AJOUTER UN RESTAURANT </a></li>
-                                    <li className="link"><a href="/produits">PRODUIT </a></li>
-                                    <li className="link"><a href="/cartes">Cartes </a></li>
+                                    <li className="link"><a href="/produits">PRODUITS </a></li>
+                                    <li className="link"><a href="/cartes">CARTES </a></li>
                                 </ul>
                             </div>
                         </ul> :

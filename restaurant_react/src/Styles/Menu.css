@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Signika:wght@300&display=swap');
 
 /*Ici commence le menu*/
 
@@ -42,7 +42,8 @@ ul {
 }
 
 .link{
-    color: red;
+    font-family: 'Signika';
+    color: rgb(166, 171, 26);
     font-size: 15px;
     padding: 8px 16px;
     border-radius: 5px;
@@ -53,6 +54,33 @@ ul {
     transform: scale(1.05);
     background-color: yellow;
 }
+
+#navbar_style{
+    background-color: #D68D00;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 35%);
+    width: 6em;
+    text-align: center;
+    cursor: pointer;
+    border-bottom: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+}
+
+#navbar_style:hover, #navbar_style:active{
+    background-color: #ce610f;
+    background-position: 0 0;
+}
+
+#navbar_style:active{
+    opacity: .5;
+}
+
+#navbar_style a{
+    color: white;
+} 
 
 .menu{ /*taille de l'icone menu en responsive + couleur*/
     font-size: 50px;
