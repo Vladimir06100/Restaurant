@@ -6,23 +6,14 @@ import Produit from '../Props/Produits_props';
 
 function Produits() {
 
-    // function calcul tva sur onClick
-
-    function tva() {
-        // calcul TCC plus remplir le champ prixTTC
-
-    }
-
 
     const [categories, setCategories] = useState([]);
 
     async function getProduits() {
-
         const options = {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + localStorage.getItem('restaurateur_id'),
             },
         };
         let response = await fetch('http://localhost:8000/api/produits', options);
@@ -35,12 +26,10 @@ function Produits() {
     }, []);
 
     async function createProduit(nom_produit, categorie_id, description, prixHT, TVA, prixTTC, quantite) {
-        const restaurateur_id = localStorage.getItem('restaurateur_id');
         const options = {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + restaurateur_id,
             },
             body: JSON.stringify({
                 nom_produit: nom_produit,
@@ -50,7 +39,6 @@ function Produits() {
                 TVA: TVA,
                 prixTTC: prixTTC,
                 quantite: quantite,
-
             }),
         };
         let response = await fetch('http://localhost:8000/api/produits', options);
@@ -58,6 +46,8 @@ function Produits() {
             return;
         }
         getProduits();
+        // message succes span id="message_succes"
+        // refrech formulaire
         document.getElementById("form_position").reset();
     }
 
@@ -95,17 +85,14 @@ function Produits() {
                         <br />
                         <select id="TVA" name="TVA" defaultValue={'DEFAULT'} required>
                             <option value="DEFAULT" disabled>Choisir une TVA</option>
-                            <option value='0' onClick={tva}>0</option>
-                            <option value='5.5' onClick={tva}>5.5</option>
-                            <option value='10' onClick={tva}>10</option>
-                            <option value='20' onClick={tva}>20</option>
+                            <option value='0'>0</option>
+                            <option value='5.5'>5.5</option>
+                            <option value='10'>10</option>
+                            <option value='20'>20</option>
                         </select>
                         <br />
-
                         <label htmlFor="prixTTC">Prix TTC</label>
-                        {/* set prix TTC */}
-
-                        <input type="text" id="prixTTC" name="prixTTC" placeholder="Prix TTC du produit" required />
+                        <input type="text" id="prixTTC" name="prixTTC" placeholder="Prix du produit" required />
                         <label htmlFor="categorie_id">Catégorie </label>
                         <br />
                         <select id="categorie_id" name="categorie_id" defaultValue={'DEFAULT'} required>
@@ -113,7 +100,6 @@ function Produits() {
                             <option value='1'>Entrée</option>
                             <option value='2'>Plat</option>
                             <option value='3'>Dessert</option>
-                            <option value='4'>Boisson</option>
                         </select>
                         <br />
                         <label htmlFor="quantite"  >Quantité</label>
