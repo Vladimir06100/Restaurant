@@ -10,10 +10,6 @@ function Connexion() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    function validateForm() {
-        return email.length > 0 && password.length > 0
-    }
-
     function submit(e) {
         e.preventDefault();
         connect();
@@ -31,16 +27,19 @@ function Connexion() {
             })
         };
 
-        const response = await fetch(`http://localhost:8000/api/restaurateurs/login`, options);
+        const response = await fetch(`http://127.0.0.1:8000/api/restaurateurs/login`, options);
         const data = await response.json();
         console.log("Data : ", data);
         const token = data.token;
+        const id = data.id;
         const message = data.message;
 
         if (message === 'Connexion réussi.') {
-            
+
             console.log("Token : ", token);
+            console.log("ID : ", id);
             localStorage.setItem("token", JSON.stringify(token));
+            localStorage.setItem("id", JSON.stringify(id));
 
             alert("Vous êtes connecté");
             return window.location.href = '/produits';
@@ -73,69 +72,52 @@ function Connexion() {
     return (
         <div>
             <Menu />
-            <div className='connexion_title'>
-                <span>
-                    Connectez-vous pour <br /><span id="home_title_color">accéder</span> à votre compte
-                </span>
-            </div>
             <div className='connexion_position'>
+                <div className="connexionPositionBis">
 
-                <div >
-                    <img id="imageLogin" src={header_img} alt='img' />
+                    <div className='connexion_title'>
+                        <span>
+                            Connectez-vous pour <br /><span id="home_title_color">accéder</span> à votre compte
+                        </span>
+                    </div>
+
+                    <div className="login">
+                        <form method="POST" action="" id="formConnexion" onSubmit={submit}>
+                            <div className="textbox connexion">
+                                <label htmlFor="email"></label>
+                                <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="email" required />
+                                <span className="material-symbols-outlined"> email </span>
+                            </div>
+
+                            <div className="textbox connexion">
+                                <label htmlFor="password"></label>
+                                <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="password" required />
+                                <span className="material-symbols-outlined">
+                                    key
+                                </span>
+                            </div>
+
+                            <p>
+                                <a href="/Maj">Mot de passe oublié ?</a>
+                            </p>
+
+                            <button type="submit" id="submitLog" value="Login">
+                                Connexion
+                                <span className="material-symbols-outlined"> arrow_forward </span>
+                            </button>
+                            <p>
+                                Vous n'avez pas de compte ?
+                                <a href="/inscription"> Inscrivez-vous</a>
+                            </p>
+                        </form>
+                    </div>
                 </div>
+                <img src={header_img} alt="header_img" className="imageLogin" />
 
-
-                <div className="login">
-                    <form method="POST" action="" id="form" onSubmit={submit}>
-                        <div className="textbox">
-                            <label htmlFor="email"></label>
-                            <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="email" required />
-                            <span className="material-symbols-outlined"> email </span>
-                        </div>
-
-                        <div className="textbox">
-                            <label htmlFor="password"></label>
-                            <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="password" required />
-                            <span className="material-symbols-outlined">
-                                key
-                            </span>
-                        </div>
-
-                        <p>
-                            Mot de passe oublié ?
-                        </p>
-
-                        <button type="submit" id="submitLog" value="Login" disabled={!validateForm()}>
-                            Connexion
-                            <span className="material-symbols-outlined"> arrow_forward </span>
-                        </button>
-                        <p>
-                            Vous n'avez pas de compte ?
-                            <a href="/inscription"> Inscrivez-vous</a>
-                        </p>
-                    </form>
-                </div>
-
-                {/* <div>
-                    <form method="POST" action="" id="form_position" onSubmit={submit}>
-                        <label htmlFor="email">Email</label>
-                        <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-
-                        <label htmlFor="password">Password</label>
-                        <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-
-                        <span>MOT DE PASSE OUBLIÉ ?</span>
-
-                        <input id="submitCo" type="submit" value="Login" disabled={!validateForm()} />
-
-                        <span>VOUS N'AVEZ PAS DE COMPTE ? INSCRIPTION</span>
-                    </form>
-                </div> */}
+                <Footer />
             </div>
-
-            <Footer />
         </div>
-    )
+    );
 }
 
 export default Connexion;
