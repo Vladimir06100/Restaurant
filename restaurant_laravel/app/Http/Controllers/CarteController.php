@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Carte;
-use App\Models\Produit  ;
 use App\Models\Produit_Carte;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Psy\Command\WhereamiCommand;
+
 
 class CarteController extends Controller
 {
@@ -73,7 +72,6 @@ $produit_carte::create([
     public function show(Carte $carte)
     {
         return response()->json(['carte' => $carte,
-    
     
     ]);
     }

@@ -1,6 +1,5 @@
 import Menu from '../Components/Menu';
 import Footer from '../Components/Footer';
-import Qrcode from '../Components/Qrcode/Qrcode';
 // import ''./Cartes.css';
 import {useState,useEffect} from 'react';
 import Cartes_props from '../Props/Cartes_props';
@@ -8,8 +7,8 @@ import Cartes_props from '../Props/Cartes_props';
 
 function Cartes() {
 
-  const [cartes, setCartes] = useState([]);
-  const [listproduits, setListproduits] = useState([]);
+    const [cartes, setCartes] = useState ([]);
+    const [listproduits, setListproduits] = useState ([]);
 
     async function getCartes() {
       const options = {
@@ -59,54 +58,63 @@ function Cartes() {
       }
    
 
-  return (
-    <div>
-      <Menu />
-      <div className="cartesPosition">
-        <div className="cartesPositionBis">
-          <div className="home_title">
-            <span>
-              Add or <br /><span id="home_title_color">modify</span><br /> your cards
-            </span>
-
-            <div className="restaurant_text">
-              <p>
-                Lorem ipsum dolor sit amet. Qui rerum voluptatem eum blanditiis ratione qui sunt nulla eum adipisci corporis a rerum voluptas et doloremque nisi qui velit eligendi? Aut voluptatibus consequatur non laboriosam maxime ut ducimus dicta. Est quam asperiores aut ducimus veniam nam numquam necessitatibus ut consequatur quaerat qui fuga optio aut nihil laboriosam.
-              </p>
-            </div>
+    return (
+        <div>
+            <Menu />
+            <h1>Créer Carte</h1>
+    
 
             <form method="POST" action="" onSubmit={(event)=> {
                 event.preventDefault();
                 const nom_carte= event.target.nom_carte.value;
-                const produit= event.target.produit.value
+               
                 //jajoute le prduit
-                createCarte(nom_carte, produit);
+                createCarte(nom_carte);
                 
             console.log(nom_carte, "nom" );
             }}>
             <label htmlFor="nom_carte">Nom de la carte</label>
             <input type="text" id="nom_carte" name="nom_carte" />
-
-
+            <button type="submit">Ajouter</button>
+</form>
+<form>
 
             <label htmlFor="produit">Produits</label>
             <select id="produit" name="produit">
-              <option value="">
-
-              </option>
+  
+         
+            {listproduits.map(produit => 
+					  <option key={produit.id} value={produit.nom_produit}> {produit.nom_produit} -
+                     - {produit.categorie} -
+                      {produit.description}</option>
+				
+		
+    )};
             </select>
 
-                    <button type="submit">Ajouter</button>
-                    <button type="submit">Modifier</button>
-                    <button type="submit">Supprimé</button>
-                    <Qrcode url="http://localhost:8000/api/" />
-                </form>
+            <button type="submit">Ajouter</button>
+            <button type="submit">Modifier</button>
+            <button type="submit">Supprimé</button>
+        </form>
 
+
+            <div>
+       
+
+<h2> Affichage </h2>
+        {cartes.map((carte, index) => (
+  <Cartes_props 
+  key={index}
+  nom_carte={carte.nom_carte} 
+  listproduits={listproduits}
+  produit_id={carte.produit_id}  
+  />
+  ))}
+
+            </div>
+            <Footer />
         </div>
-      </div>
-      <Footer />
-    </div >
-  )
+    )
 }
 
 export default Cartes;

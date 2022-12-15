@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Database\Seeders\Produit_Cartes;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
