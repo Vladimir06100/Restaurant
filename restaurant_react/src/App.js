@@ -9,6 +9,8 @@ import Produits from "./Pages/Produits";
 import Cartes from "./Pages/Cartes";
 import Qrcode from "./Components/Qrcode/Qrcode";
 import MesRestaurants from "./Pages/MesRestaurants";
+import Formules from "./Pages/Formules/Formules";
+
 import './Styles/Home.css';
 
 const router = createBrowserRouter([
@@ -62,6 +64,12 @@ const router = createBrowserRouter([
   {
     path: '/qrcode',
     element: <Qrcode />,
+    error: <Error404 />
+  },
+
+  {
+    path: '/formules',
+    element: <Formules />,
     error: <Error404 />
   },
 ]);
