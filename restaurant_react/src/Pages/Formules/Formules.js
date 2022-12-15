@@ -3,56 +3,73 @@ import Footer from "../../Components/Footer";
 import { useState, useEffect } from "react";
 
 
-function Formules() {
-    //creation des formules
+function Formules(nom_formule, description_formule, entree, plat, dessert, prix_formule, votre_prix) {
+    //création des formules
 
-
-    const [formule1, setFormule1] = useState(false);
-    const [formule2, setFormule2] = useState(false);
-    const [formule3, setFormule3] = useState(false);
+    const [formules, setFormules] = useState([]);
 
 
 
-    async function createFormule1( categorie_produit_entree, categorie_produit_plat, categorie_produit_dessert) {
+
+
+
+
+
+    async function createFormules(nom_formule, description_formule, entree, plat, dessert, prix_formule, votre_prix) {
+
 
 
         const options = {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-
             },
-
-
-
-
-
-            body: JSON.stringify({
-                categorie_produit_entree: categorie_produit_entree,
-                categorie_produit_plat: categorie_produit_plat,
-                categorie_produit_dessert: categorie_produit_dessert,
-
-
+            Body: JSON.stringify({
+                nom_formule: nom_formule,
+                description_formule: description_formule,
+                entree: entree,
+                plat: plat,
+                dessert: dessert,
+                prix_formule: prix_formule,
+                votre_prix: votre_prix,
 
             }),
+        }
 
 
-
-
-        };
 
         let response = await fetch('http://localhost:8000/api/formules', options);
         let data = await response.json();
         console.log(data);
-        const formule1 = data.formule1;
-        setFormule1(formule1);
 
+        setFormules(data);
+
+    }
+
+
+    useEffect(() => {
+        console.log('useEffect', Formules);
+        createFormules();
+    }, []);
+
+
+    async function getFormules() {
+        const options = {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        };
+        let response = await fetch('http://localhost:8000/api/formules', options);
+        let data = await response.json();
+        console.log(data);
+        setFormules(data.formules);
 
     }
 
     useEffect(() => {
-        console.log('useEffect', formule1);
-        createFormule1();
+        console.log('useEfect');
+        getFormules();
     }, []);
 
 
@@ -61,55 +78,109 @@ function Formules() {
     return (
         <div>
             <Menu />
-            <h1>Formules</h1>
 
-            <div>
-                <form method="POST" action="" onSubmit={(event) => {
-                    const formule1 = event.target.formule1.value;
-                    createFormule1("formule1");
-                }}>
-                </form>
-
-                <form>
-
-                <input type="text" id="name" name="formule1" />
-                <button type="submit">formule1</button>
-
-                
-
-                <input type="text" id="name" name="formule2" />
-                <button type="submit">formule2</button>
-
-                <input type="text" id="name" name="formule3" />
-                <button type="submit">formule3</button>
-
-                
+            <h1>Les Formules</h1>
+            <div className="formules">
+                <div className="formules__container">
+                    <div className="formules__wrapper">
+                        <ul className="formules__items"></ul>
+                        <ul>
+                            {formules.map((formule, index) => (
+                                
+                                <li>
+                                key={index}
+                                {formule.nom_formule}
+                                {formule.description_formule}
+                                {formule.entree}
+                                {formule.plat}
+                                {formule.dessert}
+                                {formule.prix_formule}
+                                {formule.votre_prix}
+                                </li>
 
 
-                <button type="submit">Ajouter</button>
-                <button type="submit">Modifier</button>
-
-                </form>
-
-
+                                    
+                                    ))}
+                        </ul>
+                    </div>
+                </div>
             </div>
 
+            <form></form>
+            <input type="text" placeholder="" v-model="choix formule" />
+            <button className="btn">Choisir formule</button>
+
+            <input type="text" placeholder="" v-model="formule1" />
+            <button type="submit">formule1</button>
+            <input type="text" id="name" name="formule1" />
+
+
+
+            <button type="submit">formule2</button>
+            <input type="text" id="name" name="formule2" />
+
+
+
+            <button type="submit">formule3</button>
+            <input type="text" id="name" name="formule3" />
+
+
+            <button type="submit">Ajouter</button>
+            <button type="submit">Modifier</button>
 
 
             <Footer />
         </div>
-
-
-
-
-
-
-
-
-
-
     )
 
 }
 
 export default Formules;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
