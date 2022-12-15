@@ -23,36 +23,56 @@
 
 .produits{
     width: 25em;
-    margin-top: 4em;
-}
-
-#formProduits form{
     padding: 3em;
 }
 
-#formProduits label{
-    padding: 0 24px 0 36px;
-    border-bottom: 2px solid #e08815;
-    height: 72px;
+#formProduits{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
 }
 
-#form_position label{
-    font-family: Arial, Helvetica, sans-serif
+#formProduits label{
+    border-bottom: 2px solid #e08815;
+    font-family: 'Signika';
+    text-transform: uppercase;
+}
+
+#formProduits input{
+    font-size: 13px;
+    background: #b9844038;
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 6%);
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 1em;
+}
+
+.tvaPosition{
+    display: flex;
+    gap: 9px;
+}
+
+.categoriePosition{
+    display: flex;
+    gap: 9px;
 }
 
 #ajoutProduct{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #d68d00;
-    border: none;
+    background-color: #000000;
+    border-radius: 5px;
     color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 35%);
+    font-family: 'Signika';
     cursor: pointer;
+    margin-top: 2em;
 } 
+
+#ajoutProduct:hover, #ajoutProduct:active{
+    background-color: #ce610f;
+    background-position: 0 0;
+}
+
+#ajoutProduct:active{
+    opacity: .5;
+}
 
