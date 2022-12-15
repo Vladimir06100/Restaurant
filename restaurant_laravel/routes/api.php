@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CarteController;
+use App\Http\Controllers\Categorie_FormuleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FormuleController;
@@ -46,3 +47,7 @@ Route::get('/cartes', [CarteController::class, 'index'])->name('cartes.index');
 
 // route pour les formules
 Route::resource('formules', FormuleController::class);
+
+// route pour les catégories de formules
+Route::resource('formules/categorie_formule', Categorie_FormuleController::class);
+
