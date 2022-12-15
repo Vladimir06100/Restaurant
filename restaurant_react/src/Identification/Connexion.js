@@ -101,37 +101,23 @@ function Connexion() {
                                 <a href="/Maj">Mot de passe oublié ?</a>
                             </p>
 
-                        <button type="submit" id="submitLog" value="Login">
-                            Connexion
-                            <span className="material-symbols-outlined"> arrow_forward </span>
-                        </button>
-                        <p>
-                            Vous n'avez pas de compte ?
-                            <a href="/inscription"> Inscrivez-vous</a>
-                        </p>
-                    </form>
+                            <button type="submit" id="submitLog" value="Login">
+                                Connexion
+                                <span className="material-symbols-outlined"> arrow_forward </span>
+                            </button>
+                            <p>
+                                Vous n'avez pas de compte ?
+                                <a href="/inscription"> Inscrivez-vous</a>
+                            </p>
+                        </form>
+                    </div>
                 </div>
+                <img src={header_img} alt="header_img" className="imageLogin" />
 
-                {/* <div>
-                    <form method="POST" action="" id="form_position" onSubmit={submit}>
-                        <label htmlFor="email">Email</label>
-                        <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-
-                        <label htmlFor="password">Password</label>
-                        <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-
-                        <span>MOT DE PASSE OUBLIÉ ?</span>
-
-                        <input id="submitCo" type="submit" value="Login" disabled={!validateForm()} />
-
-                        <span>VOUS N'AVEZ PAS DE COMPTE ? INSCRIPTION</span>
-                    </form>
-                </div> */}
+                <Footer />
             </div>
-
-            <Footer />
         </div>
-    )
+    );
 }
 
 export default Connexion;

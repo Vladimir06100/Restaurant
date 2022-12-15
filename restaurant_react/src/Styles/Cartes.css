@@ -18,19 +18,19 @@
     font-family: 'Times New Roman', Times, serif;
     font-size: 15px;
     text-align: justify;
-    width: 20em;
 }
 
 #formCartes{
     display: flex;
     flex-direction: column;
     gap: 1em;
+    justify-content: center;
+    margin-left: 4em;
 }
 
 #forCartes, #nom{
     font-size: 13px;
     background: #b9844038;
-    /* box-shadow: 0 0 20px 0 rgb(0 0 0 / 6%); */
     font-family: Arial, Helvetica, sans-serif;
     padding-left: 1em;
     border: none;
