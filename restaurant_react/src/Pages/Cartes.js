@@ -1,8 +1,8 @@
 import Menu from '../Components/Menu';
 import Footer from '../Components/Footer';
 import Qrcode from '../Components/Qrcode/Qrcode';
-// import ''./Cartes.css';
-import {useState,useEffect} from 'react';
+import '../Styles/Cartes.css';
+import { useState, useEffect } from 'react';
 import Cartes_props from '../Props/Cartes_props';
 
 
@@ -99,11 +99,12 @@ function Cartes() {
               </option>
             </select>
 
-                    <button type="submit">Ajouter</button>
-                    <button type="submit">Modifier</button>
-                    <button type="submit">Supprimé</button>
-                    <Qrcode url="http://localhost:8000/api/" />
-                </form>
+            <button id="add" type="submit">Ajouter</button>
+            <button id="modif" type="submit">Modifier</button>
+            <button id="supp" type="submit">Supprimé</button>
+            <br />
+            <Qrcode url="http://localhost:8000/api/" />
+          </form>
 
         </div>
       </div>
