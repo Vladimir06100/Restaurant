@@ -1,6 +1,6 @@
 import Menu from '../Components/Menu';
 import '../Styles/Home.css';
-import ban from '../Images/ban.png';
+import bann from '../Images/bann.png';
 import vector from '../Images/vector.png';
 import Footer from '../Components/Footer';
 import Carrousel from '../Components/Carrousel';
@@ -11,10 +11,8 @@ function Home() {
     return (
         <div>
             <Menu />
+            <img id="ban" src={bann} alt='bannière' />
             <div className='home_position'>
-                <div className='home_image'>
-                    <img id="imghome" src={ban} alt='bannière' />
-                </div>
 
                 <div className="home_title">
                     <span>

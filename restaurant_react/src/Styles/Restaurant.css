@@ -1,8 +1,15 @@
 
 .restaurant_position{
     display: flex;
-    align-items: center;
-    justify-content: center;
+    margin-top: 5em;
+    justify-content: space-around;
+}
+
+.positionBis{
+    display: flex;
+    flex-direction: row-reverse;
+    background: white;
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 35%);
 }
 
 .restaurant_text{
@@ -14,8 +21,14 @@
 
 .formRestaurant{
     width: 25em;
-    margin-top: 8em;
-    background-color: #e088152e;
+    margin-top: 4em;
+}
+
+form .restaurant input{
+    border: none;
+    border-bottom: 2px solid #e08815;
+    padding: 0 24px 0 36px;
+    height: 72px;
 }
 
 .formRestaurant form{
@@ -26,11 +39,31 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-#submitCo{
-    color: white;
-    cursor: pointer;
-    background: red;
+.restaurant{
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 72px;
+    width: 24em;
 }
+
+#submitRestaurant{
+    border: none;
+    margin-top: 1em;
+    width: 17em;
+    background-color: #000000;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 35%);
+    font-family: 'Signika';
+    cursor: pointer;
+}
+
+#submitRestaurant:hover, #submitRestaurant:active{
+    background-color: #ce610f;
+    background-position: 0 0;
+}
+
 
 @media screen and (max-width: 500px) {
     .restaurant_position {
