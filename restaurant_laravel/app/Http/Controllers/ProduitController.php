@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Produit;
-use Database\Seeders\Produits;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,14 +15,14 @@ class ProduitController extends Controller
      */
     public function index()
     {
-        // get all produits where restaurateur_id = auth()->user()->id
-        // Produit::where('restaurateur_id', auth()->user()->restaurateur_id)->find($restaurateur_id);
-        $produits = Produit::where('restaurateur_id', auth()->user()->id)->get();
-        return response()->json(['produits' => $produits,
-        'categories' => DB::table('categories')
-        ->leftJoin('produits','categories.id', '=', 'produits.categorie_id')
-        ->get()
-    ]);
+
+        $produits = Produit::all();
+        return response()->json([
+            'produits' => $produits,
+            'categories' => DB::table('categories')
+                ->leftJoin('produits', 'categories.id', '=', 'produits.categorie_id')
+                ->get()
+        ]);
     }
 
     /**
@@ -47,7 +46,6 @@ class ProduitController extends Controller
             'TVA' => '',
             'prixTTC' => 'required|integer',
             'quantite' => 'required|integer',
-            'restaurateur_id' => 'required|integer',
         ]);
 
         $produit = Produit::create([
@@ -58,7 +56,7 @@ class ProduitController extends Controller
             'TVA' => $request->TVA,
             'prixTTC' => $request->prixTTC,
             'quantite' => $request->quantite,
-            'restaurateur_id' => auth()->user()->id,
+            // 'restaurateur_id' => auth()->user()->id,
         ]);
 
         return response()->json(['produit' => $produit]);
@@ -66,12 +64,9 @@ class ProduitController extends Controller
 
     public function show($id)
     {
-        // show a product with restaurateur_id = auth()->user()->id
-        // Produit::where('restaurateur_id', auth()->user()->id)->find($id);
-        // $produit = Produit::where('restaurateur_id', auth()->user()->id)->find($id);
-        // return response()->json(['produit' => $produit]);
-
-
+        // show a product
+        $produit = Produit::find($id);
+        return response()->json(['produit' => $produit]);
     }
 
 
