@@ -23,6 +23,8 @@ function Menu() {
                         <li className="link"><a href="/restaurant">AJOUTER UN RESTAURANT </a></li>
                         <li className="link"><a href="/produits">PRODUIT </a></li>
                         <li className="link"><a href="/cartes">CARTES </a></li>
+                        <li className="link"><a href="/formules">FORMULES </a></li>
+
                         <li>
                             <span id="navbar_style">
                                 <a href="/connexion">CONNEXION </a>
@@ -48,6 +50,8 @@ function Menu() {
                                     <li className="link"><a href="/restaurant">AJOUTER UN RESTAURANT </a></li>
                                     <li className="link"><a href="/produits">PRODUITS </a></li>
                                     <li className="link"><a href="/cartes">CARTES </a></li>
+                                    <li className="link"><a href="/formules">FORMULES </a></li>
+
                                     <li>
                                         <span id="navbar_style">
                                             <a href="/connexion">CONNEXION </a>
