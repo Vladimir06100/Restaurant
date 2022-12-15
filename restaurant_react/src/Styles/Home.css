@@ -4,6 +4,10 @@
     padding:0;
 }
 
+body{
+    background: #222222f2;
+}
+
 .home_title{
     display: flex;
     flex-direction: column;

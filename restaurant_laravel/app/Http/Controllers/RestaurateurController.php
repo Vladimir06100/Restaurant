@@ -37,7 +37,7 @@ class RestaurateurController extends Controller
             'message' => 'Connexion réussi.',
             'token' => $token,
             'id' => $id
-        ], 200); 
+        ], 200);
 
         redirect()->route('produits');
     }
@@ -83,7 +83,7 @@ class RestaurateurController extends Controller
             'restaurateur' => $restaurateur
         ], 200);
     }
-    
+
     // suppression profile
     public function delete($id)
     {
