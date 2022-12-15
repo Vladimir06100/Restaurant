@@ -24,7 +24,10 @@ return new class extends Migration
             $table->time('heure_ouverture');
             $table->time('heure_fermeture');
             $table->string('image');
-            $table->foreignIdFor(Restaurateur::class)->constrained()->onDelete('restrict')->onUpdate('restrict');
+
+            //Nullable à la place de Contraint() pour création des restaurants
+
+            $table->foreignIdFor(Restaurateur::class)->nullable()->onDelete('restrict')->onUpdate('restrict');
 
         });
     }
