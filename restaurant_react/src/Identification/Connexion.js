@@ -31,15 +31,15 @@ function Connexion() {
         const data = await response.json();
         console.log("Data : ", data);
         const token = data.token;
-        const id = data.id;
+        const restaurateur_id = data.restaurateur_id;
         const message = data.message;
 
         if (message === 'Connexion réussi.') {
             
             console.log("Token : ", token);
-            console.log("ID : ", id);
+            console.log("ID : ", restaurateur_id);
             localStorage.setItem("token", JSON.stringify(token));
-            localStorage.setItem("id", JSON.stringify(id));
+            localStorage.setItem("restaurateur_id", JSON.stringify(restaurateur_id));
 
             alert("Vous êtes connecté");
             return window.location.href = '/produits';

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Produit;
+use Database\Seeders\Produits;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,7 +17,7 @@ class ProduitController extends Controller
     public function index()
     {
         // get all produits where restaurateur_id = auth()->user()->id
-
+        // Produit::where('restaurateur_id', auth()->user()->restaurateur_id)->find($restaurateur_id);
         $produits = Produit::where('restaurateur_id', auth()->user()->id)->get();
         return response()->json(['produits' => $produits,
         'categories' => DB::table('categories')
@@ -46,6 +47,7 @@ class ProduitController extends Controller
             'TVA' => '',
             'prixTTC' => 'required|integer',
             'quantite' => 'required|integer',
+            'restaurateur_id' => 'required|integer',
         ]);
 
         $produit = Produit::create([
@@ -64,9 +66,12 @@ class ProduitController extends Controller
 
     public function show($id)
     {
-        // show a product
-        $produit = Produit::find($id);
-        return response()->json(['produit' => $produit]);
+        // show a product with restaurateur_id = auth()->user()->id
+        // Produit::where('restaurateur_id', auth()->user()->id)->find($id);
+        // $produit = Produit::where('restaurateur_id', auth()->user()->id)->find($id);
+        // return response()->json(['produit' => $produit]);
+
+
     }
 
 

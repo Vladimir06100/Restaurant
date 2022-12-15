@@ -1,17 +1,16 @@
 import Menu from '../Components/Menu';
-import header_register from '../Images/header_register.png';
 import { useState, useEffect } from "react";
 import '../Styles/Maj.css';
 
 function Maj() {
-    //Création d'une variable contenant un objet avec les données de l'utilistateur
+    //Création d'une variable contenant un objet avec les données de l’utilisateur
     const [restaurateur, setRestaurateur] = useState({ password: "" });
 
     /**
      * Création d'une fonction async avec une method get pour récupérer les données de l'utilisateur connecté
      */
     async function getInfo() {
-        // On récupére le token enregistré préalablement dans le localStorage
+        // On récupéré le token enregistré préalablement dans le localStorage
         let token = JSON.parse(localStorage.getItem("token"));
 
         const optionsInfo = {

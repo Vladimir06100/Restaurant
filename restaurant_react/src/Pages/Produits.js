@@ -9,18 +9,20 @@ function Produits() {
     // function calcul tva sur onClick
 
     function tva() {
-      // calcul TCC plus remplir le champ prixTTC
+        // calcul TCC plus remplir le champ prixTTC
 
     }
 
 
-     const [categories, setCategories] = useState([]);
+    const [categories, setCategories] = useState([]);
 
     async function getProduits() {
+
         const options = {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem('restaurateur_id'),
             },
         };
         let response = await fetch('http://localhost:8000/api/produits', options);
@@ -33,10 +35,12 @@ function Produits() {
     }, []);
 
     async function createProduit(nom_produit, categorie_id, description, prixHT, TVA, prixTTC, quantite) {
+        const restaurateur_id = localStorage.getItem('restaurateur_id');
         const options = {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + restaurateur_id,
             },
             body: JSON.stringify({
                 nom_produit: nom_produit,
@@ -46,6 +50,7 @@ function Produits() {
                 TVA: TVA,
                 prixTTC: prixTTC,
                 quantite: quantite,
+
             }),
         };
         let response = await fetch('http://localhost:8000/api/produits', options);
@@ -53,8 +58,6 @@ function Produits() {
             return;
         }
         getProduits();
-        // message succes span id="message_succes"
-        // refrech formulaire
         document.getElementById("form_position").reset();
     }
 
@@ -98,10 +101,10 @@ function Produits() {
                             <option value='20' onClick={tva}>20</option>
                         </select>
                         <br />
-                    
+
                         <label htmlFor="prixTTC">Prix TTC</label>
                         {/* set prix TTC */}
-                        
+
                         <input type="text" id="prixTTC" name="prixTTC" placeholder="Prix TTC du produit" required />
                         <label htmlFor="categorie_id">Catégorie </label>
                         <br />
@@ -110,6 +113,7 @@ function Produits() {
                             <option value='1'>Entrée</option>
                             <option value='2'>Plat</option>
                             <option value='3'>Dessert</option>
+                            <option value='4'>Boisson</option>
                         </select>
                         <br />
                         <label htmlFor="quantite"  >Quantité</label>
@@ -124,7 +128,7 @@ function Produits() {
                 </div>
                 <div className="produits">
                     {categories.map((categorie, index) => (
-                        <Produit  key={index}
+                        <Produit key={index}
                             nom_produit={categorie.nom_produit}
                             type={categorie.type}
                             description={categorie.description}
@@ -133,7 +137,7 @@ function Produits() {
                             prixTTC={categorie.prixTTC}
                             quantite={categorie.quantite}
                         />
-                        ))}
+                    ))}
                 </div>
             </div>
             <Footer />

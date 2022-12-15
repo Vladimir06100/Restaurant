@@ -32,11 +32,11 @@ class RestaurateurController extends Controller
             ], 401);
         }
         $token = $restaurateur->token;
-        $id = $restaurateur->id;
+        $restaurateur_id = $restaurateur->id;
         return response()->json([
             'message' => 'Connexion réussi.',
             'token' => $token,
-            'id' => $id
+            'restaurateur_id' => $restaurateur_id
         ], 200); 
 
         redirect()->route('produits');
