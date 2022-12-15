@@ -26,10 +26,11 @@ function Produits() {
     }, []);
 
     async function createProduit(nom_produit, categorie_id, description, prixHT, TVA, prixTTC, quantite) {
+        const restaurateur_id = localStorage.getItem('id');
         const options = {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify({
                 nom_produit: nom_produit,
@@ -39,6 +40,7 @@ function Produits() {
                 TVA: TVA,
                 prixTTC: prixTTC,
                 quantite: quantite,
+                restaurateur_id: restaurateur_id,
             }),
         };
         let response = await fetch('http://localhost:8000/api/produits', options);

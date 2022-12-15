@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Produit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ProduitController extends Controller
@@ -48,6 +49,7 @@ class ProduitController extends Controller
             'TVA' => '',
             'prixTTC' => 'required|integer',
             'quantite' => 'required|integer',
+            'restaurateur_id' => 'required|integer',
         ]);
 
         $produit = Produit::create([
@@ -58,7 +60,7 @@ class ProduitController extends Controller
             'TVA' => $request->TVA,
             'prixTTC' => $request->prixTTC,
             'quantite' => $request->quantite,
-            // 'restaurateur_id' => auth()->user()->id,
+            'restaurateur_id' => $request->restaurateur_id,
         ]);
 
         return response()->json(['produit' => $produit]);
