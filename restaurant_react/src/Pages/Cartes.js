@@ -32,7 +32,7 @@ function Cartes() {
     }, []);
  
 
-    async function createCarte(nom_carte) {
+    async function createCarte(nom_carte, produit_id) {
         const options = {
           method: 'POST',
           headers: {
@@ -40,6 +40,8 @@ function Cartes() {
           },
           body: JSON.stringify({
             nom_carte:nom_carte,
+            produit_id:produit_id
+            // jajoute le produit produit_id:produit
            
           }),
         };
@@ -65,17 +67,17 @@ function Cartes() {
             <form method="POST" action="" onSubmit={(event)=> {
                 event.preventDefault();
                 const nom_carte= event.target.nom_carte.value;
-                createCarte(nom_carte);
+                const produit= event.target.produit.value
+                //jajoute le prduit
+                createCarte(nom_carte, produit);
                 
             console.log(nom_carte, "nom" );
             }}>
             <label htmlFor="nom_carte">Nom de la carte</label>
             <input type="text" id="nom_carte" name="nom_carte" />
 
-<button type="submit"> Valider</button>
-</form>
 
-<form>
+
             <label htmlFor="produit">Produits</label>
             <select id="produit" name="produit">
   

@@ -4,15 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Carte;
 use App\Models\Produit  ;
+use App\Models\Produit_Carte;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Psy\Command\WhereamiCommand;
 
 class CarteController extends Controller
 {
 
     public function index()
     {
-        // list of all cartes(menu) in the database for the restaurant_id
+        // list de touts les cartes(menu) dans  database pour  restaurant_id
         $cartes = Carte::all();
         return response()->json([
             'message' => 'Cartes retrieved successfully.',
@@ -28,31 +30,37 @@ class CarteController extends Controller
 
     public function create()
     {
-        
+        //
     }
 
 
-    public function store(Request $request)
+    public function store(Request $request,Produit_Carte $produit_carte)
     {
         // request validation
         $request->validate([
             'nom_carte' => 'string',
 
         ]);
-        // create a new carte in the database
+        // creer une nouvelle carte dans la db
         $carte = Carte::create([
-        'nom_carte' => $request->nom_carte,
-        'produit_id' => $request->produit_id,
-        'restaurant_id' => $request->restaurant_id,
-        'formule_id' => $request->formule_id,
-    
-//auth()->user()
+            'nom_carte' => $request->nom_carte,
+            'restaurant_id' => $request->restaurant_id,
+            'formule_id' => $request->formule_id,
+
         ]);
 
-        
-        $data = $request->toArray();
-        
-        Carte::create($data);
+// ici jinsere la liaison carte & produit
+$produit_carte::create([
+    'carte_id'=> $carte->id,
+    'produit_id' => $request->produit_id
+]);
+
+  
+    /*   'jointure carte_produits'=> DB::table('produit_cartes')
+        ->leftJoin('cartes', 'produit_cartes.carte_id', '=', 'cartes.id')
+        ->where('produit_cartes.produit_id','=',$produit->id)
+        ->get() */
+
 
         return response()->json([
         'message' => 'Carte created.',
