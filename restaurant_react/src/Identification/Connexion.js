@@ -84,7 +84,7 @@ function Connexion() {
                             </div>
 
                             <p>
-                                <a href="/Maj">Mot de passe oublié ?</a>
+                                <a href="/PasswordResetLink">Mot de passe oublié ?</a>
                             </p>
 
                             <button type="submit" id="submitLog" value="Login">

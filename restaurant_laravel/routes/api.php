@@ -8,6 +8,7 @@ use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\RestaurateurController;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\PasswordResetLinkController;
+use App\Http\Controllers\NewPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,8 +34,11 @@ Route::post('/restaurateurs/register', [RestaurateurController::class, 'register
 
 
 
-// Envoi d'un de confirmation pour changer le mot de passe
+// Envoi d'un email de confirmation pour changer le mot de passe
 Route::post('/forgot-password', [PasswordResetLinkController::class, 'store'])->name('api.password.email');
+
+// Page de changement de mot de passe
+Route::post('/reset-password', [NewPasswordController::class, 'store'])->name('api.password.reset');
 
 
 

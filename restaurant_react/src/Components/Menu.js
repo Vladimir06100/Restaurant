@@ -40,7 +40,7 @@ function Menu() {
                 <div className="navMenu">
                     {isOpen ?
                         <ul className="links mobile-size" onClick={() => setIsOpen(false)}>
-                            <i class='bx bx-x menu'></i>
+                            <i className='bx bx-x menu'></i>
 
                             <div className="navLinksBurger">
                                 <ul>
@@ -63,7 +63,7 @@ function Menu() {
                         </ul> :
 
                         <a id="openButton" onClick={() => setIsOpen(true)}>
-                            <i class='bx bx-menu-alt-right menu'></i>
+                            <i className='bx bx-menu-alt-right menu'></i>
                         </a>
                     }
                 </div>
