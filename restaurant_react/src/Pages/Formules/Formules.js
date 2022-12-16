@@ -15,7 +15,7 @@ function Formules(nom_formule, description_formule, entree, plat, dessert, prix_
 
 
 
-    async function createFormules(nom_formule, description_formule, entree, plat, dessert, prix_formule, votre_prix) {
+    async function createFormules() {
 
 
 
@@ -63,6 +63,7 @@ function Formules(nom_formule, description_formule, entree, plat, dessert, prix_
         let response = await fetch('http://localhost:8000/api/formules', options);
         let data = await response.json();
         console.log(data);
+        const formules = data.formules;
         setFormules(data.formules);
 
     }
@@ -87,16 +88,17 @@ function Formules(nom_formule, description_formule, entree, plat, dessert, prix_
                         <ul>
                             {formules.map((formule, index) => (
                                 
-                                <li>
+                                <Formules
                                 key={index}
-                                {formule.nom_formule}
-                                {formule.description_formule}
-                                {formule.entree}
-                                {formule.plat}
-                                {formule.dessert}
-                                {formule.prix_formule}
-                                {formule.votre_prix}
-                                </li>
+                                nom_formule={formule.nom_formule}
+                                description_formule={formule.description_formule}
+                                entree={formule.entree}
+                                plat={formule.plat}
+                                dessert={formule.dessert}
+                                prix_formule={formule.prix_formule}
+                                votre_prix={formule.votre_prix}
+                                />
+                                
 
 
                                     
@@ -106,7 +108,6 @@ function Formules(nom_formule, description_formule, entree, plat, dessert, prix_
                 </div>
             </div>
 
-            <form></form>
             <input type="text" placeholder="" v-model="choix formule" />
             <button className="btn">Choisir formule</button>
 
