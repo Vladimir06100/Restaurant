@@ -7,6 +7,7 @@ use App\Http\Controllers\FormuleController;
 use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\RestaurateurController;
 use App\Http\Controllers\RestaurantController;
+use App\Http\Controllers\PasswordResetLinkController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,13 @@ Route::post('/restaurateurs/login', [RestaurateurController::class, 'login'])->n
 // resource pour les restaurants les 7 routes
 // route pour l'inscription
 Route::post('/restaurateurs/register', [RestaurateurController::class, 'register'])->name('restaurateurs.register');
+
+
+
+// Envoi d'un de confirmation pour changer le mot de passe
+Route::post('/forgot-password', [PasswordResetLinkController::class, 'store'])->name('api.password.email');
+
+
 
 // resource pour les restaurants (creation, affichage)
 Route::resource('restaurants', RestaurantController::class);

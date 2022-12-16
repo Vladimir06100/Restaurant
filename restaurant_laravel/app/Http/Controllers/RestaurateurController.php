@@ -49,7 +49,8 @@ class RestaurateurController extends Controller
             'nom' => 'required|string',
             'prenom' => 'required|string',
             'email' => 'required|email',
-            'password' => 'required|string'
+            'password' => 'required|string',
+            'role' => 'required|string'
         ]);
 
         $token = Str::random(60);
@@ -59,6 +60,7 @@ class RestaurateurController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'token' => hash('sha256', $token),
+            'role' => $request->role
         ]);
         return response()->json([
             'message' => 'Restaurateur created.',
