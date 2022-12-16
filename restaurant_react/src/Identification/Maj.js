@@ -1,5 +1,5 @@
 import Menu from '../Components/Menu';
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import '../Styles/Maj.css';
 
 function Maj() {

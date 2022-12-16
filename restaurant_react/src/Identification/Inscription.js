@@ -6,8 +6,8 @@ import '../Styles/Inscription.css';
 
 
 function Inscription() {
-    const [nom, setNom] = useState ("");
-    const [prenom, setPrenom] = useState ("");
+    const [nom, setNom] = useState("");
+    const [prenom, setPrenom] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -24,7 +24,7 @@ function Inscription() {
                 "Content-Type": "application/json",
             },
 
-            body: JSON.stringify({ 
+            body: JSON.stringify({
                 nom: nom,
                 prenom: prenom,
                 email: email,
@@ -35,7 +35,7 @@ function Inscription() {
         const response = await fetch(`http://127.0.0.1:8000/api/restaurateurs/register`, options);
         const data = await response.json();
         const message = data.message;
-        
+
         if (message === 'Restaurateur created.') {
             alert('Votre compte a bien été créé !')
             return window.location.href = '/connexion';

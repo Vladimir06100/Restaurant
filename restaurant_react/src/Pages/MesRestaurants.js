@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from'react';
+import React, { useEffect, useState } from 'react';
 import Footer from '../Components/Footer';
 import Menu from '../Components/Menu';
 import "../Styles/MesRestaurants.css"
@@ -25,7 +25,7 @@ function MesRestaurants() {
         getRestaurants();
     }
         , []);
-//categorie_id,
+    //categorie_id,
 
     return (
         <div>
@@ -36,26 +36,26 @@ function MesRestaurants() {
 
                 <h1>Mes Restaurants</h1>
 
-                    {restaurants.map((restaurant) => (
-    
-                        <div class="container">
+                {restaurants.map((restaurant) => (
 
-                            <div class="image-box">
-                                <div class="images"><img class="images" src={restaurant.image} width="25%"/></div>
-                            </div>
+                    <div class="container">
+
+                        <div class="image-box">
+                            <div className="images"><img className='images' src={restaurant.image} width="25%" alt='img'/></div>
+                        </div>
                         <div class="text">
                             <h2 class="title">{restaurant.nom}</h2>
                             <button type="button" name="item-1-button" id="item-1-button">Modifier</button>
                         </div>
 
-                        </div>
-))}
+                    </div>
+                ))}
             </div>
 
             <Footer />
 
         </div>
-        
-        )
+
+    )
 }
 export default MesRestaurants;
