@@ -8,109 +8,111 @@ import Cartes_props from '../Props/Cartes_props';
 
 function Cartes() {
 
-  const [cartes, setCartes] = useState([]);
-  const [listproduits, setListproduits] = useState([]);
+    const [cartes, setCartes] = useState ([]);
+    const [listproduits, setListproduits] = useState ([]);
 
-  async function getCartes() {
-    const options = {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    };
-    let response = await fetch('http://localhost:8000/api/cartes', options);
-    const data = await response.json();
-    console.log(data);
-    const cartes = data.cartes;
-    const listproduits = data.db;
-    setCartes(cartes);
-    setListproduits(listproduits);
-    console.log(listproduits, 'testa');
-  }
-
-  useEffect(() => {
-    getCartes();
-  }, []);
-
-  async function createCarte(nom_carte) {
-    const options = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        nom_carte: nom_carte,
-
-      }),
-    };
-    let response = await fetch('http://localhost:8000/api/cartes', options);
-
-    if (response.status !== 201) {
-      return;
+    async function getCartes() {
+      const options = {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      };
+      let response = await fetch('http://localhost:8000/api/cartes', options);
+      const data = await response.json();
+      console.log(data);
+      const cartes = data.cartes;
+      const listproduits= data.liste_des_produits;
+      setCartes(cartes);
+      setListproduits(listproduits);
+      console.log(listproduits,'affichage listes');
     }
+ 
+    useEffect(() => {
+      getCartes();
+    }, []);
+ 
 
-    const data = await response.json();
+    async function createCarte(nom_carte, produit_id) {
+        const options = {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            nom_carte:nom_carte,
+            produit_id:produit_id
+            // jajoute le produit produit_id:produit
+           
+          }),
+        };
+        let response = await fetch('http://localhost:8000/api/cartes', options);
+    
+        if (response.status !== 201) {
+          return;
+        }
+    
+        const data = await response.json();
+    
+        const newCarte = data.carte;
+        setCartes([newCarte, ...cartes]);
+      }
+   
 
-    const newCarte = data.carte;
-    setCartes([newCarte, ...cartes]);
-  }
+    return (
+        <div>
+            <Menu />
+            <h1>Créer Carte</h1>
+    
 
+            <form method="POST" action="" onSubmit={(event)=> {
+                event.preventDefault();
+                const nom_carte= event.target.nom_carte.value;
+                const produit_id= event.target.produit_id.value
+                //j'ajoute le prduit
+                createCarte(nom_carte,produit_id);
+                
+            console.log(nom_carte, "nom" );
+            }}>
+            <label htmlFor="nom_carte">Nom de la carte</label>
+            <input type="text" id="nom_carte" name="nom_carte" />
+     
 
-  return (
-    <div>
-      <Menu />
-      <div className="cartesPosition">
-        <div className="cartesPositionBis">
-          <div className="home_title">
-            <span>
-              Add or <br /><span id="home_title_color">modify</span><br /> your cards
-            </span>
-
-            <div className="restaurant_text">
-              <p>
-                Lorem ipsum dolor sit amet. Qui rerum voluptatem eum blanditiis ratione qui sunt nulla eum adipisci corporis a rerum voluptas et doloremque nisi qui velit eligendi? Aut voluptatibus consequatur non laboriosam maxime ut ducimus dicta. Est quam asperiores aut ducimus veniam nam numquam necessitatibus ut consequatur quaerat qui fuga optio aut nihil laboriosam.
-              </p>
-            </div>
-
-          </div>
-
-          <div className="cartes_text"></div>
-          <form id="formCartes" method="POST" action="" onSubmit={(event) => {
-            const nom_carte = event.target.nom_carte.value;
-            createCarte(nom_carte);
-
-          }}>
-            {cartes.map((carte, index) => (
-              <Cartes_props
-                key={index}
-                nom_carte={carte.nom_carte}
-                listproduits={listproduits}
-                produit_id={carte.produit_id}
-              />
-            ))}
-
-            <label htmlFor="nom">Nom de la carte</label>
-            <input type="text" id="nom" name="nom" />
 
             <label htmlFor="produit">Produits</label>
-            <select id="produit" name="produit">
-              <option value="">
-
-              </option>
+            <select id="produit" name="produit_id">
+  
+         
+            {listproduits.map(produit => 
+					  <option key={produit.id} value={produit.id}> {produit.nom_produit} -
+                     - {produit.categorie} -
+                      {produit.description}</option>
+				
+		
+    )};
             </select>
 
-            <button id="add" type="submit">Ajouter</button>
-            <button id="modif" type="submit">Modifier</button>
-            <button id="supp" type="submit">Supprimé</button>
-            <br />
-            <Qrcode url="http://localhost:8000/api/" />
-          </form>
+            <button type="submit">Ajouter</button>
+        </form>
 
+
+            <div>
+       
+
+<h2> Affichage </h2>
+        {cartes.map((carte, index) => (
+  <Cartes_props 
+  key={index}
+  nom_carte={carte.nom_carte} 
+  listproduits={listproduits}
+  produit_id={carte.produit_id}  
+  />
+  ))}
+
+            </div>
+            <Footer />
         </div>
-      </div>
-      <Footer />
-    </div >
-  )
+    )
 }
 
 export default Cartes;
