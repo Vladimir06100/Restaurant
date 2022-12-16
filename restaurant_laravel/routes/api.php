@@ -36,11 +36,13 @@ Route::resource('restaurants', RestaurantController::class);
 // routes pour les produits les 7 routes
 Route::resource('produits', ProduitController::class);
 
-// routes pour ajouter un produit a la carte
-Route::post('/cartes', [CarteController::class, 'store'])->name('cartes.store');
+Route::resource('cartes',CarteController::class);
 
-// affichage de la carte
-Route::get('/cartes', [CarteController::class, 'index'])->name('cartes.index');
+/* // routes pour ajouter un produit a la carte
+Route::post('/cartes', [CarteController::class, 'store'])->name('cartes.store');
+ */
+/* // affichage de la carte
+Route::get('/cartes', [CarteController::class, 'index'])->name('cartes.index'); */
 
 
 

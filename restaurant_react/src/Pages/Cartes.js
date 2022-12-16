@@ -67,24 +67,23 @@ function Cartes() {
             <form method="POST" action="" onSubmit={(event)=> {
                 event.preventDefault();
                 const nom_carte= event.target.nom_carte.value;
-               
-                //jajoute le prduit
-                createCarte(nom_carte);
+                const produit_id= event.target.produit_id.value
+                //j'ajoute le prduit
+                createCarte(nom_carte,produit_id);
                 
             console.log(nom_carte, "nom" );
             }}>
             <label htmlFor="nom_carte">Nom de la carte</label>
             <input type="text" id="nom_carte" name="nom_carte" />
-            <button type="submit">Ajouter</button>
-</form>
-<form>
+     
+
 
             <label htmlFor="produit">Produits</label>
-            <select id="produit" name="produit">
+            <select id="produit" name="produit_id">
   
          
             {listproduits.map(produit => 
-					  <option key={produit.id} value={produit.nom_produit}> {produit.nom_produit} -
+					  <option key={produit.id} value={produit.id}> {produit.nom_produit} -
                      - {produit.categorie} -
                       {produit.description}</option>
 				
@@ -93,8 +92,6 @@ function Cartes() {
             </select>
 
             <button type="submit">Ajouter</button>
-            <button type="submit">Modifier</button>
-            <button type="submit">Supprimé</button>
         </form>
 
 

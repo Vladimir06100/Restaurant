@@ -18,11 +18,11 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
             $table->string('nom_carte');
-            $table->foreignIdFor(\App\Models\Produit::class, 'produit_id')
+           /*  $table->foreignIdFor(\App\Models\Produit::class, 'produit_id')
                 ->nullable()
                 ->constrained()
                 ->onUpdate('RESTRICT')
-                ->onDelete('RESTRICT');
+                ->onDelete('RESTRICT'); */
             $table->foreignIdFor(\App\Models\Restaurant::class, 'restaurant_id')
                 ->nullable()
                 ->constrained()

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Carte;
+use App\Models\Produit;
 use App\Models\Produit_Carte;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -20,7 +21,8 @@ class CarteController extends Controller
             'cartes' => $cartes,
             'liste_des_produits'=> DB::table('produits')
             ->leftJoin('cartes', 'produits.id', '=', 'cartes.produit_id')
-             ->get()
+             ->get(),
+
             
         ], 200);
         
@@ -69,10 +71,10 @@ $produit_carte::create([
     }
 
 
-    public function show(Carte $carte)
+    public function show(Carte $carte,Produit $produit)
     {
         return response()->json(['carte' => $carte,
-    
+
     ]);
     }
 
@@ -80,6 +82,8 @@ $produit_carte::create([
     public function edit(Carte $carte)
     {
         return response()->json(['carte' => $carte]);
+
+        
     }
 
 
