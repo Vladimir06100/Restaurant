@@ -9,25 +9,50 @@ function Produits() {
 
     const [categories, setCategories] = useState([]);
 
+    // fetch('http://localhost:8000/api/produits', {
+    //     method: 'GET',
+    //     headers: {
+    //         'Content-Type': 'application/json',
+    //         'Autorization': 'Bearer ' + localStorage.getItem('ID'),
+    //     },
+    // })
+    //     .then(response => {
+    //         if (response.ok) {
+    //             return response.json()
+    //         } else {
+    //             return Promise.reject('something went wrong!')
+                //ErrorException: Attempt to read property "id" on null in file /Users/vladimirsinkevitch/Desktop/Developpeur/Restaurant/restaurant_laravel/app/Http/Controllers/ProduitController.php on line 21
+
+    //         }
+    //     })
+    //     .then(data => console.log('data is', data))
+    //     .catch(error => console.log('error is', error));
+
+    
     async function getProduits() {
-        const restaurateur_id = localStorage.getItem('id');
+
+
         const options = {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
             },
         };
-        let response = await fetch('http://localhost:8000/api/produits?restaurateur_id=' + restaurateur_id, options);
+        let response = await fetch('http://localhost:8000/api/produits', options);
         const data = await response.json();
         const categories = data.categories;
         setCategories(categories);
+    
     }
+
+    //Illuminate\Database\QueryException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'produits.categories_id' in 'on clause'(SQL: select * from`categories` left join`produits` on`categories`.`id` = `produits`.`categories_id`) in file / Users / vladimirsinkevitch / Desktop / Developpeur / Restaurant / restaurant_laravel / vendor / laravel / framework / src / Illuminate / Database / Connection.php on line 760
+
     useEffect(() => {
         getProduits();
     }, []);
 
     async function createProduit(nom_produit, categorie_id, description, prixHT, TVA, prixTTC, quantite) {
-        const restaurateur_id = localStorage.getItem('id');
+        const restaurateur_id = localStorage.getItem('ID');
         const options = {
             method: 'POST',
             headers: {
@@ -48,9 +73,9 @@ function Produits() {
         if (response.status !== 200) {
             return;
         }
-        // const data = await response.json();
-        // const newCategorie = data.produit;
-        // setCategories([newCategorie, ...categories]);
+        const data = await response.json();
+        const newCategorie = data.produit;
+        setCategories([newCategorie, ...categories]);
         getProduits();
         document.getElementById("form_position").reset();
     }

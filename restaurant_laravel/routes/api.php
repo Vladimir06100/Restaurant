@@ -50,6 +50,8 @@ Route::post('/cartes', [CarteController::class, 'store'])->name('cartes.store');
 // affichage de la carte
 Route::get('/cartes', [CarteController::class, 'index'])->name('cartes.index');
 
+// afficher produits par restaurateur_id
+
 
 
 // route pour les formules
