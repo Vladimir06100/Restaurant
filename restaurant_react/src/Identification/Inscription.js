@@ -10,10 +10,11 @@ function Inscription() {
     const [prenom, setPrenom] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [role, setRole] = useState("");
 
     function handleSubmit(e) {
         e.preventDefault();
-        console.log(nom, prenom, email, password);
+        console.log(nom, prenom, email, password, role);
         addUser();
     }
 
@@ -28,7 +29,8 @@ function Inscription() {
                 nom: nom,
                 prenom: prenom,
                 email: email,
-                password: password
+                password: password,
+                role: role
             }),
         };
 
@@ -92,6 +94,14 @@ function Inscription() {
                                 </span>
                             </div>
 
+                        <div className="textRegister">
+                            <select value={role} onChange={(e) => setRole(e.target.value)}>
+                                <option value="-- Choose your role --">-- Choose your role --</option>
+                                <option value="Standard">Standard</option>
+                                <option value="Admin">Admin</option>
+                            </select>
+                        </div>
+                        
                             <button type="submit" id="submitRegister" onClick={handleSubmit}>S'inscrire</button>
 
                             <p>
