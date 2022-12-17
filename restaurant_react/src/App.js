@@ -10,6 +10,7 @@ import Cartes from "./Pages/Cartes";
 import Qrcode from "./Components/Qrcode/Qrcode";
 import MesRestaurants from "./Pages/MesRestaurants";
 import './Styles/Home.css';
+import Admin from "./Components/Admin/Admin";
 
 const router = createBrowserRouter([
   {
@@ -64,6 +65,12 @@ const router = createBrowserRouter([
     element: <Qrcode />,
     error: <Error404 />
   },
+
+  {
+    path: '/admin',
+    element: <Admin />,
+    error: <Error404 />
+  }
 ]);
 
 function App() {

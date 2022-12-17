@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CarteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
@@ -54,3 +55,9 @@ Route::get('/cartes', [CarteController::class, 'index'])->name('cartes.index');
 
 // route pour les formules
 Route::resource('formules', FormuleController::class);
+
+
+// route pour les admins
+Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+
+Route::delete('/admin/{id}', [AdminController::class, 'delete'])->name('admin.delete');
