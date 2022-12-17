@@ -1,8 +1,8 @@
 import Menu from '../Components/Menu';
 import { useState } from "react";
-import '../Styles/Maj.css';
+import '../Styles/PasswordResetLink.css';
 
-function Maj() {
+function PasswordResetLink() {
     //Création d'une variable contenant un objet avec les données de l'utilistateur
     const [restaurateur, setRestaurateur] = useState({ email: "" });
 
@@ -29,8 +29,8 @@ function Maj() {
         const data = await response.json();
         const newMember = data.success;
 
-        console.log('email envoyé');
-        alert("email envoyé");
+        console.log('Email envoyé');
+        alert("Email envoyé");
 
         if ( newMember === true ) {
             alert("Clasheur modifié");
@@ -63,7 +63,7 @@ function Maj() {
 
             <div className="info">
 
-                <label id="inputProfilText" htmlFor="email">Renseigner votre email :</label>
+                <label id="inputProfilText" htmlFor="email">Renseigner votre email</label>
                 <input id="inputProfilStyle"
                     name="email" 
                     value={restaurateur.email}
@@ -76,4 +76,4 @@ function Maj() {
     )
 }
 
-export default Maj;
+export default PasswordResetLink;

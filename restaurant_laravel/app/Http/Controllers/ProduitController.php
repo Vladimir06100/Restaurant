@@ -40,10 +40,10 @@ class ProduitController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+   /*  public function create()
     {
         //
-    }
+    } */
 
     public function store(Request $request)
     {

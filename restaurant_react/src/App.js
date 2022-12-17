@@ -2,9 +2,10 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from './Home/Home';
 import Inscription from './Identification/Inscription';
 import Connexion from './Identification/Connexion';
-import Maj from './Identification/Maj';
+import PasswordResetLink from './Identification/PasswordResetLink';
+import NewPassword from './Identification/NewPassword';
 import Error404 from "./Components/Error404/error404";
-import CreationRestaurant from "./Pages/CréationRestaurant";
+import Restaurant from "./Pages/CreationRestaurant";
 import Produits from "./Pages/Produits";
 import Cartes from "./Pages/Cartes";
 import Qrcode from "./Components/Qrcode/Qrcode";
@@ -19,13 +20,13 @@ const router = createBrowserRouter([
   },
 
   {
-    path: '/creation/restaurant',
-    element: <CreationRestaurant />,
+    path: '/creationrestaurant',
+    element: <Restaurant />,
     error: <Error404 />
   },
 
   {
-    path: 'mesrestaurants',
+    path: '/mesrestaurants',
     element: <MesRestaurants />,
     error: <Error404 />
   },
@@ -55,10 +56,17 @@ const router = createBrowserRouter([
   },
 
   {
-    path: '/Maj',
-    element: <Maj />,
+    path: '/PasswordResetLink',
+    element: <PasswordResetLink />,
     error: <Error404 />
   },
+
+  {
+    path: '/NewPassword',
+    element: <NewPassword />,
+    error: <Error404 />
+  },
+
   {
     path: '/qrcode',
     element: <Qrcode />,

@@ -28,9 +28,11 @@ class Restaurateur extends Authenticatable
         'email',
         'password',
         'token',
+        'role'
     ];
 
     protected string $nom;
     protected string $prenom;
     protected string $password;
+    protected string $role;
 }

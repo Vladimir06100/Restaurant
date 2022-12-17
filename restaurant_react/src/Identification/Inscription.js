@@ -10,10 +10,11 @@ function Inscription() {
     const [prenom, setPrenom] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [role, setRole] = useState("");
 
     function handleSubmit(e) {
         e.preventDefault();
-        console.log(nom, prenom, email, password);
+        console.log(nom, prenom, email, password, role);
         addUser();
     }
 
@@ -28,7 +29,8 @@ function Inscription() {
                 nom: nom,
                 prenom: prenom,
                 email: email,
-                password: password
+                password: password,
+                role: role
             }),
         };
 
@@ -50,52 +52,68 @@ function Inscription() {
     return (
         <div>
             <Menu />
-            <h1>Inscription</h1>
             <div className="register_position">
+                <div className="registerPositionBis">
 
-                <div>
-                    <img src={header_register} alt="header_register" />
+                    <div className='register_title'>
+                        <span>
+                            Inscrivez-vous et <br /><span id="home_title_color">rejoignez-nous</span> !
+                        </span>
+                    </div>
+
+                    <div className="register">
+                        <form id="register_form" onSubmit={handleSubmit}>
+
+                            <div className="textRegister">
+                                <label htmlFor="name"></label>
+                                <input type="text" id="name" name="nom" value={nom} onChange={(e) => setNom(e.target.value)} placeholder="Votre nom" required />
+                                <span className="material-symbols-outlined">
+                                    person
+                                </span>
+                            </div>
+
+                            <div className="textRegister">
+                                <label htmlFor="firstname"></label>
+                                <input type="text" id="firstname" name="prenom" value={prenom} onChange={(e) => setPrenom(e.target.value)} placeholder="Votre prénom" required />
+                                <span className="material-symbols-outlined">
+                                    person
+                                </span>
+                            </div>
+
+                            <div className="textRegister">
+                                <label htmlFor="email"></label>
+                                <input type="email" id="email" onChange={(e) => setEmail(e.target.value)} value={email} placeholder="Votre email" required />
+                                <span className="material-symbols-outlined"> email </span>
+                            </div>
+
+                            <div className="textRegister">
+                                <label htmlFor="password"></label>
+                                <input type="password" id="password" onChange={(e) => setPassword(e.target.value)} value={password} name="password" placeholder="Votre mot de passe" required />
+                                <span className="material-symbols-outlined">
+                                    key
+                                </span>
+                            </div>
+
+                        <div className="textRegister">
+                            <select value={role} onChange={(e) => setRole(e.target.value)}>
+                                <option value="-- Choose your role --">-- Choose your role --</option>
+                                <option value="Standard">Standard</option>
+                                <option value="Admin">Admin</option>
+                            </select>
+                        </div>
+                        
+                            <button type="submit" id="submitRegister" onClick={handleSubmit}>S'inscrire</button>
+
+                            <p>
+                                Déjà inscrit ? <a href="/connexion">Connectez-vous</a>
+                            </p>
+
+                        </form>
+                    </div>
                 </div>
 
-                <div>
-                    <form id="register_form" onSubmit={handleSubmit}>
+                <img src={header_register} alt="header_register" />
 
-                        <div className="textRegister">
-                            <label htmlFor="name">Nom</label>
-                            <input type="text" id="name" name="nom" value={nom} onChange={(e) => setNom(e.target.value)} placeholder="Votre nom" required />
-                            <span className="material-symbols-outlined">
-                                person
-                            </span>
-                        </div>
-
-                        <div className="textRegister">
-                            <label htmlFor="firstname">Prénom</label>
-                            <input type="text" id="firstname" name="prenom" value={prenom} onChange={(e) => setPrenom(e.target.value)} placeholder="Votre prénom" required />
-                            <span className="material-symbols-outlined">
-                                person
-                            </span>
-                        </div>
-
-                        <div className="textRegister">
-                            <label htmlFor="email">Email</label>
-                            <input type="email" id="email" onChange={(e) => setEmail(e.target.value)} value={email} placeholder="Votre email" required />
-                            <span className="material-symbols-outlined"> email </span>
-                        </div>
-
-                        <div className="textRegister">
-                            <label htmlFor="password">Mot de passe</label>
-                            <input type="password" id="password" onChange={(e) => setPassword(e.target.value)} value={password} name="password" placeholder="Votre mot de passe" required />
-                            <span className="material-symbols-outlined">
-                                key
-                            </span>
-                        </div>
-
-                        <button type="submit" id="submit" onClick={handleSubmit}>S'inscrire</button>
-
-                        <span>Vous avez déjà un compte ?</span>
-
-                    </form>
-                </div>
             </div>
             <Footer />
         </div>

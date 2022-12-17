@@ -84,7 +84,7 @@ function Connexion() {
                             </div>
 
                             <p>
-                                <a href="/Maj">Mot de passe oublié ?</a>
+                                <a href="/PasswordResetLink">Mot de passe oublié ?</a>
                             </p>
 
                             <button type="submit" id="submitLog" value="Login">
@@ -100,8 +100,8 @@ function Connexion() {
                 </div>
                 <img src={header_img} alt="header_img" className="imageLogin" />
 
-                <Footer />
             </div>
+            <Footer />
         </div>
     );
 }
