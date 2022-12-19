@@ -11,20 +11,22 @@ class ProduitController extends Controller
 {
     public function index()
     {
-        $id = Auth::user();
+        $id = Auth::user()->id;
     //    dd($id);
         //Illuminate\Database\QueryException: SQLSTATE[HY000]: General error: 1364 Field 'restaurateur_id' doesn't have a default    ->where('produits.restaurateur_id', '=', Auth::user()->id)value (SQL: insert into `produits` (`nom_produit`, `categorie_id`, `description`, `prixHT`, `TVA`, `prixTTC`, `quantite`, `updated_at`, `created_at`) values (1231, 3, 123, 123, 10, 123, 123, 2022-12-15 11:41:16, 2022-12-15 11:41:16)) in file /Users/vladimirsinkevitch/Desktop/Developpeur/Restaurant/restaurant_laravel/vendor/laravel/framework/src/Illuminate/Database/Connection.php on line 760
-    //    $produits = Produit::all();
+        $produits = Produit::all();
       //  $produits = Produit::find(Auth::user());
-        $produits = Produit::find($id);
+       // $produits = Produit::find($id);
+       $produit = Produit::where('produits.restaurateur_id', '=', Auth::user()->id)->get();
+
+    //     $produits = Produit::where('produits.restaurateur_id', '=', Auth::user()->id)->get();
     
 
        // id
      //  $produits = Produit::where('produits.restaurateur_id', '=', Auth::user()->re)->get();
 
         return response()->json([
-            'restaurateur_id' => $id,
-            'produits' => $produits,
+            'produit' => $produit,
             'produits' => DB::table('produits')
                 ->Join('categories', 'categories.id', '=', 'categorie_id')
                 ->get()
@@ -48,11 +50,11 @@ class ProduitController extends Controller
             'nom_produit' => 'required|string',
             'categorie_id' => 'required|integer',
             'description' => 'required',
-            'prixHT' => 'required|integer',
+            'prixHT' => 'required',
             'TVA' => '',
-            'prixTTC' => 'required|integer',
+            'prixTTC' => 'required',
             'quantite' => 'required|integer',
-            'restaurateur_id' => 'required|integer',
+            // 'restaurateur_id' => 'required',
         ]);
 
         $produit = Produit::create([
@@ -104,6 +106,7 @@ class ProduitController extends Controller
         $produit->prixHT = $request->prixHT;
         $produit->TVA = $request->TVA;
         $produit->prixTTC = $request->prixTTC;
+        $produit->quantite = $request->quantite;
         $produit->save();
 
         return response()->json([

@@ -22,8 +22,9 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password')->hash();
             $table->rememberToken();
-            //$table->string('token');
+            $table->string('token');
             $table->string('role');
+
         });
     }
 
