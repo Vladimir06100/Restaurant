@@ -26,7 +26,7 @@ function Produits() {
             },
         };
 
-        let response = await fetch('http://localhost:8000/api/produits', options);
+        let response = await fetch('http://localhost:8000/api/produits?', options);
         const data = await response.json();
         const produits = data.produits;
         const categories = data.categories;
