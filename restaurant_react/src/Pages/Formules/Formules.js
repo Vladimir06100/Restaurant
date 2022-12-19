@@ -1,23 +1,15 @@
 import Menu from "../../Components/Menu";
 import Footer from "../../Components/Footer";
 import { useState, useEffect } from "react";
+import Formules_props from "../../Props/Formules_props";
 
 
-function Formules(nom_formule, description_formule, entree, plat, dessert, prix_formule, votre_prix) {
+function Formules() {
     //création des formules
 
     const [formules, setFormules] = useState([]);
 
-
-
-
-
-
-
-
-    async function createFormules() {
-
-
+    async function createFormules(nom_formule, description_formule, entree, plat, dessert, prix_formule, votre_prix) {
 
         const options = {
             method: "POST",
@@ -65,11 +57,11 @@ function Formules(nom_formule, description_formule, entree, plat, dessert, prix_
         console.log(data);
         const formules = data.formules;
         setFormules(data.formules);
+        setFormules(formules);
 
     }
 
     useEffect(() => {
-        console.log('useEfect');
         getFormules();
     }, []);
 
@@ -85,10 +77,13 @@ function Formules(nom_formule, description_formule, entree, plat, dessert, prix_
                 <div className="formules__container">
                     <div className="formules__wrapper">
                         <ul className="formules__items"></ul>
-                        <ul>
+                         <div id="formFormules" method="POST" action="" onSubmit={(event) => {
+                            const formules = event.target.formules.value;
+                            createFormules(formules);
+                        }}>
+
                             {formules.map((formule, index) => (
-                                
-                                <Formules
+                                <Formules_props
                                 key={index}
                                 nom_formule={formule.nom_formule}
                                 description_formule={formule.description_formule}
@@ -99,42 +94,38 @@ function Formules(nom_formule, description_formule, entree, plat, dessert, prix_
                                 votre_prix={formule.votre_prix}
                                 />
                                 
-
-
-                                    
-                                    ))}
-                        </ul>
+                                ))}
                     </div>
                 </div>
+
+                <input type="text" placeholder="" v-model="choix formule" />
+                <button className="btn">Choisir formule</button>
+
+                <input type="text" placeholder="" v-model="formule1" />
+                <button type="submit">formule1</button>
+                <input type="text" id="name" name="formule1" />
+
+
+                
+                <button type="submit">formule2</button>
+                <input type="text" id="name" name="formule2" />
+
+
+
+                <button type="submit">formule3</button>
+                <input type="text" id="name" name="formule3" />
+
+
+                <button type="submit">Ajouter</button>
+                <button type="submit">Modifier</button>
+</div>
             </div>
-
-            <input type="text" placeholder="" v-model="choix formule" />
-            <button className="btn">Choisir formule</button>
-
-            <input type="text" placeholder="" v-model="formule1" />
-            <button type="submit">formule1</button>
-            <input type="text" id="name" name="formule1" />
-
-
-
-            <button type="submit">formule2</button>
-            <input type="text" id="name" name="formule2" />
-
-
-
-            <button type="submit">formule3</button>
-            <input type="text" id="name" name="formule3" />
-
-
-            <button type="submit">Ajouter</button>
-            <button type="submit">Modifier</button>
-
-
-            <Footer />
+                <Footer />
         </div>
     )
 
 }
+                                
 
 export default Formules;
 
