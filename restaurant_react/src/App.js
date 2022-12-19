@@ -1,69 +1,76 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from './Home/Home';
-import Inscription from './Identification/Inscription';
-import Connexion from './Identification/Connexion';
-import Maj from './Identification/Maj';
+import Home from "./Home/Home";
+import Inscription from "./Identification/Inscription";
+import Connexion from "./Identification/Connexion";
+import Maj from "./Identification/Maj";
 import Error404 from "./Components/Error404/error404";
 import Restaurant from "./Pages/CreationRestaurant";
 import Produits from "./Pages/Produits";
 import Cartes from "./Pages/Cartes";
 import Qrcode from "./Components/Qrcode/Qrcode";
 import MesRestaurants from "./Pages/MesRestaurants";
-import './Styles/Home.css';
+import "./Styles/Home.css";
+import Carte from "./Pages/Carte";
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <Home />,
-    error: <Error404 />
+    error: <Error404 />,
   },
 
   {
-    path: '/creationrestaurant',
+    path: "/creationrestaurant",
     element: <Restaurant />,
-    error: <Error404 />
+    error: <Error404 />,
   },
 
   {
-    path: '/mesrestaurants',
+    path: "/mesrestaurants",
     element: <MesRestaurants />,
-    error: <Error404 />
+    error: <Error404 />,
   },
 
   {
-    path: '/produits',
+    path: "/produits",
     element: <Produits />,
-    error: <Error404 />
+    error: <Error404 />,
   },
 
   {
-    path: '/cartes',
+    path: "/cartes",
     element: <Cartes />,
-    error: <Error404 />
+    error: <Error404 />,
   },
 
   {
-    path: '/inscription',
+    path: "/carte/:id",
+    element: <Carte />,
+    error: <Error404 />,
+  },
+
+  {
+    path: "/inscription",
     element: <Inscription />,
-    error: <Error404 />
+    error: <Error404 />,
   },
 
   {
-    path: '/connexion',
+    path: "/connexion",
     element: <Connexion />,
-    error: <Error404 />
+    error: <Error404 />,
   },
 
   {
-    path: '/Maj',
+    path: "/Maj",
     element: <Maj />,
-    error: <Error404 />
+    error: <Error404 />,
   },
 
   {
-    path: '/qrcode',
+    path: "/qrcode",
     element: <Qrcode />,
-    error: <Error404 />
+    error: <Error404 />,
   },
 ]);
 
@@ -151,4 +158,3 @@ export default App;
 //       </div>
 //     </div>
 //   );
-

@@ -27,6 +27,7 @@ class RestaurateurFactory extends Factory
             //Hash a la fin
             //'password' => Hash::make(Str::random(10)), // password pas de droits de stockage en clair
             'token' => Str::random(10),
+            'role'=>'restaurateur'
         ];
     }
 }

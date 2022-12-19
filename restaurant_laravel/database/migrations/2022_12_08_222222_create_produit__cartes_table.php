@@ -26,7 +26,7 @@ return new class extends Migration
                 ->onDelete('cascade');
             $table->foreignIdFor(Carte::class, 'carte_id')
                 ->nullable()
-                ->constrained()    
+                ->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
         });
