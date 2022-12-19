@@ -1,16 +1,18 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "./Home/Home";
-import Inscription from "./Identification/Inscription";
-import Connexion from "./Identification/Connexion";
-import Maj from "./Identification/Maj";
+import Home from './Home/Home';
+import Inscription from './Identification/Inscription';
+import Connexion from './Identification/Connexion';
+import PasswordResetLink from './Identification/PasswordResetLink';
+import NewPassword from './Identification/NewPassword';
 import Error404 from "./Components/Error404/error404";
-import Restaurant from "./Pages/CreationRestaurant";
+import CreationRestaurant from "./Pages/CreationRestaurant";
 import Produits from "./Pages/Produits";
 import Cartes from "./Pages/Cartes";
 import Qrcode from "./Components/Qrcode/Qrcode";
-import MesRestaurants from "./Pages/MesRestaurants";
+import Restaurants from "./Pages/MesRestaurants";
 import "./Styles/Home.css";
 import Carte from "./Pages/Carte";
+import Admin from "./Components/Admin/Admin";
 
 const router = createBrowserRouter([
   {
@@ -20,15 +22,15 @@ const router = createBrowserRouter([
   },
 
   {
-    path: "/creationrestaurant",
-    element: <Restaurant />,
-    error: <Error404 />,
+    path: '/creation/restaurant',
+    element: <CreationRestaurant />,
+    error: <Error404 />
   },
 
   {
-    path: "/mesrestaurants",
-    element: <MesRestaurants />,
-    error: <Error404 />,
+    path: '/restaurants',
+    element: <Restaurants />,
+    error: <Error404 />
   },
 
   {
@@ -62,8 +64,14 @@ const router = createBrowserRouter([
   },
 
   {
-    path: "/Maj",
-    element: <Maj />,
+    path: "/PasswordResetLink',
+    element: <PasswordResetLink />,
+    error: <Error404 />
+  },
+
+  {
+    path: '/NewPassword",
+    element: <NewPassword />,
     error: <Error404 />,
   },
 
@@ -72,6 +80,12 @@ const router = createBrowserRouter([
     element: <Qrcode />,
     error: <Error404 />,
   },
+
+  {
+    path: '/admin',
+    element: <Admin />,
+    error: <Error404 />
+  }
 ]);
 
 function App() {

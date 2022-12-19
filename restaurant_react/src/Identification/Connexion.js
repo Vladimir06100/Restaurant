@@ -10,12 +10,16 @@ function Connexion() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+
     function submit(e) {
         e.preventDefault();
         connect();
     }
 
     async function connect() {
+
+        //let remember = JSON.parse(localStorage.getItem("token"));
+
         const options = {
             method: "POST",
             headers: {
@@ -23,28 +27,29 @@ function Connexion() {
             },
             body: JSON.stringify({
                 email: email,
-                password: password
+                password: password,
             })
         };
 
         const response = await fetch(`http://127.0.0.1:8000/api/restaurateurs/login`, options);
         const data = await response.json();
-        console.log("Data : ", data);
-        const token = data.token;
-        const id = data.id;
+
+        const token = data.remember_token;
+        //const id = data.id;
         const message = data.message;
 
         if (message === 'Connexion réussi.') {
 
+            console.log("all data user : ", data);
             console.log("Token : ", token);
-            console.log("ID : ", id);
+            //console.log("ID : ", id);
 
-            localStorage.setItem("token", JSON.stringify(token));
-            localStorage.setItem("ID", JSON.stringify(id));
+            localStorage.setItem("token", token);
+            //localStorage.setItem("ID", JSON.stringify(id));
 
             alert("Vous êtes connecté");
 
-            return window.location.href = '/produits';
+            //return window.location.href = '/produits';
         }
 
         if (message !== 'Connexion réussi.') {
@@ -65,15 +70,15 @@ function Connexion() {
                     </div>
 
 
-                <div className="login">
-                    <form method="POST" action="" id="form" onSubmit={submit}>
-                        <div className="textbox">
-                            <label htmlFor="email"></label>
-                            <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="email" required />
-                            <span className="material-symbols-outlined"> 
-                                email 
-                            </span>
-                        </div>
+                    <div className="login">
+                        <form method="POST" action="" id="form" onSubmit={submit}>
+                            <div className="textbox">
+                                <label htmlFor="email"></label>
+                                <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="email" required />
+                                <span className="material-symbols-outlined">
+                                    email
+                                </span>
+                            </div>
 
                             <div className="textbox connexion">
                                 <label htmlFor="password"></label>
@@ -84,7 +89,7 @@ function Connexion() {
                             </div>
 
                             <p>
-                                <a href="/Maj">Mot de passe oublié ?</a>
+                                <a href="/PasswordResetLink">Mot de passe oublié ?</a>
                             </p>
 
                             <button type="submit" id="submitLog" value="Login">

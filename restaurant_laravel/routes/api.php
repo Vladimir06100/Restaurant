@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CarteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
@@ -8,6 +9,7 @@ use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\RestaurateurController;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\PasswordResetLinkController;
+use App\Http\Controllers\NewPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,8 +35,11 @@ Route::post('/restaurateurs/register', [RestaurateurController::class, 'register
 
 
 
-// Envoi d'un de confirmation pour changer le mot de passe
+// Envoi d'un email de confirmation pour changer le mot de passe
 Route::post('/forgot-password', [PasswordResetLinkController::class, 'store'])->name('api.password.email');
+
+// Page de changement de mot de passe
+Route::post('/reset-password', [NewPasswordController::class, 'store'])->name('api.password.reset');
 
 
 
@@ -42,9 +47,9 @@ Route::post('/forgot-password', [PasswordResetLinkController::class, 'store'])->
 Route::resource('restaurants', RestaurantController::class);
 
 // routes pour les produits les 7 routes
-Route::resource('produits', ProduitController::class);
+Route::middleware('auth:sanctum')->resource('produits', ProduitController::class);
 
-Route::resource('cartes',CarteController::class);
+Route::resource('cartes', CarteController::class);
 
 /* // routes pour ajouter un produit a la carte
 Route::post('/cartes', [CarteController::class, 'store'])->name('cartes.store');
@@ -52,7 +57,15 @@ Route::post('/cartes', [CarteController::class, 'store'])->name('cartes.store');
 /* // affichage de la carte
 Route::get('/cartes', [CarteController::class, 'index'])->name('cartes.index'); */
 
+// afficher produits par restaurateur_id
+
 
 
 // route pour les formules
 Route::resource('formules', FormuleController::class);
+
+
+// route pour les admins
+Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+
+Route::delete('/admin/{id}', [AdminController::class, 'delete'])->name('admin.delete');

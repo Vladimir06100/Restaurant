@@ -64,32 +64,32 @@ function Restaurant() {
                         <form id="formRestaurant" onSubmit={handleSubmit}>
                             <div className="textbox restaurant">
                                 <label htmlFor="name">Name</label>
-                                <input type="text" id="name" name="name" value={nom} onChange={(e) => setNom(e.target.value)} placeholder="Your name.." required />
+                                <input type="text" id="name" name="name" value={nom} onChange={(e) => setNom(e.target.value)} placeholder="nom.." required />
                             </div>
 
                             <div className="textbox restaurant">
                                 <label htmlFor="adresse">Adresse</label>
-                                <input type="text" id="adresse" name="adresse" value={adresse} onChange={(e) => setAdresse(e.target.value)} placeholder="Your adresse.." required />
+                                <input type="text" id="adresse" name="adresse" value={adresse} onChange={(e) => setAdresse(e.target.value)} placeholder="prénom.." required />
 
                             </div>
 
                             <div className="textbox restaurant">
                                 <label htmlFor="horaires">Horaire d'ouverture</label>
-                                <input type="time" id="open" name="open" value={heure_ouverture} onChange={(e) => setHeure_ouverture(e.target.value)} placeholder="Your horaires.." required />
+                                <input type="time" id="open" name="open" value={heure_ouverture} onChange={(e) => setHeure_ouverture(e.target.value)} placeholder="horaires.." required />
                             </div>
 
                             <div className="textbox restaurant">
                                 <label htmlFor="horaires">Horaire de fermeture</label>
-                                <input type="time" id="closen" name="closen" value={heure_fermeture} onChange={(e) => setHeure_fermeture(e.target.value)} placeholder="Your horaires.." required />
+                                <input type="time" id="closen" name="closen" value={heure_fermeture} onChange={(e) => setHeure_fermeture(e.target.value)} placeholder="horaires.." required />
                             </div>
 
                             <div className="textbox restaurant">
                                 <label htmlFor="image">Image</label>
-                                <input type="text" id="image" name="image" value={image} onChange={(e) => setImage(e.target.value)} placeholder="Your image.." required />
+                                <input type="text" id="image" name="image" value={image} onChange={(e) => setImage(e.target.value)} placeholder="image.." required />
                             </div>
 
 
-                            <input id="submitRestaurant" type="submit" name="en" onclick="alert('Vôtre restaurant à été crée')" />
+                            <input id="submitRestaurant" type="submit" name="en" onclick="alert('Votre restaurant à été crée')" />
                         </form>
                     </div>
                 </div>

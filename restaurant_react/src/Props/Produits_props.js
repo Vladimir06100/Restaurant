@@ -17,8 +17,6 @@ function Produit(props) {
                 <tr>
                     <td>{props.nom_produit}</td>
                     <td>{props.type}</td>
-                    {/* <td>{props.categories.type}</td> */}
-                    {/* <td>{categorie_id}</td> */}
                     <td>{props.description}</td>
                     <td>{props.prixHT}</td>
                     <td>{props.TVA}</td>
@@ -35,4 +33,3 @@ function Produit(props) {
 }
 
 export default Produit;
-// {/* onClick={() => editProduit(produit.id)} onClick={() => deleteProduit(produit.id)} */}

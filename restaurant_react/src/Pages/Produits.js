@@ -6,30 +6,43 @@ import Produit from '../Props/Produits_props';
 
 function Produits() {
 
+    function calculTTC() {
+        const prixHT = document.querySelector('#prixHT').value;
+        const TVA = document.querySelector('#TVA').value;
+        const calcTTC = prixHT * (1 + TVA / 100);
+        const TTC = calcTTC.toFixed(2);
+        document.querySelector('#TTC').value = TTC;
+    }
 
-    const [categories, setCategories] = useState([]);
-
+    const [produits, setProduits] = useState([]);
     async function getProduits() {
         const options = {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem('token'),
             },
         };
+
         let response = await fetch('http://localhost:8000/api/produits', options);
         const data = await response.json();
-        const categories = data.categories;
-        setCategories(categories);
+        const produits = data.produits;
+        setProduits(produits);
     }
+
     useEffect(() => {
         getProduits();
     }, []);
 
     async function createProduit(nom_produit, categorie_id, description, prixHT, TVA, prixTTC, quantite) {
+        const restaurateur_id = localStorage.getItem('ID');
         const options = {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem('token'),
             },
             body: JSON.stringify({
                 nom_produit: nom_produit,
@@ -39,16 +52,16 @@ function Produits() {
                 TVA: TVA,
                 prixTTC: prixTTC,
                 quantite: quantite,
+                restaurateur_id: restaurateur_id,
             }),
         };
         let response = await fetch('http://localhost:8000/api/produits', options);
         if (response.status !== 200) {
             return;
         }
-        getProduits();
-        // message succes span id="message_succes"
-        // refrech formulaire
-        document.getElementById("form_position").reset();
+        const data = await response.json();
+        const newProduit = data.produit;
+        setProduits([newProduit, ...produits]);
     }
 
     return (
@@ -87,17 +100,17 @@ function Produits() {
 
                             <div className="tvaPosition">
                                 <label htmlFor="TVA">TVA</label>
-                                <select id="TVA" name="TVA" defaultValue={'DEFAULT'} required>
-                                    <option value="DEFAULT" disabled>Choisir une TVA</option>
-                                    <option value='0'>0</option>
-                                    <option value='5.5'>5.5</option>
-                                    <option value='10'>10</option>
-                                    <option value='20'>20</option>
+                                <select id="TVA" name="TVA" required>
+                                    <option disabled>Choisir une TVA</option>
+                                    <option value='0'>0%</option>
+                                    <option value='5.5'>5.5%</option>
+                                    <option value='10'>10%</option>
+                                    <option value='20'>20%</option>
                                 </select>
+                                <button type='button' onClick={calculTTC}>Calculer</button>
                             </div>
-
-                            <label htmlFor="prixTTC">Prix TTC</label>
-                            <input type="text" id="prixTTC" name="prixTTC" placeholder="Prix du produit" required />
+                            <label htmlFor="TTC">TTC</label>
+                            <input type="text" id="TTC" name="prixTTC" placeholder="Clique sur Calculer pour savoir le prix avec TTC" />
 
                             <div className="categoriePosition">
                                 <label htmlFor="categorie_id">Catégorie </label>
@@ -106,10 +119,10 @@ function Produits() {
                                     <option value='1'>Entrée</option>
                                     <option value='2'>Plat</option>
                                     <option value='3'>Dessert</option>
+                                    <option value='4'>Boisson</option>
                                 </select>
                             </div>
-
-                            <label htmlFor="quantite"  >Quantité</label>
+                            <label htmlFor="quantite">Quantité</label>
                             <input type="number" id="quantite" name="quantite" min="1" max="10000000" placeholder="Quantité du produit" required />
                             <button type="submit" id="ajoutProduct">AJOUTER</button>
                         </form>
@@ -121,15 +134,15 @@ function Produits() {
                     <span id="home_title_color">Products list</span>
                 </div>
                 <div className="produits">
-                    {categories.map((categorie, index) => (
+                    {produits.map((produits, index) => (
                         <Produit key={index}
-                            nom_produit={categorie.nom_produit}
-                            type={categorie.type}
-                            description={categorie.description}
-                            prixHT={categorie.prixHT}
-                            TVA={categorie.TVA}
-                            prixTTC={categorie.prixTTC}
-                            quantite={categorie.quantite}
+                            nom_produit={produits.nom_produit}
+                            type={produits.type}
+                            description={produits.description}
+                            prixHT={produits.prixHT}
+                            TVA={produits.TVA}
+                            prixTTC={produits.prixTTC}
+                            quantite={produits.quantite}
                         />
                     ))}
                 </div>

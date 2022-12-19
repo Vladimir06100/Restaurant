@@ -24,6 +24,7 @@ class RestaurantFactory extends Factory
             'heure_fermeture' => fake()->time(),
             'image' => fake()->imageUrl(),
             'restaurateur_id' => fake()->numberBetween(1, 10),
+            
         ];
     }
 }

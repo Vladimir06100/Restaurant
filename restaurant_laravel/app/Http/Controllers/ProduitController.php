@@ -4,26 +4,29 @@ namespace App\Http\Controllers;
 
 use App\Models\Produit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ProduitController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
+        $id = Auth::user()->id;
+        //    dd($id);
+        //Illuminate\Database\QueryException: SQLSTATE[HY000]: General error: 1364 Field 'restaurateur_id' doesn't have a default    ->where('produits.restaurateur_id', '=', Auth::user()->id)value (SQL: insert into `produits` (`nom_produit`, `categorie_id`, `description`, `prixHT`, `TVA`, `prixTTC`, `quantite`, `updated_at`, `created_at`) values (1231, 3, 123, 123, 10, 123, 123, 2022-12-15 11:41:16, 2022-12-15 11:41:16)) in file /Users/vladimirsinkevitch/Desktop/Developpeur/Restaurant/restaurant_laravel/vendor/laravel/framework/src/Illuminate/Database/Connection.php on line 760
+        //$produits = Produit::all();
+        //  $produits = Produit::find(Auth::user());
+        // $produits = Produit::find($id);
+        $produits = Produit::where('restaurateur_id', '=', $id)->get();
 
-        //Illuminate\Database\QueryException: SQLSTATE[HY000]: General error: 1364 Field 'restaurateur_id' doesn't have a default value (SQL: insert into `produits` (`nom_produit`, `categorie_id`, `description`, `prixHT`, `TVA`, `prixTTC`, `quantite`, `updated_at`, `created_at`) values (1231, 3, 123, 123, 10, 123, 123, 2022-12-15 11:41:16, 2022-12-15 11:41:16)) in file /Users/vladimirsinkevitch/Desktop/Developpeur/Restaurant/restaurant_laravel/vendor/laravel/framework/src/Illuminate/Database/Connection.php on line 760
+        //     $produits = Produit::where('produits.restaurateur_id', '=', Auth::user()->id)->get();
 
-        $produits = Produit::all();
+
+        // id
+        //  $produits = Produit::where('produits.restaurateur_id', '=', Auth::user()->re)->get();
+
         return response()->json([
-            'produits' => $produits,
-            'categories' => DB::table('categories')
-                ->leftJoin('produits', 'categories.id', '=', 'produits.categorie_id')
-                ->get()
+            'produits' => $produits
         ]);
     }
 
@@ -32,21 +35,23 @@ class ProduitController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-   /*  public function create()
+    /*  public function create()
     {
         //
     } */
 
     public function store(Request $request)
     {
+        $id = Auth::user()->id;
+
         // create a new product
         $request->validate([
             'nom_produit' => 'required|string',
             'categorie_id' => 'required|integer',
             'description' => 'required',
-            'prixHT' => 'required|integer',
+            'prixHT' => 'required',
             'TVA' => '',
-            'prixTTC' => 'required|integer',
+            'prixTTC' => 'required',
             'quantite' => 'required|integer',
         ]);
 
@@ -58,7 +63,7 @@ class ProduitController extends Controller
             'TVA' => $request->TVA,
             'prixTTC' => $request->prixTTC,
             'quantite' => $request->quantite,
-            // 'restaurateur_id' => auth()->user()->id,
+            'restaurateur_id' => $id,
         ]);
 
         return response()->json(['produit' => $produit]);
@@ -86,9 +91,9 @@ class ProduitController extends Controller
             'nom_produit' => 'required|string',
             'categorie' => 'required|string',
             'description' => 'required|string',
-            'prixHT' => 'required|integer',
-            'TVA' => 'required|integer',
-            'prixTTC' => 'required|integer',
+            'prixHT' => 'required|float',
+            'TVA' => 'required|float',
+            'prixTTC' => 'required|float',
             'quantite' => 'required|integer',
         ]);
 
@@ -99,6 +104,7 @@ class ProduitController extends Controller
         $produit->prixHT = $request->prixHT;
         $produit->TVA = $request->TVA;
         $produit->prixTTC = $request->prixTTC;
+        $produit->quantite = $request->quantite;
         $produit->save();
 
         return response()->json([

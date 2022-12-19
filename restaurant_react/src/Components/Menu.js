@@ -20,8 +20,8 @@ function Menu() {
                 <nav className="navbar">
                     <ul className="links desktop-size">
                         <li className="link"><a href="/">HOME </a></li>
-                        <li className="link"><a href="/creationrestaurant">AJOUTER UN RESTAURANT </a></li>
-                        <li className="link"><a href="/mesrestaurants">MES RESTAURANTS </a></li>
+                        <li className="link"><a href="/creation/restaurant">AJOUTER UN RESTAURANT </a></li>
+                        <li className="link"><a href="/restaurants">MES RESTAURANTS </a></li>
                         <li className="link"><a href="/produits">PRODUIT </a></li>
                         <li className="link"><a href="/cartes">CARTES </a></li>
                         <li>
@@ -41,7 +41,7 @@ function Menu() {
                 <div className="navMenu">
                     {isOpen ?
                         <ul className="links mobile-size" onClick={() => setIsOpen(false)}>
-                            <i class='bx bx-x menu'></i>
+                            <i className='bx bx-x menu'></i>
 
                             <div className="navLinksBurger">
                                 <ul>
@@ -64,7 +64,7 @@ function Menu() {
                         </ul> :
 
                         <a id="openButton" onClick={() => setIsOpen(true)}>
-                            <i class='bx bx-menu-alt-right menu'></i>
+                            <i className='bx bx-menu-alt-right menu'></i>
                         </a>
                     }
                 </div>
