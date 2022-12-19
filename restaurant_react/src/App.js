@@ -16,7 +16,7 @@ import Admin from "./Components/Admin/Admin";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <Home />,
     error: <Error404 />,
   },
@@ -34,49 +34,49 @@ const router = createBrowserRouter([
   },
 
   {
-    path: "/produits",
+    path: '/produits',
     element: <Produits />,
     error: <Error404 />,
   },
 
   {
-    path: "/cartes",
+    path: '/cartes',
     element: <Cartes />,
     error: <Error404 />,
   },
 
   {
-    path: "/carte/:id",
+    path: '/carte/:id',
     element: <Carte />,
     error: <Error404 />,
   },
 
   {
-    path: "/inscription",
+    path: '/inscription',
     element: <Inscription />,
     error: <Error404 />,
   },
 
   {
-    path: "/connexion",
+    path: '/connexion',
     element: <Connexion />,
     error: <Error404 />,
   },
 
   {
-    path: "/PasswordResetLink',
+    path: '/PasswordResetLink',
     element: <PasswordResetLink />,
     error: <Error404 />
   },
 
   {
-    path: '/NewPassword",
+    path: '/NewPassword',
     element: <NewPassword />,
     error: <Error404 />,
   },
 
   {
-    path: "/qrcode",
+    path: '/qrcode',
     element: <Qrcode />,
     error: <Error404 />,
   },
