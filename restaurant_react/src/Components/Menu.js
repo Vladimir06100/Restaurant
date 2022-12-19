@@ -20,8 +20,8 @@ function Menu() {
                 <nav className="navbar">
                     <ul className="links desktop-size">
                         <li className="link"><a href="/">HOME </a></li>
-                        <li className="link"><a href="/creationrestaurant">AJOUTER UN RESTAURANT </a></li>
-                        <li className="link"><a href="/mesrestaurants">MES RESTAURANTS </a></li>
+                        <li className="link"><a href="/creation/restaurant">AJOUTER UN RESTAURANT </a></li>
+                        <li className="link"><a href="/restaurants">MES RESTAURANTS </a></li>
                         <li className="link"><a href="/produits">PRODUIT </a></li>
                         <li className="link"><a href="/cartes">CARTES </a></li>
                         <li>
