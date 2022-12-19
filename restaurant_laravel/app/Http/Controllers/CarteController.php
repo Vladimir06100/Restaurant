@@ -19,14 +19,12 @@ class CarteController extends Controller
         return response()->json([
             'message' => 'Cartes retrieved successfully.',
             'cartes' => $cartes,
-            'liste_des_produits'=> DB::table('produits')
-            ->leftJoin('cartes', 'produits.id', '=', 'cartes.produit_id')
-             ->get(),
+            'liste_des_produits' => DB::table('produits')
+                ->leftJoin('cartes', 'produits.id', '=', 'cartes.produit_id')
+                ->get(),
 
-            
+
         ], 200);
-        
-        
     }
 
     public function create()
@@ -35,7 +33,7 @@ class CarteController extends Controller
     }
 
 
-    public function store(Request $request,Produit_Carte $produit_carte)
+    public function store(Request $request, Produit_Carte $produit_carte)
     {
         // request validation
         $request->validate([
@@ -50,40 +48,34 @@ class CarteController extends Controller
 
         ]);
 
-// ici jinsere la liaison carte & produit
-$produit_carte::create([
-    'carte_id'=> $carte->id,
-    'produit_id' => $request->produit_id
-]);
+        // ici jinsere la liaison carte & produit
+        $produit_carte::create([
+            'carte_id' => $carte->id,
+            'produit_id' => $request->produit_id
+        ]);
 
-  
-    /*   'jointure carte_produits'=> DB::table('produit_cartes')
-        ->leftJoin('cartes', 'produit_cartes.carte_id', '=', 'cartes.id')
-        ->where('produit_cartes.produit_id','=',$produit->id)
-        ->get() */
+
+
 
 
         return response()->json([
-        'message' => 'Carte created.',
-        'carte' => $carte
+            'message' => 'Carte created.',
+            'carte' => $carte
         ], 201);
-
     }
 
 
-    public function show(Carte $carte,Produit $produit)
+    public function show($id)
     {
-        return response()->json(['carte' => $carte,
-
-    ]);
+        $menu = Carte::findOrFail($id);
+        $menu->produits;
+        return response()->json($menu);
     }
 
 
     public function edit(Carte $carte)
     {
         return response()->json(['carte' => $carte]);
-
-        
     }
 
 
@@ -102,7 +94,7 @@ $produit_carte::create([
     }
 
 
-    public function destroy(Carte $carte )
+    public function destroy(Carte $carte)
     {
         $carte->delete();
     }

@@ -10,14 +10,15 @@ import Produits from "./Pages/Produits";
 import Cartes from "./Pages/Cartes";
 import Qrcode from "./Components/Qrcode/Qrcode";
 import Restaurants from "./Pages/MesRestaurants";
-import './Styles/Home.css';
+import "./Styles/Home.css";
+import Carte from "./Pages/Carte";
 import Admin from "./Components/Admin/Admin";
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Home />,
-    error: <Error404 />
+    error: <Error404 />,
   },
 
   {
@@ -35,25 +36,31 @@ const router = createBrowserRouter([
   {
     path: '/produits',
     element: <Produits />,
-    error: <Error404 />
+    error: <Error404 />,
   },
 
   {
     path: '/cartes',
     element: <Cartes />,
-    error: <Error404 />
+    error: <Error404 />,
+  },
+
+  {
+    path: '/carte/:id',
+    element: <Carte />,
+    error: <Error404 />,
   },
 
   {
     path: '/inscription',
     element: <Inscription />,
-    error: <Error404 />
+    error: <Error404 />,
   },
 
   {
     path: '/connexion',
     element: <Connexion />,
-    error: <Error404 />
+    error: <Error404 />,
   },
 
   {
@@ -65,13 +72,13 @@ const router = createBrowserRouter([
   {
     path: '/NewPassword',
     element: <NewPassword />,
-    error: <Error404 />
+    error: <Error404 />,
   },
 
   {
     path: '/qrcode',
     element: <Qrcode />,
-    error: <Error404 />
+    error: <Error404 />,
   },
 
   {
@@ -165,4 +172,3 @@ export default App;
 //       </div>
 //     </div>
 //   );
-
