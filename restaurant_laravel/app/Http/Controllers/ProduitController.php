@@ -12,24 +12,21 @@ class ProduitController extends Controller
     public function index()
     {
         $id = Auth::user()->id;
-    //    dd($id);
+        //    dd($id);
         //Illuminate\Database\QueryException: SQLSTATE[HY000]: General error: 1364 Field 'restaurateur_id' doesn't have a default    ->where('produits.restaurateur_id', '=', Auth::user()->id)value (SQL: insert into `produits` (`nom_produit`, `categorie_id`, `description`, `prixHT`, `TVA`, `prixTTC`, `quantite`, `updated_at`, `created_at`) values (1231, 3, 123, 123, 10, 123, 123, 2022-12-15 11:41:16, 2022-12-15 11:41:16)) in file /Users/vladimirsinkevitch/Desktop/Developpeur/Restaurant/restaurant_laravel/vendor/laravel/framework/src/Illuminate/Database/Connection.php on line 760
-        $produits = Produit::all();
-      //  $produits = Produit::find(Auth::user());
-       // $produits = Produit::find($id);
-       $produit = Produit::where('produits.restaurateur_id', '=', Auth::user()->id)->get();
+        //$produits = Produit::all();
+        //  $produits = Produit::find(Auth::user());
+        // $produits = Produit::find($id);
+        $produits = Produit::where('restaurateur_id', '=', $id)->get();
 
-    //     $produits = Produit::where('produits.restaurateur_id', '=', Auth::user()->id)->get();
-    
+        //     $produits = Produit::where('produits.restaurateur_id', '=', Auth::user()->id)->get();
 
-       // id
-     //  $produits = Produit::where('produits.restaurateur_id', '=', Auth::user()->re)->get();
+
+        // id
+        //  $produits = Produit::where('produits.restaurateur_id', '=', Auth::user()->re)->get();
 
         return response()->json([
-            'produit' => $produit,
-            'produits' => DB::table('produits')
-                ->Join('categories', 'categories.id', '=', 'categorie_id')
-                ->get()
+            'produits' => $produits
         ]);
     }
 
@@ -38,13 +35,15 @@ class ProduitController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-   /*  public function create()
+    /*  public function create()
     {
         //
     } */
 
     public function store(Request $request)
     {
+        $id = Auth::user()->id;
+
         // create a new product
         $request->validate([
             'nom_produit' => 'required|string',
@@ -54,7 +53,6 @@ class ProduitController extends Controller
             'TVA' => '',
             'prixTTC' => 'required',
             'quantite' => 'required|integer',
-            // 'restaurateur_id' => 'required',
         ]);
 
         $produit = Produit::create([
@@ -65,7 +63,7 @@ class ProduitController extends Controller
             'TVA' => $request->TVA,
             'prixTTC' => $request->prixTTC,
             'quantite' => $request->quantite,
-            'restaurateur_id' => $request->restaurateur_id,
+            'restaurateur_id' => $id,
         ]);
 
         return response()->json(['produit' => $produit]);

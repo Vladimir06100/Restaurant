@@ -19,7 +19,7 @@ function Connexion() {
     async function connect() {
 
         //let remember = JSON.parse(localStorage.getItem("token"));
-        
+
         const options = {
             method: "POST",
             headers: {
@@ -44,7 +44,7 @@ function Connexion() {
             console.log("Token : ", token);
             //console.log("ID : ", id);
 
-            localStorage.setItem("token", JSON.stringify(token));
+            localStorage.setItem("token", token);
             //localStorage.setItem("ID", JSON.stringify(id));
 
             alert("Vous êtes connecté");
@@ -70,15 +70,15 @@ function Connexion() {
                     </div>
 
 
-                <div className="login">
-                    <form method="POST" action="" id="form" onSubmit={submit}>
-                        <div className="textbox">
-                            <label htmlFor="email"></label>
-                            <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="email" required />
-                            <span className="material-symbols-outlined"> 
-                                email 
-                            </span>
-                        </div>
+                    <div className="login">
+                        <form method="POST" action="" id="form" onSubmit={submit}>
+                            <div className="textbox">
+                                <label htmlFor="email"></label>
+                                <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="email" required />
+                                <span className="material-symbols-outlined">
+                                    email
+                                </span>
+                            </div>
 
                             <div className="textbox connexion">
                                 <label htmlFor="password"></label>

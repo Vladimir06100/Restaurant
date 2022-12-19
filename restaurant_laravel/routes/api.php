@@ -47,9 +47,9 @@ Route::post('/reset-password', [NewPasswordController::class, 'store'])->name('a
 Route::resource('restaurants', RestaurantController::class);
 
 // routes pour les produits les 7 routes
-Route::resource('produits', ProduitController::class);
+Route::middleware('auth:sanctum')->resource('produits', ProduitController::class);
 
-Route::resource('cartes',CarteController::class);
+Route::resource('cartes', CarteController::class);
 
 /* // routes pour ajouter un produit a la carte
 Route::post('/cartes', [CarteController::class, 'store'])->name('cartes.store');
