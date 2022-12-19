@@ -1,9 +1,8 @@
 .footer{
-    position: fixed;
-    bottom: 0;
+    height: 10em;
     width: 100%;
-    margin: 0;
-    background: #D68D00;
+    margin-top: 7em;
+    background: #000000;
 }
 
 .footer_text{
