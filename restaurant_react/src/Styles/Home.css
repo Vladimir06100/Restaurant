@@ -5,7 +5,28 @@
 }
 
 body{
-    background: #222222f2;
+    background: #fbfbfbf2;
+}
+
+.cercle{
+    display: flex;
+    justify-content: center;
+}
+
+.transition{
+    height: 700px;
+    width: 1903px;
+}
+
+#ban{
+    margin-top: -45rem;
+    height: 53em;
+}
+
+.home_position{
+    display: flex;
+    padding: 4em 0em 4em;
+    justify-content: center;
 }
 
 .home_title{
@@ -20,15 +41,6 @@ body{
     color: #D68D00;
 }
 
-.home_position{
-    display: flex;
-    flex-direction: row-reverse;
-}
-
-#ban{
-    height: 53em;
-}
-
 .home_text{
     font-family: 'Times New Roman', Times, serif;
     font-size: 15px;
@@ -36,25 +48,155 @@ body{
     width: 38rem;
 }
 
-.carrousel_position{
+
+/*staff*/
+.contenu{
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    padding: 2em 0em 2em;
+}
+
+.main-card{
+    display: flex;
+    align-content: space-between;
+    transition: 1s;
+    gap: 1em;
+}
+
+#two:checked ~ .main-card{
+    margin-left: -100%;
+}
+
+.container .main-card .cards{
+    width: calc(100% / 2 - 10px);
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 20px;
+    justify-content: space-between;
+}
+
+.main-card .cards .card{
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+    transition: all 0.4s ease;
+}
+
+.main-card .cards .card:hover{
+    transform: translateY(-15px);
+}
+
+.content{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin: 5em;
 }
 
-.carrousel_position .textCarrousel{
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 2rem;
-    margin-bottom: 2em;
-}
-
-.container{
+.cards .card .content{
+    width: 100%;
     display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    padding: 2em 14em 2em;
 }
+
+.cards .card .content .img{
+    height: 130px;
+    width: 130px;
+    border-radius: 50%;
+    padding: 3px;
+    background: #FF676D;
+    margin-bottom: 14px;
+}
+
+.card .content .img img{
+    height: 100%;
+    width: 100%;
+    border: 3px solid #ffff;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.card .content .name{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.card .content .job{
+    font-size: 20px;
+    color: #FF676D;
+}
+
+.card .content .media-icons{
+    margin-top: 10px;
+    display: flex;
+}
+
+.media-icons a{
+    text-align: center;
+    line-height: 33px;
+    height: 35px;
+    width: 35px;
+    margin: 0 4px;
+    font-size: 14px;
+    color: #FFF;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    background: #FF676D;
+    transition: all 0.3s ease;
+}
+
+.media-icons a:hover{
+    color: #FF676D;
+    background-color: #fff;
+    border-color: #FF676D;
+}
+
+.container .button{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.button label{
+    height: 15px;
+    width: 15px;
+    border-radius: 20px;
+    background: #fff;
+    margin: 0 4px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+  .button label.active{
+    width: 35px;
+  }
+  #one:checked ~ .button .one{
+    width: 35px;
+  }
+  #one:checked ~ .button .two{
+    width: 15px;
+  }
+  #two:checked ~ .button .one{
+    width: 15px;
+  }
+  #two:checked ~ .button .two{
+    width: 35px;
+  }
+  input[type="radio"]{
+    display: none;
+  }
+  @media (max-width: 768px) {
+    .main-card .cards .card{
+      margin: 20px 0 10px 0;
+      width: calc(100% / 2 - 10px);
+    }
+  }
+  @media (max-width: 600px) {
+    .main-card .cards .card{
+      /* margin: 20px 0 10px 0; */
+      width: 100%;
+    }
+  }
 
 
 @media screen and (min-width: 100px) and (max-width: 600px) {

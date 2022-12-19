@@ -16,8 +16,9 @@ a{
 
 .navbar{
     display: flex;
-    padding: 20px 20px;
     justify-content: flex-end;
+    padding: 20px 20px;
+    background: black;
 }
 
 ul {
@@ -46,7 +47,7 @@ ul {
 
 .link:hover{
     transform: scale(1.05);
-    background-color: #a44d32;
+    background-color: #db6d13;
 }
 
 #navbar_style{
@@ -60,7 +61,7 @@ ul {
 }
 
 #navbar_style:hover, #navbar_style:active{
-    background-color: #ce610f;
+    background-color: #c84a0b;
     background-position: 0 0;
 }
 
@@ -141,3 +142,4 @@ ul {
     }
 
 }
+
