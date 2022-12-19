@@ -9,28 +9,24 @@ use Illuminate\Support\Facades\DB;
 
 class ProduitController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //localstorage id
-        //$id=$this->$requests->get('ID');
-       
+        $id = Auth::user();
+    //    dd($id);
+        //Illuminate\Database\QueryException: SQLSTATE[HY000]: General error: 1364 Field 'restaurateur_id' doesn't have a default    ->where('produits.restaurateur_id', '=', Auth::user()->id)value (SQL: insert into `produits` (`nom_produit`, `categorie_id`, `description`, `prixHT`, `TVA`, `prixTTC`, `quantite`, `updated_at`, `created_at`) values (1231, 3, 123, 123, 10, 123, 123, 2022-12-15 11:41:16, 2022-12-15 11:41:16)) in file /Users/vladimirsinkevitch/Desktop/Developpeur/Restaurant/restaurant_laravel/vendor/laravel/framework/src/Illuminate/Database/Connection.php on line 760
+    //    $produits = Produit::all();
+      //  $produits = Produit::find(Auth::user());
+        $produits = Produit::find($id);
     
 
-       
-        
-        //Illuminate\Database\QueryException: SQLSTATE[HY000]: General error: 1364 Field 'restaurateur_id' doesn't have a default    ->where('produits.restaurateur_id', '=', Auth::user()->id)value (SQL: insert into `produits` (`nom_produit`, `categorie_id`, `description`, `prixHT`, `TVA`, `prixTTC`, `quantite`, `updated_at`, `created_at`) values (1231, 3, 123, 123, 10, 123, 123, 2022-12-15 11:41:16, 2022-12-15 11:41:16)) in file /Users/vladimirsinkevitch/Desktop/Developpeur/Restaurant/restaurant_laravel/vendor/laravel/framework/src/Illuminate/Database/Connection.php on line 760
-        $produits = Produit::all();
-      //  $produits = Produit::where('produits.restaurateur_id', '=', Auth::user()->$id, 'produits.categorie_id', '=', 'categories.id');
+       // id
+     //  $produits = Produit::where('produits.restaurateur_id', '=', Auth::user()->re)->get();
+
         return response()->json([
+            'restaurateur_id' => $id,
             'produits' => $produits,
-            'categories' => DB::table('categories')
-                ->Join('produits', 'categories.id', '=', 'categorie_id')
-                // restaurant_id is the foreign key in the users table
+            'produits' => DB::table('produits')
+                ->Join('categories', 'categories.id', '=', 'categorie_id')
                 ->get()
         ]);
     }
@@ -95,9 +91,9 @@ class ProduitController extends Controller
             'nom_produit' => 'required|string',
             'categorie' => 'required|string',
             'description' => 'required|string',
-            'prixHT' => 'required|integer',
-            'TVA' => 'required|integer',
-            'prixTTC' => 'required|integer',
+            'prixHT' => 'required|float',
+            'TVA' => 'required|float',
+            'prixTTC' => 'required|float',
             'quantite' => 'required|integer',
         ]);
 
