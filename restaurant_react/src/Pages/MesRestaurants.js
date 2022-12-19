@@ -14,7 +14,7 @@ function MesRestaurants() {
                 'Content-Type': 'application/json',
             },
         };
-        let response = await fetch('http://127.0.0.1:8000/api/restaurants', options);
+        let response = await fetch('http://127.0.0.1:8000/api/restaurants?', options);
         const data = await response.json();
         console.log(data);
         const restaurants = data.restaurants;

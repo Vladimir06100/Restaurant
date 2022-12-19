@@ -31,16 +31,16 @@ function Connexion() {
         const data = await response.json();
         console.log("Data : ", data);
         const token = data.token;
-        const id = data.id;
+        //const id = data.id;
         const message = data.message;
 
         if (message === 'Connexion réussi.') {
 
             console.log("Token : ", token);
-            console.log("ID : ", id);
+            //console.log("ID : ", id);
 
             localStorage.setItem("token", JSON.stringify(token));
-            localStorage.setItem("ID", JSON.stringify(id));
+            //localStorage.setItem("ID", JSON.stringify(id));
 
             alert("Vous êtes connecté");
 

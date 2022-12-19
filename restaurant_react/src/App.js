@@ -5,12 +5,13 @@ import Connexion from './Identification/Connexion';
 import PasswordResetLink from './Identification/PasswordResetLink';
 import NewPassword from './Identification/NewPassword';
 import Error404 from "./Components/Error404/error404";
-import Restaurant from "./Pages/CreationRestaurant";
+import CreationRestaurant from "./Pages/CreationRestaurant";
 import Produits from "./Pages/Produits";
 import Cartes from "./Pages/Cartes";
 import Qrcode from "./Components/Qrcode/Qrcode";
-import MesRestaurants from "./Pages/MesRestaurants";
+import Restaurants from "./Pages/MesRestaurants";
 import './Styles/Home.css';
+import Admin from "./Components/Admin/Admin";
 
 const router = createBrowserRouter([
   {
@@ -20,14 +21,14 @@ const router = createBrowserRouter([
   },
 
   {
-    path: '/creationrestaurant',
-    element: <Restaurant />,
+    path: '/creation/restaurant',
+    element: <CreationRestaurant />,
     error: <Error404 />
   },
 
   {
-    path: '/mesrestaurants',
-    element: <MesRestaurants />,
+    path: '/restaurants',
+    element: <Restaurants />,
     error: <Error404 />
   },
 
@@ -72,6 +73,12 @@ const router = createBrowserRouter([
     element: <Qrcode />,
     error: <Error404 />
   },
+
+  {
+    path: '/admin',
+    element: <Admin />,
+    error: <Error404 />
+  }
 ]);
 
 function App() {
