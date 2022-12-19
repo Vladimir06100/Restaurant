@@ -23,7 +23,6 @@ function NewPassword() {
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json",
-                "Authorization": `bearer ${token}`
             },
 
             body: JSON.stringify ({

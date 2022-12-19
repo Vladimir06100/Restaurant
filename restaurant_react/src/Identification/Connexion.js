@@ -10,12 +10,16 @@ function Connexion() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+
     function submit(e) {
         e.preventDefault();
         connect();
     }
 
     async function connect() {
+
+        //let remember = JSON.parse(localStorage.getItem("token"));
+        
         const options = {
             method: "POST",
             headers: {
@@ -23,19 +27,20 @@ function Connexion() {
             },
             body: JSON.stringify({
                 email: email,
-                password: password
+                password: password,
             })
         };
 
         const response = await fetch(`http://127.0.0.1:8000/api/restaurateurs/login`, options);
         const data = await response.json();
-        console.log("Data : ", data);
-        const token = data.token;
+
+        const token = data.remember_token;
         //const id = data.id;
         const message = data.message;
 
         if (message === 'Connexion réussi.') {
 
+            console.log("all data user : ", data);
             console.log("Token : ", token);
             //console.log("ID : ", id);
 
@@ -44,7 +49,7 @@ function Connexion() {
 
             alert("Vous êtes connecté");
 
-            return window.location.href = '/produits';
+            //return window.location.href = '/produits';
         }
 
         if (message !== 'Connexion réussi.') {
