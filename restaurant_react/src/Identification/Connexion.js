@@ -49,7 +49,7 @@ function Connexion() {
 
             alert("Vous êtes connecté");
 
-            //return window.location.href = '/produits';
+            return window.location.href = '/produits';
         }
 
         if (message !== 'Connexion réussi.') {
@@ -103,6 +103,7 @@ function Connexion() {
                         </form>
                     </div>
                 </div>
+
                 <img src={header_img} alt="header_img" className="imageLogin" />
 
             </div>
