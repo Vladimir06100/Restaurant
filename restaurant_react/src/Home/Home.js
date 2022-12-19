@@ -1,17 +1,19 @@
 import Menu from '../Components/Menu';
 import '../Styles/Home.css';
 import bann from '../Images/bann.png';
-import vector from '../Images/vector.png';
+import transition from '../Images/transition.gif';
+import pizza from '../Images/pizza.png';
+import tape from '../Images/tape.png';
 import Footer from '../Components/Footer';
-import Carrousel from '../Components/Carrousel';
-
-
 
 function Home() {
     return (
         <div>
             <Menu />
+            <img src={transition} alt="transition" className="transition" />
+
             <img id="ban" src={bann} alt='bannière' />
+
             <div className='home_position'>
 
                 <div className="home_title">
@@ -33,19 +35,64 @@ function Home() {
                         </p>
                     </div>
                 </div>
+                <img id="bowl" src={pizza} alt='bannière bowl' />
             </div>
 
-            <div className="carrousel_position">
-                <span className="textCarrousel">OUR PARTENERS <br />WHAT ABOUT <span id="home_title_color">YOU ?</span></span>
-                <Carrousel />
+            <div className="contenu">
+                <input type="radio" name="dot" id="one" />
+                <input type="radio" name="dot" id="two" />
+                <div className="main-card">
+                    <div className="cards">
+                        <div className="card">
+                            <div className="content">
+                                {/* <div className="content-img">
+                                    <img src={tape} alt="icone staff" />
+                                </div> */}
+                                <div className="details">
+                                    <div className="name-cards">Vladi Test</div>
+                                    <div className="name-jobs">Web Designer</div>
+                                </div>
+                                <div class="media-icons">
+                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                    <a href="#"><i class="fab fa-instagram"></i></a>
+                                    <a href="#"><i class="fab fa-youtube"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="cards">
+                        <div className="card">
+                            <div className="content">
+                                <div className="content-img">
+                                    {/* <img src={tape} alt */}
+                                </div>
+                                <div className="details">
+                                    <div className="name-cards">Vladou Test</div>
+                                    <div className="name-jobs">Web Designer</div>
+                                </div>
+                                <div class="media-icons">
+                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                    <a href="#"><i class="fab fa-instagram"></i></a>
+                                    <a href="#"><i class="fab fa-youtube"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                {/* <span>
+                    Et neque maxime non dicta quasi non nesciunt sint in fugit rerum sed sunt voluptate aut repellendus optio eos mollitia rerum. Vel ipsum neque aut earum optio et repellat aperiam et temporibus dolorem. Qui distinctio enim aut quia praesentium 33 exercitationem laborum et iusto magnam sed facere illum et maxime dolore.
+                    Et neque maxime non dicta quasi non nesciunt sint in fugit rerum sed sunt voluptate aut repellendus optio eos mollitia rerum. Vel ipsum neque aut earum optio et repellat aperiam et temporibus dolorem. Qui distinctio enim aut quia praesentium 33 exercitationem laborum et iusto magnam sed facere illum et maxime dolore.
+                </span> */}
             </div>
 
-            <div className="container">
-                <span>
-                    Et neque maxime non dicta quasi non nesciunt sint in fugit rerum sed sunt voluptate aut repellendus optio eos mollitia rerum. Vel ipsum neque aut earum optio et repellat aperiam et temporibus dolorem. Qui distinctio enim aut quia praesentium 33 exercitationem laborum et iusto magnam sed facere illum et maxime dolore.
-                    Et neque maxime non dicta quasi non nesciunt sint in fugit rerum sed sunt voluptate aut repellendus optio eos mollitia rerum. Vel ipsum neque aut earum optio et repellat aperiam et temporibus dolorem. Qui distinctio enim aut quia praesentium 33 exercitationem laborum et iusto magnam sed facere illum et maxime dolore.
-                </span>
-                <img id="imgvector" src={vector} alt='bannière' />
+            <div class="button">
+                <label for="one" class=" active one"></label>
+                <label for="two" class="two"></label>
             </div>
             <Footer />
         </div>
@@ -53,3 +100,142 @@ function Home() {
 }
 
 export default Home;
+
+
+
+
+
+
+
+
+
+// < !DOCTYPE html >
+// < !--Created By CodingLab - www.codinglabweb.com-- >
+//     <html lang="en" dir="ltr">
+//         <head>
+//             <meta charset="UTF-8">
+//                 <!---<title> Responsive Our Team Section | CodingLab </title>---->
+//                 <link rel="stylesheet" href="style.css">
+//                     <!-- Fontawesome CDN Link -->
+//                     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+//                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//                     </head>
+//                     <body>
+//                         <div class="container">
+//                             <input type="radio" name="dot" id="one">
+//                                 <input type="radio" name="dot" id="two">
+//                                     <div class="main-card">
+//                                         <div class="cards">
+//                                             <div class="card">
+//                                                 <div class="content">
+//                                                     <div class="img">
+//                                                         <!--- <img src="images/img1.jpg" alt="">-->
+//                                                     </div>
+//                                                     <div class="details">
+//                                                         <div class="name">Andrew Neil</div>
+//                                                         <div class="job">Web Designer</div>
+//                                                     </div>
+//                                                     <div class="media-icons">
+//                                                         <a href="#"><i class="fab fa-facebook-f"></i></a>
+//                                                         <a href="#"><i class="fab fa-twitter"></i></a>
+//                                                         <a href="#"><i class="fab fa-instagram"></i></a>
+//                                                         <a href="#"><i class="fab fa-youtube"></i></a>
+//                                                     </div>
+//                                                 </div>
+//                                             </div>
+//                                             <div class="card">
+//                                                 <div class="content">
+//                                                     <div class="img">
+//                                                         <!--- <img src="images/img2.jpg" alt="">--->
+//                                                     </div>
+//                                                     <div class="details">
+//                                                         <div class="name">Jasmine Carter</div>
+//                                                         <div class="job">UI Designer</div>
+//                                                     </div>
+//                                                     <div class="media-icons">
+//                                                         <a href="#"><i class="fab fa-facebook-f"></i></a>
+//                                                         <a href="#"><i class="fab fa-twitter"></i></a>
+//                                                         <a href="#"><i class="fab fa-instagram"></i></a>
+//                                                         <a href="#"><i class="fab fa-youtube"></i></a>
+//                                                     </div>
+//                                                 </div>
+//                                             </div>
+//                                             <div class="card">
+//                                                 <div class="content">
+//                                                     <div class="img">
+//                                                         <!-- <img src="images/img3.jpg" alt="">---->
+//                                                     </div>
+//                                                     <div class="details">
+//                                                         <div class="name">Justin Chung</div>
+//                                                         <div class="job">Web Devloper</div>
+//                                                     </div>
+//                                                     <div class="media-icons">
+//                                                         <a href="#"><i class="fab fa-facebook-f"></i></a>
+//                                                         <a href="#"><i class="fab fa-twitter"></i></a>
+//                                                         <a href="#"><i class="fab fa-instagram"></i></a>
+//                                                         <a href="#"><i class="fab fa-youtube"></i></a>
+//                                                     </div>
+//                                                 </div>
+//                                             </div>
+//                                         </div>
+//                                         <div class="cards">
+//                                             <div class="card">
+//                                                 <div class="content">
+//                                                     <div class="img">
+//                                                         <!---<img src="images/img4.jpg" alt="">--->
+//                                                     </div>
+//                                                     <div class="details">
+//                                                         <div class="name">Appolo Reef</div>
+//                                                         <div class="job">Web Designer</div>
+//                                                     </div>
+//                                                     <div class="media-icons">
+//                                                         <a href="#"><i class="fab fa-facebook-f"></i></a>
+//                                                         <a href="#"><i class="fab fa-twitter"></i></a>
+//                                                         <a href="#"><i class="fab fa-instagram"></i></a>
+//                                                         <a href="#"><i class="fab fa-youtube"></i></a>
+//                                                     </div>
+//                                                 </div>
+//                                             </div>
+//                                             <div class="card">
+//                                                 <div class="content">
+//                                                     <div class="img">
+//                                                         <!--<img src="images/img5.jpg" alt="">---->
+//                                                     </div>
+//                                                     <div class="details">
+//                                                         <div class="name">Adrina Calvo</div>
+//                                                         <div class="job">UI Designer</div>
+//                                                     </div>
+//                                                     <div class="media-icons">
+//                                                         <a href="#"><i class="fab fa-facebook-f"></i></a>
+//                                                         <a href="#"><i class="fab fa-twitter"></i></a>
+//                                                         <a href="#"><i class="fab fa-instagram"></i></a>
+//                                                         <a href="#"><i class="fab fa-youtube"></i></a>
+//                                                     </div>
+//                                                 </div>
+//                                             </div>
+//                                             <div class="card">
+//                                                 <div class="content">
+//                                                     <div class="img">
+//                                                         <!--<img src="images/img6.jpeg" alt="">--->
+//                                                     </div>
+//                                                     <div class="details">
+//                                                         <div class="name">Nicole Lewis</div>
+//                                                         <div class="job">Web Devloper</div>
+//                                                     </div>
+//                                                     <div class="media-icons">
+//                                                         <a href="#"><i class="fab fa-facebook-f"></i></a>
+//                                                         <a href="#"><i class="fab fa-twitter"></i></a>
+//                                                         <a href="#"><i class="fab fa-instagram"></i></a>
+//                                                         <a href="#"><i class="fab fa-youtube"></i></a>
+//                                                     </div>
+//                                                 </div>
+//                                             </div>
+//                                         </div>
+//                                     </div>
+//                                     <div class="button">
+//                                         <label for="one" class=" active one"></label>
+//                                         <label for="two" class="two"></label>
+//                                     </div>
+//                                 </div>
+//                             </body>
+//                         </html>
