@@ -45,7 +45,7 @@ body{
 
 
 /*staff*/
-body:before{
+/* body:before{
     content: '';
     position: absolute;
     height: 100%;
@@ -54,22 +54,19 @@ body:before{
     clip-path: inset(47% 0 0 0);
     z-index: -1;
     margin-top: 100%;
-}
+} */
 
-.title-content{    
-    display: flex;
-    padding: 1em 0em 1em;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 3em;
-    justify-content: center;
-}
-
+/* .contenu-back{
+} */
 
 .contenu{
     display: flex;
-    justify-content: center;
+    background: #db6d13;
+    height: 42em;
     overflow: hidden;
-    padding: 2em 0em 2em;
+    padding: 3em 0em 3em;
+    flex-direction: column;
+    align-items: center;
 }
 
 .main-card{
