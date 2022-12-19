@@ -31,43 +31,26 @@ function Connexion() {
         const data = await response.json();
         console.log("Data : ", data);
         const token = data.token;
-        const id = data.id;
+        //const id = data.id;
         const message = data.message;
 
         if (message === 'Connexion réussi.') {
 
             console.log("Token : ", token);
-            console.log("ID : ", id);
+            //console.log("ID : ", id);
+
             localStorage.setItem("token", JSON.stringify(token));
-            localStorage.setItem("id", JSON.stringify(id));
+            //localStorage.setItem("ID", JSON.stringify(id));
 
             alert("Vous êtes connecté");
+
             return window.location.href = '/produits';
         }
+
         if (message !== 'Connexion réussi.') {
             alert("Veuillez remplir tous les champs de connexion.");
         }
-
-        // getID();
     }
-
-    // async function getID() {
-    //     const token = JSON.parse(localStorage.getItem("token"));
-    //     const optionsID = {
-    //         method: "GET",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //             "Authorization": `bearer ${token}`
-    //         }
-    //     }
-
-    //     const response = await fetch(`http://127.0.0.1:8000/api/restaurateurs/login`, optionsID);
-    //     const dataID = await response.json();
-    //     console.log(dataID);
-    //     const ID = dataID._id;
-    //     localStorage.setItem("userID", JSON.stringify(ID));
-    //     console.log("Key user : ", ID);
-    // }
 
     return (
         <div>
@@ -81,13 +64,16 @@ function Connexion() {
                         </span>
                     </div>
 
-                    <div className="login">
-                        <form method="POST" action="" id="formConnexion" onSubmit={submit}>
-                            <div className="textbox connexion">
-                                <label htmlFor="email"></label>
-                                <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="email" required />
-                                <span className="material-symbols-outlined"> email </span>
-                            </div>
+
+                <div className="login">
+                    <form method="POST" action="" id="form" onSubmit={submit}>
+                        <div className="textbox">
+                            <label htmlFor="email"></label>
+                            <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="email" required />
+                            <span className="material-symbols-outlined"> 
+                                email 
+                            </span>
+                        </div>
 
                             <div className="textbox connexion">
                                 <label htmlFor="password"></label>
@@ -98,7 +84,7 @@ function Connexion() {
                             </div>
 
                             <p>
-                                <a href="/Maj">Mot de passe oublié ?</a>
+                                <a href="/PasswordResetLink">Mot de passe oublié ?</a>
                             </p>
 
                             <button type="submit" id="submitLog" value="Login">
@@ -114,8 +100,8 @@ function Connexion() {
                 </div>
                 <img src={header_img} alt="header_img" className="imageLogin" />
 
-                <Footer />
             </div>
+            <Footer />
         </div>
     );
 }

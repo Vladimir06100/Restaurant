@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -15,15 +16,15 @@ class Carte extends Model
 
     protected $fillable = [
         'nom_carte',
-        // 'carte_id',
-        // 'restaurant_id',
-        // 'formule_id',
+        'produit_id',
+        'restaurant_id',
+        'formule_id',
     ];
 
     private string $nom_carte;
-    // private int $carte_id;
-    // private int $restaurant_id;
-    // private int $formule_id;
+    private int $produit_id;
+    private int $restaurant_id;
+    private int $formule_id;
 
 
     public function produits()

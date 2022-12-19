@@ -31,12 +31,12 @@ class RestaurateurController extends Controller
                 'message' => 'Email ou mot de passe incorrect.'
             ], 401);
         }
-        $token = $restaurateur->token;
-        $id = $restaurateur->id;
+
+        $token = $restaurateur->createToken("authToken");
+
         return response()->json([
             'message' => 'Connexion réussi.',
-            'token' => $token,
-            'id' => $id
+            'token' => $token->plainTextToken
         ], 200);
 
         redirect()->route('produits');
@@ -49,21 +49,23 @@ class RestaurateurController extends Controller
             'nom' => 'required|string',
             'prenom' => 'required|string',
             'email' => 'required|email',
-            'password' => 'required|string'
+            'password' => 'required|string',
+            'role' => 'required|string'
         ]);
 
-        $token = Str::random(60);
+        // $token = Str::random(60);
         $restaurateur = Restaurateur::create([
             'nom' => $request->nom,
             'prenom' => $request->prenom,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'token' => hash('sha256', $token),
+            //'token' => hash('sha256', $token),
+            'role' => $request->role
         ]);
         return response()->json([
             'message' => 'Restaurateur created.',
             'restaurateur' => $restaurateur,
-            'token' => $token,
+            //'token' => $token,
         ], 201);
     }
 
