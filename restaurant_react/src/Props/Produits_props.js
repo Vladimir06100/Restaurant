@@ -23,9 +23,9 @@ function Produit(props) {
                     <td>{props.prixTTC}</td>
                     <td>{props.quantite}</td>
                     <td>
-                    <button className="btn">Modifier</button>
-                    <button className="btn">Supprimer</button>
-                 </td>
+                        <button className="btn">Modifier</button>
+                        <button className="btn">Supprimer</button>
+                    </td>
                 </tr>
             </tbody>
         </table>

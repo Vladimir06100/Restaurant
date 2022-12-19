@@ -14,6 +14,7 @@ function Produits() {
         document.querySelector('#TTC').value = TTC;
     }
 
+  //  const [categories, setCategories] = useState([]);
     const [produits, setProduits] = useState([]);
     async function getProduits() {
         const options = {
@@ -28,7 +29,10 @@ function Produits() {
         let response = await fetch('http://localhost:8000/api/produits', options);
         const data = await response.json();
         const produits = data.produits;
-        setProduits(produits);
+        const categories = data.categories;
+    //    setCategories(categories);  
+        setProduits(produits, categories);
+        console.log(produits)
     }
 
     useEffect(() => {
@@ -57,11 +61,14 @@ function Produits() {
         };
         let response = await fetch('http://localhost:8000/api/produits', options);
         if (response.status !== 200) {
-            return;
+            return alert('Une erreur est survenue');
         }
         const data = await response.json();
         const newProduit = data.produit;
+       // const newCategorie = data.categorie_id; newCategorie, categories
         setProduits([newProduit, ...produits]);
+        alert('Produit ajouté');
+        
     }
 
     return (

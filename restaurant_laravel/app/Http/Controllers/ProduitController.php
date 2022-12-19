@@ -17,7 +17,11 @@ class ProduitController extends Controller
         //$produits = Produit::all();
         //  $produits = Produit::find(Auth::user());
         // $produits = Produit::find($id);
-        $produits = Produit::where('restaurateur_id', '=', $id)->get();
+        $produits = Produit::where('restaurateur_id', '=', $id)
+        ->join('categories', 'produits.categorie_id', '=', 'categories.id')
+        //order by last created
+        ->orderBy('produits.created_at', 'desc')
+        ->get();
 
         //     $produits = Produit::where('produits.restaurateur_id', '=', Auth::user()->id)->get();
 
