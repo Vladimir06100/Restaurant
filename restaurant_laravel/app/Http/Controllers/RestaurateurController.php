@@ -36,7 +36,7 @@ class RestaurateurController extends Controller
 
         return response()->json([
             'message' => 'Connexion réussi.',
-            'token' => $token->plainTextToken
+            'remember_token' => $token->plainTextToken
         ], 200);
 
         redirect()->route('produits');

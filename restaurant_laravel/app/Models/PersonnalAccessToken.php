@@ -17,21 +17,19 @@ class Restaurateur extends Authenticatable
     protected $guarded =['id'];
 
     protected $hidden = [
-        'password',
-        'remember_token',
+        'tokenable_id',
+        'name',
+        'token',
         //'token',
     ];
 
     protected $fillable = [
-        'nom',
-        'prenom',
-        'email',
-        'password',
-        'role',
+        'tokenable_id',
+        'name',
+        'token',
     ];
 
-    protected string $nom;
-    protected string $prenom;
-    protected string $password;
-    protected string $role;
+    protected string $tokenable_id;
+    protected string $name;
+    protected string $token;
 }
