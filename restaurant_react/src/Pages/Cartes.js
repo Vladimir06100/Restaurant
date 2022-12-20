@@ -89,9 +89,11 @@ function Cartes() {
           console.log(nom_carte, "nom");
         }}>
         <label htmlFor="nom_carte">Nom de la carte</label>
+        <br/>
         <input type="text" id="nom_carte" name="nom_carte" />
-
-        <label htmlFor="produit">Produits</label>
+ <br/>
+        <label htmlFor="produit"> Choix produits de la carte</label>
+        <br/>
         <select multiple id="produit" name="produit_id">
           {listproduits.map((produit) => (
             <option key={produit.id} value={produit.id}>
@@ -102,12 +104,13 @@ function Cartes() {
           ))}
           ;
         </select>
-
+<br/>
         <button type="submit">Ajouter</button>
       </form>
 
       <div>
-        <h2> Affichage </h2>
+ <br/>
+        <h2> Affichage des cartes </h2>
         {cartes.map((carte, index) => (
           <Cartes_props
             key={index}
