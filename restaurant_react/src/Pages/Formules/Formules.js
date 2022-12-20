@@ -2,12 +2,13 @@ import Menu from "../../Components/Menu";
 import Footer from "../../Components/Footer";
 import { useState, useEffect } from "react";
 import Formules_props from "../../Props/Formules_props";
-
+import Formule1_props from "../../Props/Formule1_props";
 
 function Formules() {
     //création des formules
 
     const [formules, setFormules] = useState([]);
+    const [formule1, setFormule1] = useState([]);
 
     async function createFormules(nom_formule, description_formule, categorie_produit_entree, categorie_produit_plat, categorie_produit_dessert, prix_formule, votre_prix) {
 
@@ -58,6 +59,7 @@ function Formules() {
         const formules = data.formules;
         setFormules(data.formules);
         setFormules(formules);
+        setFormule1(formule1);
 
     }
 
@@ -81,29 +83,60 @@ function Formules() {
                             const formules = event.target.formules.value;
                             createFormules(formules);
                         }}>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>nom_formule</th>
+                                        <th>description_formule</th>
+                                        <th>categorie_produit_entree</th>
+                                        <th>categorie_produit_plat</th>
+                                        <th>categorie_produit_dessert</th>
+                                        <th>prix_formule</th>
+                                        <th>votre_prix</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {formules.map((formule, index) => (
+                                        <Formules_props
+                                            key={index}
+                                            nom_formule={formule.nom_formule}
+                                            description_formule={formule.description_formule}
+                                            categorie_produit_entree={formule.categorie_produit_entree}
+                                            categorie_produit_plat={formule.categorie_produit_plat}
+                                            categorie_produit_dessert={formule.categorie_produit_dessert}
+                                            prix_formule={formule.prix_formule}
+                                            votre_prix={formule.votre_prix}
+                                        />
+                                    ))}
+                                </tbody>
+                            </table>
 
-                            {formules.map((formule, index) => (
-                                <Formules_props
-                                    key={index}
-                                    nom_formule={formule.nom_formule}
-                                    description_formule={formule.description_formule}
-                                    categorie_produit_entree={formule.categorie_produit_entree}
-                                    categorie_produit_plat={formule.categorie_produit_plat}
-                                    categorie_produit_dessert={formule.categorie_produit_dessert}
-                                    prix_formule={formule.prix_formule}
-                                    votre_prix={formule.votre_prix}
-                                />
-
-                            ))}
                         </div>
+                        <tbody>
+                            {formule1.map((formule1, index) => (
+                                <Formule1_props
+                                    key={index}
+                                    categorie_produit_entree={formule1.categorie_produit_entree}
+                                    categorie_produit_plat={formule1.categorie_produit_plat}
+                                    categorie_produit_dessert={formule1.categorie_produit_dessert}
+                                />
+                            ))}
+                        </tbody>
                     </div>
-                    <label for="formule choice">Choose a formule:</label>
-                    <select id="choisir formule">
-                        <option value="">Choix formules</option>
-                        <option value="categorie_produit_entree, categorie_produit_plat, categorie_produit_dessert ">Formule1</option>
-                        <option value="">Formule2</option>
-                        <option value="">Formule3</option>
-                    </select>
+
+                    <form action="" method="get" class="form-example">
+                        <div class="form-example">
+                            <label for="name">Choose Formule: </label>
+                            <input type="text" name="name" id="name" required></input>
+
+                        </div>
+
+                        <div class="form-example">
+                            <input type="submit" value="choisir"></input>
+
+                        </div>
+
+                    </form>
 
                 </div>
             </div>
