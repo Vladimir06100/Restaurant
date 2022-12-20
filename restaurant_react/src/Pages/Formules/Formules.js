@@ -77,55 +77,42 @@ function Formules() {
                 <div className="formules__container">
                     <div className="formules__wrapper">
                         <ul className="formules__items"></ul>
-                         <div id="formFormules" method="POST" action="" onSubmit={(event) => {
+                        <div id="formFormules" method="POST" action="" onSubmit={(event) => {
                             const formules = event.target.formules.value;
                             createFormules(formules);
                         }}>
 
                             {formules.map((formule, index) => (
                                 <Formules_props
-                                key={index}
-                                nom_formule={formule.nom_formule}
-                                description_formule={formule.description_formule}
-                                categorie_produit_entree={formule.categorie_produit_entree}
-                                categorie_produit_plat={formule.categorie_produit_plat}
-                                categorie_produit_dessert={formule.categorie_produit_dessert}
-                                prix_formule={formule.prix_formule}
-                                votre_prix={formule.votre_prix}
+                                    key={index}
+                                    nom_formule={formule.nom_formule}
+                                    description_formule={formule.description_formule}
+                                    categorie_produit_entree={formule.categorie_produit_entree}
+                                    categorie_produit_plat={formule.categorie_produit_plat}
+                                    categorie_produit_dessert={formule.categorie_produit_dessert}
+                                    prix_formule={formule.prix_formule}
+                                    votre_prix={formule.votre_prix}
                                 />
-                                
-                                ))}
+
+                            ))}
+                        </div>
                     </div>
+                    <label for="formule choice">Choose a formule:</label>
+                    <select id="choisir formule">
+                        <option value="">Choix formules</option>
+                        <option value="categorie_produit_entree, categorie_produit_plat, categorie_produit_dessert ">Formule1</option>
+                        <option value="">Formule2</option>
+                        <option value="">Formule3</option>
+                    </select>
+
                 </div>
-
-                <input type="text" placeholder="" v-model="choix formule" />
-                <button className="btn">Choisir formule</button>
-
-                <input type="text" placeholder="" v-model="formule1" />
-                <button type="submit">formule1</button>
-                <input type="text" id="name" name="formule1" />
-
-
-                
-                <button type="submit">formule2</button>
-                <input type="text" id="name" name="formule2" />
-
-
-
-                <button type="submit">formule3</button>
-                <input type="text" id="name" name="formule3" />
-
-
-                <button type="submit">Ajouter</button>
-                <button type="submit">Modifier</button>
-</div>
             </div>
-                <Footer />
+            <Footer />
         </div>
     )
 
 }
-                                
+
 
 export default Formules;
 
