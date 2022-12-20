@@ -1,12 +1,13 @@
 // import logo from '../Images/logo.png';
 import '../Styles/Menu.css';
 import { useState, useEffect } from 'react';
-import LoginButton from './Log';
+import LoginButton from './LoginButton';
+import RegisterButton from './RegisterButton';
 
 function Menu() {
     const [isOpen, setIsOpen] = useState(false);
 
-    const [connecte, setConnecte] = useState(false);
+    const [connecte, setConnecte] = useState(localStorage.getItem('token') !== null);
 
     function handleLoginClick() {
         setConnecte(!connecte);
@@ -16,7 +17,7 @@ function Menu() {
         console.log("isopen", isOpen)
     }, [isOpen]
     );
-
+    console.log(connecte)
     return (
         <div>
             <section className="MainMenu">
@@ -27,18 +28,20 @@ function Menu() {
                 <nav className="navbar">
                     <ul className="links desktop-size">
                         <li className="link"><a href="/">HOME </a></li>
-                        <li className="link"><a href="/creation/restaurant">AJOUTER UN RESTAURANT </a></li>
-                        <li className="link"><a href="/restaurants">MES RESTAURANTS </a></li>
-                        <li className="link"><a href="/produits">PRODUIT </a></li>
-                        <li className="link"><a href="/cartes">CARTES </a></li>
+                        {connecte && 
+                            <>
+                            <li className="link"><a href="/creation/restaurant">AJOUTER UN RESTAURANT </a></li>
+                            <li className="link"><a href="/restaurants">MES RESTAURANTS </a></li>
+                            <li className="link"><a href="/produits">PRODUIT </a></li>
+                            <li className="link"><a href="/cartes">CARTES </a></li>
+                            </>
+                        }
                         <li>
-                            <span id="navbar_style">
+                            <span>
                                 <LoginButton connecte={connecte} onClick={handleLoginClick} />
                             </span>
-                        </li>
-                        <li>
-                            <span id="navbar_style" >
-                                <a href="/inscription">INSCRIPTION </a>
+                            <span>
+                                <RegisterButton connecte={connecte} onClick={handleLoginClick} />
                             </span>
                         </li>
                     </ul>

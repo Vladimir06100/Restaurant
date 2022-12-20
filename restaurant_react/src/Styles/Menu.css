@@ -107,7 +107,11 @@ ul {
 }
 
 .log {
-    color: black;
+    transform: scale(1.05);
+    background-color: #db6d13;
+    border: black;
+    font-size: 15px;
+    margin-right: 20px;
 }
 
 @media screen and (max-width: 1000px){
