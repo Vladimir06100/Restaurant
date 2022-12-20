@@ -1,5 +1,4 @@
 function Produit(props) {
-
     return (
         <table>
             <thead>
@@ -16,16 +15,16 @@ function Produit(props) {
             <tbody>
                 <tr>
                     <td>{props.nom_produit}</td>
-                    <td>{props.type}</td>
+                    <td>{props.categorie_id}</td>
                     <td>{props.description}</td>
                     <td>{props.prixHT}</td>
                     <td>{props.TVA}</td>
                     <td>{props.prixTTC}</td>
                     <td>{props.quantite}</td>
                     <td>
-                    <button className="btn">Modifier</button>
-                    <button className="btn">Supprimer</button>
-                 </td>
+                        <button onClick={props.update} className="btn">Modifier</button>
+                        <button onClick={props.destroy} className="btn">Supprimer</button>
+                    </td>
                 </tr>
             </tbody>
         </table>

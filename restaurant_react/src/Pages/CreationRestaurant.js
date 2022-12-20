@@ -22,7 +22,8 @@ function Restaurant() {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Accept': 'application/json'
+                'Accept': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem('token'),
             },
             body: JSON.stringify({
                 nom: nom,
@@ -35,7 +36,7 @@ function Restaurant() {
             //
 
         }
-        const response = await fetch(`http://localhost:8000/api/restaurants`, options);
+        const response = await fetch(`http://localhost:8000/api/restaurateurs/restaurants`, options);
         const data = await response.json();
 
         console.log('création de restaurant : ', data);
@@ -89,7 +90,7 @@ function Restaurant() {
                             </div>
 
 
-                            <input id="submitRestaurant" type="submit" name="en" onclick="alert('Votre restaurant à été crée')" />
+                            <input id="submitRestaurant" type="submit" name="en" />
                         </form>
                     </div>
                 </div>

@@ -10,7 +10,6 @@ function Connexion() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-
     function submit(e) {
         e.preventDefault();
         connect();
@@ -35,25 +34,23 @@ function Connexion() {
         const data = await response.json();
 
         const token = data.remember_token;
-        //const id = data.id;
-        const message = data.message;
 
-        if (message === 'Connexion réussi.') {
+        if (response.status === 200) {
 
-            console.log("all data user : ", data);
-            console.log("Token : ", token);
-            //console.log("ID : ", id);
+            console.log("Data user : ", data);
 
             localStorage.setItem("token", token);
-            //localStorage.setItem("ID", JSON.stringify(id));
 
-            alert("Vous êtes connecté");
+            alert("Vous êtes connecté.");
 
-            //return window.location.href = '/produits';
+            return window.location.href = '/produits';
         }
 
-        if (message !== 'Connexion réussi.') {
-            alert("Veuillez remplir tous les champs de connexion.");
+        if (response.status !== 200) {
+
+            console.log('Message : ', data);
+
+            alert("Email ou mot de passe incorrect.");
         }
     }
 
@@ -103,6 +100,7 @@ function Connexion() {
                         </form>
                     </div>
                 </div>
+
                 <img src={header_img} alt="header_img" className="imageLogin" />
 
             </div>
