@@ -234,8 +234,8 @@ export default Home;
 //                                         </div>
 //                                     </div>
 //                                     <div class="button">
-//                                         <label for="one" class=" active one"></label>
-//                                         <label for="two" class="two"></label>
+//                                         <label htmlhtmlFor="one" class=" active one"></label>
+//                                         <label htmlhtmlFor="two" class="two"></label>
 //                                     </div>
 //                                 </div>
 //                             </body>
