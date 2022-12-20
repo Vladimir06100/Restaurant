@@ -106,6 +106,9 @@ ul {
     margin-left: 0;
 }
 
+.log {
+    color: black;
+}
 
 @media screen and (max-width: 1000px){
   

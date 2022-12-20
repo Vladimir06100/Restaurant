@@ -10,7 +10,6 @@ function Connexion() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-
     function submit(e) {
         e.preventDefault();
         connect();

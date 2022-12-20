@@ -175,21 +175,7 @@ function Produits() {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                {/* map sur produit */}
-
-                                <td>{nom_produit}</td>
-                                <td>{type}</td>
-                                <td>{description}</td>
-                                <td>{prixHT}</td>
-                                <td>{TVA}</td>
-                                <td>{prixTTC}</td>
-                                <td>{quantite}</td>
-                                <td>
-                                    <button className="btn">Modifier</button>
-                                    <button onClick={destroy} className="btn">Supprimer</button>
-                                </td>
-                            </tr>
+                  
                         </tbody>
                     </table>
                 </div>

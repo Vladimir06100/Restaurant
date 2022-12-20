@@ -1,9 +1,16 @@
 // import logo from '../Images/logo.png';
 import '../Styles/Menu.css';
 import { useState, useEffect } from 'react';
+import LoginButton from './Log';
 
 function Menu() {
     const [isOpen, setIsOpen] = useState(false);
+
+    const [connecte, setConnecte] = useState(false);
+
+    function handleLoginClick() {
+        setConnecte(!connecte);
+    }
 
     useEffect(() => {
         console.log("isopen", isOpen)
@@ -26,11 +33,11 @@ function Menu() {
                         <li className="link"><a href="/cartes">CARTES </a></li>
                         <li>
                             <span id="navbar_style">
-                                <a href="/connexion">CONNEXION </a>
+                                <LoginButton connecte={connecte} onClick={handleLoginClick} />
                             </span>
                         </li>
                         <li>
-                            <span id="navbar_style">
+                            <span id="navbar_style" >
                                 <a href="/inscription">INSCRIPTION </a>
                             </span>
                         </li>
