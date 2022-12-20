@@ -16,6 +16,10 @@ return new class extends Migration
         Schema::create('categorie__formules', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->softDeletes();
+            $table->string('formule1');
+            $table->string('formule2');
+            $table->string('formule3');
         });
     }
 
