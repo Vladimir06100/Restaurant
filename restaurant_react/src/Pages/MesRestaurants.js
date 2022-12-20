@@ -12,6 +12,8 @@ function MesRestaurants() {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem('token'),
             },
         };
         const response = await fetch('http://127.0.0.1:8000/api/restaurants?', options);
@@ -25,26 +27,25 @@ function MesRestaurants() {
         getRestaurants();
     }
         , []);
-    //categorie_id,
 
     return (
         <div>
 
             <Menu />
 
-            <div class="MesRestaurants">
+            <div className="MesRestaurants">
 
                 <h1>Mes Restaurants</h1>
 
                 {restaurants.map((restaurant) => (
 
-                    <div class="container">
+                    <div key={restaurant.id} className="container">
 
-                        <div class="image-box">
+                        <div className="image-box">
                             <div className="images"><img className='images' src={restaurant.image} width="25%" alt='img'/></div>
                         </div>
-                        <div class="text">
-                            <h2 class="title">{restaurant.nom}</h2>
+                        <div className="text">
+                            <h2 className="title">{restaurant.nom}</h2>
                             <button type="button" name="item-1-button" id="item-1-button">Modifier</button>
                         </div>
 
@@ -58,4 +59,5 @@ function MesRestaurants() {
 
     )
 }
+
 export default MesRestaurants;

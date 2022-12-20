@@ -15,7 +15,7 @@ class RestaurantController extends Controller
     {
         $id = Auth::user()->id;
 
-        $restaurants = Restaurant::where('restaurateur_id', '=', $id)->get; 
+        $restaurants = Restaurant::where('restaurateur_id', '=', $id)->get(); 
 
         return response()->json([
             'restaurants' => $restaurants
