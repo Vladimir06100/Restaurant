@@ -49,5 +49,5 @@ Route::get('/cartes', [CarteController::class, 'index'])->name('cartes.index');
 Route::resource('formules', FormuleController::class);
 
 // route pour les catégories de formules
-Route::resource('formules/categorie_formule', Categorie_FormuleController::class);
+Route::resource('formules/categorie_formules', Categorie_FormuleController::class);
 
