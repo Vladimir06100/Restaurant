@@ -10,17 +10,8 @@ function Cartes_props(props) {
 
   return (
     <div>
-      Nom Carte : {props.nom_carte}
+      Carte : {props.nom_carte}
       <br />
-      <br />
-      Produits :
-      {props.listproduits.map(function (produit) {
-        return (
-          <li className="ACommenter">
-            {produit.id}-{produit.nom_produit}-{produit.description}
-          </li>
-        );
-      })}
      <button>
 		<Link to={"/carte/" + props.id}>Voir la carte</Link>
 		</button> 
