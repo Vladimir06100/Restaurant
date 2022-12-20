@@ -58,11 +58,13 @@ function Cartes() {
       }
    
 
-    return (
-        <div>
-            <Menu />
-            <h1>Créer Carte</h1>
-    
+  return (
+    <div>
+      <Menu />
+
+      {/* place l'affichage */}
+      <div className="cartesPosition">
+        <div className="cartesPositionBis">
 
             <form method="POST" action="" onSubmit={(event)=> {
                 event.preventDefault();
