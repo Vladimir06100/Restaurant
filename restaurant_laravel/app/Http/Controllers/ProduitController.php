@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Produit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\DB;
 
 class ProduitController extends Controller
 {
@@ -14,6 +14,7 @@ class ProduitController extends Controller
         $id = Auth::user()->id;
         $produits = Produit::where('restaurateur_id', '=', $id)
         ->join('categories', 'produits.categorie_id', '=', 'categories.id')
+        ->select('categories.id as categorie_id', 'categories.type', 'produits.*')
         ->orderBy('produits.created_at', 'desc')
         ->get();
 

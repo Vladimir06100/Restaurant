@@ -23,7 +23,7 @@ function Produit(props) {
                     <td>{props.quantite}</td>
                     <td>
                         <button onClick={props.update} className="btn">Modifier</button>
-                        <button onClick={props.destroy} className="btn">Supprimer</button>
+                        <button onClick={() => props.destroy(props.id)} className="btn">Supprimer</button>
                     </td>
                 </tr>
             </tbody>

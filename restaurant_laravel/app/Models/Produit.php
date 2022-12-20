@@ -13,6 +13,7 @@ class Produit extends Model
     use SoftDeletes;
 
     protected $fillable = [
+        'id',
         'nom_produit',
         'categorie_id',
         'description',
@@ -31,4 +32,10 @@ class Produit extends Model
     protected int $prixTTC;
     protected string $restaurateur_id;
 
+    public function categories()
+    {
+        return $this->belongsTo(Categorie::class);
+    }
 }
+
+

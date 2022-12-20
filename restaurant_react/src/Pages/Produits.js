@@ -3,10 +3,13 @@ import Footer from '../Components/Footer';
 import { useEffect, useState } from 'react';
 import '../Styles/Produits.css';
 import Produit from '../Props/Produits_props';
+//import { useParams } from 'react-router-dom';
 
 
 function Produits() {
     const [produits, setProduits] = useState([]);
+    const [categories, setCategories] = useState([]);
+    //  const { id } = useParams();
 
     function calculTTC() {
         const prixHT = document.querySelector('#prixHT').value;
@@ -16,7 +19,7 @@ function Produits() {
         document.querySelector('#TTC').value = TTC;
     }
 
-    async function destroy(produit) {
+    async function destroy(id) {
         const options = {
             method: 'DELETE',
             headers: {
@@ -25,14 +28,11 @@ function Produits() {
                 'Authorization': 'Bearer ' + localStorage.getItem('token'),
             },
         };
-        let response = await fetch('http://localhost:8000/api/produits/delete' + produit.id, options);
-        console.log(response)
+        let response = await fetch('http://localhost:8000/api/produits/' + id, options);
         if (response.status !== 200) {
             return alert('Une erreur est survenue');
         }
-        const data = await response.json();
-        const deletedProduit = data.produit;
-        setProduits([deletedProduit, ...produits]);
+        getProduits();
         alert('Produit supprimé');
     }
 
@@ -49,8 +49,8 @@ function Produits() {
         const data = await response.json();
         const produits = data.produits;
         const categories = data.categories;
+        setCategories(categories);
         setProduits(produits, categories);
-        console.log(produits)
     }
 
     async function update(produit) {
@@ -77,13 +77,14 @@ function Produits() {
         }
         const data = await response.json();
         const updatedProduit = data.produit;
-        setProduits([updatedProduit, ...produits]);
+        const updatedCategorie = data.categorie;
+        setProduits([updatedProduit, ...produits, updatedCategorie, ...categories]);
         alert('Produit modifié');
     }
 
 
     async function createProduit(nom_produit, categorie_id, description, prixHT, TVA, prixTTC, quantite) {
-        const restaurateur_id = localStorage.getItem('ID');
+        const restaurateur_id = localStorage.getItem('token');
         const options = {
             method: 'POST',
             headers: {
@@ -106,28 +107,33 @@ function Produits() {
         if (response.status !== 200) {
             return alert('Une erreur est survenue');
         }
+        
         const data = await response.json();
         const newProduit = data.produit;
         setProduits([newProduit, ...produits]);
+        getProduits();
         alert('Produit ajouté');
 
     }
 
-    const produitList = produits.map((produit) => {
+    const produitList = produits.map((produit, index) => {
         return (
             <Produit
-                nom_produit={produit.nom_produit}
-                categorie_id={produit.categorie_id}
-                description={produit.description}
-                prixHT={produit.prixHT}
-                TVA={produit.TVA}
-                prixTTC={produit.prixTTC}
-                quantite={produit.quantite}
-                destroy={destroy}
-                update={update}
+            key={index}
+            nom_produit={produit.nom_produit}
+            categorie_id={produit.type}
+            description={produit.description}
+            prixHT={produit.prixHT}
+            TVA={produit.TVA}
+            prixTTC={produit.prixTTC}
+            quantite={produit.quantite}
+            destroy={destroy}
+            update={update}
+            id={produit.id}
             />
         );
     });
+
     useEffect(() => {
         getProduits();
     }, []);
@@ -202,7 +208,7 @@ function Produits() {
                     <span id="home_title_color">Products list</span>
                 </div>
                 <div className="produits">
-                  {produitList}
+                    {produitList}
                 </div>
             </div>
             <Footer />

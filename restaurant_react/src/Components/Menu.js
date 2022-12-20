@@ -1,14 +1,14 @@
 // import logo from '../Images/logo.png';
 import '../Styles/Menu.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 function Menu() {
     const [isOpen, setIsOpen] = useState(false);
 
-    useEffect(() => {
-        console.log("isopen", isOpen)
-    }, [isOpen]
-    );
+    // useEffect(() => {
+    //     console.log("isopen", isOpen)
+    // }, [isOpen]
+    // );
 
     return (
         <div>
