@@ -10,6 +10,7 @@ use App\Http\Controllers\RestaurateurController;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\PasswordResetLinkController;
 use App\Http\Controllers\NewPasswordController;
+use Database\Seeders\Restaurants;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,28 +27,30 @@ use App\Http\Controllers\NewPasswordController;
 Route::post('/restaurateurs', [RestaurateurController::class, 'store'])->name('restaurateurs.store');
 Route::get('/restaurateurs/{id}', [RestaurateurController::class, 'show'])->name('restaurateurs.show');
 
-// routes pour la connexion des restaurateurs
+
+// Route pour la connexion des restaurateurs
 Route::post('/restaurateurs/login', [RestaurateurController::class, 'login'])->name('restaurateurs.login');
 
-// resource pour les restaurants les 7 routes
-// route pour l'inscription
-Route::post('/restaurateurs/register', [RestaurateurController::class, 'register'])->name('restaurateurs.register');
 
+// Route pour l'inscription
+Route::post('/restaurateurs/register', [RestaurateurController::class, 'register'])->name('restaurateurs.register');
 
 
 // Envoi d'un email de confirmation pour changer le mot de passe
 Route::post('/forgot-password', [PasswordResetLinkController::class, 'store'])->name('api.password.email');
 
+
 // Page de changement de mot de passe
 Route::post('/reset-password', [NewPasswordController::class, 'store'])->name('api.password.reset');
 
 
+// Route pour les restaurants (côté restaurateur)
+Route::middleware('auth:sanctum')->resource('/restaurateurs/restaurants', RestaurantController::class);
 
-// resource pour les restaurants (creation, affichage)
-Route::resource('restaurants', RestaurantController::class);
 
-// routes pour les produits les 7 routes
+// Routes pour les produits
 Route::middleware('auth:sanctum')->resource('produits', ProduitController::class);
+
 
 Route::resource('cartes', CarteController::class);
 
@@ -65,7 +68,5 @@ Route::get('/cartes', [CarteController::class, 'index'])->name('cartes.index'); 
 Route::resource('formules', FormuleController::class);
 
 
-// route pour les admins
+// Route pour les admins
 Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
-
-Route::delete('/admin/{id}', [AdminController::class, 'delete'])->name('admin.delete');

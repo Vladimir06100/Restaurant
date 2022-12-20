@@ -52,11 +52,11 @@ function Home() {
                                     <div className="name-cards">Vladi Test</div>
                                     <div className="name-jobs">Web Designer</div>
                                 </div>
-                                <div class="media-icons">
-                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
-                                    <a href="#"><i class="fab fa-youtube"></i></a>
+                                <div className="media-icons">
+                                    <a href="#"><i className="fab fa-facebook-f"></i></a>
+                                    <a href="#"><i className="fab fa-twitter"></i></a>
+                                    <a href="#"><i className="fab fa-instagram"></i></a>
+                                    <a href="#"><i className="fab fa-youtube"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -72,11 +72,11 @@ function Home() {
                                     <div className="name-cards">Vladou Test</div>
                                     <div className="name-jobs">Web Designer</div>
                                 </div>
-                                <div class="media-icons">
-                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
-                                    <a href="#"><i class="fab fa-youtube"></i></a>
+                                <div className="media-icons">
+                                    <a href="#"><i className="fab fa-facebook-f"></i></a>
+                                    <a href="#"><i className="fab fa-twitter"></i></a>
+                                    <a href="#"><i className="fab fa-instagram"></i></a>
+                                    <a href="#"><i className="fab fa-youtube"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -90,9 +90,9 @@ function Home() {
                 </span> */}
             </div>
 
-            <div class="button">
-                <label for="one" class=" active one"></label>
-                <label for="two" class="two"></label>
+            <div className="button">
+                <label htmlFor="one" className=" active one"></label>
+                <label htmlFor="two" className="two"></label>
             </div>
             <Footer />
         </div>
@@ -233,8 +233,8 @@ export default Home;
 //                                         </div>
 //                                     </div>
 //                                     <div class="button">
-//                                         <label for="one" class=" active one"></label>
-//                                         <label for="two" class="two"></label>
+//                                         <label htmlhtmlFor="one" class=" active one"></label>
+//                                         <label htmlhtmlFor="two" class="two"></label>
 //                                     </div>
 //                                 </div>
 //                             </body>
