@@ -63,6 +63,7 @@ function Cartes() {
     <div>
       <Menu />
 
+      {/* place l'affichage */}
       <div className="cartesPosition">
         <div className="cartesPositionBis">
 
