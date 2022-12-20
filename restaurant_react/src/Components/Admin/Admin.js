@@ -42,8 +42,8 @@ function Admin()
                                 </tr>
                             </thead>
                             <tbody>
-                                {restaurateurs.map((restaurateur) => (
-                                    <tr key={restaurateur.id}>
+                                {restaurateurs.map((restaurateur, id) => (
+                                    <tr key={id}>
                                         <td>{restaurateur.nom}</td>
                                         <td>{restaurateur.prenom}</td>
                                         <td><button>Supprimer</button></td>

@@ -17,7 +17,7 @@ class Cors
     public function handle(Request $request, Closure $next)
     {
        
-        return $next($request)->header('Accept', 'application/json', 'text/plain', 'application/x-www-form-urlencoded', 'multipart/form-data')
+        return $next($request)->header('Accept', 'application/json')
         ->header('Access-Control-Allow-Origin', '*')
         ->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
         ->header('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, X-Token-Auth, Authorization');
