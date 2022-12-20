@@ -9,7 +9,7 @@ function Formules() {
 
     const [formules, setFormules] = useState([]);
 
-    async function createFormules(nom_formule, description_formule, entree, plat, dessert, prix_formule, votre_prix) {
+    async function createFormules(nom_formule, description_formule, categorie_produit_entree, categorie_produit_plat, categorie_produit_dessert, prix_formule, votre_prix) {
 
         const options = {
             method: "POST",
@@ -19,9 +19,9 @@ function Formules() {
             Body: JSON.stringify({
                 nom_formule: nom_formule,
                 description_formule: description_formule,
-                entree: entree,
-                plat: plat,
-                dessert: dessert,
+                categorie_produit_entree: categorie_produit_entree,
+                categorie_produit_plat: categorie_produit_plat,
+                categorie_produit_dessert: categorie_produit_dessert,
                 prix_formule: prix_formule,
                 votre_prix: votre_prix,
 
@@ -87,9 +87,9 @@ function Formules() {
                                 key={index}
                                 nom_formule={formule.nom_formule}
                                 description_formule={formule.description_formule}
-                                entree={formule.entree}
-                                plat={formule.plat}
-                                dessert={formule.dessert}
+                                categorie_produit_entree={formule.categorie_produit_entree}
+                                categorie_produit_plat={formule.categorie_produit_plat}
+                                categorie_produit_dessert={formule.categorie_produit_dessert}
                                 prix_formule={formule.prix_formule}
                                 votre_prix={formule.votre_prix}
                                 />
