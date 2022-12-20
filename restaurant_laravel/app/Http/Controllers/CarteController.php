@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Carte;
-use App\Models\Produit;
 use App\Models\Produit_Carte;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -20,7 +19,6 @@ class CarteController extends Controller
             'message' => 'Cartes retrieved successfully.',
             'cartes' => $cartes,
             'liste_des_produits' => DB::table('produits')
-                ->leftJoin('cartes', 'produits.id', '=', 'cartes.produit_id')
                 ->get(),
 
 
@@ -54,10 +52,6 @@ class CarteController extends Controller
             'produit_id' => $request->produit_id
         ]);
 
-
-
-
-
         return response()->json([
             'message' => 'Carte created.',
             'carte' => $carte
@@ -67,8 +61,7 @@ class CarteController extends Controller
 
     public function show($id)
     {
-        $menu = Carte::findOrFail($id);
-        $menu->produits;
+        $menu = Carte::with('produits')->findOrFail($id);
         return response()->json($menu);
     }
 
@@ -90,6 +83,7 @@ class CarteController extends Controller
 
         $carte->fill($request->toArray());
         $carte->save();
+
         return response()->json(['carte' => $carte]);
     }
 

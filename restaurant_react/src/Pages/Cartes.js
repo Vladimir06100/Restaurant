@@ -14,7 +14,7 @@ function Cartes() {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "Accept": "application/json",
+        Accept: "application/json",
       },
     };
     let response = await fetch("http://localhost:8000/api/cartes", options);
@@ -31,6 +31,20 @@ function Cartes() {
     getCartes();
   }, []);
 
+  function getSelectValues(select) {
+    var result = [];
+    var options = select && select.options;
+    var opt;
+
+    for (var i = 0, iLen = options.length; i < iLen; i++) {
+      opt = options[i];
+
+      if (opt.selected) {
+        result.push(opt.value || opt.text);
+      }
+    }
+    return result;
+  }
   async function createCarte(nom_carte, produit_id) {
     const options = {
       method: "POST",
@@ -67,6 +81,8 @@ function Cartes() {
           event.preventDefault();
           const nom_carte = event.target.nom_carte.value;
           const produit_id = event.target.produit_id.value;
+          console.log(getSelectValues(event.target.produit_id));
+          debugger;
           //j'ajoute le prduit
           createCarte(nom_carte, produit_id);
 
@@ -76,7 +92,7 @@ function Cartes() {
         <input type="text" id="nom_carte" name="nom_carte" />
 
         <label htmlFor="produit">Produits</label>
-        <select id="produit" name="produit_id">
+        <select multiple id="produit" name="produit_id">
           {listproduits.map((produit) => (
             <option key={produit.id} value={produit.id}>
               {" "}

@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 
 function Carte() {
   const [menu, setMenu] = useState({});
-  const [produitsMenu, setProduitsMenu] = useState([]);
 
   const { id } = useParams();
 
@@ -12,7 +11,7 @@ function Carte() {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "Accept": "application/json",
+        Accept: "application/json",
       },
     };
 
@@ -22,7 +21,7 @@ function Carte() {
         options
       );
       const data = await response.json();
-  
+      console.log(data, "data");
 
       if (response.status !== 200) {
         throw new Error(data);
@@ -30,12 +29,9 @@ function Carte() {
 
       setMenu(data);
     } catch (e) {
-      console.log(e);
+      console.log(e, "e");
     }
-    
-    setProduitsMenu(produitsMenu);
   };
-console.log(menu, 'ok');
   useEffect(() => {
     getMenu();
   }, []);
@@ -46,7 +42,14 @@ console.log(menu, 'ok');
 
       <p>Produits</p>
       <ul>
-        <li>....</li>
+        {menu.produits &&
+          menu.produits.map((prod) => (
+            <li>
+              {" "}
+              {prod.id}
+              {prod.nom_produit} - - {prod.categorie} -{prod.description}
+            </li>
+          ))}
       </ul>
     </div>
   );
