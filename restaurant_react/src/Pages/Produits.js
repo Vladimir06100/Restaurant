@@ -2,7 +2,7 @@ import Menu from '../Components/Menu';
 import Footer from '../Components/Footer';
 import { useEffect, useState } from 'react';
 import '../Styles/Produits.css';
-import Produit from '../Props/Produits_props';
+
 
 function Produits() {
 
@@ -14,8 +14,29 @@ function Produits() {
         document.querySelector('#TTC').value = TTC;
     }
 
-  //  const [categories, setCategories] = useState([]);
     const [produits, setProduits] = useState([]);
+
+    async function destroy(produit) {
+        const options = {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem('token'),
+            },
+        };
+        let response = await fetch('http://localhost:8000/api/produits/delete' + produit.id, options);
+        console.log(response)
+        if (response.status !== 200) {
+            return alert('Une erreur est survenue');
+        }
+        const data = await response.json();
+        const deletedProduit = data.produit;
+
+        setProduits([deletedProduit, ...produits]);
+        alert('Produit supprimé');
+    }
+
     async function getProduits() {
         const options = {
             method: 'GET',
@@ -30,7 +51,7 @@ function Produits() {
         const data = await response.json();
         const produits = data.produits;
         const categories = data.categories;
-    //    setCategories(categories);  
+        //    setCategories(categories);  
         setProduits(produits, categories);
         console.log(produits)
     }
@@ -65,10 +86,9 @@ function Produits() {
         }
         const data = await response.json();
         const newProduit = data.produit;
-       // const newCategorie = data.categorie_id; newCategorie, categories
         setProduits([newProduit, ...produits]);
         alert('Produit ajouté');
-        
+
     }
 
     return (
@@ -141,17 +161,37 @@ function Produits() {
                     <span id="home_title_color">Products list</span>
                 </div>
                 <div className="produits">
-                    {produits.map((produits, index) => (
-                        <Produit key={index}
-                            nom_produit={produits.nom_produit}
-                            type={produits.type}
-                            description={produits.description}
-                            prixHT={produits.prixHT}
-                            TVA={produits.TVA}
-                            prixTTC={produits.prixTTC}
-                            quantite={produits.quantite}
-                        />
-                    ))}
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Catégorie</th>
+                                <th>Description</th>
+                                <th>PrixHT</th>
+                                <th>TVA</th>
+                                <th>PrixTTC</th>
+                                <th>Quantité</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                {/* map sur produit */}
+
+                                <td>{nom_produit}</td>
+                                <td>{type}</td>
+                                <td>{description}</td>
+                                <td>{prixHT}</td>
+                                <td>{TVA}</td>
+                                <td>{prixTTC}</td>
+                                <td>{quantite}</td>
+                                <td>
+                                    <button className="btn">Modifier</button>
+                                    <button onClick={destroy} className="btn">Supprimer</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
             <Footer />
@@ -159,3 +199,47 @@ function Produits() {
     );
 }
 export default Produits;
+
+
+// import { useState } from "react";
+
+// function Produit(props) {
+
+//     const [produits, setProduits] = useState([]);
+
+//     async function destroy(produit) {
+//         const options = {
+//             method: 'DELETE',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//                 'Accept': 'application/json',
+//                 'Authorization': 'Bearer ' + localStorage.getItem('token'),
+//             },
+//         };
+//         let response = await fetch('http://localhost:8000/api/produits/delete' + produit.id, options);
+//         console.log(response)
+//         if (response.status !== 200) {
+//             return alert('Une erreur est survenue');
+//         }
+//         const data = await response.json();
+//         const deletedProduit = data.produit;
+
+//         setProduits([deletedProduit, ...produits]);
+//         alert('Produit supprimé');
+//     }
+//     return (
+//                  {/* {produits.map((produits, index) => ( */}
+// {/* {index} */ }
+// {/* {nom_produit} */ }
+// {/* // type={produits.type} */ }
+// {/* // description={produits.description} */ }
+// {/* // prixHT={produits.prixHT} */ }
+// {/* // TVA={produits.TVA} */ }
+// {/* // prixTTC={produits.prixTTC} */ }
+// {/* // quantite={produits.quantite} */ }
+
+// {/* ))} */ }
+//     );
+// }
+
+// export default Produit;
