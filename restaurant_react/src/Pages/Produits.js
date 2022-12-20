@@ -2,9 +2,11 @@ import Menu from '../Components/Menu';
 import Footer from '../Components/Footer';
 import { useEffect, useState } from 'react';
 import '../Styles/Produits.css';
+import Produit from '../Props/Produits_props';
 
 
 function Produits() {
+    const [produits, setProduits] = useState([]);
 
     function calculTTC() {
         const prixHT = document.querySelector('#prixHT').value;
@@ -13,8 +15,6 @@ function Produits() {
         const TTC = calcTTC.toFixed(2);
         document.querySelector('#TTC').value = TTC;
     }
-
-    const [produits, setProduits] = useState([]);
 
     async function destroy(produit) {
         const options = {
@@ -32,7 +32,6 @@ function Produits() {
         }
         const data = await response.json();
         const deletedProduit = data.produit;
-
         setProduits([deletedProduit, ...produits]);
         alert('Produit supprimé');
     }
@@ -46,19 +45,42 @@ function Produits() {
                 'Authorization': 'Bearer ' + localStorage.getItem('token'),
             },
         };
-
-        let response = await fetch('http://localhost:8000/api/produits?', options);
+        let response = await fetch('http://localhost:8000/api/produits', options);
         const data = await response.json();
         const produits = data.produits;
         const categories = data.categories;
-        //    setCategories(categories);  
         setProduits(produits, categories);
         console.log(produits)
     }
 
-    useEffect(() => {
-        getProduits();
-    }, []);
+    async function update(produit) {
+        const options = {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+
+            },
+            body: JSON.stringify({
+                nom_produit: produit.nom_produit,
+                categorie_id: produit.categorie_id,
+                description: produit.description,
+                prixHT: produit.prixHT,
+                TVA: produit.TVA,
+                prixTTC: produit.prixTTC,
+                quantite: produit.quantite,
+            }),
+        };
+        let response = await fetch('http://localhost:8000/api/produits/update' + produit.id, options);
+        if (response.status !== 200) {
+            return alert('Une erreur est survenue');
+        }
+        const data = await response.json();
+        const updatedProduit = data.produit;
+        setProduits([updatedProduit, ...produits]);
+        alert('Produit modifié');
+    }
+
 
     async function createProduit(nom_produit, categorie_id, description, prixHT, TVA, prixTTC, quantite) {
         const restaurateur_id = localStorage.getItem('ID');
@@ -90,6 +112,25 @@ function Produits() {
         alert('Produit ajouté');
 
     }
+
+    const produitList = produits.map((produit) => {
+        return (
+            <Produit
+                nom_produit={produit.nom_produit}
+                categorie_id={produit.categorie_id}
+                description={produit.description}
+                prixHT={produit.prixHT}
+                TVA={produit.TVA}
+                prixTTC={produit.prixTTC}
+                quantite={produit.quantite}
+                destroy={destroy}
+                update={update}
+            />
+        );
+    });
+    useEffect(() => {
+        getProduits();
+    }, []);
 
     return (
         <div>
@@ -161,37 +202,7 @@ function Produits() {
                     <span id="home_title_color">Products list</span>
                 </div>
                 <div className="produits">
-
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Nom</th>
-                                <th>Catégorie</th>
-                                <th>Description</th>
-                                <th>PrixHT</th>
-                                <th>TVA</th>
-                                <th>PrixTTC</th>
-                                <th>Quantité</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                {/* map sur produit */}
-
-                                <td>{nom_produit}</td>
-                                <td>{type}</td>
-                                <td>{description}</td>
-                                <td>{prixHT}</td>
-                                <td>{TVA}</td>
-                                <td>{prixTTC}</td>
-                                <td>{quantite}</td>
-                                <td>
-                                    <button className="btn">Modifier</button>
-                                    <button onClick={destroy} className="btn">Supprimer</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                  {produitList}
                 </div>
             </div>
             <Footer />
@@ -199,47 +210,3 @@ function Produits() {
     );
 }
 export default Produits;
-
-
-// import { useState } from "react";
-
-// function Produit(props) {
-
-//     const [produits, setProduits] = useState([]);
-
-//     async function destroy(produit) {
-//         const options = {
-//             method: 'DELETE',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//                 'Accept': 'application/json',
-//                 'Authorization': 'Bearer ' + localStorage.getItem('token'),
-//             },
-//         };
-//         let response = await fetch('http://localhost:8000/api/produits/delete' + produit.id, options);
-//         console.log(response)
-//         if (response.status !== 200) {
-//             return alert('Une erreur est survenue');
-//         }
-//         const data = await response.json();
-//         const deletedProduit = data.produit;
-
-//         setProduits([deletedProduit, ...produits]);
-//         alert('Produit supprimé');
-//     }
-//     return (
-//                  {/* {produits.map((produits, index) => ( */}
-// {/* {index} */ }
-// {/* {nom_produit} */ }
-// {/* // type={produits.type} */ }
-// {/* // description={produits.description} */ }
-// {/* // prixHT={produits.prixHT} */ }
-// {/* // TVA={produits.TVA} */ }
-// {/* // prixTTC={produits.prixTTC} */ }
-// {/* // quantite={produits.quantite} */ }
-
-// {/* ))} */ }
-//     );
-// }
-
-// export default Produit;
