@@ -8,12 +8,7 @@ body{
     background: #fbfbfbf2;
 }
 
-.cercle{
-    display: flex;
-    justify-content: center;
-}
-
-.transition{
+.img-transition{
     height: 700px;
     width: 1903px;
 }
@@ -25,7 +20,7 @@ body{
 
 .home_position{
     display: flex;
-    padding: 4em 0em 4em;
+    padding: 4em 0em 7em;
     justify-content: center;
 }
 
@@ -50,11 +45,28 @@ body{
 
 
 /*staff*/
+/* body:before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: #db6d13;
+    clip-path: inset(47% 0 0 0);
+    z-index: -1;
+    margin-top: 100%;
+} */
+
+/* .contenu-back{
+} */
+
 .contenu{
     display: flex;
-    justify-content: center;
+    background: #db6d13;
+    height: 42em;
     overflow: hidden;
-    padding: 2em 0em 2em;
+    padding: 3em 0em 3em;
+    flex-direction: column;
+    align-items: center;
 }
 
 .main-card{
@@ -94,20 +106,21 @@ body{
 }
 
 .cards .card .content{
-    width: 100%;
     display: flex;
+    align-items: center;
+    width: 100%;
 }
 
-.cards .card .content .img{
+.content-img{
     height: 130px;
     width: 130px;
     border-radius: 50%;
     padding: 3px;
-    background: #FF676D;
+    background: #D68D00;
     margin-bottom: 14px;
 }
 
-.card .content .img img{
+.content-img img{
     height: 100%;
     width: 100%;
     border: 3px solid #ffff;
@@ -115,17 +128,17 @@ body{
     object-fit: cover;
 }
 
-.card .content .name{
+.name-cards{
     font-size: 20px;
     font-weight: 500;
 }
 
-.card .content .job{
+.name-jobs{
     font-size: 20px;
-    color: #FF676D;
+    color: #D68D00;
 }
 
-.card .content .media-icons{
+.media-icons{
     margin-top: 10px;
     display: flex;
 }
@@ -140,65 +153,27 @@ body{
     color: #FFF;
     border-radius: 50%;
     border: 2px solid transparent;
-    background: #FF676D;
+    background: #db6d13;
     transition: all 0.3s ease;
 }
 
 .media-icons a:hover{
-    color: #FF676D;
+    color: #db6d13;
     background-color: #fff;
-    border-color: #FF676D;
+    border-color: #db6d13;
 }
 
-.container .button{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin: 20px;
-}
-
-.button label{
-    height: 15px;
-    width: 15px;
-    border-radius: 20px;
-    background: #fff;
-    margin: 0 4px;
-    cursor: pointer;
-    transition: all 0.5s ease;
-}
-
-  .button label.active{
-    width: 35px;
-  }
-  #one:checked ~ .button .one{
-    width: 35px;
-  }
-  #one:checked ~ .button .two{
-    width: 15px;
-  }
-  #two:checked ~ .button .one{
-    width: 15px;
-  }
-  #two:checked ~ .button .two{
-    width: 35px;
-  }
-  input[type="radio"]{
-    display: none;
-  }
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
     .main-card .cards .card{
       margin: 20px 0 10px 0;
       width: calc(100% / 2 - 10px);
     }
-  }
-  @media (max-width: 600px) {
+}
+@media (max-width: 600px) {
     .main-card .cards .card{
-      /* margin: 20px 0 10px 0; */
       width: 100%;
     }
-  }
-
-
+}
 @media screen and (min-width: 100px) and (max-width: 600px) {
 
     #imghome{
@@ -211,10 +186,34 @@ body{
         flex-direction: column;
     }
 }
-
-
 @media screen and (max-width: 500px) {
     #imghome{
         height: 30em;
     }
+}
+
+.under-home-title{
+    display: flex;
+    flex-direction: row;
+    padding: 1em 0em 2em;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 4em;
+    justify-content: center;
+    gap: 1em;
+}
+
+#under-title-color{
+    color: #ffffff;
+}
+
+.avocat_position{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    padding: 2em 0em 2em;
+}
+
+
+#avocat{
+    height: 57em;
 }

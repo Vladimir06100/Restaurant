@@ -1,13 +1,27 @@
 .footer{
-    position: fixed;
-    bottom: 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 10em;
     width: 100%;
-    margin: 0;
-    background: #D68D00;
+    margin-top: 7em;
+    background: #000000;
 }
 
 .footer_text{
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    text-transform: uppercase;
     color: white;
-    text-align: center;
-    padding: 10px;
+    gap: 1em;
+}
+
+.footer_social{
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    text-transform: uppercase;
+    color: white;
+    gap: 1em;
 }
