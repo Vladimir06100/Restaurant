@@ -16,7 +16,7 @@ function Produit(props) {
             <tbody>
                 <tr>
                     <td>{props.nom_produit}</td>
-                    <td>{props.type}</td>
+                    <td>{props.categorie_id}</td>
                     <td>{props.description}</td>
                     <td>{props.prixHT}</td>
                     <td>{props.TVA}</td>

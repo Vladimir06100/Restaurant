@@ -115,6 +115,6 @@ class ProduitController extends Controller
         return response()->json([
             'message' => 'Produit deleted.',
             'produit' => $produit
-        ], 201);
+        ], 200)->header('Access-Control-Allow-Origin', '*');
     }
 }
