@@ -9,6 +9,23 @@
     height: 35px;
 }
 
+.log {
+    transform: scale(1.05);
+    background-color: #db6d13;
+    border: black;
+    font-size: 15px;
+    margin-right: 10px;
+    margin-right: 10px;
+}
+
+.btnLog {
+    transform: scale(1.05);
+    background-color: black;
+    border: black;
+    font-size: 15px;
+    margin-right: 10px;
+}
+
 a{
     text-decoration: none;
     color: inherit;

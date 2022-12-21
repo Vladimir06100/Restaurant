@@ -49,7 +49,7 @@ function Connexion() {
 
             alert("Vous êtes connecté");
 
-            //return window.location.href = '/produits';
+            return window.location.href = '/produits';
         }
 
         if (message !== 'Connexion réussi.') {
