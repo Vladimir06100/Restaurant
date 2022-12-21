@@ -3,12 +3,17 @@ import Footer from "../../Components/Footer";
 import { useState, useEffect } from "react";
 import Formules_props from "../../Props/Formules_props";
 import Formule1_props from "../../Props/Formule1_props";
+import Formule2_props from "../../Props/Formule2_props";
+import Formule3_props from "../../Props/Formule3_props";
 
 function Formules() {
     //création des formules
 
     const [formules, setFormules] = useState([]);
     const [formule1, setFormule1] = useState([]);
+    const [formule2, setFormule2] = useState([]);
+    const [formule3, setFormule3] = useState([]);
+
 
     async function createFormules(nom_formule, description_formule, categorie_produit_entree, categorie_produit_plat, categorie_produit_dessert, prix_formule, votre_prix) {
 
@@ -122,12 +127,33 @@ function Formules() {
                                 />
                             ))}
                         </tbody>
+
+                        <tbody>
+                            {formule2.map((formule2, index) => (
+                                <Formule2_props
+                                    key={index}
+                                    categorie_produit_plat={formule2.categorie_produit_plat}
+                                    categorie_produit_dessert={formule2.categorie_produit_dessert}
+                                />
+                            ))}
+                        </tbody>
+
+                        <tbody>
+                            {formule3.map((formule3, index) => (
+                                <Formule3_props
+                                    key={index}
+                                    categorie_produit_entree={formule3.categorie_produit_entree}
+                                    categorie_produit_plat={formule3.categorie_produit_plat}
+                                />
+                            ))}
+                        </tbody>
                     </div>
 
                     <form action="" method="get" class="form-example">
                         <div class="form-example">
                             <label for="name">Choose Formule: </label>
                             <input type="text" name="name" id="name" required></input>
+
 
                         </div>
 
