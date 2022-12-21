@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Footer from '../Components/Footer';
 import Menu from '../Components/Menu';
-import "../Styles/MesRestaurants.css";
 import{ Link } from 'react-router-dom';
+import "../Styles/MesRestaurants.css";
 
 function MesRestaurants() {
 
