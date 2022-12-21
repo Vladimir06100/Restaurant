@@ -12,7 +12,6 @@ function Restaurant() {
     const [image, setImage] = useState("");
 
     function handleSubmit(e) {
-        console.log(nom, adresse, heure_ouverture, heure_fermeture, image)
         e.preventDefault();
         addRestaurant();
     }
@@ -22,7 +21,8 @@ function Restaurant() {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Accept': 'application/json'
+                'Accept': 'application/json',
+                'Authorization':'Bearer ' + localStorage.getItem('token')
             },
             body: JSON.stringify({
                 nom: nom,
@@ -89,7 +89,7 @@ function Restaurant() {
                             </div>
 
 
-                            <input id="submitRestaurant" type="submit" name="en" onclick="alert('Votre restaurant à été crée')" />
+                            <input id="submitRestaurant" type="submit" name="en" />
                         </form>
                     </div>
                 </div>

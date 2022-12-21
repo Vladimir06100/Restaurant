@@ -44,7 +44,7 @@ Route::post('/reset-password', [NewPasswordController::class, 'store'])->name('a
 
 
 // resource pour les restaurants (creation, affichage)
-Route::resource('restaurants', RestaurantController::class);
+Route::middleware('auth:sanctum')->resource('/restaurants', RestaurantController::class);
 
 // routes pour les produits les 7 routes
 Route::middleware('auth:sanctum')->resource('produits', ProduitController::class);

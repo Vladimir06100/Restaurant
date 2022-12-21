@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Footer from '../Components/Footer';
 import Menu from '../Components/Menu';
-import "../Styles/MesRestaurants.css"
+import "../Styles/MesRestaurants.css";
+import{ Link } from 'react-router-dom';
 
 function MesRestaurants() {
 
@@ -12,9 +13,11 @@ function MesRestaurants() {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization':'Bearer ' + localStorage.getItem('token')
             },
         };
-        let response = await fetch('http://127.0.0.1:8000/api/restaurants?', options);
+        let response = await fetch('http://127.0.0.1:8000/api/restaurants', options);
         const data = await response.json();
         console.log(data);
         const restaurants = data.restaurants;
@@ -30,31 +33,31 @@ function MesRestaurants() {
     return (
         <div>
 
-            <Menu />
+        <Menu />
 
-            <div class="MesRestaurants">
+        <div className="MesRestaurants">
 
-                <h1>Mes Restaurants</h1>
+            <h1>Mes Restaurants</h1>
 
-                {restaurants.map((restaurant) => (
+            {restaurants.map((restaurant) => (
 
-                    <div class="container">
+                <div key={restaurant.id} className="container">
 
-                        <div class="image-box">
-                            <div className="images"><img className='images' src={restaurant.image} width="25%" alt='img'/></div>
-                        </div>
-                        <div class="text">
-                            <h2 class="title">{restaurant.nom}</h2>
-                            <button type="button" name="item-1-button" id="item-1-button">Modifier</button>
-                        </div>
-
+                    <div className="image-box">
+                        <div className="images"><img className='images' src={restaurant.image} width="25%" alt='img'/></div>
                     </div>
-                ))}
-            </div>
+                    <div className="text">
+                        <h2 className="title">{restaurant.nom}</h2>
+                        <button><Link to={"/details/restaurant/" + restaurant.id}>Voir</Link></button>
+                    </div>
 
-            <Footer />
-
+                </div>
+            ))}
         </div>
+
+        <Footer />
+
+    </div>
 
     )
 }

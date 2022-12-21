@@ -13,6 +13,8 @@ import Restaurants from "./Pages/MesRestaurants";
 import "./Styles/Home.css";
 import Carte from "./Pages/Carte";
 import Admin from "./Components/Admin/Admin";
+import DetailsRestaurant from "./Pages/DetailsRestaurant";
+
 
 const router = createBrowserRouter([
   {
@@ -30,6 +32,12 @@ const router = createBrowserRouter([
   {
     path: '/restaurants',
     element: <Restaurants />,
+    error: <Error404 />
+  },
+
+  {
+    path: '/details/restaurant/:id',
+    element: <DetailsRestaurant />,
     error: <Error404 />
   },
 

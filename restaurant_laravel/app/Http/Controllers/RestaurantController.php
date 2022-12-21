@@ -13,8 +13,13 @@ class RestaurantController extends Controller
     //Affiche les restaurants de la restaurateur connecté
     public function index()
     {
-        $restaurants = restaurant::all(); 
-        return response()->json(['restaurants' => $restaurants]);
+        $id = Auth::user()->id;
+
+        $restaurants = Restaurant::where('restaurateur_id', '=', $id)->get();
+
+        return response()->json([
+            'restaurants' => $restaurants
+        ]);
     }
 
     public function create()
@@ -26,6 +31,7 @@ class RestaurantController extends Controller
     // Creation d'un restaurant
     public function store(Request $request)
     {
+        
         $request->validate([
             'nom' => 'required|string|unique:restaurants',
             'adresse' => 'required|string',
@@ -33,6 +39,9 @@ class RestaurantController extends Controller
             'heure_fermeture' => 'required|string',
             'image' => 'required|string',
         ]);
+
+        $id = Auth::user()->id;
+
         $restaurant = Restaurant::create([
             
             'nom' => $request->nom,
@@ -40,7 +49,7 @@ class RestaurantController extends Controller
             'heure_ouverture' => $request->heure_ouverture,
             'heure_fermeture' => $request->heure_fermeture,
             'image' => $request->image,
-            'restaurateur_id' => optional(Auth::user())->id, /*auth()->user()->id en Optional pour crétation des restaurant,*/
+            'restaurateur_id' => $id
         ]);
         return response()->json([
             'message' => 'Restaurant created.',
