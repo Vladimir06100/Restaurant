@@ -10,7 +10,7 @@ function Cartes_props(props) {
 
   return (
     <div>
-      Carte : {props.nom_carte}
+      Carte: {props.nom_carte}
       <br />
      <button>
 		<Link to={"/carte/" + props.id}>Voir la carte</Link>
