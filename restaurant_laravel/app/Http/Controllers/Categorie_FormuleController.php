@@ -50,7 +50,7 @@ class Categorie_FormuleController extends Controller
             
             'formule1' =>$request = ['entree', 'plat', 'dessert'],
             'formule2' =>$request = [ 'plat', 'dessert'],
-            'formule1' =>$request = ['entree', 'plat']
+            'formule3' =>$request = ['entree', 'plat']
 
             
         
