@@ -5,6 +5,9 @@ import '../Styles/Produits.css';
 import Produit from '../Props/Produits_props';
 
 function Produits() {
+    const [produits, setProduits] = useState([]);
+    const [categories, setCategories] = useState([]);
+    //  const { id } = useParams();
 
     function calculTTC() {
         const prixHT = document.querySelector('#prixHT').value;
@@ -14,7 +17,23 @@ function Produits() {
         document.querySelector('#TTC').value = TTC;
     }
 
-    const [produits, setProduits] = useState([]);
+    async function destroy(id) {
+        const options = {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem('token'),
+            },
+        };
+        let response = await fetch('http://localhost:8000/api/produits/' + id, options);
+        if (response.status !== 200) {
+            return alert('Une erreur est survenue');
+        }
+        getProduits();
+        alert('Produit supprimé');
+    }
+
     async function getProduits() {
         const options = {
             method: 'GET',
@@ -28,15 +47,43 @@ function Produits() {
         let response = await fetch('http://localhost:8000/api/produits', options);
         const data = await response.json();
         const produits = data.produits;
-        setProduits(produits);
+        const categories = data.categories;
+        setCategories(categories);
+        setProduits(produits, categories);
     }
 
-    useEffect(() => {
-        getProduits();
-    }, []);
+    async function update(produit) {
+        const options = {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+
+            },
+            body: JSON.stringify({
+                nom_produit: produit.nom_produit,
+                categorie_id: produit.categorie_id,
+                description: produit.description,
+                prixHT: produit.prixHT,
+                TVA: produit.TVA,
+                prixTTC: produit.prixTTC,
+                quantite: produit.quantite,
+            }),
+        };
+        let response = await fetch('http://localhost:8000/api/produits/update' + produit.id, options);
+        if (response.status !== 200) {
+            return alert('Une erreur est survenue');
+        }
+        const data = await response.json();
+        const updatedProduit = data.produit;
+        const updatedCategorie = data.categorie;
+        setProduits([updatedProduit, ...produits, updatedCategorie, ...categories]);
+        alert('Produit modifié');
+    }
+
 
     async function createProduit(nom_produit, categorie_id, description, prixHT, TVA, prixTTC, quantite) {
-        const restaurateur_id = localStorage.getItem('ID');
+        const restaurateur_id = localStorage.getItem('token');
         const options = {
             method: 'POST',
             headers: {
@@ -59,10 +106,36 @@ function Produits() {
         if (response.status !== 200) {
             return;
         }
+        
         const data = await response.json();
         const newProduit = data.produit;
         setProduits([newProduit, ...produits]);
+        getProduits();
+        alert('Produit ajouté');
+
     }
+
+    const produitList = produits.map((produit, index) => {
+        return (
+            <Produit
+            key={index}
+            nom_produit={produit.nom_produit}
+            categorie_id={produit.type}
+            description={produit.description}
+            prixHT={produit.prixHT}
+            TVA={produit.TVA}
+            prixTTC={produit.prixTTC}
+            quantite={produit.quantite}
+            destroy={destroy}
+            update={update}
+            id={produit.id}
+            />
+        );
+    });
+
+    useEffect(() => {
+        getProduits();
+    }, []);
 
     return (
         <div>
@@ -134,17 +207,7 @@ function Produits() {
                     <span id="home_title_color">Products list</span>
                 </div>
                 <div className="produits">
-                    {produits.map((produits, index) => (
-                        <Produit key={index}
-                            nom_produit={produits.nom_produit}
-                            type={produits.type}
-                            description={produits.description}
-                            prixHT={produits.prixHT}
-                            TVA={produits.TVA}
-                            prixTTC={produits.prixTTC}
-                            quantite={produits.quantite}
-                        />
-                    ))}
+                    {produitList}
                 </div>
             </div>
             <Footer />

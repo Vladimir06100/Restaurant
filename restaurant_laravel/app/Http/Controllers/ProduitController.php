@@ -12,18 +12,11 @@ class ProduitController extends Controller
     public function index()
     {
         $id = Auth::user()->id;
-        //    dd($id);
-        //Illuminate\Database\QueryException: SQLSTATE[HY000]: General error: 1364 Field 'restaurateur_id' doesn't have a default    ->where('produits.restaurateur_id', '=', Auth::user()->id)value (SQL: insert into `produits` (`nom_produit`, `categorie_id`, `description`, `prixHT`, `TVA`, `prixTTC`, `quantite`, `updated_at`, `created_at`) values (1231, 3, 123, 123, 10, 123, 123, 2022-12-15 11:41:16, 2022-12-15 11:41:16)) in file /Users/vladimirsinkevitch/Desktop/Developpeur/Restaurant/restaurant_laravel/vendor/laravel/framework/src/Illuminate/Database/Connection.php on line 760
-        //$produits = Produit::all();
-        //  $produits = Produit::find(Auth::user());
-        // $produits = Produit::find($id);
-        $produits = Produit::where('restaurateur_id', '=', $id)->get();
-
-        //     $produits = Produit::where('produits.restaurateur_id', '=', Auth::user()->id)->get();
-
-
-        // id
-        //  $produits = Produit::where('produits.restaurateur_id', '=', Auth::user()->re)->get();
+        $produits = Produit::where('restaurateur_id', '=', $id)
+        ->join('categories', 'produits.categorie_id', '=', 'categories.id')
+        ->select('categories.id as categorie_id', 'categories.type', 'produits.*')
+        ->orderBy('produits.created_at', 'desc')
+        ->get();
 
         return response()->json([
             'produits' => $produits

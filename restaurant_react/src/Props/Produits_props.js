@@ -1,5 +1,5 @@
 function Produit(props) {
-
+    // coucou
     return (
         <table>
             <thead>
@@ -23,9 +23,9 @@ function Produit(props) {
                     <td>{props.prixTTC}</td>
                     <td>{props.quantite}</td>
                     <td>
-                    <button className="btn">Modifier</button>
-                    <button className="btn">Supprimer</button>
-                 </td>
+                        <button onClick={props.update} className="btn">Modifier</button>
+                        <button onClick={() => props.destroy(props.id)} className="btn">Supprimer</button>
+                    </td>
                 </tr>
             </tbody>
         </table>
