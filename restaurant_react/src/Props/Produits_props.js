@@ -4,6 +4,10 @@ function Produit(props) {
 
 
     const [isClicked, setIsClicked] = useState(false);
+    
+    function updateProduit() {
+        
+    }
     const update = (e) => {
         setIsClicked(!isClicked);
         // props.update(props.id, e.target.value);
