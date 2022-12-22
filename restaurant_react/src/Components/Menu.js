@@ -21,25 +21,25 @@ function Menu() {
     return (
         <div>
 
-            <nav class="navbar">
-                <div class="navbar-overlay" onclick="toggleMenuOpen()"></div>
+            <nav className="navbar">
+                <div className="navbar-overlay" onclick="toggleMenuOpen()"></div>
 
-                {/* <button type="button" class="navbar-burger" onClick={toggleMenuOpen}>
-                    <span class="material-symbols-outlined">menu</span>
+                {/* <button type="button" className="navbar-burger" onClick={toggleMenuOpen}>
+                    <span className="material-symbols-outlined">menu</span>
                 </button> */}
 
                 {isOpen ?
-                    <button type="button" class="navbar-burger-close" onClick={toggleMenuClose}>
-                        <span class="material-symbols-outlined">
+                    <button type="button" className="navbar-burger-close" onClick={toggleMenuClose}>
+                        <span className="material-symbols-outlined">
                             close
                         </span>
                     </button>
-                    : <button type="button" class="navbar-burger" onClick={toggleMenuOpen}>
-                        <span class="material-symbols-outlined">menu</span>
+                    : <button type="button" className="navbar-burger" onClick={toggleMenuOpen}>
+                        <span className="material-symbols-outlined">menu</span>
                     </button>
                 }
 
-                <div class="navbar-menu">
+                <div className="navbar-menu">
 
                     <li className="link"><a href="/">HOME </a></li>
                     {connecte &&
