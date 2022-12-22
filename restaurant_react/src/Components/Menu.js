@@ -24,9 +24,9 @@ function Menu() {
             <nav class="navbar">
                 <div class="navbar-overlay" onclick="toggleMenuOpen()"></div>
 
-                <button type="button" class="navbar-burger" onClick={toggleMenuOpen}>
+                {/* <button type="button" class="navbar-burger" onClick={toggleMenuOpen}>
                     <span class="material-symbols-outlined">menu</span>
-                </button>
+                </button> */}
 
                 {isOpen ?
                     <button type="button" class="navbar-burger-close" onClick={toggleMenuClose}>

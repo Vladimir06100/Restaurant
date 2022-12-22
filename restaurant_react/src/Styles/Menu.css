@@ -18,7 +18,7 @@ button{
     left: 0;
     width: 100%;
     background: #000000;
-    color: #f31414;
+    color: white;
     font-family: 'Signika', sans-serif;
 }
 
@@ -35,20 +35,26 @@ button{
     transition: 0.5s;
 }
 
-body.open .navbar-overlay{
+/* body.open .navbar-overlay{
     visibility: visible;
     opacity: 1;
-}
+} */
 
 .navbar-burger{
-    position: absolute;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    /* position: relative; */
     top: 0;
     left: 0;
-    display: grid;
-    place-items: center;
+    /* display: grid; */
+    /* place-items: center; */
     width: 64px;
     height: 64px;
-    padding: 0;
+    /* padding: 0; */
+    /* background: #2700ff; */
+    /* flex-wrap: nowrap; */
 }
 
 .navbar-burger-close{
@@ -162,17 +168,16 @@ a{
 /*ICI ROUSSLAN SI TU AJOUTES DES TRUCS STP !!!!!*/
 
 .nom {
-
     color: red;
-      translate: 0 0;
-      visibility: visible;
+    translate: 0 0;
+    visibility: visible;
   }
 
 
 
-  /*JE DOIS VOIR SI JE GARDE TOUCHEZ PAS SVP*/
+/*JE DOIS VOIR SI JE GARDE TOUCHEZ PAS SVP*/
 
-  /* .logoMenu{
+/* .logoMenu{
     display: flex;
     position: fixed;
     margin: 1em;
