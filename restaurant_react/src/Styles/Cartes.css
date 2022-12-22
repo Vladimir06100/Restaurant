@@ -121,3 +121,19 @@
 #supp:active{
     opacity: .5;
 }
+
+.affichage-cartes{
+    display:flex;
+    justify-content: center;
+}
+
+.affichage-cartes-bis{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    background: white;
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 35%);
+    width: 20em;
+    margin-top: 2em;
+    padding: 3em;
+}

@@ -147,18 +147,20 @@ function Cartes() {
 
 
 
-      <div>
-        <br />
-        <h2> Affichage des cartes </h2>
-        {cartes.map((carte, index) => (
-          <Cartes_props
-            key={index}
-            id={carte.id}
-            nom_carte={carte.nom_carte}
-            listproduits={listproduits}
-            produit_id={carte.produit_id}
-          />
-        ))}
+      <div className="affichage-cartes">
+        <div className="affichage-cartes-bis">
+          <br />
+          <h2> Affichage des cartes </h2>
+          {cartes.map((carte, index) => (
+            <Cartes_props
+              key={index}
+              id={carte.id}
+              nom_carte={carte.nom_carte}
+              listproduits={listproduits}
+              produit_id={carte.produit_id}
+            />
+          ))}
+        </div>
       </div>
       <Footer />
     </div>
