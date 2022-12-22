@@ -39,7 +39,7 @@ function Menu() {
                     </button>
                 }
 
-                <nav class="navbar-menu">
+                <div class="navbar-menu">
 
                     <li className="link"><a href="/">HOME </a></li>
                     {connecte &&
@@ -59,7 +59,7 @@ function Menu() {
                         </span>
                     </li>
 
-                </nav>
+                </div>
 
             </nav>
 
