@@ -46,7 +46,6 @@ function Cartes() {
     return result;
   }
 
- 
   async function createCarte(nom_carte, produit_id) {
     const options = {
       method: "POST",
@@ -82,9 +81,9 @@ function Cartes() {
         onSubmit={(event) => {
           event.preventDefault();
           const nom_carte = event.target.nom_carte.value;
-          const produit_id = event.target.produit_id.value;
+          const produit_id = getSelectValues(event.target.produit_id);
           console.log(getSelectValues(event.target.produit_id));
-         
+
           //j'ajoute le prduit
           createCarte(nom_carte, produit_id);
 
@@ -92,39 +91,35 @@ function Cartes() {
         }}>
         <label htmlFor="nom_carte">Nom de la carte</label>
 
-        <br/>
+        <br />
 
         <input type="text" id="nom_carte" name="nom_carte" />
 
-        <br/>
-        
+        <br />
+
         <label htmlFor="produit"> Choix produits de la carte</label>
-        <br/>
-  
-      
-    
-  {/*   {
+        <br />
+
+        {/*   {
      listproduits.map((produit) => {
        return <label name="produit_id"><input type="checkbox"  value={produit.id}/>{produit.nom_produit}&nbsp;({produit.description}) <br/> </label>
      }) 
     } */}
 
         <select multiple id="produit" name="produit_id">
-          {listproduits.map((produit) => (
+          {listproduits.map((produit) => [
             <option key={produit.id} value={produit.id}>
-
-              {produit.nom_produit} -
-              {produit.description}
-            </option>
-          ))}
+              {produit.nom_produit} -{produit.description}
+            </option>,
+          ])}
           ;
         </select>
-<br/>
+        <br />
         <button type="submit">Ajouter</button>
       </form>
 
       <div>
- <br/>
+        <br />
         <h2> Affichage des cartes </h2>
         {cartes.map((carte, index) => (
           <Cartes_props
