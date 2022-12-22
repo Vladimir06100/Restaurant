@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Footer from '../Components/Footer';
 import Menu from '../Components/Menu';
-import { Link, useParams } from 'react-router-dom';
+import { Link ,useParams } from 'react-router-dom';
 
 function DetailsRestaurant() {
 
@@ -15,8 +15,9 @@ function DetailsRestaurant() {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
                 'Authorization': 'Bearer ' + localStorage.getItem('token'),
-            },
+            }
         };
+
         const response = await fetch('http://127.0.0.1:8000/api/restaurants/' + id, options);
         const data = await response.json();
         const restaurant = data.restaurant;
@@ -24,9 +25,7 @@ function DetailsRestaurant() {
     }
 
     useEffect(() => {
-
         getRestaurant(id);
-
     }, []);
 
     async function destroy(id)
@@ -41,12 +40,15 @@ function DetailsRestaurant() {
         }
 
         const response = await fetch('http://localhost:8000/api/restaurants/' + id, options);
-
         const data = await response.json();
 
         console.log(data);
 
-        getRestaurant(id);
+        if (response.status === 200) {
+            alert('Restaurant supprimé');
+            return window.location.href = '/restaurants';
+        }
+
     }
 
     return (
@@ -66,9 +68,9 @@ function DetailsRestaurant() {
 
                 <p>{restaurant.heure_fermeture}</p>
 
-                <button>Modifier</button>
+                <button><Link to={'/edit/restaurant/' + restaurant.id}>Edit</Link></button>
 
-                <button onClick={destroy}><Link to={'/restaurants'}>Supprimer</Link></button>
+                <button onClick={()=>destroy(id)}>Supprimer</button>
 
             </div>
 

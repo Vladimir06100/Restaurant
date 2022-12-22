@@ -1,56 +1,57 @@
 import Menu from '../Components/Menu';
 import Footer from '../Components/Footer';
-import  { Navigate, Redirect } from 'react-router-dom'
-import '../Styles/CreationRestaurant.css';
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 
-function Restaurant() {
+function EditRestaurant()
+{
+    const [nom, setNom] = useState([]);
+    const [adresse, setAdresse] = useState([]);
+    const [heureOuverture, setHeureOuverture] = useState([]);
+    const [heureFermeture, setHeureFermeture] = useState([]);
+    const [image, setImage] = useState([]);
+    const {id} = useParams();
 
-    const [nom, setNom] = useState("");
-    const [adresse, setAdresse] = useState("");
-    const [heure_ouverture, setHeure_ouverture] = useState("");
-    const [heure_fermeture, setHeure_fermeture] = useState("");
-    const [image, setImage] = useState("");
 
-    const [successMessage, setsuccessMessage] = useState('');
+// console.log(nom, adresse, heureOuverture, heureFermeture, image);
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        addRestaurant();
-    }
+    async function edit(id)
+    {
 
-    async function addRestaurant() {
         const options = {
-            method: 'POST',
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
-                'Authorization':'Bearer ' + localStorage.getItem('token')
+                'Authorization': 'Bearer ' + localStorage.getiItem('token')
             },
 
             body: JSON.stringify({
                 nom: nom,
                 adresse: adresse,
-                heure_ouverture: heure_ouverture,
-                heure_fermeture: heure_fermeture,
-                image: image,
+                heure_ouverture: heureOuverture,
+                heure_fermeture: heureFermeture,
+                image: image
             })
         };
 
-        const response = await fetch(`http://localhost:8000/api/restaurants`, options);
-
+        const response = await fetch('http://127.0.0.1:8000/api/restaurants/' + id, options);
+        console.log(response);
         const data = await response.json();
-        const message = data.message;
 
-        if (message === 'Restaurant created.') {
-            setsuccessMessage('Restaurant Ajouter avec Succée !');
-        }
-        else {
-            setsuccessMessage('Il y à eu une erreur quelque part !');
-        }
+        const restaurant = data.restaurant;
+
+        if (response.status !== 200) {
+            alert('PRObleme');
+            //return window.location.href('/details/restaurant');
+        } console.log('successssss')
 
     }
 
+
+
+   
+    
     return (
         <div>
 
@@ -58,50 +59,38 @@ function Restaurant() {
 
             <div className="restaurant_position">
                 <div className="restaurantPositionBis">
-
                     <div className="home_title">
                         <span>
-                            Add your <br /><span id="home_title_color">restaurant</span>
+                            Edit your <br /><span id="home_title_color">restaurant</span>
                         </span>
-
                         <div className="restaurant_text">
                             <p>
                                 Lorem ipsum dolor sit amet. Qui rerum voluptatem eum blanditiis ratione qui sunt nulla eum adipisci corporis a rerum voluptas et doloremque nisi qui velit eligendi? Aut voluptatibus consequatur non laboriosam maxime ut ducimus dicta. Est quam asperiores aut ducimus veniam nam numquam necessitatibus ut consequatur quaerat qui fuga optio aut nihil laboriosam.
                             </p>
                         </div>
-
                     </div>
-
                     <div className="restoDiv">
-                        <form id="formRestaurant" onSubmit={handleSubmit}>
-                                <h2> {successMessage} </h2>
+                        <form id="formRestaurant" onSubmit={()=>edit(id)}>
                             <div className="textbox restaurant">
                                 <label htmlFor="name">Name</label>
                                 <input type="text" id="name" name="name" value={nom} onChange={(e) => setNom(e.target.value)} placeholder="nom.." required />
                             </div>
-
                             <div className="textbox restaurant">
                                 <label htmlFor="adresse">Adresse</label>
                                 <input type="text" id="adresse" name="adresse" value={adresse} onChange={(e) => setAdresse(e.target.value)} placeholder="prénom.." required />
-
                             </div>
-
                             <div className="textbox restaurant">
                                 <label htmlFor="horaires">Horaire d'ouverture</label>
-                                <input type="time" id="open" name="open" value={heure_ouverture} onChange={(e) => setHeure_ouverture(e.target.value)} placeholder="horaires.." required />
+                                <input type="time" id="open" name="open" value={heureOuverture} onChange={(e) => setHeureOuverture(e.target.value)} placeholder="horaires.." required />
                             </div>
-
                             <div className="textbox restaurant">
                                 <label htmlFor="horaires">Horaire de fermeture</label>
-                                <input type="time" id="closen" name="closen" value={heure_fermeture} onChange={(e) => setHeure_fermeture(e.target.value)} placeholder="horaires.." required />
+                                <input type="time" id="closen" name="closen" value={heureFermeture} onChange={(e) => setHeureFermeture(e.target.value)} placeholder="horaires.." required />
                             </div>
-
                             <div className="textbox restaurant">
                                 <label htmlFor="image">Image</label>
                                 <input type="text" id="image" name="image" value={image} onChange={(e) => setImage(e.target.value)} placeholder="image.." required />
                             </div>
-
-
                             <input id="submitRestaurant" type="submit" name="en" />
                         </form>
                     </div>
@@ -112,6 +101,7 @@ function Restaurant() {
 
         </div>
     )
+
 }
 
-export default Restaurant;
+export default EditRestaurant;

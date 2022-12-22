@@ -78,6 +78,8 @@ class RestaurantController extends Controller
     // Modification d'un restaurant
     public function update(Request $request, $id)
     {
+        @dd('coucou');
+
         $request->validate([
             'nom' => 'required|string|unique:restaurants',
             'adresse' => 'required|string',
@@ -85,21 +87,22 @@ class RestaurantController extends Controller
             'heure_fermeture' => 'required|string',
             'image' => 'required|string',
         ]);
+        
         $restaurant = Restaurant::find($id);
         $restaurant->update($request->all());
         return response()->json([
-            'message' => 'Restaurant modifier.',
+            'message' => 'Restaurant modifié.',
             'restaurant' => $restaurant
         ], 200);
     }
 
     // Suppression d'un restaurant
-    public function delete($id)
+    public function destroy($id)
     {
         $restaurant = Restaurant::find($id);
         $restaurant->delete();
         return response()->json([
-            'message' => 'Restaurant supprimer.'
+            'message' => 'Restaurant supprimé.'
         ], 200);
     }
 }

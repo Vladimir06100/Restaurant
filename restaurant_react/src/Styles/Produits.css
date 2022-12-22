@@ -9,8 +9,8 @@
 
 .product_position{
     display: flex;
-    margin-top: 5em;
     justify-content: center;
+    margin-top: 5em;
 }
 
 .productPositionBis{
@@ -82,3 +82,25 @@
     opacity: .5;
 }
 
+
+/*Resulat produit */
+
+.position-result{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.resultPositionBis{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    background: white;
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 35%);
+    gap: 3em;
+}
+
+.table{
+    padding: 5%;
+}
