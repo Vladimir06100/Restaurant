@@ -34,7 +34,7 @@ class NewPasswordController extends Controller
     public function store(Request $request)
     {   
         $request->validate([
-            'remember_token' => ['required'],
+            'token' => ['required'],
             'email' => ['required', 'email'],
             'password' => ['required', Rules\Password::defaults()],
         ]);
@@ -44,12 +44,12 @@ class NewPasswordController extends Controller
         // database. Otherwise we will parse the error and return the response.
         $status = Password::reset(
             $request->only('email', 'password', 'token'),
-            function ($restaurateurs) use ($request) {
-                $restaurateurs->forceFill([
-                    'password' => Hash::make($request->password),
-                    'remember_token' => $token->plainTextToken
-                ])->save();
-
+            function ($restaurateurs, $password) {
+                // Update the user's password in the database
+                $restaurateurs->password = Hash::make($password);
+                $restaurateurs->save();
+    
+                // Trigger an event (e.g. send an email notification)
                 event(new PasswordReset($restaurateurs));
             }
         );
