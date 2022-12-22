@@ -44,8 +44,7 @@ function Carte() {
       <ul>
         {menu.produits &&
           menu.produits.map((prod) => (
-            <li>
-              {" "}
+            <li>  
               {prod.id}
               {prod.nom_produit} - - {prod.categorie} -{prod.description}
             </li>
