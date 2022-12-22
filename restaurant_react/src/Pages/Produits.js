@@ -218,7 +218,7 @@ function Produits() {
                   <option value="10">10%</option>
                   <option value="20">20%</option>
                 </select>
-                <button type="button" onClick={calculTTC}>
+                <button type="button" id="btn-calcul" onClick={calculTTC}>
                   Calculer
                 </button>
               </div>

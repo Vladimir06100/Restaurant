@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Signika:wght@300&display=swap');
 
 table {
     border-collapse: collapse;
     text-align: left;
+    font-family: "Signika", sans-serif;
 }
 
 .header-row {
@@ -35,26 +37,42 @@ table tr td.actions {
     gap: 10px;
 }
 
-table tr td.actions button {
-    padding: 7px 30px;
-    border: none;
-    border-radius: 3px;
-    color: white;
-    cursor: pointer;
+table td input{
+    width: 3em;
 }
 
-table tr td.actions .edit-btn {
+#btn-table{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.btn-edit {
+    padding: 3%;
+    border-radius: 3px;
     background-color: rgb(218, 160 ,54);
 }
 
-table tr td.actions .edit-btn:hover {
-    background-color: rgb(173, 130, 50);
+.btn-edit:hover {
+    background-color: rgb(50, 109, 173);
 }
 
-table tr td.actions .delete-btn {
-    background-color: rgb(216, 64, 64);
+.btn-validate {
+    padding: 3%;
+    border-radius: 3px;
+    background-color: rgb(218, 160 ,54);
 }
 
-table tr td.actions .delete-btn:hover {
-    background-color: rgb(151, 51, 51);
+.btn-validate:hover {
+    background-color: rgb(64, 216, 201);
+}
+
+.btn-delete {
+    padding: 3%;
+    border-radius: 3px;
+    background-color: rgb(218, 160 ,54);
+}
+
+.btn-delete:hover {
+    background-color: rgb(176, 109, 109);
 }

@@ -55,6 +55,22 @@
     gap: 9px;
 }
 
+#btn-calcul{
+    background-color: #000000;
+    padding: 3%;
+    border-radius: 4px;
+    color: white;
+    font-family: 'Signika';
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+#btn-calcul:hover, #btn-calcul:active{
+    background-color: #ce610f;
+    background-position: 0 0;
+}
+
+
 .categoriePosition{
     display: flex;
     gap: 9px;
@@ -107,6 +123,7 @@
 .product-list-result{
     display: flex;
     flex-direction: column;
+    padding: 1%;
 }
 
 /* .table{

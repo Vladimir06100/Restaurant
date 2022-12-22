@@ -36,10 +36,17 @@ function Produit(props) {
                     ) : (
                         <td>{props.nom_produit}</td>
                     )}
+                    {isClicked ? (
+                        <td>
+                            <input type="text" value={props.categorie_id} onChange={update} />
+                        </td>
+                    ) : (
+                        <td>{props.cate}</td>
+                    )}
                     {/* {isClicked ? <select value={props.categorie_id} onChange={update}> {props.produit.map((categorie) => <option value={categorie.id}>{categorie.nom_categorie}</option>)} </select> : <td>{props.categorie_id}</td>} */}
                     {isClicked ? (
                         <td>
-                            <input type="text" value={props.description} onChange={update} />
+                            <textarea type="text" value={props.description} onChange={update} />
                         </td>
                     ) : (
                         <td>{props.description}</td>
@@ -73,7 +80,7 @@ function Produit(props) {
                         <td>{props.quantite}</td>
                     )}
 
-                    <td>
+                    <td id="btn-table">
                         {!isClicked ? (
                             <button onClick={() => setIsClicked(!isClicked)} className="btn-edit">
                                 Modifier
