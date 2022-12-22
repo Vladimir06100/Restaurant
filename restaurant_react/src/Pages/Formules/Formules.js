@@ -148,19 +148,14 @@ function Formules() {
                             ))}
                         </tbody>
                     </div>
+                    
 
-                    <form action="" method="get" class="form-example">
-                        <div class="form-example">
-                            <label for="name">Choose Formule: </label>
-                            <input type="text" name="name" id="name" required></input>
-
-
-                        </div>
-
-                        <div class="form-example">
-                            <input type="submit" value="choisir"></input>
-
-                        </div>
+                    <form action="http://localhost:8000/api/categories" method="POST">
+                        <label for="choix">Choisir</label><br></br>
+                        <input id="entree" name="name" type="text" placeholder="entree"/><br/>
+                        <input id="plat" name="name" type="text" placeholder="plat"/><br/>
+                        <input id="dessert" name="name" type="text" placeholder="dessert"/><br/>
+                        <input type="button" value="valider"></input>
 
                     </form>
 
