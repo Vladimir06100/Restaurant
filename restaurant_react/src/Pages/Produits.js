@@ -109,15 +109,12 @@ function Produits() {
         };
         let response = await fetch('http://localhost:8000/api/produits', options);
         if (response.status !== 200) {
-            return;
+            return alert('Une erreur est survenue');
         }
-
         const data = await response.json();
         const newProduit = data.produit;
         setProduits([newProduit, ...produits]);
         getProduits();
-        alert('Produit ajouté');
-
     }
 
     const produitList = produits.map((produit, index) => {
@@ -196,7 +193,6 @@ function Produits() {
                 placeholder="Nom du produit"
                 required
               />
-
               <label htmlFor="description">Description</label>
               <input
                 type="text"
@@ -205,7 +201,6 @@ function Produits() {
                 placeholder="Description du produit"
                 required
               />
-
               <label htmlFor="prixHT">Prix HT</label>
               <input
                 type="text"
@@ -214,7 +209,6 @@ function Produits() {
                 placeholder="Prix du produit"
                 required
               />
-
               <div className="tvaPosition">
                 <label htmlFor="TVA">TVA</label>
                 <select id="TVA" name="TVA" required>
@@ -235,7 +229,6 @@ function Produits() {
                 name="prixTTC"
                 placeholder="Clique sur Calculer pour savoir le prix avec TTC"
               />
-
                             <div className="categoriePosition">
                                 <label htmlFor="categorie_id">Catégorie </label>
                                 <select id="categorie_id" name="categorie_id" defaultValue={'DEFAULT'} required>
@@ -256,7 +249,7 @@ function Produits() {
             <div className="position-result">
                 <div className="resultPositionBis">
                     <div className="product_title">
-                        <span id="produc_result_title_color">Products list</span>
+                        <span id="product_result_title_color">Products list</span>
                     </div>
                     <div className="product-list-result">
                         {produitList}
