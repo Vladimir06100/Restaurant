@@ -35,14 +35,13 @@ function Connexion() {
     );
     const data = await response.json();
 
-    const token = data.remember_token;
+    const token = data.token;
 
     const message = data.message;
     const prenom = data.prenom;
     const role = data.role;
 
     if (message === "Connexion réussi.") {
-      console.log("all data user : ", data);
 
       localStorage.setItem("token", token);
       localStorage.setItem("prenom", prenom);
