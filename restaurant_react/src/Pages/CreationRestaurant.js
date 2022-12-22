@@ -43,10 +43,10 @@ function Restaurant() {
         const message = data.message;
 
         if (message === 'Restaurant created.') {
-            setsuccessMessage('Restaurant Ajouter avec Succée !');
+            setsuccessMessage('Votre Restaurant est ajouté avec succées !');
         }
         else {
-            setsuccessMessage('Il y à eu une erreur quelque part !');
+            setsuccessMessage('Il y a eu une erreur quelque part !');
         }
 
     }

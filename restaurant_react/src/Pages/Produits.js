@@ -114,7 +114,7 @@ function Produits() {
     const data = await response.json();
     const newProduit = data.produit;
     setProduits([newProduit, ...produits]);
-    getProduits();
+    //getProduits();
   }
 
   const produitList = produits.map((produit, index) => {
