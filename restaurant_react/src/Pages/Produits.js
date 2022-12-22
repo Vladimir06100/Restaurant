@@ -3,16 +3,19 @@ import Footer from "../Components/Footer";
 import { useEffect, useState } from "react";
 import "../Styles/Produits.css";
 import Produit from "../Props/Produits_props";
-import { useCalculTTC } from "../Components/Calcul/Tva";
 
 function Produits() {
-
-  
   const [produits, setProduits] = useState([]);
   const [categories, setCategories] = useState([]);
   //  const { id } = useParams();
-  const { prixHT, setPrixHT, TVA, setTVA, TTC } = useCalculTTC();
 
+  function calculTTC() {
+    const prixHT = document.querySelector("#prixHT").value;
+    const TVA = document.querySelector("#TVA").value;
+    const calcTTC = prixHT * (1 + TVA / 100);
+    const TTC = calcTTC.toFixed(2);
+    document.querySelector("#TTC").value = TTC;
+  }
 
   async function destroy(id) {
     const options = {
@@ -198,33 +201,32 @@ function Produits() {
                 placeholder="Description du produit"
                 required
               />
+              <label htmlFor="prixHT">Prix HT</label>
               <input
                 type="text"
-                value={prixHT}
-                onChange={event => setPrixHT(event.target.value)}
+                id="prixHT"
+                name="prixHT"
                 placeholder="Prix du produit"
                 required
               />
               <div className="tvaPosition">
                 <label htmlFor="TVA">TVA</label>
-                <select
-                  id="TVA"
-                  value={TVA}
-                  onChange={event => setTVA(event.target.value)}
-                  required
-                >
+                <select id="TVA" name="TVA" required>
                   <option disabled>Choisir une TVA</option>
                   <option value="0">0%</option>
                   <option value="5.5">5.5%</option>
                   <option value="10">10%</option>
                   <option value="20">20%</option>
                 </select>
+                <button type="button" id="btn-calcul" onClick={calculTTC}>
+                  Calculer
+                </button>
               </div>
               <label htmlFor="TTC">TTC</label>
               <input
                 type="text"
                 id="TTC"
-                value={TTC}
+                name="prixTTC"
                 placeholder="Clique sur Calculer pour savoir le prix avec TTC"
               />
               <div className="categoriePosition">
