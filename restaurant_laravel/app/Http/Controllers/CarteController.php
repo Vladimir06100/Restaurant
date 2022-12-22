@@ -45,12 +45,19 @@ class CarteController extends Controller
             'formule_id' => $request->formule_id,
 
         ]);
+        //boucle ?
 
         // ici jinsere la liaison carte & produit
         $produit_carte::create([
             'carte_id' => $carte->id,
             'produit_id' => $request->produit_id
+
         ]);
+         /*       foreach($request->produit_id as $key => $value) {
+  
+                dump($key, $value);
+            
+            } */
 
         return response()->json([
             'message' => 'Carte created.',
