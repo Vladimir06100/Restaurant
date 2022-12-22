@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "../Styles/Produits_props.css";
 
 function Produit(props) {
     const [isClicked, setIsClicked] = useState(false);
@@ -15,7 +16,7 @@ function Produit(props) {
     return (
         <table>
             <thead>
-                <tr>
+                <tr className="header-row">
                     <th>Nom</th>
                     <th>Catégorie</th>
                     <th>Description</th>
@@ -23,6 +24,7 @@ function Produit(props) {
                     <th>TVA</th>
                     <th>PrixTTC</th>
                     <th>Quantité</th>
+                    <th class="actions-header">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -73,7 +75,7 @@ function Produit(props) {
 
                     <td>
                         {!isClicked ? (
-                            <button onClick={() => setIsClicked(!isClicked)} className="btn">
+                            <button onClick={() => setIsClicked(!isClicked)} className="btn-edit">
                                 Modifier
                             </button>
                         ) : null}
@@ -91,12 +93,12 @@ function Produit(props) {
                                         props.quantite
                                     )
                                 }
-                                className="btn"
+                                className="btn-validate"
                             >
                                 Valider
                             </button>
                         ) : null}
-                        <button onClick={() => props.destroy(props.id)} className="btn">
+                        <button onClick={() => props.destroy(props.id)} className="btn-delete">
                             Supprimer
                         </button>
                     </td>

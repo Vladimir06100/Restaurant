@@ -104,6 +104,11 @@
     gap: 3em;
 }
 
-.table{
-    padding: 5%;
+.product-list-result{
+    display: flex;
+    flex-direction: column;
 }
+
+/* .table{
+    padding: 5%;
+} */

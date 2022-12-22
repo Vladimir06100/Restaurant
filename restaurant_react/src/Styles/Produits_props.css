@@ -1,0 +1,60 @@
+
+table {
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.header-row {
+    background-color: steelblue;
+}
+
+table tr th {
+    padding: 10px 25px;
+    color: white;
+}
+
+table tr:not(.header-row):nth-child(odd) {
+    background-color: #ddd;
+}
+
+table tr:not(.header-row):hover {
+    background-color: #bcd9ff8a;
+}
+
+table tr th.actions-header {
+    text-align: center;
+}
+
+table tr td {
+    padding: 12px 25px;
+}
+
+table tr td.actions {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+table tr td.actions button {
+    padding: 7px 30px;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+}
+
+table tr td.actions .edit-btn {
+    background-color: rgb(218, 160 ,54);
+}
+
+table tr td.actions .edit-btn:hover {
+    background-color: rgb(173, 130, 50);
+}
+
+table tr td.actions .delete-btn {
+    background-color: rgb(216, 64, 64);
+}
+
+table tr td.actions .delete-btn:hover {
+    background-color: rgb(151, 51, 51);
+}
