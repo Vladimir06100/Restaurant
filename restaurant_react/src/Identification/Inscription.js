@@ -46,21 +46,9 @@ function Inscription() {
       return (window.location.href = "/connexion");
     }
 
-    if (response.status === 500) {
-      alert("Votre compte exist déjà !");
-      return (window.location.href = "/connexion");
-    }
-
     if (message !== "Restaurateur created.") {
       alert("Champs manquants.");
     }
-
-    if (localStorage.getItem("token") !== null) {
-      alert("Votre compte existe déjà !");
-      return (window.location.href = "/connexion");
-    }
-
-    console.log("création de compte : ", data);
   }
 
   return (
