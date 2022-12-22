@@ -1,5 +1,6 @@
 import Menu from '../Components/Menu';
 import Footer from '../Components/Footer';
+import  { Navigate, Redirect } from 'react-router-dom'
 import '../Styles/CreationRestaurant.css';
 import { useState } from 'react';
 
@@ -10,6 +11,8 @@ function Restaurant() {
     const [heure_ouverture, setHeure_ouverture] = useState("");
     const [heure_fermeture, setHeure_fermeture] = useState("");
     const [image, setImage] = useState("");
+
+    const [successMessage, setsuccessMessage] = useState('');
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -37,12 +40,14 @@ function Restaurant() {
         const response = await fetch(`http://localhost:8000/api/restaurants`, options);
 
         const data = await response.json();
+        const message = data.message;
 
-        console.log(data);
-
-        alert('Restaurant créé.')
-
-        return window.location.href = '/restaurants';
+        if (message === 'Restaurant created.') {
+            setsuccessMessage('Restaurant Ajouter avec Succée !');
+        }
+        else {
+            setsuccessMessage('Il y à eu une erreur quelque part !');
+        }
 
     }
 
@@ -66,8 +71,10 @@ function Restaurant() {
                         </div>
 
                     </div>
+
                     <div className="restoDiv">
                         <form id="formRestaurant" onSubmit={handleSubmit}>
+                                <h2> {successMessage} </h2>
                             <div className="textbox restaurant">
                                 <label htmlFor="name">Name</label>
                                 <input type="text" id="name" name="name" value={nom} onChange={(e) => setNom(e.target.value)} placeholder="nom.." required />
