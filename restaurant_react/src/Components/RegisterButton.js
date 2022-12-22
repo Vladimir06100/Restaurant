@@ -2,16 +2,16 @@ import React from "react";
 import "../Styles/Menu.css";
 
 function RegisterButton(props) {
-  function user() {}
+  function user() { }
 
   return (
     <button onClick={props.onClick} className="btnLog">
       {props.connecte ? (
-        <a id="navbar_style" className="log" href="/inscription" onClick={user}>
+        <a id="navbar_style" href="/inscription" onClick={user}>
           <span className="nom">{localStorage.getItem("prenom")}</span>
         </a>
       ) : (
-        <a id="navbar_style" className="log" href="/profil">
+        <a id="navbar_style" href="/profil">
           INSCRIPTION
         </a>
       )}

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Signika:wght@300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Signika:wght@300&display=swap');
 
 button{
     border: 0;
@@ -51,11 +51,11 @@ body.open .navbar-overlay{
     padding: 0;
 }
 
-/* .navbar-burger, .navbar-burger-close{
+.navbar-burger-close{
     display: none;
 }
 
-.navbar-burger-close{
+/* .navbar-burger-close{
     position: absolute;
     top: 0;
     left: 0;
@@ -89,18 +89,6 @@ body.open .navbar-overlay{
     transition: all 0.3s;
 }
 
-.log {
-  transform: scale(1.05);
-  background-color: #db6d13;
-  border: black;
-  font-size: 15px;
-  margin-right: 10px;
-  margin-right: 10px;
-  text-transform: uppercase;
-}
-
-.nom {
-  color: red;
 body.open .navbar-menu{
     translate: 0 0;
     visibility: visible;
@@ -130,13 +118,13 @@ a{
     color: inherit;
 }
 
-.link {
-  font-family: "Signika";
-  color: white;
-  font-size: 15px;
-  padding: 8px 0px;
-  border-radius: 5px;
-  transition: all 0.3s ease;
+.link{
+    font-family: 'Signika';
+    color: white;
+    font-size: 15px;
+    padding: 8px 0px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
 }
 
 .link:hover{
@@ -145,7 +133,7 @@ a{
     padding: 10px;
 }
 
-.navbar_style{
+#navbar_style{
     background-color: #000000;
     padding: 10px;
     border-radius: 5px;
@@ -155,35 +143,10 @@ a{
     cursor: pointer;
 }
 
-.navbar_style:hover, .navbar_style:active{
+#navbar_style:hover, #navbar_style:active{
     background-color: #c84a0b;
     background-position: 0 0;
 }
-
-/* .logoMenu{
-    display: flex;
-    position: fixed;
-    margin: 1em;
-    height: 35px;
-} */
-
-/* .log {
-    transform: scale(1.05);
-    background-color: #db6d13;
-    border: black;
-    font-size: 15px;
-    margin-right: 10px;
-    margin-right: 10px;
-} */
-
-/* .btnLog {
-    transform: scale(1.05);
-    background-color: black;
-    border: black;
-    font-size: 15px;
-    margin-right: 10px;
-} */
-
 
 @media only screen and (min-width: 600px){
     .navbar{
@@ -207,6 +170,14 @@ a{
 }
 
 
+/*ICI ROUSSLAN SI TU AJOUTES DES TRUCS STP !!!!!*/
+
+.nom {
+
+    color: red;
+      translate: 0 0;
+      visibility: visible;
+  }
 
 
 
@@ -214,6 +185,28 @@ a{
 
 
 
+  /**/
 
+  /* .logoMenu{
+    display: flex;
+    position: fixed;
+    margin: 1em;
+    height: 35px;
+} */
 
+/* .log {
+    transform: scale(1.05);
+    background-color: #db6d13;
+    border: black;
+    font-size: 15px;
+    margin-right: 10px;
+    margin-right: 10px;
+} */
 
+/* .btnLog {
+    transform: scale(1.05);
+    background-color: black;
+    border: black;
+    font-size: 15px;
+    margin-right: 10px;
+} */
