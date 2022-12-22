@@ -43,6 +43,10 @@ Route::post('/reset-password', [NewPasswordController::class, 'store'])->name('a
 
 
 
+Route::get('/profil/{id}', [RestaurateurController::class, 'profil'])->name('profil.show');
+
+
+
 // resource pour les restaurants (creation, affichage)
 Route::middleware('auth:sanctum')->resource('/restaurants', RestaurantController::class);
 

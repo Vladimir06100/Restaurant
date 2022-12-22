@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Signika:wght@300&display=swap');
+
+table {
+    border-collapse: collapse;
+    text-align: left;
+    font-family: "Signika", sans-serif;
+}
+
+.header-row {
+    background-color: steelblue;
+}
+
+table tr th {
+    padding: 10px 25px;
+    color: white;
+}
+
+table tr:not(.header-row):nth-child(odd) {
+    background-color: #ddd;
+}
+
+table tr:not(.header-row):hover {
+    background-color: #bcd9ff8a;
+}
+
+table tr th.actions-header {
+    text-align: center;
+}
+
+table tr td {
+    padding: 12px 25px;
+}
+
+table tr td.actions {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+table td input{
+    width: 3em;
+}
+
+#btn-table{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.btn-edit {
+    padding: 3%;
+    border-radius: 3px;
+    background-color: rgb(218, 160 ,54);
+}
+
+.btn-edit:hover {
+    background-color: rgb(50, 109, 173);
+}
+
+.btn-validate {
+    padding: 3%;
+    border-radius: 3px;
+    background-color: rgb(218, 160 ,54);
+}
+
+.btn-validate:hover {
+    background-color: rgb(64, 216, 201);
+}
+
+.btn-delete {
+    padding: 3%;
+    border-radius: 3px;
+    background-color: rgb(218, 160 ,54);
+}
+
+.btn-delete:hover {
+    background-color: rgb(176, 109, 109);
+}
