@@ -7,17 +7,31 @@
     font-size: 5em;
 }
 
+#creation_title_color{
+    color: #D68D00;
+}
+
 .restaurant_position{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     margin-top: 10%;
 }
 
 .restaurantPositionBis{
     display: flex;
-    flex-direction: row-reverse;
-    /* background: white;
-    box-shadow: 0 0 20px 0 rgb(0 0 0 / 35%); */
+    flex-direction: row;
+    align-items: center;
+    background: white;
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 35%);
+}
+
+.restoDiv{
+    /* display: flex;
+    gap: 8px;
+    flex-direction: column;
+    justify-content: center; */
+    width: 25em;
+    padding: 3em;
 }
 
 .restaurant_text{
@@ -27,43 +41,43 @@
     width: 20em;
 }
 
-.restoDiv{
-    display: flex;
-    gap: 8px;
-    flex-direction: column;
-    justify-content: center;
-}
 
 #formRestaurant{
-    padding-left: 4em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+#formRestaurant label{
+    border-bottom: 2px solid #e08815;
+    font-family: 'Signika';
+    text-transform: uppercase;
 }
 
 form .restaurant input{
-    border: none;
-    border-bottom: 2px solid #e08815;
-    padding: 0 1em;
-    height: 2em;
-    background: transparent;
-}
-
-.formRestaurant label{
-    padding-right: 3em;
-}
-
-.formRestaurant label{
+    font-size: 13px;
+    background: #b9844038;
+    /* box-shadow: 0 0 20px 0 rgb(0 0 0 / 6%); */
     font-family: Arial, Helvetica, sans-serif;
+    padding-left: 1em;
+    border: none;
+    height: 72px;
+    width: 24em;
 }
 
 .restaurant{
+    display: flex;
     font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
-    height: 25%;
+    /* height: 25%; */
+    flex-direction: column;
 }
 
 #submitRestaurant{
     border: none;
     margin-top: 1em;
-    width: 17em;
+    width: 80%;
     background-color: #000000;
     padding: 10px;
     border-radius: 5px;
