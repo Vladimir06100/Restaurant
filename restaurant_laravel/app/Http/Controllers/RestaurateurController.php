@@ -36,6 +36,9 @@ class RestaurateurController extends Controller
 
         return response()->json([
             'message' => 'Connexion réussi.',
+            'prenom' => $restaurateur->prenom,
+            'role' => $restaurateur->role,
+            'ID' => $restaurateur->id,
             'remember_token' => $token->plainTextToken
         ], 200);
 
@@ -95,5 +98,12 @@ class RestaurateurController extends Controller
             'message' => 'Restaurateur supprimer.',
             'restaurateur' => $restaurateur
         ], 200);
+    }
+
+    // Affiche un restaurant
+    public function profile($id)
+    {
+        $restauranteur = Restauranteur::find($id);
+        return response()->json(['restauranteur' => $restauranteur]);
     }
 }

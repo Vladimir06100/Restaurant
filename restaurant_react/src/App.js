@@ -14,6 +14,7 @@ import "./Styles/Home.css";
 import Carte from "./Pages/Carte";
 import Admin from "./Components/Admin/Admin";
 import DetailsRestaurant from "./Pages/DetailsRestaurant";
+import Profil from "./Pages/Profil";
 
 
 const router = createBrowserRouter([
@@ -92,6 +93,12 @@ const router = createBrowserRouter([
   {
     path: '/admin',
     element: <Admin />,
+    error: <Error404 />
+  },
+
+  {
+    path: '/profil',
+    element: <Profil />,
     error: <Error404 />
   }
 ]);
