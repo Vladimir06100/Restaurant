@@ -91,9 +91,13 @@ function Cartes() {
           console.log(nom_carte, "nom");
         }}>
         <label htmlFor="nom_carte">Nom de la carte</label>
+
         <br/>
+
         <input type="text" id="nom_carte" name="nom_carte" />
- <br/>
+
+        <br/>
+        
         <label htmlFor="produit"> Choix produits de la carte</label>
         <br/>
   
@@ -101,7 +105,7 @@ function Cartes() {
     
   {/*   {
      listproduits.map((produit) => {
-       return <label key={produit.id} name="produit_id"><input type="checkbox"  value={produit.id}/>{produit.nom_produit}&nbsp;({produit.description}) <br/> </label>
+       return <label name="produit_id"><input type="checkbox"  value={produit.id}/>{produit.nom_produit}&nbsp;({produit.description}) <br/> </label>
      }) 
     } */}
 
