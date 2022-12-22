@@ -51,3 +51,7 @@ Route::resource('formules', FormuleController::class);
 // route pour les catégories de formules
 Route::resource('formules/categorie_formules', Categorie_FormuleController::class);
 
+// route pour les categories
+Route::resource('categories', CategorieController::class);
+
+
