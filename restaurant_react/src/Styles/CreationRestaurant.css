@@ -1,15 +1,23 @@
 
+.creation_title{
+    display: flex;
+    flex-direction: column;
+    padding: 0em 1em 0em;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 5em;
+}
+
 .restaurant_position{
     display: flex;
-    margin-top: 5em;
     justify-content: space-around;
+    margin-top: 10%;
 }
 
 .restaurantPositionBis{
     display: flex;
     flex-direction: row-reverse;
-    background: white;
-    box-shadow: 0 0 20px 0 rgb(0 0 0 / 35%);
+    /* background: white;
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 35%); */
 }
 
 .restaurant_text{
@@ -33,12 +41,13 @@
 form .restaurant input{
     border: none;
     border-bottom: 2px solid #e08815;
-    padding: 0 24px 0 36px;
-    height: 72px;
+    padding: 0 1em;
+    height: 2em;
+    background: transparent;
 }
 
-.formRestaurant form{
-    padding: 3em;
+.formRestaurant label{
+    padding-right: 3em;
 }
 
 .formRestaurant label{
@@ -46,10 +55,9 @@ form .restaurant input{
 }
 
 .restaurant{
-    font-size: 13px;
+    font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
-    height: 72px;
-    width: 24em;
+    height: 25%;
 }
 
 #submitRestaurant{

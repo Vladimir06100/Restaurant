@@ -59,7 +59,7 @@ function Restaurant() {
             <div className="restaurant_position">
                 <div className="restaurantPositionBis">
 
-                    <div className="home_title">
+                    <div className="creation_title">
                         <span>
                             Add your <br /><span id="home_title_color">restaurant</span>
                         </span>
