@@ -10,11 +10,13 @@ function Menu() {
 
     // useEffect(() => console.log(isOpen, "isopen"), [isOpen]);
 
-    const [connecte, setConnecte] = useState(localStorage.getItem('token') !== null);
+  const [connecte, setConnecte] = useState(
+    localStorage.getItem("token") !== null
+  );
 
-    function handleLoginClick() {
-        setConnecte(!connecte);
-    }
+  function handleLoginClick() {
+    setConnecte(!connecte);
+  }
 
     const toggleMenuClose = () => document.body.classList.toggle("close");
 

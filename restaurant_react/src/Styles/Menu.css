@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Signika:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Signika:wght@300&display=swap");
 
 button{
     border: 0;
@@ -89,6 +89,18 @@ body.open .navbar-overlay{
     transition: all 0.3s;
 }
 
+.log {
+  transform: scale(1.05);
+  background-color: #db6d13;
+  border: black;
+  font-size: 15px;
+  margin-right: 10px;
+  margin-right: 10px;
+  text-transform: uppercase;
+}
+
+.nom {
+  color: red;
 body.open .navbar-menu{
     translate: 0 0;
     visibility: visible;
@@ -118,13 +130,13 @@ a{
     color: inherit;
 }
 
-.link{
-    font-family: 'Signika';
-    color: white;
-    font-size: 15px;
-    padding: 8px 0px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
+.link {
+  font-family: "Signika";
+  color: white;
+  font-size: 15px;
+  padding: 8px 0px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
 }
 
 .link:hover{
