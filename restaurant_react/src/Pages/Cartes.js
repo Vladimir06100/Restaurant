@@ -31,9 +31,9 @@ function Cartes() {
     getCartes();
   }, []);
 
-  function getSelectValues(label) {
+  function getSelectValues(select) {
     var result = [];
-    var options = label && label.options;
+    var options = select && select.options;
     var opt;
 
     for (var i = 0, iLen = options.length; i < iLen; i++) {
@@ -94,18 +94,18 @@ function Cartes() {
         <br/>
         <input type="text" id="nom_carte" name="nom_carte" />
  <br/>
-        {/* <label htmlFor="produit"> Choix produits de la carte</label> */}
+        <label htmlFor="produit"> Choix produits de la carte</label>
         <br/>
   
       
     
-    {
+  {/*   {
      listproduits.map((produit) => {
        return <label key={produit.id} name="produit_id"><input type="checkbox"  value={produit.id}/>{produit.nom_produit}&nbsp;({produit.description}) <br/> </label>
      }) 
-    }
+    } */}
 
-   {/*      <select multiple id="produit" name="produit_id">
+        <select multiple id="produit" name="produit_id">
           {listproduits.map((produit) => (
             <option key={produit.id} value={produit.id}>
 
@@ -114,7 +114,7 @@ function Cartes() {
             </option>
           ))}
           ;
-        </select> */}
+        </select>
 <br/>
         <button type="submit">Ajouter</button>
       </form>
