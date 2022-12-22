@@ -51,6 +51,7 @@ body{
 }
 
 #pizza{
+    padding-right: 10%;
     height: 49rem;
 }
 
@@ -193,16 +194,22 @@ body{
         width: 100%;
     }
 
+    #ban{
+        width: 85%;
+    }
+
+    #pizza{
+        padding-top: 10%;
+    }
+
     .home_title{
         padding: 10% 3% 0%;
     }
 
     .under-home-title{
         display: flex;
-    flex-direction: column;
-    font-size: 4em;
-    gap: 5%;
-    align-items: center;
+        padding: 1em 2em 0em;
+        font-size: 4em;
     }
 }
 

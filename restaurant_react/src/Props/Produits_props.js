@@ -41,7 +41,7 @@ function Produit(props) {
                             <input type="text" value={props.categorie_id} onChange={update} />
                         </td>
                     ) : (
-                        <td>{props.cate}</td>
+                        <td>{props.categorie_id}</td>
                     )}
                     {/* {isClicked ? <select value={props.categorie_id} onChange={update}> {props.produit.map((categorie) => <option value={categorie.id}>{categorie.nom_categorie}</option>)} </select> : <td>{props.categorie_id}</td>} */}
                     {isClicked ? (

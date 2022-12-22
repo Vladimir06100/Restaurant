@@ -18,7 +18,7 @@ button{
     left: 0;
     width: 100%;
     background: #000000;
-    color: #f31414;
+    color: white;
     font-family: 'Signika', sans-serif;
 }
 
@@ -35,20 +35,26 @@ button{
     transition: 0.5s;
 }
 
-body.open .navbar-overlay{
+/* body.open .navbar-overlay{
     visibility: visible;
     opacity: 1;
-}
+} */
 
 .navbar-burger{
-    position: absolute;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    /* position: relative; */
     top: 0;
     left: 0;
-    display: grid;
-    place-items: center;
+    /* display: grid; */
+    /* place-items: center; */
     width: 64px;
     height: 64px;
-    padding: 0;
+    /* padding: 0; */
+    /* background: #2700ff; */
+    /* flex-wrap: nowrap; */
 }
 
 .navbar-burger-close{
@@ -61,6 +67,8 @@ body.open .navbar-overlay{
 }
 
 .navbar-menu{
+    flex-direction: column;
+    align-items: flex-start;
     position: fixed;
     z-index: 3;
     top: 0;
@@ -71,8 +79,6 @@ body.open .navbar-overlay{
     padding: 20px;
     display: flex;
     gap: 8px;
-    flex-direction: column;
-    align-items: flex-start;
     background: #000;
     visibility: hidden;
     transition: all 0.3s;
@@ -137,7 +143,7 @@ a{
     background-position: 0 0;
 }
 
-@media only screen and (min-width: 600px){
+@media only screen and (min-width: 1000px){
     .navbar{
         justify-content: space-between;
         padding: 0 0 0 16px;
@@ -150,11 +156,11 @@ a{
     }
     .navbar-menu{
         position: static;
+        flex-direction: row;
+        visibility: visible;
         translate: 0 0;
         width: auto;
         background: transparent;
-        flex-direction: row;
-        visibility: visible;
     }
 }
 
@@ -162,17 +168,21 @@ a{
 /*ICI ROUSSLAN SI TU AJOUTES DES TRUCS STP !!!!!*/
 
 .nom {
-
     color: red;
-      translate: 0 0;
-      visibility: visible;
-  }
+    translate: 0 0;
+    visibility: visible;
+}
 
 
 
-  /*JE DOIS VOIR SI JE GARDE TOUCHEZ PAS SVP*/
 
-  /* .logoMenu{
+
+
+
+
+/*JE DOIS VOIR SI JE GARDE TOUCHEZ PAS SVP*/
+
+/* .logoMenu{
     display: flex;
     position: fixed;
     margin: 1em;

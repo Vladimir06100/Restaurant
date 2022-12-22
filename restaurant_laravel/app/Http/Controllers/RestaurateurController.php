@@ -39,7 +39,7 @@ class RestaurateurController extends Controller
             'prenom' => $restaurateur->prenom,
             'role' => $restaurateur->role,
             'ID' => $restaurateur->id,
-            'remember_token' => $token->plainTextToken
+            'token' => $token->plainTextToken
         ], 200);
 
         redirect()->route('produits');
@@ -68,7 +68,6 @@ class RestaurateurController extends Controller
         return response()->json([
             'message' => 'Restaurateur created.',
             'restaurateur' => $restaurateur,
-            //'token' => $token,
         ], 201);
     }
 
