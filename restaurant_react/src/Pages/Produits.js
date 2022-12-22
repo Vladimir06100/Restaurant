@@ -106,7 +106,7 @@ function Produits() {
         if (response.status !== 200) {
             return;
         }
-        
+
         const data = await response.json();
         const newProduit = data.produit;
         setProduits([newProduit, ...produits]);
@@ -118,17 +118,17 @@ function Produits() {
     const produitList = produits.map((produit, index) => {
         return (
             <Produit
-            key={index}
-            nom_produit={produit.nom_produit}
-            categorie_id={produit.type}
-            description={produit.description}
-            prixHT={produit.prixHT}
-            TVA={produit.TVA}
-            prixTTC={produit.prixTTC}
-            quantite={produit.quantite}
-            destroy={destroy}
-            update={update}
-            id={produit.id}
+                key={index}
+                nom_produit={produit.nom_produit}
+                categorie_id={produit.type}
+                description={produit.description}
+                prixHT={produit.prixHT}
+                TVA={produit.TVA}
+                prixTTC={produit.prixTTC}
+                quantite={produit.quantite}
+                destroy={destroy}
+                update={update}
+                id={produit.id}
             />
         );
     });
@@ -202,12 +202,14 @@ function Produits() {
                     </div>
                 </div>
             </div>
-            <div className="product_position result">
-                <div className="product_title">
-                    <span id="home_title_color">Products list</span>
-                </div>
-                <div className="produits">
-                    {produitList}
+            <div className="position-result">
+                <div className="resultPositionBis">
+                    <div className="product_title">
+                        <span id="produc_result_title_color">Products list</span>
+                    </div>
+                    <div className="product-list-result">
+                        {produitList}
+                    </div>
                 </div>
             </div>
             <Footer />
