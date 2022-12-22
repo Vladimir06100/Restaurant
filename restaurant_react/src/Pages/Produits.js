@@ -87,53 +87,53 @@ function Produits() {
   }
 
 
-    async function createProduit(nom_produit, categorie_id, description, prixHT, TVA, prixTTC, quantite) {
-        const restaurateur_id = localStorage.getItem('token');
-        const options = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-                'Authorization': 'Bearer ' + localStorage.getItem('token'),
-            },
-            body: JSON.stringify({
-                nom_produit: nom_produit,
-                categorie_id: categorie_id,
-                description: description,
-                prixHT: prixHT,
-                TVA: TVA,
-                prixTTC: prixTTC,
-                quantite: quantite,
-                restaurateur_id: restaurateur_id,
-            }),
-        };
-        let response = await fetch('http://localhost:8000/api/produits', options);
-        if (response.status !== 200) {
-            return alert('Une erreur est survenue');
-        }
-        const data = await response.json();
-        const newProduit = data.produit;
-        setProduits([newProduit, ...produits]);
-        getProduits();
+  async function createProduit(nom_produit, categorie_id, description, prixHT, TVA, prixTTC, quantite) {
+    const restaurateur_id = localStorage.getItem('token');
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization': 'Bearer ' + localStorage.getItem('token'),
+      },
+      body: JSON.stringify({
+        nom_produit: nom_produit,
+        categorie_id: categorie_id,
+        description: description,
+        prixHT: prixHT,
+        TVA: TVA,
+        prixTTC: prixTTC,
+        quantite: quantite,
+        restaurateur_id: restaurateur_id,
+      }),
+    };
+    let response = await fetch('http://localhost:8000/api/produits', options);
+    if (response.status !== 200) {
+      return alert('Une erreur est survenue');
     }
+    const data = await response.json();
+    const newProduit = data.produit;
+    setProduits([newProduit, ...produits]);
+    getProduits();
+  }
 
-    const produitList = produits.map((produit, index) => {
-        return (
-            <Produit
-                key={index}
-                nom_produit={produit.nom_produit}
-                categorie_id={produit.type}
-                description={produit.description}
-                prixHT={produit.prixHT}
-                TVA={produit.TVA}
-                prixTTC={produit.prixTTC}
-                quantite={produit.quantite}
-                destroy={destroy}
-                update={update}
-                id={produit.id}
-            />
-        );
-    });
+  const produitList = produits.map((produit, index) => {
+    return (
+      <Produit
+        key={index}
+        nom_produit={produit.nom_produit}
+        categorie_id={produit.type}
+        description={produit.description}
+        prixHT={produit.prixHT}
+        TVA={produit.TVA}
+        prixTTC={produit.prixTTC}
+        quantite={produit.quantite}
+        destroy={destroy}
+        update={update}
+        id={produit.id}
+      />
+    );
+  });
 
   useEffect(() => {
     getProduits();
@@ -229,35 +229,37 @@ function Produits() {
                 name="prixTTC"
                 placeholder="Clique sur Calculer pour savoir le prix avec TTC"
               />
-                            <div className="categoriePosition">
-                                <label htmlFor="categorie_id">Catégorie </label>
-                                <select id="categorie_id" name="categorie_id" defaultValue={'DEFAULT'} required>
-                                    <option value="DEFAULT" disabled>Choisir une catégorie</option>
-                                    <option value='1'>Entrée</option>
-                                    <option value='2'>Plat</option>
-                                    <option value='3'>Dessert</option>
-                                    <option value='4'>Boisson</option>
-                                </select>
-                            </div>
-                            <label htmlFor="quantite">Quantité</label>
-                            <input type="number" id="quantite" name="quantite" min="1" max="10000000" placeholder="Quantité du produit" required />
-                            <button type="submit" id="ajoutProduct">AJOUTER</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div className="position-result">
-                <div className="resultPositionBis">
-                    <div className="product_title">
-                        <span id="product_result_title_color">Products list</span>
-                    </div>
-                    <div className="product-list-result">
-                        {produitList}
-                    </div>
-                </div>
-            </div>
-            <Footer />
+              <div className="categoriePosition">
+                <label htmlFor="categorie_id">Catégorie </label>
+                <select id="categorie_id" name="categorie_id" defaultValue={'DEFAULT'} required>
+                  <option value="DEFAULT" disabled>Choisir une catégorie</option>
+                  <option value='1'>Entrée</option>
+                  <option value='2'>Plat</option>
+                  <option value='3'>Dessert</option>
+                  <option value='4'>Boisson</option>
+                </select>
+              </div>
+              <label htmlFor="quantite">Quantité</label>
+              <input type="number" id="quantite" name="quantite" min="1" max="10000000" placeholder="Quantité du produit" required />
+              <button type="submit" id="ajoutProduct">AJOUTER</button>
+            </form>
+          </div>
         </div>
-    );
+      </div>
+      <div className="position-result">
+        <div className="product-box-taille">
+          <div className="resultPositionBis">
+            <div className="product_title">
+              <span id="product_result_title_color">Products list</span>
+            </div>
+            <div className="product-list-result">
+              {produitList}
+            </div>
+          </div>
+        </div>
+      </div>
+      <Footer />
+    </div>
+  );
 }
 export default Produits;

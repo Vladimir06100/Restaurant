@@ -1,4 +1,4 @@
-
+/*affichages des produits + la liste des produits à chaque nouvel ajout*/
 .product_title{
     display: flex;
     flex-direction: column;
@@ -82,14 +82,17 @@
     opacity: .5;
 }
 
-
 /*Resulat produit */
-
 .position-result{
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 5%;
+}
+
+.product-box-taille{
+    background: red;
+    width: 60em;
 }
 
 .resultPositionBis{
