@@ -1,6 +1,5 @@
 import Menu from "../Components/Menu";
 import Footer from "../Components/Footer";
-import Qrcode from "../Components/Qrcode/Qrcode";
 import "../Styles/Cartes.css";
 import { useState, useEffect } from "react";
 import Cartes_props from "../Props/Cartes_props";

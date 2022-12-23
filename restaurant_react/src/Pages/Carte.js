@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Qrcode from "../Components/Qrcode/Qrcode";
 
 function Carte() {
   const [menu, setMenu] = useState({});
@@ -49,6 +50,11 @@ function Carte() {
               {prod.nom_produit} - - {prod.categorie} -{prod.description}
             </li>
           ))}
+          <br></br>
+          <br></br>
+        <li>
+          <Qrcode />
+        </li>
       </ul>
     </div>
   );
