@@ -99,7 +99,7 @@ function Cartes() {
             onSubmit={(event) => {
               event.preventDefault();
               const nom_carte = event.target.nom_carte.value;
-              const produit_id = event.target.produit_id.value;
+              const produit_id = getSelectValues(event.target.produit_id);
               console.log(getSelectValues(event.target.produit_id));
 
               //j'ajoute le prduit
