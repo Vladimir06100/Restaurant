@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Qrcode from "../Components/Qrcode/Qrcode";
+import QRCode from "../Components/Qrcode/Qrcode";
 
 function Carte() {
   const [menu, setMenu] = useState({});
@@ -101,7 +101,7 @@ function Carte() {
             <br></br>
           <br></br>
         <li>
-          <Qrcode />
+          <QRCode url="https://lebocal.academy" />
         </li>
       </ul>
     </div>

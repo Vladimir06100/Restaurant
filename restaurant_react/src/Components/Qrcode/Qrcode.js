@@ -6,7 +6,7 @@ function Qrcode(props) {
 		<div className="qrcode_header">
 		<QRCode  // La balise QRCode permet de créer un qrcode.
 		// Props URL qui servira a mettre un QRCode sur la page en question
-			value={props.url}style={{ marginRight: 50 }}/>
+			value="{props.url}" style={{ marginRight: 50 }}/>
 		</div>
 	)
 }
