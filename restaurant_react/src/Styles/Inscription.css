@@ -91,3 +91,20 @@
     color: #e79121;
     text-decoration: none;
 }
+
+
+@media screen and (min-width: 350px) and (max-width: 900px) {
+  .registerPositionBis{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: none;
+    box-shadow: none;
+    margin-top: 10%;
+  }
+
+  #registerImg{
+    display: none;
+  }
+
+}
