@@ -1,8 +1,8 @@
 /* PAGE HOME CSS*/
-* {
+/* * {
     margin:0;
     padding:0;
-}
+} */
 
 body{
     background: #fbfbfbf2;
@@ -34,7 +34,7 @@ body{
 .home_title{
     display: flex;
     flex-direction: column;
-    padding: 10% 8% 0%;
+    padding: 7% 8% 0%;
     font-family: 'Times New Roman', Times, serif;
     font-size: 5em;
 }
