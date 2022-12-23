@@ -1,23 +1,44 @@
 import Menu from '../Components/Menu';
 import Footer from '../Components/Footer';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+
 
 function EditRestaurant()
 {
+    const [restaurant, setRestaurant] = useState([]);
+
     const [nom, setNom] = useState([]);
     const [adresse, setAdresse] = useState([]);
     const [heureOuverture, setHeureOuverture] = useState([]);
     const [heureFermeture, setHeureFermeture] = useState([]);
     const [image, setImage] = useState([]);
+
     const {id} = useParams();
 
 
-// console.log(nom, adresse, heureOuverture, heureFermeture, image);
+    async function getRestaurant(id) {
+        const options = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem('token'),
+            }
+        };
+
+        const response = await fetch('http://127.0.0.1:8000/api/restaurants/' + id, options);
+        const data = await response.json();
+        const restaurant = data.restaurant;
+        setRestaurant(restaurant);
+    }
+
+    useEffect(() => {
+        getRestaurant(id);
+    }, []);
 
     async function edit(id)
     {
-
         const options = {
             method: 'PUT',
             headers: {
@@ -36,10 +57,9 @@ function EditRestaurant()
         };
 
         const response = await fetch('http://127.0.0.1:8000/api/restaurants/' + id, options);
-        console.log(response);
         const data = await response.json();
 
-        const restaurant = data.restaurant;
+        console.log(data);
 
         if (response.status !== 200) {
             alert('PRObleme');
@@ -73,23 +93,23 @@ function EditRestaurant()
                         <form id="formRestaurant" onSubmit={()=>edit(id)}>
                             <div className="textbox restaurant">
                                 <label htmlFor="name">Name</label>
-                                <input type="text" id="name" name="name" value={nom} onChange={(e) => setNom(e.target.value)} placeholder="nom.." required />
+                                <input type="text" id="name" name="name" value={restaurant.nom} onChange={(e) => setNom(e.target.value)} placeholder="nom.." required />
                             </div>
                             <div className="textbox restaurant">
                                 <label htmlFor="adresse">Adresse</label>
-                                <input type="text" id="adresse" name="adresse" value={adresse} onChange={(e) => setAdresse(e.target.value)} placeholder="prénom.." required />
+                                <input type="text" id="adresse" name="adresse" value={restaurant.adresse} onChange={(e) => setAdresse(e.target.value)} placeholder="prénom.." required />
                             </div>
                             <div className="textbox restaurant">
                                 <label htmlFor="horaires">Horaire d'ouverture</label>
-                                <input type="time" id="open" name="open" value={heureOuverture} onChange={(e) => setHeureOuverture(e.target.value)} placeholder="horaires.." required />
+                                <input type="time" id="open" name="open" value={restaurant.heure_ouverture} onChange={(e) => setHeureOuverture(e.target.value)} placeholder="horaires.." required />
                             </div>
                             <div className="textbox restaurant">
                                 <label htmlFor="horaires">Horaire de fermeture</label>
-                                <input type="time" id="closen" name="closen" value={heureFermeture} onChange={(e) => setHeureFermeture(e.target.value)} placeholder="horaires.." required />
+                                <input type="time" id="closen" name="closen" value={restaurant.heure_fermeture} onChange={(e) => setHeureFermeture(e.target.value)} placeholder="horaires.." required />
                             </div>
                             <div className="textbox restaurant">
                                 <label htmlFor="image">Image</label>
-                                <input type="text" id="image" name="image" value={image} onChange={(e) => setImage(e.target.value)} placeholder="image.." required />
+                                <input type="text" id="image" name="image" value={restaurant.image} onChange={(e) => setImage(e.target.value)} placeholder="image.." required />
                             </div>
                             <input id="submitRestaurant" type="submit" name="en" />
                         </form>

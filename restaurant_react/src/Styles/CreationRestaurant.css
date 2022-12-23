@@ -93,13 +93,18 @@ form .restaurant input{
 }
 
 
-@media screen and (max-width: 500px) {
-    .restaurant_position {
+@media screen and (min-width: 350px) and (max-width: 800px) {
+    .restaurantPositionBis{
         display: flex;
-        justify-content: center;
-        align-items: flex-end;
         flex-direction: column;
-        gap: 2em;
+        align-items: center;
+        background: none;
+        box-shadow: none;
+        margin-top: 10%;
+    }
+
+    #formRestaurant{
+        align-items: center;
     }
 
     .restaurant_text .home_title{

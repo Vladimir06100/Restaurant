@@ -70,8 +70,8 @@ function Connexion() {
           </div>
 
           <div className="login">
-            <form method="POST" action="" id="form" onSubmit={submit}>
-              <div className="textbox">
+            <form method="POST" action="" id="formConnexion" onSubmit={submit}>
+              <div className="textbox connexion">
                 <label htmlFor="email"></label>
                 <input
                   type="email"
