@@ -149,7 +149,7 @@ function Cartes() {
 
       <div className="affichage-cartes">
         <div className="affichage-cartes-bis">
-          <br />
+                 <br  />
           <h2> Affichage des cartes </h2>
           {cartes.map((carte, index) => (
             <Cartes_props

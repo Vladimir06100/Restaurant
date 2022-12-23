@@ -6,7 +6,7 @@ use App\Models\Carte;
 use App\Models\Produit_Carte;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Log;
 
 class CarteController extends Controller
 {
@@ -46,18 +46,15 @@ class CarteController extends Controller
 
         ]);
         //boucle ?
-
-foreach($request->produit_id as $key => $value) {
-
-        // ici jinsere la liaison carte & pro’duit
-        $produit_carte::create([
-            'carte_id' => $carte->id,
-            'produit_id' => $value
-
-        ]);
+     
         
-    } 
-    dump($key, $value);
+        foreach ($request->produit_id as $key => $value) {
+            // ici jinsere la liaison carte & pro’duit
+            $produit_carte::create([
+                'carte_id' => $carte->id,
+                'produit_id' => $value
+            ]);
+        }
 
         return response()->json([
             'message' => 'Carte created.',
