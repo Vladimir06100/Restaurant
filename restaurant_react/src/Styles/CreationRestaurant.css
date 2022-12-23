@@ -93,7 +93,7 @@ form .restaurant input{
 }
 
 
-@media screen and (min-width: 500px) and (max-width: 800px) {
+@media screen and (min-width: 350px) and (max-width: 800px) {
     .restaurantPositionBis{
         display: flex;
         flex-direction: column;
