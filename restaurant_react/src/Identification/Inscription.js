@@ -141,7 +141,7 @@ function Inscription() {
           </div>
         </div>
 
-        <img src={header_register} alt="header_register" />
+        <img id="registerImg" src={header_register} alt="header_register" />
       </div>
       <Footer />
     </div>
