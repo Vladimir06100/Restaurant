@@ -54,8 +54,8 @@ function Home() {
                                         <img src={tape} alt="icone staff" />
                                     </div>
                                     <div className="details">
-                                        <div className="name-cards">Vladi Test</div>
-                                        <div className="name-jobs">Web Designer</div>
+                                        <div className="name-cards">Vladou</div>
+                                        <div className="name-jobs">Le Karibou</div>
                                     </div>
                                     <div class="media-icons">
                                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -73,8 +73,8 @@ function Home() {
                                         <img src={tape} alt="icone staff" />
                                     </div>
                                     <div className="details">
-                                        <div className="name-cards">Vladou Test</div>
-                                        <div className="name-jobs">Web Designer</div>
+                                        <div className="name-cards">Thomas</div>
+                                        <div className="name-jobs">Le blagueur</div>
                                     </div>
                                     <div class="media-icons">
                                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -93,8 +93,8 @@ function Home() {
                                         <img src={tape} alt="icone staff" />
                                     </div>
                                     <div className="details">
-                                        <div className="name-cards">Vladou Test</div>
-                                        <div className="name-jobs">Web Designer</div>
+                                        <div className="name-cards">Bastien</div>
+                                        <div className="name-jobs">Le malin</div>
                                     </div>
                                     <div class="media-icons">
                                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -105,7 +105,106 @@ function Home() {
                                 </div>
                             </div>
                         </div>
-                        
+
+                        <div className="cards">
+                            <div className="card">
+                                <div className="content">
+                                    <div className="content-img">
+                                        <img src={tape} alt="icone staff" />
+                                    </div>
+                                    <div className="details">
+                                        <div className="name-cards">Damien</div>
+                                        <div className="name-jobs">Le lumerien</div>
+                                    </div>
+                                    <div class="media-icons">
+                                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="#"><i class="fab fa-twitter"></i></a>
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="cards">
+                            <div className="card">
+                                <div className="content">
+                                    <div className="content-img">
+                                        <img src={tape} alt="icone staff" />
+                                    </div>
+                                    <div className="details">
+                                        <div className="name-cards">Roger</div>
+                                        <div className="name-jobs">Le groGer</div>
+                                    </div>
+                                    <div class="media-icons">
+                                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="#"><i class="fab fa-twitter"></i></a>
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="cards">
+                            <div className="card">
+                                <div className="content">
+                                    <div className="content-img">
+                                        <img src={tape} alt="icone staff" />
+                                    </div>
+                                    <div className="details">
+                                        <div className="name-cards">Ibrahima</div>
+                                        <div className="name-jobs">Le gros bras</div>
+                                    </div>
+                                    <div class="media-icons">
+                                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="#"><i class="fab fa-twitter"></i></a>
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="cards">
+                            <div className="card">
+                                <div className="content">
+                                    <div className="content-img">
+                                        <img src={tape} alt="icone staff" />
+                                    </div>
+                                    <div className="details">
+                                        <div className="name-cards">Rousslan</div>
+                                        <div className="name-jobs">Le chambrelan</div>
+                                    </div>
+                                    <div class="media-icons">
+                                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="#"><i class="fab fa-twitter"></i></a>
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="cards">
+                            <div className="card">
+                                <div className="content">
+                                    <div className="content-img">
+                                        <img src={tape} alt="icone staff" />
+                                    </div>
+                                    <div className="details">
+                                        <div className="name-cards">Cassandra</div>
+                                        <div className="name-jobs">La survivante</div>
+                                    </div>
+                                    <div class="media-icons">
+                                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="#"><i class="fab fa-twitter"></i></a>
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
                     <div className="under-home-title">
