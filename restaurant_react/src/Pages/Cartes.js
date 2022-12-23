@@ -20,11 +20,12 @@ function Cartes() {
     let response = await fetch("http://localhost:8000/api/cartes", options);
     const data = await response.json();
     const cartes = data.cartes;
-    const listproduits = data.liste_des_produits;
+    const listproduits = data.liste_des_produits.sort((a, b) => a.categorie_id - b.categorie_id);
     setCartes(cartes);
     console.log(cartes, "cartes");
     setListproduits(listproduits);
     console.log(listproduits, "affichage listes");
+    
   }
 
   useEffect(() => {
@@ -69,6 +70,19 @@ function Cartes() {
     const newCarte = data.carte;
     setCartes([newCarte, ...cartes]);
   }
+  function getCategorieNom(categorieId) {
+    if (categorieId === 1) {
+      return "Entrée";
+    } else if (categorieId === 2) {
+      return "Plat";
+    }else if (categorieId === 3) {
+      return "Dessert";
+    } else if (categorieId === 4) {
+      return "Boisson";
+    }else {
+      return "Inconnu";
+    }
+  }
 
   return (
     <div>
@@ -109,7 +123,7 @@ function Cartes() {
         <select multiple id="produit" name="produit_id">
           {listproduits.map((produit) => [
             <option key={produit.id} value={produit.id}>
-              {produit.nom_produit} -{produit.description}
+             {getCategorieNom(produit.categorie_id)} {produit.nom_produit} -{produit.description}
             </option>,
           ])}
           ;
