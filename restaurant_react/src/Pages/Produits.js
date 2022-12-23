@@ -111,10 +111,10 @@ function Produits() {
     if (response.status !== 200) {
       return alert('Une erreur est survenue');
     }
-    const data = await response.json();
-    const newProduit = data.produit;
-    setProduits([newProduit, ...produits]);
-    //getProduits();
+   // const data = await response.json();
+  //  const newProduit = data.produit;
+   // setProduits([newProduit, ...produits]);
+    getProduits();
   }
 
   const produitList = produits.map((produit, index) => {
