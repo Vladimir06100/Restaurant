@@ -6,7 +6,7 @@ function Footer() {
             <div className="footer_text">
                 <a href="/">HOME </a>
                 <span>contact</span>
-                <span>faq</span>
+                <span>FAQ</span>
             </div>
 
             <div className="footer_social">

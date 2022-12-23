@@ -30,7 +30,6 @@ function Formules() {
         }
         let response = await fetch('http://localhost:8000/api/formules', options);
         let data = await response.json();
-        console.log(data);
         setFormules(data);
     }
 
@@ -47,7 +46,6 @@ function Formules() {
         };
         let response = await fetch('http://localhost:8000/api/formules', options);
         let data = await response.json();
-        console.log(data);
         const formules = data.formules;
         setFormules(data.formules);
         setFormules(formules);
@@ -132,7 +130,6 @@ function Formules() {
                             ))}
                         </tbody>
                     </div>
-                    
                     <form action="" method="POST">
                         <label for="choix">Choisir</label><br></br>
                         <input id="entree" name="name" type="text" placeholder="entree"/><br/>
@@ -140,7 +137,6 @@ function Formules() {
                         <input id="dessert" name="name" type="text" placeholder="dessert"/><br/>
                         <input type="button" value="valider"></input>
                     </form>
-
                 </div>
             </div>
             <Footer />

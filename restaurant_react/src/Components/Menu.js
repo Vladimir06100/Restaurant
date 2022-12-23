@@ -1,5 +1,5 @@
 import '../Styles/Menu.css';
-import { useState } from 'react';
+import {  useState } from 'react';
 import LoginButton from './LoginButton';
 import RegisterButton from './RegisterButton';
 
@@ -9,6 +9,7 @@ function Menu() {
     const toggleMenuClose = () => document.body.classList.toggle("close");
     /*idem et pas fini*/
     const [isOpen, setIsOpen] = useState(false);
+
     // function close() {
     //     document.body.classList.toggle("close");
     // }
@@ -20,9 +21,8 @@ function Menu() {
 
     return (
         <div>
-
             <nav className="navbar">
-                <div className="navbar-overlay" onclick="toggleMenuOpen()"></div>
+                <div className="navbar-overlay" onClick={toggleMenuOpen}></div>
 
                 {/* <button type="button" className="navbar-burger" onClick={toggleMenuOpen}>
                     <span className="material-symbols-outlined">menu</span>
@@ -47,8 +47,8 @@ function Menu() {
                             <li className="link"><a href="/creation/restaurant">AJOUTER UN RESTAURANT </a></li>
                             <li className="link"><a href="/restaurants">MES RESTAURANTS </a></li>
                             <li className="link"><a href="/produits">PRODUIT </a></li>
-                        <li className="link"><a href="/cartes">CARTES </a></li>
-                        <li className="link"><a href="/formules">FORMULES</a></li>
+                            <li className="link"><a href="/cartes">CARTES </a></li>
+                            <li className="link"><a href="/formules">FORMULES</a></li>
                         </>
                     }
                     <li>

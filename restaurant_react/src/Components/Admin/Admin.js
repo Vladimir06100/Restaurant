@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import Footer from "../Footer";
 import Menu from "../Menu";
 
-function Admin()
-{
+function Admin(){
     const [restaurateurs, setRestaurateurs] = useState ([]);
 
     async function getRestaurateurs()
@@ -17,7 +16,6 @@ function Admin()
 
         const response = await fetch('http://127.0.0.1:8000/api/admin', options);
         const data = await response.json();
-        console.log(data);
         const restaurateurs = data.restaurateurs;
         setRestaurateurs(restaurateurs);
     }
@@ -29,7 +27,6 @@ function Admin()
     return (
         <div>
             <Menu />
-
             <div className="admin">
                 <h1>Gestion des restaurateurs</h1>
                     <div>
@@ -51,12 +48,8 @@ function Admin()
                                 ))}
                             </tbody>
                         </table>
-                        {/* <p key={index}>{restaurateur.nom} {restaurateur.prenom}</p>
-                    
-                        <button>Delete</button> */}
                     </div>
             </div>
-
             <Footer />
         </div>
     )

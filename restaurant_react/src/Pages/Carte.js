@@ -6,7 +6,6 @@ import '../Styles/Carte.css'
 
 function Carte() {
   const [menu, setMenu] = useState({});
-
   const { id } = useParams();
 
   const getMenu = async () => {
@@ -17,28 +16,24 @@ function Carte() {
         Accept: "application/json",
       },
     };
-
     try {
       const response = await fetch(
         "http://localhost:8000/api/cartes/" + id,
         options
       );
       const data = await response.json();
-      console.log(data, "data");
-
       if (response.status !== 200) {
         throw new Error(data);
       }
       const sortedProduits = data.produits.sort((a, b) => a.categorie_id - b.categorie_id);
-
       setMenu(data, sortedProduits);
     } catch (e) {
-      console.log(e, "e");
     }
   };
   useEffect(() => {
     getMenu();
   }, []);
+
   function getCategorieNom(categorieId) {
     if (categorieId === 1) {
       return "Entrée";
@@ -54,7 +49,6 @@ function Carte() {
   }
 
   const [checkboxState, setCheckboxState] = useState({});
-
   const handleCheckboxChange = (prod) => (event) => {
     setCheckboxState({
       ...checkboxState,
@@ -62,7 +56,6 @@ function Carte() {
     });
 
     if (event.target.checked) {
-      // Envoyer une requête pour ajouter le produit au panier
       fetch("/api/add-to-cart", {
         method: "POST",
         body: JSON.stringify({
@@ -70,7 +63,6 @@ function Carte() {
         }),
       });
     } else {
-      // Envoyer une requête pour retirer le produit du panier
       fetch("/api/remove-from-cart", {
         method: "POST",
         body: JSON.stringify({
@@ -87,8 +79,6 @@ function Carte() {
         <div className="carte">
           <div className="cartePosition">
             <h1>{menu.nom_carte}</h1>
-
-            {/* <p>Produits</p> */}
             <ul>
               {menu.produits &&
                 menu.produits.map((prod) => (
@@ -98,7 +88,6 @@ function Carte() {
                         type="checkbox"
                         checked={checkboxState[prod.id] || false}
                         onChange={handleCheckboxChange(prod)}
-
                       />
                       {prod.nom_produit} -
                       {prod.description} -
@@ -114,6 +103,5 @@ function Carte() {
     </div >
   );
 }
-
 
 export default Carte;

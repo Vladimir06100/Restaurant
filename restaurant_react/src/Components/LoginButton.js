@@ -2,7 +2,6 @@ import React from "react";
 import "../Styles/Menu.css";
 
 function LoginButton(props) {
-  console.log(props.connecte);
 
   function logout() {
     localStorage.clear();

@@ -7,7 +7,6 @@ import Produit from "../Props/Produits_props";
 function Produits() {
   const [produits, setProduits] = useState([]);
   const [categories, setCategories] = useState([]);
-  //  const { id } = useParams();
 
   function calculTTC() {
     const prixHT = document.querySelector("#prixHT").value;

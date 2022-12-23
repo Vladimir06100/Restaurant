@@ -57,10 +57,10 @@ function Home() {
                                         <div className="name-cards">Vladou</div>
                                         <div className="name-jobs">Le Karibou</div>
                                     </div>
-                                    <div class="media-icons">
-                                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                        <a href="#"><i class="fab fa-twitter"></i></a>
-                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    <div className="media-icons">
+                                        <a href="#"><i className="fab fa-facebook-f"></i></a>
+                                        <a href="#"><i className="fab fa-twitter"></i></a>
+                                        <a href="#"><i className="fab fa-instagram"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -76,10 +76,10 @@ function Home() {
                                         <div className="name-cards">Thomas</div>
                                         <div className="name-jobs">Le blagueur</div>
                                     </div>
-                                    <div class="media-icons">
-                                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                        <a href="#"><i class="fab fa-twitter"></i></a>
-                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    <div className="media-icons">
+                                        <a href="#"><i className="fab fa-facebook-f"></i></a>
+                                        <a href="#"><i className="fab fa-twitter"></i></a>
+                                        <a href="#"><i className="fab fa-instagram"></i></a>
 
                                     </div>
                                 </div>
@@ -96,10 +96,10 @@ function Home() {
                                         <div className="name-cards">Bastien</div>
                                         <div className="name-jobs">Le malin</div>
                                     </div>
-                                    <div class="media-icons">
-                                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                        <a href="#"><i class="fab fa-twitter"></i></a>
-                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    <div className="media-icons">
+                                        <a href="#"><i className="fab fa-facebook-f"></i></a>
+                                        <a href="#"><i className="fab fa-twitter"></i></a>
+                                        <a href="#"><i className="fab fa-instagram"></i></a>
 
                                     </div>
                                 </div>
@@ -116,10 +116,10 @@ function Home() {
                                         <div className="name-cards">Damien</div>
                                         <div className="name-jobs">Le lumerien</div>
                                     </div>
-                                    <div class="media-icons">
-                                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                        <a href="#"><i class="fab fa-twitter"></i></a>
-                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    <div className="media-icons">
+                                        <a href="#"><i className="fab fa-facebook-f"></i></a>
+                                        <a href="#"><i className="fab fa-twitter"></i></a>
+                                        <a href="#"><i className="fab fa-instagram"></i></a>
 
                                     </div>
                                 </div>
@@ -136,10 +136,10 @@ function Home() {
                                         <div className="name-cards">Roger</div>
                                         <div className="name-jobs">Le groGer</div>
                                     </div>
-                                    <div class="media-icons">
-                                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                        <a href="#"><i class="fab fa-twitter"></i></a>
-                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    <div className="media-icons">
+                                        <a href="#"><i className="fab fa-facebook-f"></i></a>
+                                        <a href="#"><i className="fab fa-twitter"></i></a>
+                                        <a href="#"><i className="fab fa-instagram"></i></a>
 
                                     </div>
                                 </div>
@@ -156,10 +156,10 @@ function Home() {
                                         <div className="name-cards">Ibrahima</div>
                                         <div className="name-jobs">Le gros bras</div>
                                     </div>
-                                    <div class="media-icons">
-                                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                        <a href="#"><i class="fab fa-twitter"></i></a>
-                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    <div className="media-icons">
+                                        <a href="#"><i className="fab fa-facebook-f"></i></a>
+                                        <a href="#"><i className="fab fa-twitter"></i></a>
+                                        <a href="#"><i className="fab fa-instagram"></i></a>
 
                                     </div>
                                 </div>
@@ -176,10 +176,10 @@ function Home() {
                                         <div className="name-cards">Rousslan</div>
                                         <div className="name-jobs">Le chambrelan</div>
                                     </div>
-                                    <div class="media-icons">
-                                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                        <a href="#"><i class="fab fa-twitter"></i></a>
-                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    <div className="media-icons">
+                                        <a href="#"><i className="fab fa-facebook-f"></i></a>
+                                        <a href="#"><i className="fab fa-twitter"></i></a>
+                                        <a href="#"><i className="fab fa-instagram"></i></a>
 
                                     </div>
                                 </div>
@@ -196,10 +196,10 @@ function Home() {
                                         <div className="name-cards">Cassandra</div>
                                         <div className="name-jobs">La survivante</div>
                                     </div>
-                                    <div class="media-icons">
-                                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                        <a href="#"><i class="fab fa-twitter"></i></a>
-                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    <div className="media-icons">
+                                        <a href="#"><i className="fab fa-facebook-f"></i></a>
+                                        <a href="#"><i className="fab fa-twitter"></i></a>
+                                        <a href="#"><i className="fab fa-instagram"></i></a>
 
                                     </div>
                                 </div>

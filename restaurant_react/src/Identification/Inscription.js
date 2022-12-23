@@ -23,7 +23,6 @@ function Inscription() {
       headers: {
         "Content-Type": "application/json",
       },
-
       body: JSON.stringify({
         nom: nom,
         prenom: prenom,
@@ -37,7 +36,6 @@ function Inscription() {
       `http://127.0.0.1:8000/api/restaurateurs/register`,
       options
     );
-
     const data = await response.json();
     const message = data.message;
 
@@ -45,7 +43,6 @@ function Inscription() {
       alert("Votre compte a bien été créé !");
       return (window.location.href = "/connexion");
     }
-
     if (message !== "Restaurateur created.") {
       alert("Champs manquants.");
     }
@@ -78,7 +75,6 @@ function Inscription() {
                 />
                 <span className="material-symbols-outlined">person</span>
               </div>
-
               <div className="textRegister">
                 <label htmlFor="firstname"></label>
                 <input
@@ -92,7 +88,6 @@ function Inscription() {
                 />
                 <span className="material-symbols-outlined">person</span>
               </div>
-
               <div className="textRegister">
                 <label htmlFor="email"></label>
                 <input
@@ -105,7 +100,6 @@ function Inscription() {
                 />
                 <span className="material-symbols-outlined"> email </span>
               </div>
-
               <div className="textRegister">
                 <label htmlFor="password"></label>
                 <input
@@ -119,28 +113,24 @@ function Inscription() {
                 />
                 <span className="material-symbols-outlined">key</span>
               </div>
-
               <div className="textRegister">
                 <select value={role} onChange={(e) => setRole(e.target.value)}>
                   <option value="-- Choose your role --">
-                    -- Choose your role --
+                    -- Choisissez votre ROLE --
                   </option>
-                  <option value="Standard">Standard</option>
+                  <option value="Standard">Restaurateur</option>
                   <option value="Admin">Admin</option>
                 </select>
               </div>
-
               <button type="submit" id="submitRegister" onClick={handleSubmit}>
                 S'inscrire
               </button>
-
               <p>
                 Déjà inscrit ? <a href="/connexion">Connectez-vous</a>
               </p>
             </form>
           </div>
         </div>
-
         <img id="registerImg" src={header_register} alt="header_register" />
       </div>
       <Footer />

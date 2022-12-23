@@ -21,10 +21,7 @@ function Cartes() {
     const cartes = data.cartes;
     const listproduits = data.liste_des_produits.sort((a, b) => a.categorie_id - b.categorie_id);
     setCartes(cartes);
-    console.log(cartes, "cartes");
-    setListproduits(listproduits);
-    console.log(listproduits, "affichage listes");
-    
+    setListproduits(listproduits);    
   }
 
   useEffect(() => {
@@ -35,17 +32,14 @@ function Cartes() {
     var result = [];
     var options = select && select.options;
     var opt;
-
     for (var i = 0, iLen = options.length; i < iLen; i++) {
       opt = options[i];
-
       if (opt.selected) {
         result.push(opt.value || opt.text);
       }
     }
     return result;
   }
-
 
   async function createCarte(nom_carte, produit_id) {
     const options = {
@@ -56,7 +50,6 @@ function Cartes() {
       body: JSON.stringify({
         nom_carte: nom_carte,
         produit_id: produit_id,
-        // jajoute le produit produit_id:produit
       }),
     };
     let response = await fetch("http://localhost:8000/api/cartes", options);
@@ -64,12 +57,11 @@ function Cartes() {
     if (response.status !== 201) {
       return;
     }
-
     const data = await response.json();
-
     const newCarte = data.carte;
     setCartes([newCarte, ...cartes]);
   }
+
   function getCategorieNom(categorieId) {
     if (categorieId === 1) {
       return "Entrée";
@@ -87,7 +79,6 @@ function Cartes() {
   return (
     <div>
       <Menu />
-
       <div className="cartesPosition">
         <div className="cartesPositionBis">
           <div className="carte_title">
@@ -113,36 +104,17 @@ function Cartes() {
               event.preventDefault();
               const nom_carte = event.target.nom_carte.value;
               const produit_id = getSelectValues(event.target.produit_id);
-              console.log(getSelectValues(event.target.produit_id));
-
-              //j'ajoute le prduit
               createCarte(nom_carte, produit_id);
-
-              console.log(nom_carte, "nom");
             }}>
             <label htmlFor="nom_carte">Nom de la carte</label>
-
             <br />
-
             <input type="text" id="nom_carte" name="nom_carte" />
-
             <br />
-
             <label htmlFor="produit"> Choix produits de la carte</label>
             <br />
-
-
-
-            {/*   {
-     listproduits.map((produit) => {
-       return <label name="produit_id"><input type="checkbox"  value={produit.id}/>{produit.nom_produit}&nbsp;({produit.description}) <br/> </label>
-     }) 
-    } */}
-
             <select multiple id="produit" name="produit_id">
               {listproduits.map((produit) => (
                 <option key={produit.id} value={produit.id}>
-
                  {getCategorieNom(produit.categorie_id)} {produit.nom_produit} -
                   {produit.description}
                 </option>
@@ -152,13 +124,8 @@ function Cartes() {
             <br />
             <button id="add-carte" type="submit">Ajouter</button>
           </form>
-          {/* <div className="product_title">
-
-          </div> */}
         </div>
       </div>
-
-
 
       <div className="affichage-cartes">
         <div className="affichage-cartes-bis">

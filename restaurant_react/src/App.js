@@ -25,85 +25,71 @@ const router = createBrowserRouter([
     element: <Home />,
     error: <Error404 />,
   },
-
   {
     path: '/creation/restaurant',
     element: <CreationRestaurant />,
     error: <Error404 />
   },
-
   {
     path: '/restaurants',
     element: <Restaurants />,
     error: <Error404 />
   },
-
   {
     path: '/details/restaurant/:id',
     element: <DetailsRestaurant />,
     error: <Error404 />
   },
-
   {
     path: '/produits',
     element: <Produits />,
     error: <Error404 />,
   },
-
   {
     path: '/cartes',
     element: <Cartes />,
     error: <Error404 />,
   },
-
   {
     path: '/carte/:id',
     element: <Carte />,
     error: <Error404 />,
   },
-
   {
     path: '/inscription',
     element: <Inscription />,
     error: <Error404 />,
   },
-
   {
     path: '/connexion',
     element: <Connexion />,
     error: <Error404 />,
   },
-
   {
     path: '/PasswordResetLink',
     element: <PasswordResetLink />,
     error: <Error404 />
   },
-
   {
     path: '/NewPassword',
     element: <NewPassword />,
     error: <Error404 />,
   },
-
   {
     path: '/qrcode',
     element: <Qrcode />,
     error: <Error404 />,
   },
-
   {
     path: '/admin',
     element: <Admin />,
     error: <Error404 />
   },
-
   {
     path: '/edit/restaurant/:id',
     element: <EditRestaurant />,
     error: <Error404 />
   },
-
   {
     path: '/profil',
     element: <Profil />,

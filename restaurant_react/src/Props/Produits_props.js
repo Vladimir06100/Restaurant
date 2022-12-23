@@ -24,7 +24,7 @@ function Produit(props) {
                     <th>TVA</th>
                     <th>PrixTTC</th>
                     <th>Quantité</th>
-                    <th class="actions-header">Actions</th>
+                    <th className="actions-header">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -82,7 +82,7 @@ function Produit(props) {
 
                     <td id="btn-table">
                         {!isClicked ? (
-                            <button onClick={() => setIsClicked(!isClicked)} className="btn-edit">
+                            <button onClick={() => setIsClicked(!isClicked)} classNameName="btn-edit">
                                 Modifier
                             </button>
                         ) : null}

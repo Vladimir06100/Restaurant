@@ -7,15 +7,12 @@ import { useParams } from 'react-router-dom';
 function EditRestaurant()
 {
     const [restaurant, setRestaurant] = useState([]);
-
     const [nom, setNom] = useState([]);
     const [adresse, setAdresse] = useState([]);
     const [heureOuverture, setHeureOuverture] = useState([]);
     const [heureFermeture, setHeureFermeture] = useState([]);
     const [image, setImage] = useState([]);
-
     const {id} = useParams();
-
 
     async function getRestaurant(id) {
         const options = {
@@ -26,13 +23,11 @@ function EditRestaurant()
                 'Authorization': 'Bearer ' + localStorage.getItem('token'),
             }
         };
-
         const response = await fetch('http://127.0.0.1:8000/api/restaurants/' + id, options);
         const data = await response.json();
         const restaurant = data.restaurant;
         setRestaurant(restaurant);
     }
-
     useEffect(() => {
         getRestaurant(id);
     }, []);
@@ -46,7 +41,6 @@ function EditRestaurant()
                 'Accept': 'application/json',
                 'Authorization': 'Bearer ' + localStorage.getiItem('token')
             },
-
             body: JSON.stringify({
                 nom: nom,
                 adresse: adresse,
@@ -57,26 +51,14 @@ function EditRestaurant()
         };
 
         const response = await fetch('http://127.0.0.1:8000/api/restaurants/' + id, options);
-        const data = await response.json();
-
-        console.log(data);
-
         if (response.status !== 200) {
-            alert('PRObleme');
-            //return window.location.href('/details/restaurant');
-        } console.log('successssss')
-
+            alert('Problème');
+        } 
     }
 
-
-
-   
-    
     return (
         <div>
-
             <Menu />
-
             <div className="restaurant_position">
                 <div className="restaurantPositionBis">
                     <div className="home_title">
@@ -116,12 +98,9 @@ function EditRestaurant()
                     </div>
                 </div>
             </div>
-
             <Footer />
-
         </div>
     )
-
 }
 
 export default EditRestaurant;

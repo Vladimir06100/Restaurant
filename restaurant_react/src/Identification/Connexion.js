@@ -4,7 +4,6 @@ import Footer from "../Components/Footer";
 import header_img from "../Images/header_login.png";
 import "../Styles/Home.css";
 import { useState } from "react";
-//import { Navigate } from "react-router-dom";
 
 function Connexion() {
   const [email, setEmail] = useState("");
@@ -16,8 +15,6 @@ function Connexion() {
   }
 
   async function connect() {
-    //let remember = JSON.parse(localStorage.getItem("token"));
-
     const options = {
       method: "POST",
       headers: {
@@ -34,24 +31,18 @@ function Connexion() {
       options
     );
     const data = await response.json();
-
     const token = data.token;
-
     const message = data.message;
     const prenom = data.prenom;
     const role = data.role;
 
     if (message === "Connexion réussi.") {
-
       localStorage.setItem("token", token);
       localStorage.setItem("prenom", prenom);
       localStorage.setItem("role", role);
-
       alert("Vous êtes connecté");
-
       return (window.location.href = "/creation/restaurant");
     }
-
     if (message !== "Connexion réussi.") {
       alert("Email ou mot de passe incorrect !");
     }
@@ -68,7 +59,6 @@ function Connexion() {
               <span id="home_title_color">accéder</span> à votre compte
             </span>
           </div>
-
           <div className="login">
             <form method="POST" action="" id="formConnexion" onSubmit={submit}>
               <div className="textbox connexion">
@@ -84,7 +74,6 @@ function Connexion() {
                 />
                 <span className="material-symbols-outlined">email</span>
               </div>
-
               <div className="textbox connexion">
                 <label htmlFor="password"></label>
                 <input
