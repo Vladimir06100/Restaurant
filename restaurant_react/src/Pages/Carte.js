@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Qrcode from "../Components/Qrcode/Qrcode";
 import back from "../Images/back.png";
 import '../Styles/Carte.css'
 
@@ -38,7 +39,6 @@ function Carte() {
   useEffect(() => {
     getMenu();
   }, []);
-
   function getCategorieNom(categorieId) {
     if (categorieId === 1) {
       return "Entrée";
