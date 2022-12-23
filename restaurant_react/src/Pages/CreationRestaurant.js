@@ -1,6 +1,5 @@
 import Menu from '../Components/Menu';
 import Footer from '../Components/Footer';
-import  { Navigate, Redirect } from 'react-router-dom'
 import '../Styles/CreationRestaurant.css';
 import { useState } from 'react';
 
@@ -48,7 +47,8 @@ function Restaurant() {
         else {
             setsuccessMessage('Il y a eu une erreur quelque part !');
         }
-
+        
+        return window.location.href = '/restaurants';
     }
 
     return (

@@ -19,11 +19,12 @@ function Cartes() {
     let response = await fetch("http://localhost:8000/api/cartes", options);
     const data = await response.json();
     const cartes = data.cartes;
-    const listproduits = data.liste_des_produits;
+    const listproduits = data.liste_des_produits.sort((a, b) => a.categorie_id - b.categorie_id);
     setCartes(cartes);
     console.log(cartes, "cartes");
     setListproduits(listproduits);
     console.log(listproduits, "affichage listes");
+    
   }
 
   useEffect(() => {
@@ -44,6 +45,7 @@ function Cartes() {
     }
     return result;
   }
+
 
   async function createCarte(nom_carte, produit_id) {
     const options = {
@@ -68,67 +70,110 @@ function Cartes() {
     const newCarte = data.carte;
     setCartes([newCarte, ...cartes]);
   }
+  function getCategorieNom(categorieId) {
+    if (categorieId === 1) {
+      return "Entrée";
+    } else if (categorieId === 2) {
+      return "Plat";
+    }else if (categorieId === 3) {
+      return "Dessert";
+    } else if (categorieId === 4) {
+      return "Boisson";
+    }else {
+      return "Inconnu";
+    }
+  }
 
   return (
     <div>
       <Menu />
-      <h1>Créer Carte</h1>
 
-      <form
-        method="POST"
-        action=""
-        onSubmit={(event) => {
-          event.preventDefault();
-          const nom_carte = event.target.nom_carte.value;
-          const produit_id = getSelectValues(event.target.produit_id);
-          console.log(getSelectValues(event.target.produit_id));
+      <div className="cartesPosition">
+        <div className="cartesPositionBis">
+          <div className="carte_title">
+            <span>
+              Add <br />
+              <span id="carte_title_color">carte</span>
+            </span>
+            <div className="carte_text">
+              <p>
+                Lorem ipsum dolor sit amet. Qui rerum voluptatem eum blanditiis
+                ratione qui sunt nulla eum adipisci corporis a rerum voluptas et
+                doloremque nisi qui velit eligendi? Aut voluptatibus consequatur
+                non laboriosam maxime ut ducimus dicta. Est quam asperiores aut
+                ducimus veniam nam numquam necessitatibus ut consequatur quaerat
+                qui fuga optio aut nihil laboriosam.
+              </p>
+            </div>
+          </div>
+          <form id="formCartes"
+            method="POST"
+            action=""
+            onSubmit={(event) => {
+              event.preventDefault();
+              const nom_carte = event.target.nom_carte.value;
+              const produit_id = getSelectValues(event.target.produit_id);
+              console.log(getSelectValues(event.target.produit_id));
 
-          //j'ajoute le prduit
-          createCarte(nom_carte, produit_id);
+              //j'ajoute le prduit
+              createCarte(nom_carte, produit_id);
 
-          console.log(nom_carte, "nom");
-        }}>
-        <label htmlFor="nom_carte">Nom de la carte</label>
+              console.log(nom_carte, "nom");
+            }}>
+            <label htmlFor="nom_carte">Nom de la carte</label>
 
-        <br />
+            <br />
 
-        <input type="text" id="nom_carte" name="nom_carte" />
+            <input type="text" id="nom_carte" name="nom_carte" />
 
-        <br />
+            <br />
 
-        <label htmlFor="produit"> Choix produits de la carte</label>
-        <br />
+            <label htmlFor="produit"> Choix produits de la carte</label>
+            <br />
 
-        {/*   {
+
+
+            {/*   {
      listproduits.map((produit) => {
        return <label name="produit_id"><input type="checkbox"  value={produit.id}/>{produit.nom_produit}&nbsp;({produit.description}) <br/> </label>
      }) 
     } */}
 
-        <select multiple id="produit" name="produit_id">
-          {listproduits.map((produit) => [
-            <option key={produit.id} value={produit.id}>
-              {produit.nom_produit} -{produit.description}
-            </option>,
-          ])}
-          ;
-        </select>
-        <br />
-        <button type="submit">Ajouter</button>
-      </form>
+            <select multiple id="produit" name="produit_id">
+              {listproduits.map((produit) => (
+                <option key={produit.id} value={produit.id}>
 
-      <div>
-        <br />
-        <h2> Affichage des cartes </h2>
-        {cartes.map((carte, index) => (
-          <Cartes_props
-            key={index}
-            id={carte.id}
-            nom_carte={carte.nom_carte}
-            listproduits={listproduits}
-            produit_id={carte.produit_id}
-          />
-        ))}
+                 {getCategorieNom(produit.categorie_id)} {produit.nom_produit} -
+                  {produit.description}
+                </option>
+              ))}
+              ;
+            </select>
+            <br />
+            <button id="add-carte" type="submit">Ajouter</button>
+          </form>
+          {/* <div className="product_title">
+
+          </div> */}
+        </div>
+      </div>
+
+
+
+      <div className="affichage-cartes">
+        <div className="affichage-cartes-bis">
+                 <br  />
+          <h2> Affichage des cartes </h2>
+          {cartes.map((carte, index) => (
+            <Cartes_props
+              key={index}
+              id={carte.id}
+              nom_carte={carte.nom_carte}
+              listproduits={listproduits}
+              produit_id={carte.produit_id}
+            />
+          ))}
+        </div>
       </div>
       <Footer />
     </div>

@@ -1,31 +1,43 @@
 
 .cartesPosition{
     display: flex;
-    margin-top: 5em;
-    justify-content: space-around;
-    padding-left: 5em;
-    align-items: center;
+    justify-content: center;
+    margin-top: 10%;
 }
 
 .cartesPositionBis{
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
     background: white;
     box-shadow: 0 0 20px 0 rgb(0 0 0 / 35%);
+    width: 60em;
+    align-items: center;
 }
 
-.cartes_text{
+.carte_title{
+    display: flex;
+    flex-direction: column;
+    padding: 0em 1em 0em;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 5em;
+}
+
+#carte_title_color{
+    color: #D68D00;
+}
+
+.carte_text{
     font-family: 'Times New Roman', Times, serif;
     font-size: 15px;
     text-align: justify;
+    width: 90%;
 }
 
 #formCartes{
     display: flex;
     flex-direction: column;
-    gap: 1em;
-    justify-content: center;
-    margin-left: 4em;
+    align-items: baseline;
+    padding: 5em;
 }
 
 #forCartes, #nom{
@@ -45,7 +57,7 @@
 }
 
 /*bouton ajouter*/
-#add{
+#add-carte{
     font-size: 16px;
     background-color: #000000;
     border-radius: 5px;
@@ -56,13 +68,13 @@
     padding: 10px;
 } 
 
-#add:hover, #add:active{
+#add-carte:hover, #add-carte:active{
     border: none;
     background-color: #ce610f;
     background-position: 0 0;
 }
 
-#add:active{
+#add-carte:active{
     opacity: .5;
 }
 
@@ -108,4 +120,33 @@
 
 #supp:active{
     opacity: .5;
+}
+
+.affichage-cartes{
+    display:flex;
+    justify-content: center;
+}
+
+.affichage-cartes-bis{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    background: white;
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 35%);
+    width: 20em;
+    margin-top: 2em;
+    padding: 3em;
+}
+
+
+@media screen and (min-width: 350px) and (max-width: 800px) {
+    .cartesPositionBis{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: none;
+        box-shadow: none;
+        margin-top: 10%;
+    }
+
 }
